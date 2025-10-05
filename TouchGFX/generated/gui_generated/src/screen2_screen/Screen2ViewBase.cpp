@@ -3,10 +3,12 @@
 /*********************************************************************************/
 #include <gui_generated/screen2_screen/Screen2ViewBase.hpp>
 #include <touchgfx/Color.hpp>
+#include <images/BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 
 Screen2ViewBase::Screen2ViewBase() :
-    flexButtonCallback(this, &Screen2ViewBase::flexButtonCallbackHandler)
+    flexButtonCallback(this, &Screen2ViewBase::flexButtonCallbackHandler),
+    frameCountInteraction3Interval(0)
 {
     __background.setPosition(0, 0, 480, 800);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -16,15 +18,20 @@ Screen2ViewBase::Screen2ViewBase() :
     box1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     add(box1);
 
+    scalableImage1.setBitmap(touchgfx::Bitmap(BITMAP_SCREENSHOT_2025_10_05_155554_ID));
+    scalableImage1.setPosition(0, 0, 480, 800);
+    scalableImage1.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(scalableImage1);
+
     flexButton1.setBoxWithBorderPosition(0, 0, 277, 25);
     flexButton1.setBorderSize(5);
-    flexButton1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(255, 140, 0), touchgfx::Color::getColorFromRGB(207, 91, 2), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(51, 51, 51));
+    flexButton1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(198, 90, 30), touchgfx::Color::getColorFromRGB(148, 58, 19), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(51, 51, 51));
     flexButton1.setAction(flexButtonCallback);
     flexButton1.setPosition(98, -1, 277, 25);
     add(flexButton1);
 
     speedMph.setPosition(104, 74, 264, 91);
-    speedMph.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    speedMph.setColor(touchgfx::Color::getColorFromRGB(227, 225, 225));
     speedMph.setLinespacing(0);
     Unicode::snprintf(speedMphBuffer, SPEEDMPH_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_R1BM).getText());
     speedMph.setWildcard(speedMphBuffer);
@@ -50,5 +57,23 @@ void Screen2ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonCo
         //When flexButton1 clicked change screen to Screen1
         //Go to Screen1 with no screen transition
         application().gotoScreen1ScreenNoTransition();
+    }
+}
+
+void Screen2ViewBase::handleTickEvent()
+{
+    //Interaction2
+    //When every N tick call virtual function
+    //Call function1
+    function1();
+
+    frameCountInteraction3Interval++;
+    if(frameCountInteraction3Interval == TICK_INTERACTION3_INTERVAL)
+    {
+        //Interaction3
+        //When every N tick call virtual function
+        //Call function2
+        function2();
+        frameCountInteraction3Interval = 0;
     }
 }

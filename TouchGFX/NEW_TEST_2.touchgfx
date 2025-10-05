@@ -836,14 +836,13 @@
                 "LockToFlexButtonSize": true,
                 "BorderSize": 5,
                 "ColorReleased": {
-                  "Red": 110,
-                  "Green": 110,
-                  "Blue": 110
+                  "Red": 255,
+                  "Green": 140
                 },
                 "ColorPressed": {
-                  "Red": 31,
-                  "Green": 31,
-                  "Blue": 31
+                  "Red": 207,
+                  "Green": 91,
+                  "Blue": 2
                 },
                 "ColorBorderPressed": {
                   "Red": 51,
@@ -969,6 +968,14 @@
             }
           },
           {
+            "Type": "ScalableImage",
+            "Name": "scalableImage1",
+            "Width": 480,
+            "Height": 800,
+            "Filename": "Screenshot 2025-10-05 155554.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
             "Type": "FlexButton",
             "Name": "flexButton1",
             "X": 98,
@@ -986,13 +993,14 @@
                 "LockToFlexButtonSize": true,
                 "BorderSize": 5,
                 "ColorReleased": {
-                  "Red": 255,
-                  "Green": 140
+                  "Red": 198,
+                  "Green": 90,
+                  "Blue": 30
                 },
                 "ColorPressed": {
-                  "Red": 207,
-                  "Green": 91,
-                  "Blue": 2
+                  "Red": 148,
+                  "Green": 58,
+                  "Blue": 19
                 },
                 "ColorBorderPressed": {
                   "Red": 51,
@@ -1011,6 +1019,11 @@
             "Height": 91,
             "TextId": "__SingleUse_XPSB",
             "TextRotation": "0",
+            "Color": {
+              "Red": 227,
+              "Green": 225,
+              "Blue": 225
+            },
             "Wildcard1": {
               "TextId": "__SingleUse_R1BM",
               "UseBuffer": true,
@@ -1029,6 +1042,28 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "Screen1"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "function1"
+            }
+          },
+          {
+            "InteractionName": "Interaction3",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 15
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "function2"
             }
           }
         ]

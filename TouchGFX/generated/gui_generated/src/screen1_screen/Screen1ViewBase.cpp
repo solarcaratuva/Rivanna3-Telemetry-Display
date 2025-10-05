@@ -435,7 +435,7 @@ Screen1ViewBase::Screen1ViewBase() :
 
     flexButton1.setBoxWithBorderPosition(0, 0, 277, 25);
     flexButton1.setBorderSize(5);
-    flexButton1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(110, 110, 110), touchgfx::Color::getColorFromRGB(31, 31, 31), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(51, 51, 51));
+    flexButton1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(255, 140, 0), touchgfx::Color::getColorFromRGB(207, 91, 2), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(51, 51, 51));
     flexButton1.setAction(flexButtonCallback);
     flexButton1.setPosition(98, -1, 277, 25);
     add(flexButton1);

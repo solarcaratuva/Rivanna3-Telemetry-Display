@@ -8,6 +8,7 @@
 #include <mvp/View.hpp>
 #include <gui/screen2_screen/Screen2Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/ScalableImage.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
@@ -17,6 +18,19 @@ public:
     Screen2ViewBase();
     virtual ~Screen2ViewBase();
     virtual void setupScreen();
+    virtual void handleTickEvent();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void function1()
+    {
+        // Override and implement this function in Screen2
+    }
+    virtual void function2()
+    {
+        // Override and implement this function in Screen2
+    }
 
 protected:
     FrontendApplication& application() {
@@ -28,6 +42,7 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box box1;
+    touchgfx::ScalableImage scalableImage1;
     touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  flexButton1;
     touchgfx::TextAreaWithOneWildcard speedMph;
 
@@ -48,6 +63,12 @@ private:
      * Callback Handler Declarations
      */
     void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
+
+    /*
+     * Tick Counter Declarations
+     */
+    static const uint32_t TICK_INTERACTION3_INTERVAL = 15;
+    uint32_t frameCountInteraction3Interval;
 
 };
 
