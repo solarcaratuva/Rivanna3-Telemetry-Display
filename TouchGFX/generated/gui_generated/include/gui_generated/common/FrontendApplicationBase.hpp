@@ -23,8 +23,13 @@ public:
     // Screen1
     void gotoScreen1ScreenWipeTransitionNorth();
 
+    void gotoScreen1ScreenNoTransition();
+
     // StartupScreen
     void gotoStartupScreenScreenNoTransition();
+
+    // Screen2
+    void gotoScreen2ScreenNoTransition();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
@@ -34,8 +39,13 @@ protected:
     // Screen1
     void gotoScreen1ScreenWipeTransitionNorthImpl();
 
+    void gotoScreen1ScreenNoTransitionImpl();
+
     // StartupScreen
     void gotoStartupScreenScreenNoTransitionImpl();
+
+    // Screen2
+    void gotoScreen2ScreenNoTransitionImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

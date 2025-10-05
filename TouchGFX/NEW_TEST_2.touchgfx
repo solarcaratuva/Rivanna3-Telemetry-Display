@@ -817,6 +817,41 @@
             "TextId": "__SingleUse_SY0X",
             "TextRotation": "0",
             "AutoSize": true
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "flexButton1",
+            "X": 98,
+            "Y": -1,
+            "Width": 277,
+            "Height": 25,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 277,
+                "Height": 25,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 110,
+                  "Green": 110,
+                  "Blue": 110
+                },
+                "ColorPressed": {
+                  "Red": 31,
+                  "Green": 31,
+                  "Blue": 31
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 51,
+                  "Blue": 51
+                }
+              }
+            ]
           }
         ],
         "Interactions": [
@@ -856,6 +891,18 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "function2"
+            }
+          },
+          {
+            "InteractionName": "Interaction5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "flexButton1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen2"
             }
           }
         ]
@@ -902,6 +949,85 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionWipe",
               "ScreenTransitionDirection": "North",
+              "ActionComponent": "Screen1"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "Screen2",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 480,
+            "Height": 800,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "flexButton1",
+            "X": 98,
+            "Y": -1,
+            "Width": 277,
+            "Height": 25,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 277,
+                "Height": 25,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Red": 255,
+                  "Green": 140
+                },
+                "ColorPressed": {
+                  "Red": 207,
+                  "Green": 91,
+                  "Blue": 2
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 51,
+                  "Blue": 51
+                }
+              }
+            ]
+          },
+          {
+            "Type": "TextArea",
+            "Name": "speedMph",
+            "X": 104,
+            "Y": 74,
+            "Width": 264,
+            "Height": 91,
+            "TextId": "__SingleUse_XPSB",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "__SingleUse_R1BM",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "flexButton1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
               "ActionComponent": "Screen1"
             }
           }

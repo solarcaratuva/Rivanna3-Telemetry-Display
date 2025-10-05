@@ -10,6 +10,8 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE;
 // Remap all strings
 TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
+    545, // T___SINGLEUSE_R1BM: "0"
+    469, // T___SINGLEUSE_XPSB: "<> mph"
     545, // T___SINGLEUSE_GJAT: "0"
     24,  // T___SINGLEUSE_4KDK: "AuxBatteryVolt: <>"
     78,  // T___SINGLEUSE_SY0X: "UVA Solar Car Telemetry"

@@ -7,8 +7,9 @@
 #include <touchgfx/Bitmap.hpp>
 
 const uint16_t BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BOXPROGRESS_NORMAL_SMALL_ID = 0;
-const uint16_t BITMAP_SOLARCARSTARTUP_ID = 1;
-const uint16_t BITMAP_SOLARCARTEAMLOGO1_ID = 2;
+const uint16_t BITMAP_SCREENSHOT_2025_10_01_141507_ID = 1;
+const uint16_t BITMAP_SOLARCARSTARTUP_ID = 2;
+const uint16_t BITMAP_SOLARCARTEAMLOGO1_ID = 3;
 
 namespace BitmapDatabase
 {

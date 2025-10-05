@@ -8,7 +8,8 @@
 #include <images/BitmapDatabase.hpp>
 
 Screen1ViewBase::Screen1ViewBase() :
-    frameCountInteraction4Interval(0)
+    frameCountInteraction4Interval(0),
+    flexButtonCallback(this, &Screen1ViewBase::flexButtonCallbackHandler)
 {
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
 
@@ -431,6 +432,13 @@ Screen1ViewBase::Screen1ViewBase() :
     textArea3.setLinespacing(0);
     textArea3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SY0X));
     add(textArea3);
+
+    flexButton1.setBoxWithBorderPosition(0, 0, 277, 25);
+    flexButton1.setBorderSize(5);
+    flexButton1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(110, 110, 110), touchgfx::Color::getColorFromRGB(31, 31, 31), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(51, 51, 51));
+    flexButton1.setAction(flexButtonCallback);
+    flexButton1.setPosition(98, -1, 277, 25);
+    add(flexButton1);
 }
 
 Screen1ViewBase::~Screen1ViewBase()
@@ -441,6 +449,17 @@ Screen1ViewBase::~Screen1ViewBase()
 void Screen1ViewBase::setupScreen()
 {
 
+}
+
+void Screen1ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
+{
+    if (&src == &flexButton1)
+    {
+        //Interaction5
+        //When flexButton1 clicked change screen to Screen2
+        //Go to Screen2 with no screen transition
+        application().gotoScreen2ScreenNoTransition();
+    }
 }
 
 void Screen1ViewBase::handleTickEvent()
