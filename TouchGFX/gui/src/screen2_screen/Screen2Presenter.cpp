@@ -16,3 +16,7 @@ void Screen2Presenter::deactivate()
 {
 
 }
+
+bool Screen2Presenter::getCruiseEn() {
+    return model->isCruiseEn();
+}

@@ -3,8 +3,8 @@
 /*********************************************************************************/
 #include <gui_generated/screen2_screen/Screen2ViewBase.hpp>
 #include <touchgfx/Color.hpp>
-#include <images/BitmapDatabase.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
+#include <images/BitmapDatabase.hpp>
 
 Screen2ViewBase::Screen2ViewBase() :
     flexButtonCallback(this, &Screen2ViewBase::flexButtonCallbackHandler),
@@ -18,10 +18,31 @@ Screen2ViewBase::Screen2ViewBase() :
     box1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     add(box1);
 
-    scalableImage1.setBitmap(touchgfx::Bitmap(BITMAP_SCREENSHOT_2025_10_05_155554_ID));
-    scalableImage1.setPosition(0, 0, 480, 800);
-    scalableImage1.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
-    add(scalableImage1);
+    cruiseDrive.setPosition(98, 687, 336, 41);
+    cruiseDrive.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    cruiseDrive.setLinespacing(0);
+    Unicode::snprintf(cruiseDriveBuffer, CRUISEDRIVE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_5058).getText());
+    cruiseDrive.setWildcard(cruiseDriveBuffer);
+    cruiseDrive.setTypedText(touchgfx::TypedText(T___SINGLEUSE_3UR6));
+    add(cruiseDrive);
+
+    MtrComm_Warning.setXY(375, 577);
+    MtrComm_Warning.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    MtrComm_Warning.setLinespacing(0);
+    MtrComm_Warning.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PHLI));
+    add(MtrComm_Warning);
+
+    BPS_Warning.setXY(214, 577);
+    BPS_Warning.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    BPS_Warning.setLinespacing(0);
+    BPS_Warning.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6K44));
+    add(BPS_Warning);
+
+    PowerAux_Warning.setXY(11, 577);
+    PowerAux_Warning.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+    PowerAux_Warning.setLinespacing(0);
+    PowerAux_Warning.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PD5D));
+    add(PowerAux_Warning);
 
     flexButton1.setBoxWithBorderPosition(0, 0, 277, 25);
     flexButton1.setBorderSize(5);
@@ -30,13 +51,62 @@ Screen2ViewBase::Screen2ViewBase() :
     flexButton1.setPosition(98, -1, 277, 25);
     add(flexButton1);
 
-    speedMph.setPosition(104, 74, 264, 91);
-    speedMph.setColor(touchgfx::Color::getColorFromRGB(227, 225, 225));
+    speedMph.setPosition(0, 86, 480, 105);
+    speedMph.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     speedMph.setLinespacing(0);
     Unicode::snprintf(speedMphBuffer, SPEEDMPH_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_R1BM).getText());
     speedMph.setWildcard(speedMphBuffer);
     speedMph.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XPSB));
     add(speedMph);
+
+    speed.setXY(188, 50);
+    speed.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    speed.setLinespacing(0);
+    speed.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XV1F));
+    add(speed);
+
+    mph.setXY(196, 192);
+    mph.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    mph.setLinespacing(0);
+    mph.setTypedText(touchgfx::TypedText(T___SINGLEUSE_AMJ2));
+    add(mph);
+
+    BatteryChargeFill.setXY(11, 377);
+    BatteryChargeFill.setProgressIndicatorPosition(0, 0, 300, 10);
+    BatteryChargeFill.setRange(0, 100);
+    BatteryChargeFill.setDirection(touchgfx::AbstractDirectionProgress::RIGHT);
+    BatteryChargeFill.setBackground(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BOXPROGRESS_NORMAL_SMALL_ID));
+    BatteryChargeFill.setColor(touchgfx::Color::getColorFromRGB(99, 199, 46));
+    BatteryChargeFill.setValue(60);
+    add(BatteryChargeFill);
+
+    auxBatteryVolt.setPosition(11, 347, 194, 30);
+    auxBatteryVolt.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    auxBatteryVolt.setLinespacing(0);
+    Unicode::snprintf(auxBatteryVoltBuffer, AUXBATTERYVOLT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_F8GP).getText());
+    auxBatteryVolt.setWildcard(auxBatteryVoltBuffer);
+    auxBatteryVolt.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HD6R));
+    add(auxBatteryVolt);
+
+    powerWatts.setPosition(299, 340, 135, 45);
+    powerWatts.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    powerWatts.setLinespacing(0);
+    Unicode::snprintf(powerWattsBuffer, POWERWATTS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_YGMT).getText());
+    powerWatts.setWildcard(powerWattsBuffer);
+    powerWatts.setTypedText(touchgfx::TypedText(T___SINGLEUSE_MHQJ));
+    add(powerWatts);
+
+    power.setPosition(299, 387, 135, 46);
+    power.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    power.setLinespacing(0);
+    power.setTypedText(touchgfx::TypedText(T___SINGLEUSE_RTP9));
+    add(power);
+
+    errors.setPosition(174, 484, 105, 46);
+    errors.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    errors.setLinespacing(0);
+    errors.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TUN6));
+    add(errors);
 }
 
 Screen2ViewBase::~Screen2ViewBase()

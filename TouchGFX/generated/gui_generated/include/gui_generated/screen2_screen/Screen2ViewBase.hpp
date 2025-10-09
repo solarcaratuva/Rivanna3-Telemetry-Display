@@ -8,9 +8,12 @@
 #include <mvp/View.hpp>
 #include <gui/screen2_screen/Screen2Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/ScalableImage.hpp>
-#include <touchgfx/containers/buttons/Buttons.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/EasingEquations.hpp>
+#include <touchgfx/mixins/FadeAnimator.hpp>
+#include <touchgfx/containers/buttons/Buttons.hpp>
+#include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 
 class Screen2ViewBase : public touchgfx::View<Screen2Presenter>
 {
@@ -42,15 +45,31 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box box1;
-    touchgfx::ScalableImage scalableImage1;
+    touchgfx::TextAreaWithOneWildcard cruiseDrive;
+    touchgfx::FadeAnimator< touchgfx::TextArea > MtrComm_Warning;
+    touchgfx::FadeAnimator< touchgfx::TextArea > BPS_Warning;
+    touchgfx::FadeAnimator< touchgfx::TextArea > PowerAux_Warning;
     touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  flexButton1;
     touchgfx::TextAreaWithOneWildcard speedMph;
+    touchgfx::TextArea speed;
+    touchgfx::TextArea mph;
+    touchgfx::BoxProgress BatteryChargeFill;
+    touchgfx::TextAreaWithOneWildcard auxBatteryVolt;
+    touchgfx::TextAreaWithOneWildcard powerWatts;
+    touchgfx::TextArea power;
+    touchgfx::TextArea errors;
 
     /*
      * Wildcard Buffers
      */
+    static const uint16_t CRUISEDRIVE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar cruiseDriveBuffer[CRUISEDRIVE_SIZE];
     static const uint16_t SPEEDMPH_SIZE = 10;
     touchgfx::Unicode::UnicodeChar speedMphBuffer[SPEEDMPH_SIZE];
+    static const uint16_t AUXBATTERYVOLT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar auxBatteryVoltBuffer[AUXBATTERYVOLT_SIZE];
+    static const uint16_t POWERWATTS_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar powerWattsBuffer[POWERWATTS_SIZE];
 
 private:
 

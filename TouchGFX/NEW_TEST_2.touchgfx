@@ -8,6 +8,8 @@
           {
             "Type": "Box",
             "Name": "box1",
+            "X": 1,
+            "Y": -1,
             "Width": 480,
             "Height": 800,
             "Color": {
@@ -968,12 +970,64 @@
             }
           },
           {
-            "Type": "ScalableImage",
-            "Name": "scalableImage1",
-            "Width": 480,
-            "Height": 800,
-            "Filename": "Screenshot 2025-10-05 155554.png",
-            "ScalingAlgorithm": "Nearest-neighbor"
+            "Type": "TextArea",
+            "Name": "cruiseDrive",
+            "X": 98,
+            "Y": 687,
+            "Width": 336,
+            "Height": 41,
+            "TextId": "__SingleUse_3UR6",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "__SingleUse_5058",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "MtrComm_Warning",
+            "X": 375,
+            "Y": 577,
+            "Width": 89,
+            "Height": 24,
+            "TextId": "__SingleUse_PHLI",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Fadeable": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "BPS_Warning",
+            "X": 214,
+            "Y": 577,
+            "Width": 44,
+            "Height": 24,
+            "TextId": "__SingleUse_6K44",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Fadeable": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "PowerAux_Warning",
+            "X": 11,
+            "Y": 577,
+            "Width": 115,
+            "Height": 24,
+            "TextId": "__SingleUse_PD5D",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Fadeable": true
           },
           {
             "Type": "FlexButton",
@@ -1013,22 +1067,107 @@
           {
             "Type": "TextArea",
             "Name": "speedMph",
-            "X": 104,
-            "Y": 74,
-            "Width": 264,
-            "Height": 91,
+            "Y": 86,
+            "Width": 480,
+            "Height": 105,
             "TextId": "__SingleUse_XPSB",
             "TextRotation": "0",
-            "Color": {
-              "Red": 227,
-              "Green": 225,
-              "Blue": 225
-            },
             "Wildcard1": {
               "TextId": "__SingleUse_R1BM",
               "UseBuffer": true,
               "BufferSize": 10
             }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "speed",
+            "X": 188,
+            "Y": 50,
+            "Width": 77,
+            "Height": 36,
+            "TextId": "__SingleUse_XV1F",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "mph",
+            "X": 196,
+            "Y": 192,
+            "Width": 59,
+            "Height": 36,
+            "TextId": "__SingleUse_AMJ2",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "BoxProgress",
+            "Name": "BatteryChargeFill",
+            "X": 11,
+            "Y": 377,
+            "Width": 200,
+            "Height": 10,
+            "Color": {
+              "Red": 99,
+              "Green": 199,
+              "Blue": 46
+            },
+            "Direction": "Right",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_normal_small.png",
+            "IndicatorPositionWidth": 300,
+            "IndicatorPositionHeight": 10,
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
+          },
+          {
+            "Type": "TextArea",
+            "Name": "auxBatteryVolt",
+            "X": 11,
+            "Y": 347,
+            "Width": 194,
+            "Height": 30,
+            "TextId": "__SingleUse_HD6R",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "__SingleUse_F8GP",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "powerWatts",
+            "X": 299,
+            "Y": 340,
+            "Width": 135,
+            "Height": 45,
+            "TextId": "__SingleUse_MHQJ",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "__SingleUse_YGMT",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "power",
+            "X": 299,
+            "Y": 387,
+            "Width": 135,
+            "Height": 46,
+            "TextId": "__SingleUse_RTP9",
+            "TextRotation": "0"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "errors",
+            "X": 174,
+            "Y": 484,
+            "Width": 105,
+            "Height": 46,
+            "TextId": "__SingleUse_TUN6",
+            "TextRotation": "0"
           }
         ],
         "Interactions": [

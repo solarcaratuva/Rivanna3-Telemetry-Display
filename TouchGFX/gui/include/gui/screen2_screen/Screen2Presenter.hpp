@@ -27,6 +27,8 @@ public:
 
     virtual ~Screen2Presenter() {}
 
+    bool getCruiseEn();
+
 private:
     Screen2Presenter();
 

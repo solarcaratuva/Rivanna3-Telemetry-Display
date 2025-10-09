@@ -18,16 +18,24 @@ struct Typography
     static const touchgfx::FontId SMALL = 2;
     static const touchgfx::FontId MEDIUM = 3;
     static const touchgfx::FontId BLINKER = 4;
+    static const touchgfx::FontId TYPOGRAPHY_00 = 5;
+    static const touchgfx::FontId TYPOGRAPHY_01 = 6;
+    static const touchgfx::FontId POWERANDWATTS = 7;
+    static const touchgfx::FontId AUXBATTERYPOWER = 8;
 };
 
 struct TypographyFontIndex
 {
-    static const touchgfx::FontId DEFAULT = 0; // verdanab_30_4bpp
-    static const touchgfx::FontId LARGE = 1;   // verdana_40_4bpp
-    static const touchgfx::FontId SMALL = 2;   // verdana_10_4bpp
-    static const touchgfx::FontId MEDIUM = 3;  // verdanab_20_4bpp
-    static const touchgfx::FontId BLINKER = 4; // verdanab_15_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 5;
+    static const touchgfx::FontId DEFAULT = 0;         // verdanab_30_4bpp
+    static const touchgfx::FontId LARGE = 1;           // verdana_40_4bpp
+    static const touchgfx::FontId SMALL = 2;           // verdana_10_4bpp
+    static const touchgfx::FontId MEDIUM = 3;          // verdanab_20_4bpp
+    static const touchgfx::FontId BLINKER = 4;         // verdanab_15_4bpp
+    static const touchgfx::FontId TYPOGRAPHY_00 = 5;   // times_100_4bpp
+    static const touchgfx::FontId TYPOGRAPHY_01 = 6;   // timesbd_30_4bpp
+    static const touchgfx::FontId POWERANDWATTS = 7;   // timesbd_35_4bpp
+    static const touchgfx::FontId AUXBATTERYPOWER = 8; // timesbd_22_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 9;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider
