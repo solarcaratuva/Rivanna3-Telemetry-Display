@@ -957,6 +957,7 @@
       },
       {
         "Name": "Screen2",
+        "CanvasBufferSize": 7200,
         "Components": [
           {
             "Type": "Box",
@@ -968,6 +969,44 @@
               "Green": 255,
               "Blue": 255
             }
+          },
+          {
+            "Type": "Line",
+            "Name": "line1_2",
+            "X": 11,
+            "Y": 658,
+            "Width": 484,
+            "Height": 16,
+            "Color": {
+              "Red": 92,
+              "Green": 92,
+              "Blue": 92
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 450.0,
+            "EndY": 5.0,
+            "LineWidth": 4.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "Line",
+            "Name": "line1_1",
+            "X": 11,
+            "Y": 468,
+            "Width": 484,
+            "Height": 16,
+            "Color": {
+              "Red": 92,
+              "Green": 92,
+              "Blue": 92
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 450.0,
+            "EndY": 5.0,
+            "LineWidth": 4.0,
+            "LineEndingStyle": "Round"
           },
           {
             "Type": "TextArea",
@@ -1083,8 +1122,8 @@
             "Name": "speed",
             "X": 188,
             "Y": 50,
-            "Width": 77,
-            "Height": 36,
+            "Width": 86,
+            "Height": 37,
             "TextId": "__SingleUse_XV1F",
             "TextRotation": "0",
             "AutoSize": true
@@ -1094,8 +1133,8 @@
             "Name": "mph",
             "X": 196,
             "Y": 192,
-            "Width": 59,
-            "Height": 36,
+            "Width": 65,
+            "Height": 37,
             "TextId": "__SingleUse_AMJ2",
             "TextRotation": "0",
             "AutoSize": true
@@ -1168,6 +1207,25 @@
             "Height": 46,
             "TextId": "__SingleUse_TUN6",
             "TextRotation": "0"
+          },
+          {
+            "Type": "Line",
+            "Name": "line1",
+            "X": 11,
+            "Y": 291,
+            "Width": 484,
+            "Height": 16,
+            "Color": {
+              "Red": 92,
+              "Green": 92,
+              "Blue": 92
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 450.0,
+            "EndY": 5.0,
+            "LineWidth": 4.0,
+            "LineEndingStyle": "Round"
           }
         ],
         "Interactions": [

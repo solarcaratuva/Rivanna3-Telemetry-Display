@@ -28,13 +28,13 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
         // times_100_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[5]);
     case Typography::TYPOGRAPHY_01:
-        // timesbd_30_4bpp
+        // SansSerifCollection_30_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[6]);
     case Typography::POWERANDWATTS:
-        // timesbd_35_4bpp
+        // SansSerifCollection_35_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[7]);
     case Typography::AUXBATTERYPOWER:
-        // timesbd_22_4bpp
+        // SansSerifCollection_22_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[8]);
     default:
         return 0;

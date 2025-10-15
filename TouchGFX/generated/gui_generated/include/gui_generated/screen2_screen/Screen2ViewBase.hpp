@@ -8,6 +8,8 @@
 #include <mvp/View.hpp>
 #include <gui/screen2_screen/Screen2Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/canvas/Line.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/EasingEquations.hpp>
@@ -45,6 +47,10 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box box1;
+    touchgfx::Line line1_2;
+    touchgfx::PainterRGB888 line1_2Painter;
+    touchgfx::Line line1_1;
+    touchgfx::PainterRGB888 line1_1Painter;
     touchgfx::TextAreaWithOneWildcard cruiseDrive;
     touchgfx::FadeAnimator< touchgfx::TextArea > MtrComm_Warning;
     touchgfx::FadeAnimator< touchgfx::TextArea > BPS_Warning;
@@ -58,6 +64,8 @@ protected:
     touchgfx::TextAreaWithOneWildcard powerWatts;
     touchgfx::TextArea power;
     touchgfx::TextArea errors;
+    touchgfx::Line line1;
+    touchgfx::PainterRGB888 line1Painter;
 
     /*
      * Wildcard Buffers
@@ -72,6 +80,12 @@ protected:
     touchgfx::Unicode::UnicodeChar powerWattsBuffer[POWERWATTS_SIZE];
 
 private:
+
+    /*
+     * Canvas Buffer Size
+     */
+    static const uint32_t CANVAS_BUFFER_SIZE = 7200;
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
     /*
      * Callback Declarations

@@ -32,9 +32,9 @@ struct TypographyFontIndex
     static const touchgfx::FontId MEDIUM = 3;          // verdanab_20_4bpp
     static const touchgfx::FontId BLINKER = 4;         // verdanab_15_4bpp
     static const touchgfx::FontId TYPOGRAPHY_00 = 5;   // times_100_4bpp
-    static const touchgfx::FontId TYPOGRAPHY_01 = 6;   // timesbd_30_4bpp
-    static const touchgfx::FontId POWERANDWATTS = 7;   // timesbd_35_4bpp
-    static const touchgfx::FontId AUXBATTERYPOWER = 8; // timesbd_22_4bpp
+    static const touchgfx::FontId TYPOGRAPHY_01 = 6;   // SansSerifCollection_30_4bpp
+    static const touchgfx::FontId POWERANDWATTS = 7;   // SansSerifCollection_35_4bpp
+    static const touchgfx::FontId AUXBATTERYPOWER = 8; // SansSerifCollection_22_4bpp
     static const uint16_t NUMBER_OF_FONTS = 9;
 };
 

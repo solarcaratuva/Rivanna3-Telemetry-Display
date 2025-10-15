@@ -11,9 +11,9 @@ extern touchgfx::GeneratedFont& getFont_verdana_10_4bpp();
 extern touchgfx::GeneratedFont& getFont_verdanab_20_4bpp();
 extern touchgfx::GeneratedFont& getFont_verdanab_15_4bpp();
 extern touchgfx::GeneratedFont& getFont_times_100_4bpp();
-extern touchgfx::GeneratedFont& getFont_timesbd_30_4bpp();
-extern touchgfx::GeneratedFont& getFont_timesbd_35_4bpp();
-extern touchgfx::GeneratedFont& getFont_timesbd_22_4bpp();
+extern touchgfx::GeneratedFont& getFont_SansSerifCollection_30_4bpp();
+extern touchgfx::GeneratedFont& getFont_SansSerifCollection_35_4bpp();
+extern touchgfx::GeneratedFont& getFont_SansSerifCollection_22_4bpp();
 
 const touchgfx::Font* touchgfx_fonts[] = {
     &(getFont_verdanab_30_4bpp()),
@@ -22,9 +22,9 @@ const touchgfx::Font* touchgfx_fonts[] = {
     &(getFont_verdanab_20_4bpp()),
     &(getFont_verdanab_15_4bpp()),
     &(getFont_times_100_4bpp()),
-    &(getFont_timesbd_30_4bpp()),
-    &(getFont_timesbd_35_4bpp()),
-    &(getFont_timesbd_22_4bpp())
+    &(getFont_SansSerifCollection_30_4bpp()),
+    &(getFont_SansSerifCollection_35_4bpp()),
+    &(getFont_SansSerifCollection_22_4bpp())
 };
 
 extern const touchgfx::TypedText::TypedTextData typedText_database_DEFAULT[];
@@ -178,13 +178,13 @@ void resetFont(touchgfx::FontId fontId)
         touchgfx_fonts[5] = &(getFont_times_100_4bpp());
         break;
     case 6:
-        touchgfx_fonts[6] = &(getFont_timesbd_30_4bpp());
+        touchgfx_fonts[6] = &(getFont_SansSerifCollection_30_4bpp());
         break;
     case 7:
-        touchgfx_fonts[7] = &(getFont_timesbd_35_4bpp());
+        touchgfx_fonts[7] = &(getFont_SansSerifCollection_35_4bpp());
         break;
     case 8:
-        touchgfx_fonts[8] = &(getFont_timesbd_22_4bpp());
+        touchgfx_fonts[8] = &(getFont_SansSerifCollection_22_4bpp());
         break;
     }
 }
