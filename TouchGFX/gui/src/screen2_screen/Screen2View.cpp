@@ -16,6 +16,7 @@ void Screen2View::setupScreen()
     powerWatts.setWildcard(powerWattsBuffer);
     speedMph.setWildcard(speedMphBuffer);
     auxBatteryVolt.setWildcard(auxBatteryVoltBuffer);
+    auxBatteryVolt.setWildcard(auxBatteryVoltBuffer);
 
     BPS_Warning.setAlpha(0);
     BPS_Warning.setVisible(false);
@@ -37,161 +38,161 @@ void Screen2View::tearDownScreen()
 
 
 void Screen2View::triggerBpsWarning() {
-    bpsWarningState = 1;
-    bpsWarningTickCounter = 0;
+    bpsWarningState2 = 1;
+    bpsWarningTickCounter2 = 0;
     BPS_Warning.setVisible(true);
 }
 
 void Screen2View::triggerPowerAuxWarning() { 
-    powerAuxWarningState = 1;
-    powerAuxWarningTickCounter = 0;
+    powerAuxWarningState2 = 1;
+    powerAuxWarningTickCounter2 = 0;
     PowerAux_Warning.setVisible(true);
 }
 
 void Screen2View::triggerMtrCommWarning() {
-    mtrCommWarningState = 1;
-    mtrCommWarningTickCounter = 0;
+    mtrCommWarningState2 = 1;
+    mtrCommWarningTickCounter2 = 0;
     MtrComm_Warning.setVisible(true);
 }
 
 void Screen2View::function2() {
-    if (bpsWarningState == 1) {
+    if (bpsWarningState2 == 1) {
         BPS_Warning.startFadeAnimation(255, 30); // Fade in
-        bpsWarningState = 2;
-        bpsWarningTickCounter = 0;
+        bpsWarningState2 = 2;
+        bpsWarningTickCounter2 = 0;
     }
-    else if (bpsWarningState == 2) {
-        bpsWarningTickCounter++;
-        if (bpsWarningTickCounter >= 4) { // Hold for ~500ms
-            bpsWarningState = 3;
-            bpsWarningTickCounter = 0;
+    else if (bpsWarningState2 == 2) {
+        bpsWarningTickCounter2++;
+        if (bpsWarningTickCounter2 >= 4) { // Hold for ~500ms
+            bpsWarningState2 = 3;
+            bpsWarningTickCounter2 = 0;
         }
     }
-    else if (bpsWarningState == 3) {
+    else if (bpsWarningState2 == 3) {
         BPS_Warning.startFadeAnimation(0, 30); // Fade out
-        bpsWarningState = 4;
-        bpsWarningTickCounter = 0;
+        bpsWarningState2 = 4;
+        bpsWarningTickCounter2 = 0;
     }
-    else if (bpsWarningState == 4) {
-        bpsWarningTickCounter++;
-        if (bpsWarningTickCounter >= 4) { // Wait before next flash
-            bpsWarningState = 1; // Restart flashing loop
-            bpsWarningTickCounter = 0;
+    else if (bpsWarningState2 == 4) {
+        bpsWarningTickCounter2++;
+        if (bpsWarningTickCounter2 >= 4) { // Wait before next flash
+            bpsWarningState2 = 1; // Restart flashing loop
+            bpsWarningTickCounter2 = 0;
         }
     }
 
-    if (powerAuxWarningState == 1) {
+    if (powerAuxWarningState2 == 1) {
         PowerAux_Warning.startFadeAnimation(255, 30); // Fade in
-        powerAuxWarningState = 2;
-        powerAuxWarningTickCounter = 0;
+        powerAuxWarningState2 = 2;
+        powerAuxWarningTickCounter2 = 0;
     }
-    else if (powerAuxWarningState == 2) {
-        powerAuxWarningTickCounter++;
-        if (powerAuxWarningTickCounter >= 4) { // Hold for ~500ms
-            powerAuxWarningState = 3;
-            powerAuxWarningTickCounter = 0;
+    else if (powerAuxWarningState2 == 2) {
+        powerAuxWarningTickCounter2++;
+        if (powerAuxWarningTickCounter2 >= 4) { // Hold for ~500ms
+            powerAuxWarningState2 = 3;
+            powerAuxWarningTickCounter2 = 0;
         }
     }
-    else if (powerAuxWarningState == 3) {
+    else if (powerAuxWarningState2 == 3) {
         PowerAux_Warning.startFadeAnimation(0, 30); // Fade out
-        powerAuxWarningState = 4;
-        powerAuxWarningTickCounter = 0;
+        powerAuxWarningState2 = 4;
+        powerAuxWarningTickCounter2 = 0;
     }
-    else if (powerAuxWarningState == 4) {
-        powerAuxWarningTickCounter++;
-        if (powerAuxWarningTickCounter >= 4) { // Wait before next flash
-            powerAuxWarningState = 1; // Restart flashing loop
-            powerAuxWarningTickCounter = 0;
+    else if (powerAuxWarningState2 == 4) {
+        powerAuxWarningTickCounter2++;
+        if (powerAuxWarningTickCounter2 >= 4) { // Wait before next flash
+            powerAuxWarningState2 = 1; // Restart flashing loop
+            powerAuxWarningTickCounter2 = 0;
         }
     }
 
-    if (mtrCommWarningState == 1) {
+    if (mtrCommWarningState2 == 1) {
         MtrComm_Warning.startFadeAnimation(255, 30); // Fade in
-        mtrCommWarningState = 2;
-        mtrCommWarningTickCounter = 0;
+        mtrCommWarningState2 = 2;
+        mtrCommWarningTickCounter2 = 0;
     }
-    else if (mtrCommWarningState == 2) {
-        mtrCommWarningTickCounter++;
-        if (mtrCommWarningTickCounter >= 4) { // Hold for ~500ms
-            mtrCommWarningState = 3;
-            mtrCommWarningTickCounter = 0;
+    else if (mtrCommWarningState2 == 2) {
+        mtrCommWarningTickCounter2++;
+        if (mtrCommWarningTickCounter2 >= 4) { // Hold for ~500ms
+            mtrCommWarningState2 = 3;
+            mtrCommWarningTickCounter2 = 0;
         }
     }
-    else if (mtrCommWarningState == 3) {
+    else if (mtrCommWarningState2 == 3) {
         MtrComm_Warning.startFadeAnimation(0, 30); // Fade out
-        mtrCommWarningState = 4;
-        mtrCommWarningTickCounter = 0;
+        mtrCommWarningState2 = 4;
+        mtrCommWarningTickCounter2 = 0;
     }
-    else if (mtrCommWarningState == 4) {
-        mtrCommWarningTickCounter++;
-        if (mtrCommWarningTickCounter >= 4) { // Wait before next flash
-            mtrCommWarningState = 1; // Restart flashing loop
-            mtrCommWarningTickCounter = 0;
+    else if (mtrCommWarningState2 == 4) {
+        mtrCommWarningTickCounter2++;
+        if (mtrCommWarningTickCounter2 >= 4) { // Wait before next flash
+            mtrCommWarningState2 = 1; // Restart flashing loop
+            mtrCommWarningTickCounter2 = 0;
         }
     }
 }
 
-int packVolt = 0;
-int packCurr = 0;
-int rpm = 0;
-int braking = 0;
-int regen = 0;
-int manual = 0;
-int cruise = 0;
-int brakeP = 0;
-int throttle = 0;
-int cruiseS = 0;
-int regenD = 0;
-int throttleP = 0;
-int count = 0;
-int testCount = 0;
-int packSOC = 0;
-int packDischargeRelay = 0;
-int packChargeRelay = 0;
-int auxBatteryMVolt = 0;
-int auxBatteryChargePct = 0;
+int packVolt2 = 0;
+int packCurr2 = 0;
+int rpm2 = 0;
+int braking2 = 0;
+int regen2 = 0;
+int manual2 = 0;
+int cruise2 = 0;
+int brakeP2 = 0;
+int throttle2 = 0;
+int cruiseS2 = 0;
+int regenD2 = 0;
+int throttleP2 = 0;
+int count2 = 0;
+int testCount2 = 0;
+int packSOC2 = 0;
+int packDischargeRelay2 = 0;
+int packChargeRelay2 = 0;
+int auxBatteryMVolt2 = 0;
+int auxBatteryChargePct2 = 0;
 
-bool previousBpsErrorState = false;
-bool currentBpsErrorState = false;
+bool previousBpsErrorState2 = false;
+bool currentBpsErrorState2 = false;
 
-bool previousPowerAuxErrorState = false;
-bool currentPowerAuxErrorState = false;
+bool previousPowerAuxErrorState2 = false;
+bool currentPowerAuxErrorState2 = false;
 
-bool previousMtrCommErrorState = false;
-bool currentMtrCommErrorState = true;
+bool previousMtrCommErrorState2 = false;
+bool currentMtrCommErrorState2 = true;
 
-void Screen1View::function1()
+void Screen2View::function1()
 {
 #ifndef SIMULATOR
     ReceivedCanData_t receivedCanData;
     if (xQueueReceive(canReceivedQueue, &receivedCanData, (TickType_t)0 ) == pdTRUE) {
-        count = receivedCanData.motor_controller_power_status.battery_voltage;
-        packVolt = receivedCanData.bps_pack_information.pack_voltage;
-        packCurr = receivedCanData.bps_pack_information.pack_current;
-        packSOC = receivedCanData.bps_pack_information.pack_soc;
-        packDischargeRelay = receivedCanData.bps_pack_information.discharge_relay_status;
-        packChargeRelay = receivedCanData.bps_pack_information.charge_relay_status;
-        rpm = receivedCanData.motor_controller_power_status.motor_rpm;
-        braking = receivedCanData.motor_commands.braking;
-        regen = receivedCanData.motor_commands.regen_braking;
-        manual = receivedCanData.motor_commands.manual_drive;
-        cruise = receivedCanData.motor_commands.cruise_drive;
-        brakeP = receivedCanData.motor_commands.brake_pedal;
-        throttle = receivedCanData.motor_commands.throttle;
-        cruiseS = receivedCanData.motor_commands.cruise_speed;
-        regenD = receivedCanData.motor_commands.regen_drive;
-        throttleP = receivedCanData.motor_commands.throttle_pedal;
-        auxBatteryMVolt = receivedCanData.aux_battery_status.aux_voltage;
-        auxBatteryChargePct = receivedCanData.aux_battery_status.percent_full;
+        count2 = receivedCanData.motor_controller_power_status.battery_voltage;
+        packVolt2 = receivedCanData.bps_pack_information.pack_voltage;
+        packCurr2 = receivedCanData.bps_pack_information.pack_current;
+        packSOC2 = receivedCanData.bps_pack_information.pack_soc;
+        packDischargeRelay2 = receivedCanData.bps_pack_information.discharge_relay_status;
+        packChargeRelay2 = receivedCanData.bps_pack_information.charge_relay_status;
+        rpm2 = receivedCanData.motor_controller_power_status.motor_rpm;
+        braking2 = receivedCanData.motor_commands.braking;
+        regen2 = receivedCanData.motor_commands.regen_braking;
+        manual2 = receivedCanData.motor_commands.manual_drive;
+        cruise2 = receivedCanData.motor_commands.cruise_drive;
+        brakeP2 = receivedCanData.motor_commands.brake_pedal;
+        throttle2 = receivedCanData.motor_commands.throttle;
+        cruiseS2 = receivedCanData.motor_commands.cruise_speed;
+        regenD2 = receivedCanData.motor_commands.regen_drive;
+        throttleP2 = receivedCanData.motor_commands.throttle_pedal;
+        auxBatteryMVolt2 = receivedCanData.aux_battery_status.aux_voltage;
+        auxBatteryChargePct2 = receivedCanData.aux_battery_status.percent_full;
         
-        currentMtrCommErrorState = (receivedCanData.motor_controller_error.analog_sensor_err || receivedCanData.motor_controller_error.motor_current_sensor_u_err || receivedCanData.motor_controller_error.motor_current_sensor_w_err ||
+        currentMtrCommErrorState2 = (receivedCanData.motor_controller_error.analog_sensor_err || receivedCanData.motor_controller_error.motor_current_sensor_u_err || receivedCanData.motor_controller_error.motor_current_sensor_w_err ||
         receivedCanData.motor_controller_error.fet_thermistor_err || receivedCanData.motor_controller_error.battery_voltage_sensor_err || receivedCanData.motor_controller_error.battery_current_sensor_adj_err ||
         receivedCanData.motor_controller_error.motor_current_sensor_adj_err || receivedCanData.motor_controller_error.accelerator_position_err || receivedCanData.motor_controller_error.controller_voltage_sensor_err ||
         receivedCanData.motor_controller_error.power_system_err || receivedCanData.motor_controller_error.overcurrent_err || receivedCanData.motor_controller_error.overvoltage_err ||
         receivedCanData.motor_controller_error.overcurrent_limit || receivedCanData.motor_controller_error.motor_system_err || receivedCanData.motor_controller_error.motor_lock ||
         receivedCanData.motor_controller_error.hall_sensor_short || receivedCanData.motor_controller_error.hall_sensor_open || receivedCanData.motor_controller_error.overheat_level);
         
-        currentBpsErrorState = receivedCanData.bps_error.dtc_p0_a1_f_internal_cell_communication_fault || receivedCanData.bps_error.current_sensor_fault || receivedCanData.bps_error.weak_pack_fault || receivedCanData.bps_error.thermistor_fault || receivedCanData.bps_error.can_communication_fault || receivedCanData.bps_error.redundant_power_supply_fault || receivedCanData.bps_error.high_voltage_isolation_fault || receivedCanData.bps_error.charge_enable_relay_fault || receivedCanData.bps_error.discharge_enable_relay_fault || receivedCanData.bps_error.internal_hardware_fault || receivedCanData.bps_error.dtc_p0_a0_a_internal_heatsink_thermistor_fault || receivedCanData.bps_error.internal_logic_fault || receivedCanData.bps_error.dtc_p0_a0_c_highest_cell_voltage_too_high_fault || receivedCanData.bps_error.dtc_p0_a0_e_lowest_cell_voltage_too_low_fault || receivedCanData.bps_error.pack_too_hot_fault;
+        currentBpsErrorState2 = receivedCanData.bps_error.dtc_p0_a1_f_internal_cell_communication_fault || receivedCanData.bps_error.current_sensor_fault || receivedCanData.bps_error.weak_pack_fault || receivedCanData.bps_error.thermistor_fault || receivedCanData.bps_error.can_communication_fault || receivedCanData.bps_error.redundant_power_supply_fault || receivedCanData.bps_error.high_voltage_isolation_fault || receivedCanData.bps_error.charge_enable_relay_fault || receivedCanData.bps_error.discharge_enable_relay_fault || receivedCanData.bps_error.internal_hardware_fault || receivedCanData.bps_error.dtc_p0_a0_a_internal_heatsink_thermistor_fault || receivedCanData.bps_error.internal_logic_fault || receivedCanData.bps_error.dtc_p0_a0_c_highest_cell_voltage_too_high_fault || receivedCanData.bps_error.dtc_p0_a0_e_lowest_cell_voltage_too_low_fault || receivedCanData.bps_error.pack_too_hot_fault;
             
         bool curBps[NUM_BPS_ERRORS] = {
             receivedCanData.bps_error.dtc_p0_a1_f_internal_cell_communication_fault,
@@ -294,47 +295,45 @@ void Screen1View::function1()
     }
 #else
     // Dummy test values for simulator
-    count = 0;
-    testCount++;
-    packVolt  = 42;
-    packCurr  = 5;
-    packSOC   = 0;
-    rpm       = 1234;
-    braking   = 1;
-    regen     = 0;
-    manual    = 1;
-    cruise    = 1;
-    brakeP    = 50;
-    throttle  = 70;
-    cruiseS   = 30;
-    regenD    = 1;
-    throttleP = 60;
-    currentBpsErrorState = 1;
-    currentPowerAuxErrorState = 0;
-    currentMtrCommErrorState = 1;
-    auxBatteryMVolt = 12569;
-    auxBatteryChargePct = 2;
+    count2 = 0;
+    testCount2++;
+    packVolt2  = 42;
+    packCurr2  = 5;
+    packSOC2   = 0;
+    rpm2       = 1234;
+    braking2   = 1;
+    regen2     = 0;
+    manual2    = 1;
+    cruise2    = 1;
+    brakeP2    = 50;
+    throttle2  = 70;
+    cruiseS2   = 30;
+    regenD2    = 1;
+    throttleP2 = 60;
+    currentBpsErrorState2 = 1;
+    currentPowerAuxErrorState2 = 0;
+    currentMtrCommErrorState2 = 1;
+    auxBatteryMVolt2 = 12569;
+    auxBatteryChargePct2 = 2;
 #endif
 
-    bool isCruise = presenter->getCruiseEn();
-
-    if (currentBpsErrorState && !previousBpsErrorState) {
+    if (currentBpsErrorState2 && !previousBpsErrorState2) {
         triggerBpsWarning(); // Trigger only on rising edge
     }
 
-    previousBpsErrorState = currentBpsErrorState; // Save for next tick
+    previousBpsErrorState2 = currentBpsErrorState2; // Save for next tick
 
-    if (currentPowerAuxErrorState && !previousPowerAuxErrorState) {
+    if (currentPowerAuxErrorState2 && !previousPowerAuxErrorState2) {
         triggerPowerAuxWarning();
     }
 
-    previousPowerAuxErrorState = currentPowerAuxErrorState;
+    previousPowerAuxErrorState2 = currentPowerAuxErrorState2;
 
-    if (currentMtrCommErrorState && !previousMtrCommErrorState) {
+    if (currentMtrCommErrorState2 && !previousMtrCommErrorState2) {
         triggerMtrCommWarning();
     }
 
-    int pct100 = (int) (auxBatteryChargePct / 255.0f * 100);
+    int pct100 = (int) (auxBatteryChargePct2 / 255.0f * 100);
     if (pct100 > 100) pct100 = 100;  // just in case
 
     BatteryChargeFill.setValue(pct100); 
@@ -344,17 +343,17 @@ void Screen1View::function1()
     const float WHEEL_CIRCUM_M = 3.14159265f * WHEEL_DIAMETER_M;
 
     const float GEAR_RATIO = 1.0f;
-    float rps = static_cast<float>(rpm) / 60.0f;  
+    float rps = static_cast<float>(rpm2) / 60.0f;  
     float wheelInRps = rps / GEAR_RATIO;
     float speedInMps = wheelInRps * WHEEL_CIRCUM_M;             
     // 1 m/s = 2.23694 mph
     float speedInMph = speedInMps * 2.236936292f;
 
-    Unicode::snprintfFloat(powerAuxBuffer, POWERAUX_SIZE, "%.2f", currentMtrCommErrorState);
-    Unicode::snprintfFloat(bpsErrorBuffer, BPSERROR_SIZE, "%.2f", currentBpsErrorState);
+//    Unicode::snprintfFloat(powerAuxBuffer, POWERAUX_SIZE, "%.2f", currentMtrCommErrorState);
+//    Unicode::snprintfFloat(bpsErrorBuffer, BPSERROR_SIZE, "%.2f", currentBpsErrorState);
     Unicode::snprintfFloat(speedMphBuffer, SPEEDMPH_SIZE, "%.1f", speedInMph);
-    Unicode::snprintfFloat(solarTempBuffer, SOLARTEMP_SIZE, "%.2f", cruise);
-    Unicode::snprintfFloat(auxBatteryVoltBuffer, AUXBATTERYVOLT_SIZE, "%.2f", auxBatteryVoltConv);
+//    Unicode::snprintfFloat(solarTempBuffer, SOLARTEMP_SIZE, "%.2f", cruise);
+    // Unicode::snprintfFloat(auxBatteryVoltBuffer, AUXBATTERYVOLT_SIZE, "%.2f", auxBatteryVoltConv);
 
     speedMph.invalidate();
     powerWatts.invalidate();

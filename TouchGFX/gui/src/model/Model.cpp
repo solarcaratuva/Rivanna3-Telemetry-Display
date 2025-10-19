@@ -3,10 +3,13 @@
 
 #ifdef SIMULATOR
 
+Model sharedModel;
+
 Model::Model()
     : modelListener(0),
       leftTurnSignal(false),
-      rightTurnSignal(false)
+      rightTurnSignal(false),
+      rpm(0)
 {
 }
 
@@ -22,6 +25,16 @@ bool Model::isLeftTurnSignal() const
 void Model::setLeftTurnSignal(bool on)
 {
     leftTurnSignal = on;
+}
+
+void Model::setRPM(int value)
+{
+    rpm = value;
+}
+
+int Model::getRPM() const
+{
+    return rpm;
 }
 
 bool Model::isRightTurnSignal() const

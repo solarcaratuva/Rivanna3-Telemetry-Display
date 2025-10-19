@@ -72,3 +72,12 @@ bool Screen1Presenter::getLowPowerMode() {
     return model->isLowPowerMode();
 }
 
+void Screen1Presenter::setRPM(int newRPM)
+{
+    model->setRPM(newRPM);
+}
+
+int Screen1Presenter::getRPM()
+{
+    return model->getRPM();
+}

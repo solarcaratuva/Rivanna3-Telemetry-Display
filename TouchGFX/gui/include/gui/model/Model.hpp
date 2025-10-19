@@ -15,6 +15,9 @@ public:
 
     void tick();
 
+    int getRPM() const;
+    void setRPM(int value);
+
     bool isLeftTurnSignal() const;
     bool isRightTurnSignal() const;
     bool isHazards() const;
@@ -39,6 +42,7 @@ private:
     bool lowPower = false;
     bool cruise = false;
     bool hazard = false;
+    int rpm = 0;
 
     bool prevLeftButtonState = true;
     bool prevRightButtonState = true;

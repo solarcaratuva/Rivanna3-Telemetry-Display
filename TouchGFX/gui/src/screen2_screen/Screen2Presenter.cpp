@@ -20,3 +20,8 @@ void Screen2Presenter::deactivate()
 bool Screen2Presenter::getCruiseEn() {
     return model->isCruiseEn();
 }
+
+int Screen2Presenter::getRPM()
+{
+    return model->getRPM();
+}
