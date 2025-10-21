@@ -420,7 +420,8 @@ void Screen1View::function1()
     packVolt  = 42;
     packCurr  = 5;
     packSOC   = 0;
-    rpm       = 1234;
+    presenter->setRPM(1234);
+    rpm = presenter->getRPM();
     braking   = 1;
     regen     = 0;
     manual    = 1;

@@ -29,6 +29,8 @@ public:
 
     bool getCruiseEn();
 
+    int getRPM();
+
 private:
     Screen2Presenter();
 

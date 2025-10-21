@@ -15,23 +15,25 @@ public:
     virtual ~Screen2View() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+//    virtual void handleKeyEvent(uint8_t key) override;
     virtual void function2() override;
     virtual void function1();
     void triggerBpsWarning();
     void triggerPowerAuxWarning();
     void triggerMtrCommWarning();
 protected:
-    uint8_t bpsWarningState = 0; // 0=idle, 1=fadeIn, 2=hold, 3=fadeOut
-    uint16_t bpsWarningTickCounter = 0;
-    uint8_t powerAuxWarningState = 0;
-    uint16_t powerAuxWarningTickCounter = 0;
-    uint8_t mtrCommWarningState = 0;
-    uint16_t mtrCommWarningTickCounter = 0;
-    int cruiseIncState = 0; // 0 = idle, 1 = fade in, 2 = hold, 3 = fade out
-    int cruiseIncTickCounter = 0;
+    uint8_t bpsWarningState2 = 0; // 0=idle, 1=fadeIn, 2=hold, 3=fadeOut
+    uint16_t bpsWarningTickCounter2 = 0;
+    uint8_t powerAuxWarningState2 = 0;
+    uint16_t powerAuxWarningTickCounter2 = 0;
+    uint8_t mtrCommWarningState2 = 0;
+    uint16_t mtrCommWarningTickCounter2 = 0;
+    int cruiseIncState2 = 0; // 0 = idle, 1 = fade in, 2 = hold, 3 = fade out
+    int cruiseIncTickCounter2 = 0;
+
     // For Cruise DEC text popup
-    int cruiseDecState = 0;
-    int cruiseDecTickCounter = 0;
+    int cruiseDecState2 = 0;
+    int cruiseDecTickCounter2 = 0;
 
     // For improved CAN error logging
     static constexpr int MAX_RECENT_ERRORS = 3;
