@@ -36,6 +36,9 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
     case Typography::AUXBATTERYPOWER:
         // SansSerifCollection_22_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[8]);
+    case Typography::V2_DEFAULT:
+        // verdana_20_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[9]);
     default:
         return 0;
     }

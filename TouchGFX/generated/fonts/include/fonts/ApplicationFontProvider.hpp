@@ -22,6 +22,7 @@ struct Typography
     static const touchgfx::FontId TYPOGRAPHY_01 = 6;
     static const touchgfx::FontId POWERANDWATTS = 7;
     static const touchgfx::FontId AUXBATTERYPOWER = 8;
+    static const touchgfx::FontId V2_DEFAULT = 9;
 };
 
 struct TypographyFontIndex
@@ -35,7 +36,8 @@ struct TypographyFontIndex
     static const touchgfx::FontId TYPOGRAPHY_01 = 6;   // SansSerifCollection_30_4bpp
     static const touchgfx::FontId POWERANDWATTS = 7;   // SansSerifCollection_35_4bpp
     static const touchgfx::FontId AUXBATTERYPOWER = 8; // SansSerifCollection_22_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 9;
+    static const touchgfx::FontId V2_DEFAULT = 9;      // verdana_20_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 10;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider

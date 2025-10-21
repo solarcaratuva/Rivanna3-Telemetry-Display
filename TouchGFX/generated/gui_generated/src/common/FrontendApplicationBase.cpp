@@ -17,6 +17,10 @@
 #include <gui/startupscreen_screen/StartupScreenPresenter.hpp>
 #include <gui/screen2_screen/Screen2View.hpp>
 #include <gui/screen2_screen/Screen2Presenter.hpp>
+#include <gui/datascreen_screen/DataScreenView.hpp>
+#include <gui/datascreen_screen/DataScreenPresenter.hpp>
+#include <gui/settingsscreen_screen/SettingsScreenView.hpp>
+#include <gui/settingsscreen_screen/SettingsScreenPresenter.hpp>
 
 using namespace touchgfx;
 

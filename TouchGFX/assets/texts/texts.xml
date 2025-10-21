@@ -6,6 +6,174 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_50VA" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">None</Translation>
+      </Text>
+      <Text Id="__SingleUse_K04C" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">ERR</Translation>
+      </Text>
+      <Text Id="__SingleUse_36TP" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_5QLF" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_O790" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_R06C" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_C4U4" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_7IX6" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_I2CN" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_9K7J" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_1UT4" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_LTIJ" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_A8IX" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_EXUX" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">5.2 A</Translation>
+      </Text>
+      <Text Id="__SingleUse_DBGV" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">14.0%</Translation>
+      </Text>
+      <Text Id="__SingleUse_48GX" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">80.4 V</Translation>
+      </Text>
+      <Text Id="__SingleUse_3ZQK" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">0.0%</Translation>
+      </Text>
+      <Text Id="__SingleUse_N078" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">0.5%</Translation>
+      </Text>
+      <Text Id="__SingleUse_37LD" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">24.5%</Translation>
+      </Text>
+      <Text Id="__SingleUse_6B9Q" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">90.2%</Translation>
+      </Text>
+      <Text Id="__SingleUse_VURT" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">34.1 mph</Translation>
+      </Text>
+      <Text Id="__SingleUse_NWTR" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">1234 rpm</Translation>
+      </Text>
+      <Text Id="__SingleUse_YPQR" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_LZ09" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_N53R" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_B6BN" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_BJIO" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">Error</Translation>
+      </Text>
+      <Text Id="__SingleUse_765M" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Mtr. Controller:</Translation>
+      </Text>
+      <Text Id="__SingleUse_82XM" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">BPS:</Translation>
+      </Text>
+      <Text Id="__SingleUse_UMO4" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Cruise Dec:</Translation>
+      </Text>
+      <Text Id="__SingleUse_5CGK" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Cruise:</Translation>
+      </Text>
+      <Text Id="__SingleUse_8HOJ" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">Dashboard Commands</Translation>
+      </Text>
+      <Text Id="__SingleUse_QPXU" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Left Turn:</Translation>
+      </Text>
+      <Text Id="__SingleUse_2WMJ" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Right Turn:</Translation>
+      </Text>
+      <Text Id="__SingleUse_DXFP" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Hazards:</Translation>
+      </Text>
+      <Text Id="__SingleUse_HC3K" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Cruise Inc:</Translation>
+      </Text>
+      <Text Id="__SingleUse_45ON" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">lowPower:</Translation>
+      </Text>
+      <Text Id="__SingleUse_BQON" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Regen:</Translation>
+      </Text>
+      <Text Id="__SingleUse_CSGS" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Pack Volt:</Translation>
+      </Text>
+      <Text Id="__SingleUse_D6BQ" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">DTC Status:</Translation>
+      </Text>
+      <Text Id="__SingleUse_AQ20" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Charge Relay:</Translation>
+      </Text>
+      <Text Id="__SingleUse_6C3K" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Discharge Relay:</Translation>
+      </Text>
+      <Text Id="__SingleUse_7VF5" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Pack S.O.C:</Translation>
+      </Text>
+      <Text Id="__SingleUse_YA1U" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Pack Curr:</Translation>
+      </Text>
+      <Text Id="__SingleUse_NUMQ" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">BPS</Translation>
+      </Text>
+      <Text Id="__SingleUse_RB63" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Cruise Drive:</Translation>
+      </Text>
+      <Text Id="__SingleUse_ME9Q" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Cruise Speed:</Translation>
+      </Text>
+      <Text Id="__SingleUse_UKZW" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Regen Drive:</Translation>
+      </Text>
+      <Text Id="__SingleUse_DYWA" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Regen Brake:</Translation>
+      </Text>
+      <Text Id="__SingleUse_W3YL" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">RPM:</Translation>
+      </Text>
+      <Text Id="__SingleUse_YE0J" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Throttle Pedal:</Translation>
+      </Text>
+      <Text Id="__SingleUse_JHNT" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Brake Pedal:</Translation>
+      </Text>
+      <Text Id="__SingleUse_S7LD" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Throttle:</Translation>
+      </Text>
+      <Text Id="__SingleUse_9XUE" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Man. Drive:</Translation>
+      </Text>
+      <Text Id="__SingleUse_YD7K" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Braking:</Translation>
+      </Text>
+      <Text Id="__SingleUse_7A3W" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">Motor Commands</Translation>
+      </Text>
       <Text Id="__SingleUse_5058" Alignment="Left" TypographyId="Typography_01">
         <Translation Language="GB">0</Translation>
       </Text>
@@ -294,5 +462,7 @@
     <Typography Id="Typography_01" Font="SansSerifCollection.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="PowerandWatts" Font="SansSerifCollection.ttf" Size="35" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="AUxBatteryPower" Font="SansSerifCollection.ttf" Size="22" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="V2_Default" Font="verdana.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="V2_Val" Font="verdanab.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
 </TextDatabase>

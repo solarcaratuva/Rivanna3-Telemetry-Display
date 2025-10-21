@@ -30,6 +30,12 @@
     <ClCompile Include="..\..\gui\src\screen2_screen\Screen2Presenter.cpp"/>
     <ClCompile Include="..\..\gui\src\screen2_screen\Screen2View.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\screen2_screen\Screen2ViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\datascreen_screen\DataScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\datascreen_screen\DataScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\datascreen_screen\DataScreenViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\settingsscreen_screen\SettingsScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\settingsscreen_screen\SettingsScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\settingsscreen_screen\SettingsScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -189,6 +195,12 @@
     <ClInclude Include="..\..\gui\include\gui\screen2_screen\Screen2Presenter.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\screen2_screen\Screen2View.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen2_screen\Screen2ViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\datascreen_screen\DataScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\datascreen_screen\DataScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\datascreen_screen\DataScreenViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\settingsscreen_screen\SettingsScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\settingsscreen_screen\SettingsScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\settingsscreen_screen\SettingsScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>
