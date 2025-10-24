@@ -15,30 +15,30 @@ DataScreenViewBase::DataScreenViewBase()
     background.setColor(touchgfx::Color::getColorFromRGB(23, 26, 32));
     add(background);
 
-    mtr_cmds_background.setPosition(27, 23, 426, 214);
+    mtr_cmds_background.setPosition(27, 23, 426, 203);
     mtr_cmds_background.setColor(touchgfx::Color::getColorFromRGB(30, 33, 41));
     add(mtr_cmds_background);
 
-    bps_background.setPosition(27, 263, 426, 144);
+    bps_background.setPosition(27, 237, 426, 133);
     bps_background.setColor(touchgfx::Color::getColorFromRGB(30, 33, 41));
     add(bps_background);
 
-    dash_cmds_background.setPosition(27, 433, 426, 184);
+    dash_cmds_background.setPosition(27, 383, 426, 168);
     dash_cmds_background.setColor(touchgfx::Color::getColorFromRGB(30, 33, 41));
     add(dash_cmds_background);
 
-    error_background.setPosition(27, 643, 426, 71);
+    error_background.setPosition(27, 565, 426, 64);
     error_background.setColor(touchgfx::Color::getColorFromRGB(30, 33, 41));
     add(error_background);
 
-    mtr_cmds_title.setXY(37, 32);
-    mtr_cmds_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    mtr_cmds_title.setXY(37, 30);
+    mtr_cmds_title.setColor(touchgfx::Color::getColorFromRGB(173, 173, 173));
     mtr_cmds_title.setLinespacing(0);
     mtr_cmds_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7A3W));
     add(mtr_cmds_title);
 
-    bps_title.setXY(37, 272);
-    bps_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    bps_title.setXY(37, 244);
+    bps_title.setColor(touchgfx::Color::getColorFromRGB(173, 173, 173));
     bps_title.setLinespacing(0);
     bps_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_NUMQ));
     add(bps_title);
@@ -49,13 +49,169 @@ DataScreenViewBase::DataScreenViewBase()
     rpm_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_W3YL));
     add(rpm_text);
 
+    cruise_drive_value.setPosition(196, 201, 37, 25);
+    cruise_drive_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
+    cruise_drive_value.setLinespacing(0);
+    cruise_drive_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_B6BN));
+    add(cruise_drive_value);
+
+    cruise_speed_value.setPosition(355, 201, 91, 25);
+    cruise_speed_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    cruise_speed_value.setLinespacing(0);
+    cruise_speed_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VURT));
+    add(cruise_speed_value);
+
+    regen_brake_value.setPosition(342, 167, 104, 25);
+    regen_brake_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    regen_brake_value.setLinespacing(0);
+    regen_brake_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6B9Q));
+    add(regen_brake_value);
+
+    throttle_pedal_value.setPosition(342, 131, 104, 25);
+    throttle_pedal_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    throttle_pedal_value.setLinespacing(0);
+    throttle_pedal_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_37LD));
+    add(throttle_pedal_value);
+
+    brake_pedal_value.setPosition(342, 97, 104, 25);
+    brake_pedal_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    brake_pedal_value.setLinespacing(0);
+    brake_pedal_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_N078));
+    add(brake_pedal_value);
+
+    throttle_value.setPosition(342, 62, 104, 25);
+    throttle_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    throttle_value.setLinespacing(0);
+    throttle_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_3ZQK));
+    add(throttle_value);
+
+    regen_drive_value.setPosition(196, 167, 37, 25);
+    regen_drive_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    regen_drive_value.setLinespacing(0);
+    regen_drive_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_N53R));
+    add(regen_drive_value);
+
+    left_turn_value.setPosition(196, 422, 37, 25);
+    left_turn_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    left_turn_value.setLinespacing(0);
+    left_turn_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9K7J));
+    add(left_turn_value);
+
+    low_power_value.setPosition(196, 457, 37, 25);
+    low_power_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    low_power_value.setLinespacing(0);
+    low_power_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_I2CN));
+    add(low_power_value);
+
+    hazards_value.setPosition(409, 457, 37, 25);
+    hazards_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    hazards_value.setLinespacing(0);
+    hazards_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7IX6));
+    add(hazards_value);
+
+    cruise_dec_value.setPosition(409, 527, 37, 25);
+    cruise_dec_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    cruise_dec_value.setLinespacing(0);
+    cruise_dec_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_C4U4));
+    add(cruise_dec_value);
+
+    cruise_value.setPosition(196, 527, 37, 25);
+    cruise_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    cruise_value.setLinespacing(0);
+    cruise_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_R06C));
+    add(cruise_value);
+
+    mtr_controller_error_value.setPosition(179, 604, 54, 25);
+    mtr_controller_error_value.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
+    mtr_controller_error_value.setLinespacing(0);
+    mtr_controller_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_K04C));
+    add(mtr_controller_error_value);
+
+    bps_error_value.setPosition(378, 604, 68, 25);
+    bps_error_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    bps_error_value.setLinespacing(0);
+    bps_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_50VA));
+    add(bps_error_value);
+
+    man_drive_value.setPosition(196, 132, 37, 25);
+    man_drive_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
+    man_drive_value.setLinespacing(0);
+    man_drive_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LZ09));
+    add(man_drive_value);
+
+    braking_value.setPosition(196, 97, 37, 25);
+    braking_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    braking_value.setLinespacing(0);
+    braking_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YPQR));
+    add(braking_value);
+
+    rpm_value.setPosition(126, 62, 107, 25);
+    rpm_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    rpm_value.setLinespacing(0);
+    rpm_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_NWTR));
+    add(rpm_value);
+
+    pack_volt_value.setPosition(126, 276, 107, 25);
+    pack_volt_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    pack_volt_value.setLinespacing(0);
+    pack_volt_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_48GX));
+    add(pack_volt_value);
+
+    pack_curr_value.setPosition(126, 311, 107, 25);
+    pack_curr_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    pack_curr_value.setLinespacing(0);
+    pack_curr_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DBGV));
+    add(pack_curr_value);
+
+    pack_soc_value.setPosition(126, 346, 107, 25);
+    pack_soc_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    pack_soc_value.setLinespacing(0);
+    pack_soc_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EXUX));
+    add(pack_soc_value);
+
+    dtc_status_value.setPosition(339, 276, 107, 25);
+    dtc_status_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
+    dtc_status_value.setLinespacing(0);
+    dtc_status_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_A8IX));
+    add(dtc_status_value);
+
+    charge_relay_value.setPosition(339, 311, 107, 25);
+    charge_relay_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
+    charge_relay_value.setLinespacing(0);
+    charge_relay_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LTIJ));
+    add(charge_relay_value);
+
+    discharge_relay_status.setPosition(339, 346, 107, 25);
+    discharge_relay_status.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
+    discharge_relay_status.setLinespacing(0);
+    discharge_relay_status.setTypedText(touchgfx::TypedText(T___SINGLEUSE_1UT4));
+    add(discharge_relay_status);
+
+    right_turn_value.setPosition(339, 422, 107, 25);
+    right_turn_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
+    right_turn_value.setLinespacing(0);
+    right_turn_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_O790));
+    add(right_turn_value);
+
+    cruise_inc_value.setPosition(339, 492, 107, 25);
+    cruise_inc_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
+    cruise_inc_value.setLinespacing(0);
+    cruise_inc_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5QLF));
+    add(cruise_inc_value);
+
+    regen_value.setPosition(126, 492, 107, 25);
+    regen_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
+    regen_value.setLinespacing(0);
+    regen_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_36TP));
+    add(regen_value);
+
     throttle_text.setPosition(247, 62, 95, 25);
     throttle_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     throttle_text.setLinespacing(0);
     throttle_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_S7LD));
     add(throttle_text);
 
-    brake_pedal_text.setPosition(247, 97, 131, 24);
+    brake_pedal_text.setPosition(247, 97, 131, 25);
     brake_pedal_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     brake_pedal_text.setLinespacing(0);
     brake_pedal_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JHNT));
@@ -67,13 +223,13 @@ DataScreenViewBase::DataScreenViewBase()
     throttle_pedal_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YE0J));
     add(throttle_pedal_text);
 
-    regen_braking_text.setPosition(247, 166, 151, 25);
+    regen_braking_text.setPosition(247, 167, 101, 25);
     regen_braking_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     regen_braking_text.setLinespacing(0);
     regen_braking_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DYWA));
     add(regen_braking_text);
 
-    cruise_speed_text.setPosition(247, 201, 151, 25);
+    cruise_speed_text.setPosition(247, 201, 108, 25);
     cruise_speed_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     cruise_speed_text.setLinespacing(0);
     cruise_speed_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_ME9Q));
@@ -103,109 +259,109 @@ DataScreenViewBase::DataScreenViewBase()
     regen_drive_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UKZW));
     add(regen_drive_text);
 
-    pack_volt_text.setPosition(37, 302, 118, 25);
+    pack_volt_text.setPosition(37, 276, 118, 25);
     pack_volt_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     pack_volt_text.setLinespacing(0);
     pack_volt_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CSGS));
     add(pack_volt_text);
 
-    dtc_status_text.setPosition(247, 302, 131, 25);
+    dtc_status_text.setPosition(247, 276, 131, 25);
     dtc_status_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     dtc_status_text.setLinespacing(0);
     dtc_status_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_D6BQ));
     add(dtc_status_text);
 
-    charge_relay_text.setPosition(247, 337, 151, 24);
+    charge_relay_text.setPosition(247, 311, 151, 24);
     charge_relay_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     charge_relay_text.setLinespacing(0);
     charge_relay_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_AQ20));
     add(charge_relay_text);
 
-    discharge_relay_text.setPosition(247, 371, 172, 25);
+    discharge_relay_text.setPosition(247, 346, 131, 25);
     discharge_relay_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     discharge_relay_text.setLinespacing(0);
     discharge_relay_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6C3K));
     add(discharge_relay_text);
 
-    pack_soc_text.setXY(37, 337);
-    pack_soc_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    pack_soc_text.setLinespacing(0);
-    pack_soc_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7VF5));
-    add(pack_soc_text);
-
-    pack_curr_text.setXY(37, 372);
+    pack_curr_text.setXY(37, 311);
     pack_curr_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     pack_curr_text.setLinespacing(0);
-    pack_curr_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YA1U));
+    pack_curr_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7VF5));
     add(pack_curr_text);
 
-    dash_cmds_title.setXY(37, 442);
-    dash_cmds_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    pack_soc_text.setXY(37, 346);
+    pack_soc_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    pack_soc_text.setLinespacing(0);
+    pack_soc_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YA1U));
+    add(pack_soc_text);
+
+    dash_cmds_title.setXY(37, 391);
+    dash_cmds_title.setColor(touchgfx::Color::getColorFromRGB(173, 173, 173));
     dash_cmds_title.setLinespacing(0);
     dash_cmds_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8HOJ));
     add(dash_cmds_title);
 
-    left_turn_text.setPosition(37, 472, 118, 25);
+    left_turn_text.setPosition(37, 422, 118, 25);
     left_turn_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     left_turn_text.setLinespacing(0);
     left_turn_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_QPXU));
     add(left_turn_text);
 
-    right_turn_text.setPosition(247, 472, 131, 25);
+    right_turn_text.setPosition(247, 422, 131, 25);
     right_turn_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     right_turn_text.setLinespacing(0);
     right_turn_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2WMJ));
     add(right_turn_text);
 
-    error_title.setXY(37, 652);
-    error_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    error_title.setXY(37, 573);
+    error_title.setColor(touchgfx::Color::getColorFromRGB(173, 173, 173));
     error_title.setLinespacing(0);
     error_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BJIO));
     add(error_title);
 
-    mtr_controller_err_text.setPosition(37, 682, 158, 25);
+    mtr_controller_err_text.setPosition(37, 604, 158, 25);
     mtr_controller_err_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     mtr_controller_err_text.setLinespacing(0);
     mtr_controller_err_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_765M));
     add(mtr_controller_err_text);
 
-    bps_err_text.setPosition(247, 682, 131, 25);
+    bps_err_text.setPosition(247, 604, 131, 25);
     bps_err_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     bps_err_text.setLinespacing(0);
     bps_err_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_82XM));
     add(bps_err_text);
 
-    hazards_text.setPosition(247, 507, 151, 24);
+    hazards_text.setPosition(247, 457, 151, 24);
     hazards_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     hazards_text.setLinespacing(0);
     hazards_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DXFP));
     add(hazards_text);
 
-    cruise_inc_text.setPosition(247, 541, 172, 25);
+    cruise_inc_text.setPosition(247, 492, 172, 25);
     cruise_inc_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     cruise_inc_text.setLinespacing(0);
     cruise_inc_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HC3K));
     add(cruise_inc_text);
 
-    low_power_text.setXY(37, 507);
+    low_power_text.setXY(37, 457);
     low_power_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     low_power_text.setLinespacing(0);
     low_power_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_45ON));
     add(low_power_text);
 
-    regen_text.setXY(37, 542);
+    regen_text.setXY(37, 492);
     regen_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     regen_text.setLinespacing(0);
     regen_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BQON));
     add(regen_text);
 
-    cruise_text.setXY(37, 577);
+    cruise_text.setXY(37, 527);
     cruise_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     cruise_text.setLinespacing(0);
     cruise_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5CGK));
     add(cruise_text);
 
-    cruise_dec_text.setXY(247, 577);
+    cruise_dec_text.setXY(247, 527);
     cruise_dec_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     cruise_dec_text.setLinespacing(0);
     cruise_dec_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UMO4));

@@ -24,6 +24,8 @@
 #include <gui/datascreen_screen/DataScreenPresenter.hpp>
 #include <gui/settingsscreen_screen/SettingsScreenView.hpp>
 #include <gui/settingsscreen_screen/SettingsScreenPresenter.hpp>
+#include <gui/startupscreen2_screen/StartupScreen2View.hpp>
+#include <gui/startupscreen2_screen/StartupScreen2Presenter.hpp>
 
 
 /**
@@ -51,7 +53,8 @@ public:
             touchgfx::meta::TypeList< Screen2View,
             touchgfx::meta::TypeList< DataScreenView,
             touchgfx::meta::TypeList< SettingsScreenView,
-            touchgfx::meta::Nil > > > >
+            touchgfx::meta::TypeList< StartupScreen2View,
+            touchgfx::meta::Nil > > > > >
             > GeneratedViewTypes;
 
     /**
@@ -68,7 +71,8 @@ public:
             touchgfx::meta::TypeList< Screen2Presenter,
             touchgfx::meta::TypeList< DataScreenPresenter,
             touchgfx::meta::TypeList< SettingsScreenPresenter,
-            touchgfx::meta::Nil > > > >
+            touchgfx::meta::TypeList< StartupScreen2Presenter,
+            touchgfx::meta::Nil > > > > >
             > GeneratedPresenterTypes;
 
     /**

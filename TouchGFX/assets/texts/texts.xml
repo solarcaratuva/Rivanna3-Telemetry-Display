@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_PWJD" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">New Text</Translation>
+      </Text>
+      <Text Id="__SingleUse_3ESY" Alignment="Left" TypographyId="V2_Title">
+        <Translation Language="GB">Speed</Translation>
+      </Text>
       <Text Id="__SingleUse_50VA" Alignment="Right" TypographyId="V2_Val">
         <Translation Language="GB">None</Translation>
       </Text>
@@ -46,10 +52,10 @@
         <Translation Language="GB">On</Translation>
       </Text>
       <Text Id="__SingleUse_EXUX" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">5.2 A</Translation>
+        <Translation Language="GB">14.0%</Translation>
       </Text>
       <Text Id="__SingleUse_DBGV" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">14.0%</Translation>
+        <Translation Language="GB">5.2 A</Translation>
       </Text>
       <Text Id="__SingleUse_48GX" Alignment="Right" TypographyId="V2_Val">
         <Translation Language="GB">80.4 V</Translation>
@@ -133,10 +139,10 @@
         <Translation Language="GB">Discharge Relay:</Translation>
       </Text>
       <Text Id="__SingleUse_7VF5" Alignment="Left" TypographyId="V2_Default">
-        <Translation Language="GB">Pack S.O.C:</Translation>
+        <Translation Language="GB">Pack Curr:</Translation>
       </Text>
       <Text Id="__SingleUse_YA1U" Alignment="Left" TypographyId="V2_Default">
-        <Translation Language="GB">Pack Curr:</Translation>
+        <Translation Language="GB">Pack S.O.C:</Translation>
       </Text>
       <Text Id="__SingleUse_NUMQ" Alignment="Left" TypographyId="Medium">
         <Translation Language="GB">BPS</Translation>
@@ -464,5 +470,6 @@
     <Typography Id="AUxBatteryPower" Font="SansSerifCollection.ttf" Size="22" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="V2_Default" Font="verdana.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="V2_Val" Font="verdanab.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="V2_Title" Font="leelauib.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
 </TextDatabase>

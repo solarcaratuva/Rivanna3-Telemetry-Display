@@ -37,8 +37,11 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
         // SansSerifCollection_22_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[8]);
     case Typography::V2_DEFAULT:
-        // verdana_20_4bpp
+        // verdana_15_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[9]);
+    case Typography::V2_VAL:
+        // verdanab_15_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[4]);
     default:
         return 0;
     }

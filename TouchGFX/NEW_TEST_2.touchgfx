@@ -1266,6 +1266,70 @@
         ]
       },
       {
+        "Name": "DriverScreen",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "Width": 480,
+            "Height": 800,
+            "Color": {
+              "Red": 23,
+              "Green": 26,
+              "Blue": 32
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "speed_title",
+            "X": 182,
+            "Y": 36,
+            "Width": 116,
+            "Height": 49,
+            "TextId": "__SingleUse_3ESY",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Line",
+            "Name": "border1",
+            "X": 34,
+            "Y": 195,
+            "Width": 412,
+            "Height": 71,
+            "Color": {
+              "Red": 51,
+              "Green": 51,
+              "Blue": 51
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 400.0,
+            "EndY": 5.0,
+            "LineWidth": 3.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 161,
+            "Y": 100,
+            "Width": 158,
+            "Height": 36,
+            "TextId": "__SingleUse_PWJD",
+            "TextRotation": "0",
+            "AutoSize": true
+          }
+        ],
+        "Interactions": []
+      },
+      {
         "Name": "DataScreen",
         "Components": [
           {
@@ -1650,7 +1714,7 @@
           },
           {
             "Type": "TextArea",
-            "Name": "pack_soc_value",
+            "Name": "pack_curr_value",
             "X": 126,
             "Y": 311,
             "Width": 107,
@@ -1665,7 +1729,7 @@
           },
           {
             "Type": "TextArea",
-            "Name": "pack_curr_value",
+            "Name": "pack_soc_value",
             "X": 126,
             "Y": 346,
             "Width": 107,
@@ -1968,10 +2032,10 @@
           },
           {
             "Type": "TextArea",
-            "Name": "pack_soc_text",
+            "Name": "pack_curr_text",
             "X": 37,
             "Y": 311,
-            "Width": 89,
+            "Width": 79,
             "Height": 18,
             "TextId": "__SingleUse_7VF5",
             "TextRotation": "0",
@@ -1984,10 +2048,10 @@
           },
           {
             "Type": "TextArea",
-            "Name": "pack_curr_text",
+            "Name": "pack_soc_text",
             "X": 37,
             "Y": 346,
-            "Width": 79,
+            "Width": 89,
             "Height": 18,
             "TextId": "__SingleUse_YA1U",
             "TextRotation": "0",
@@ -2200,6 +2264,21 @@
               "Green": 26,
               "Blue": 32
             }
+          }
+        ],
+        "Interactions": []
+      },
+      {
+        "Name": "StartupScreen2",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "image2",
+            "X": 12,
+            "Y": 22,
+            "Width": 180,
+            "Height": 59,
+            "RelativeFilename": "SolarCarTeamLogo1.png"
           }
         ],
         "Interactions": []
