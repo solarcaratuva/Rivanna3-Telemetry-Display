@@ -39,6 +39,9 @@
     <ClCompile Include="..\..\gui\src\startupscreen2_screen\StartupScreen2View.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\startupscreen2_screen\StartupScreen2ViewBase.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\screen2_screen\Screen2ViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\driverscreen_screen\DriverScreenPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\driverscreen_screen\DriverScreenView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\driverscreen_screen\DriverScreenViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -207,6 +210,9 @@
     <ClInclude Include="..\..\gui\include\gui\startupscreen2_screen\StartupScreen2View.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\startupscreen2_screen\StartupScreen2ViewBase.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen2_screen\Screen2ViewBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\driverscreen_screen\DriverScreenPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\driverscreen_screen\DriverScreenView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\driverscreen_screen\DriverScreenViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

@@ -24,6 +24,10 @@ struct Typography
     static const touchgfx::FontId AUXBATTERYPOWER = 8;
     static const touchgfx::FontId V2_DEFAULT = 9;
     static const touchgfx::FontId V2_VAL = 10;
+    static const touchgfx::FontId V2_TITLE = 11;
+    static const touchgfx::FontId V2_SCREEN2VAL = 12;
+    static const touchgfx::FontId ERROR_FONT = 13;
+    static const touchgfx::FontId ERROR_TITLE_V2 = 14;
 };
 
 struct TypographyFontIndex
@@ -39,7 +43,11 @@ struct TypographyFontIndex
     static const touchgfx::FontId AUXBATTERYPOWER = 8; // SansSerifCollection_22_4bpp
     static const touchgfx::FontId V2_DEFAULT = 9;      // verdana_15_4bpp
     static const touchgfx::FontId V2_VAL = 4;          // verdanab_15_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 10;
+    static const touchgfx::FontId V2_TITLE = 10;        // leelauib_40_4bpp
+    static const touchgfx::FontId V2_SCREEN2VAL = 11;   // verdanab_35_4bpp
+    static const touchgfx::FontId ERROR_FONT = 3;      // verdanab_20_4bpp
+    static const touchgfx::FontId ERROR_TITLE_V2 = 12;  // verdana_20_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 13;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider
