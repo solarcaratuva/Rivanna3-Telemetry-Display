@@ -4,10 +4,17 @@
     <Language Id="GB" />
   </Languages>
   <Texts>
-    <TextGroup Id="Group1" />
+    <TextGroup Id="Group1">
+      <Text Id="ResourceId1" Alignment="Center" TypographyId="V2_Screen2Val">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+    </TextGroup>
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_D62K" Alignment="Center" TypographyId="Small">
-        <Translation Language="GB">UVA Solar Car Telemetry</Translation>
+      <Text Id="__SingleUse_UL2I" Alignment="Left" TypographyId="V2_Screen2Val">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_2FUR" Alignment="Left" TypographyId="V2_Screen2Val">
+        <Translation Language="GB">mph</Translation>
       </Text>
       <Text Id="__SingleUse_PCDE" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB">None</Translation>
@@ -16,10 +23,10 @@
         <Translation Language="GB">Power Aux</Translation>
       </Text>
       <Text Id="__SingleUse_GLTP" Alignment="Left" TypographyId="Error_Font">
-        <Translation Language="GB">None</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_VIXP" Alignment="Left" TypographyId="Error_Font">
-        <Translation Language="GB">ERR</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_QSZ8" Alignment="Left" TypographyId="Error_title_V2">
         <Translation Language="GB">BPS</Translation>
@@ -30,20 +37,17 @@
       <Text Id="__SingleUse_U4X1" Alignment="Left" TypographyId="V2_Title">
         <Translation Language="GB">Errors</Translation>
       </Text>
-      <Text Id="__SingleUse_TQYW" Alignment="Left" TypographyId="V2_Screen2Val">
-        <Translation Language="GB">0 V</Translation>
+      <Text Id="__SingleUse_TQYW" Alignment="Center" TypographyId="V2_Screen2Val">
+        <Translation Language="GB"> &lt;value&gt; V</Translation>
       </Text>
       <Text Id="__SingleUse_D6MH" Alignment="Center" TypographyId="V2_Title">
         <Translation Language="GB">Aux Battery </Translation>
       </Text>
       <Text Id="__SingleUse_DRUP" Alignment="Center" TypographyId="V2_Screen2Val">
-        <Translation Language="GB">0 W</Translation>
+        <Translation Language="GB">&lt;value&gt; W</Translation>
       </Text>
       <Text Id="__SingleUse_R0TU" Alignment="Left" TypographyId="V2_Title">
         <Translation Language="GB">Power</Translation>
-      </Text>
-      <Text Id="__SingleUse_8Y40" Alignment="Center" TypographyId="V2_Screen2Val">
-        <Translation Language="GB">0&#10;mph</Translation>
       </Text>
       <Text Id="__SingleUse_3ESY" Alignment="Left" TypographyId="V2_Title">
         <Translation Language="GB">Speed</Translation>
@@ -507,7 +511,7 @@
     <Typography Id="V2_Default" Font="verdana.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="V2_Val" Font="verdanab.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="V2_Title" Font="leelauib.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="V2_Screen2Val" Font="verdanab.ttf" Size="35" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="V2_Screen2Val" Font="verdanab.ttf" Size="35" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789." />
     <Typography Id="Error_Font" Font="verdanab.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="Error_title_V2" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>

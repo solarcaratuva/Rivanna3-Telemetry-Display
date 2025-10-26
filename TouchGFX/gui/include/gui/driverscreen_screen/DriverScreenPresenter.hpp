@@ -27,6 +27,12 @@ public:
 
     virtual ~DriverScreenPresenter() {}
 
+    float getSpeed(int rpm);
+
+    bool mtrError();
+
+    bool bpsError();
+
 private:
     DriverScreenPresenter();
 

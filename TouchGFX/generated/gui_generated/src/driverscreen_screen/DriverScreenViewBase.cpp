@@ -19,11 +19,13 @@ DriverScreenViewBase::DriverScreenViewBase()
     background.setColor(touchgfx::Color::getColorFromRGB(23, 26, 32));
     add(background);
 
-    textArea3.setXY(351, 786);
-    textArea3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    textArea3.setLinespacing(0);
-    textArea3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_D62K));
-    add(textArea3);
+    speed.setPosition(152, 101, 176, 38);
+    speed.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    speed.setLinespacing(0);
+    Unicode::snprintf(speedBuffer, SPEED_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_UL2I).getText());
+    speed.setWildcard(speedBuffer);
+    speed.setTypedText(touchgfx::TypedText(T_RESOURCEID1));
+    add(speed);
 
     line1.setPosition(41, 19, 140, 50);
     line1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -63,15 +65,19 @@ DriverScreenViewBase::DriverScreenViewBase()
     line1_1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     add(line1_1);
 
-    mtr_controller_error_value.setPosition(64, 572, 72, 35);
+    mtr_controller_error_value.setPosition(41, 572, 95, 35);
     mtr_controller_error_value.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
     mtr_controller_error_value.setLinespacing(0);
+    mtr_controller_error_valueBuffer[0] = 0;
+    mtr_controller_error_value.setWildcard(mtr_controller_error_valueBuffer);
     mtr_controller_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VIXP));
     add(mtr_controller_error_value);
 
     bps_error_value.setPosition(381, 571, 65, 36);
     bps_error_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     bps_error_value.setLinespacing(0);
+    bps_error_valueBuffer[0] = 0;
+    bps_error_value.setWildcard(bps_error_valueBuffer);
     bps_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GLTP));
     add(bps_error_value);
 
@@ -153,29 +159,33 @@ DriverScreenViewBase::DriverScreenViewBase()
     border1_1_1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     add(border1_1_1);
 
-    speed_Mph.setXY(197, 103);
-    speed_Mph.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    speed_Mph.setLinespacing(0);
-    speed_Mph.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8Y40));
-    add(speed_Mph);
+    watts.setPosition(271, 348, 207, 42);
+    watts.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    watts.setLinespacing(0);
+    wattsBuffer[0] = 0;
+    watts.setWildcard(wattsBuffer);
+    watts.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DRUP));
+    add(watts);
 
-    speed_Mph_1.setXY(351, 348);
-    speed_Mph_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    speed_Mph_1.setLinespacing(0);
-    speed_Mph_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DRUP));
-    add(speed_Mph_1);
-
-    speed_Mph_1_1.setXY(104, 348);
-    speed_Mph_1_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    speed_Mph_1_1.setLinespacing(0);
-    speed_Mph_1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TQYW));
-    add(speed_Mph_1_1);
+    volts.setPosition(34, 348, 185, 42);
+    volts.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    volts.setLinespacing(0);
+    voltsBuffer[0] = 0;
+    volts.setWildcard(voltsBuffer);
+    volts.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TQYW));
+    add(volts);
 
     textArea1.setXY(17, 272);
     textArea1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_D6MH));
     add(textArea1);
+
+    textArea4.setPosition(194, 157, 92, 48);
+    textArea4.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    textArea4.setLinespacing(0);
+    textArea4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2FUR));
+    add(textArea4);
 }
 
 DriverScreenViewBase::~DriverScreenViewBase()
@@ -186,4 +196,12 @@ DriverScreenViewBase::~DriverScreenViewBase()
 void DriverScreenViewBase::setupScreen()
 {
 
+}
+
+void DriverScreenViewBase::handleTickEvent()
+{
+    //Interaction1
+    //When every N tick call virtual function
+    //Call main
+    main();
 }

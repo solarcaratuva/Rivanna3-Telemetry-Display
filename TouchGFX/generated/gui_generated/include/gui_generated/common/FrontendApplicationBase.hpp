@@ -21,8 +21,6 @@ public:
     }
 
     // Screen1
-    void gotoScreen1ScreenWipeTransitionNorth();
-
     void gotoScreen1ScreenNoTransition();
 
     // StartupScreen
@@ -31,14 +29,15 @@ public:
     // Screen2
     void gotoScreen2ScreenNoTransition();
 
+    // DriverScreen
+    void gotoDriverScreenScreenWipeTransitionNorth();
+
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
     Model& model;
 
     // Screen1
-    void gotoScreen1ScreenWipeTransitionNorthImpl();
-
     void gotoScreen1ScreenNoTransitionImpl();
 
     // StartupScreen
@@ -46,6 +45,9 @@ protected:
 
     // Screen2
     void gotoScreen2ScreenNoTransitionImpl();
+
+    // DriverScreen
+    void gotoDriverScreenScreenWipeTransitionNorthImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

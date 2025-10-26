@@ -48,9 +48,9 @@ void StartupScreenViewBase::handleTickEvent()
         {
 
             //Interaction2
-            //When Interaction1 completed change screen to Screen1
-            //Go to Screen1 with screen transition towards North
-            application().gotoScreen1ScreenWipeTransitionNorth();
+            //When Interaction1 completed change screen to DriverScreen
+            //Go to DriverScreen with screen transition towards North
+            application().gotoDriverScreenScreenWipeTransitionNorth();
         }
     }
 

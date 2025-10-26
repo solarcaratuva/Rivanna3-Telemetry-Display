@@ -950,7 +950,7 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionWipe",
               "ScreenTransitionDirection": "North",
-              "ActionComponent": "Screen1"
+              "ActionComponent": "DriverScreen"
             }
           }
         ]
@@ -1282,19 +1282,23 @@
           },
           {
             "Type": "TextArea",
-            "Name": "textArea3",
-            "X": 351,
-            "Y": 786,
-            "Width": 127,
-            "Height": 12,
-            "TextId": "__SingleUse_D62K",
+            "Name": "speed",
+            "X": 152,
+            "Y": 101,
+            "Width": 176,
+            "Height": 38,
+            "TextId": "ResourceId1",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true
+            "Wildcard1": {
+              "TextId": "__SingleUse_UL2I",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
           },
           {
             "Type": "Line",
@@ -1391,9 +1395,9 @@
           {
             "Type": "TextArea",
             "Name": "mtr_controller_error_value",
-            "X": 64,
+            "X": 41,
             "Y": 572,
-            "Width": 72,
+            "Width": 95,
             "Height": 35,
             "TextId": "__SingleUse_VIXP",
             "TextRotation": "0",
@@ -1401,6 +1405,10 @@
               "Red": 222,
               "Green": 84,
               "Blue": 84
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -1416,6 +1424,10 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -1604,26 +1616,10 @@
           },
           {
             "Type": "TextArea",
-            "Name": "speed_Mph",
-            "X": 197,
-            "Y": 103,
-            "Width": 86,
-            "Height": 84,
-            "TextId": "__SingleUse_8Y40",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true
-          },
-          {
-            "Type": "TextArea",
-            "Name": "speed_Mph_1",
-            "X": 351,
+            "Name": "watts",
+            "X": 271,
             "Y": 348,
-            "Width": 77,
+            "Width": 207,
             "Height": 42,
             "TextId": "__SingleUse_DRUP",
             "TextRotation": "0",
@@ -1632,14 +1628,17 @@
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
           },
           {
             "Type": "TextArea",
-            "Name": "speed_Mph_1_1",
-            "X": 104,
+            "Name": "volts",
+            "X": 34,
             "Y": 348,
-            "Width": 64,
+            "Width": 185,
             "Height": 42,
             "TextId": "__SingleUse_TQYW",
             "TextRotation": "0",
@@ -1648,7 +1647,10 @@
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
           },
           {
             "Type": "TextArea",
@@ -1665,9 +1667,36 @@
               "Blue": 255
             },
             "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea4",
+            "X": 194,
+            "Y": 157,
+            "Width": 92,
+            "Height": 48,
+            "TextId": "__SingleUse_2FUR",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "main"
+            }
+          }
+        ]
       },
       {
         "Name": "DataScreen",

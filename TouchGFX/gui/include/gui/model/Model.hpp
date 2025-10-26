@@ -32,6 +32,11 @@ public:
     void setRegenEn(bool on);
     void setLowPowerEn(bool on);
 
+    float calcSpeed(int rpm);
+
+    bool mtrError();
+    bool bpsError();
+
 protected:
     ModelListener* modelListener;
 

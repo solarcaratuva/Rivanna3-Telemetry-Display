@@ -8,10 +8,11 @@
 #include <mvp/View.hpp>
 #include <gui/driverscreen_screen/DriverScreenPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/canvas/Line.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 #include <touchgfx/widgets/canvas/Shape.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 
 class DriverScreenViewBase : public touchgfx::View<DriverScreenPresenter>
@@ -20,6 +21,15 @@ public:
     DriverScreenViewBase();
     virtual ~DriverScreenViewBase();
     virtual void setupScreen();
+    virtual void handleTickEvent();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void main()
+    {
+        // Override and implement this function in DriverScreen
+    }
 
 protected:
     FrontendApplication& application() {
@@ -31,7 +41,7 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box background;
-    touchgfx::TextArea textArea3;
+    touchgfx::TextAreaWithOneWildcard speed;
     touchgfx::Line line1;
     touchgfx::PainterRGB888 line1Painter;
     touchgfx::Shape<3> shape1_2_1;
@@ -40,8 +50,8 @@ protected:
     touchgfx::PainterRGB888 shape1_2Painter;
     touchgfx::Line line1_1;
     touchgfx::PainterRGB888 line1_1Painter;
-    touchgfx::TextArea mtr_controller_error_value;
-    touchgfx::TextArea bps_error_value;
+    touchgfx::TextAreaWithOneWildcard mtr_controller_error_value;
+    touchgfx::TextAreaWithOneWildcard bps_error_value;
     touchgfx::TextArea power_aux_error_value;
     touchgfx::TextArea mtr_controller_err_text;
     touchgfx::TextArea bps_err_text;
@@ -56,10 +66,24 @@ protected:
     touchgfx::PainterRGB888 border1_1Painter;
     touchgfx::Line border1_1_1;
     touchgfx::PainterRGB888 border1_1_1Painter;
-    touchgfx::TextArea speed_Mph;
-    touchgfx::TextArea speed_Mph_1;
-    touchgfx::TextArea speed_Mph_1_1;
+    touchgfx::TextAreaWithOneWildcard watts;
+    touchgfx::TextAreaWithOneWildcard volts;
     touchgfx::TextArea textArea1;
+    touchgfx::TextArea textArea4;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t SPEED_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar speedBuffer[SPEED_SIZE];
+    static const uint16_t MTR_CONTROLLER_ERROR_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar mtr_controller_error_valueBuffer[MTR_CONTROLLER_ERROR_VALUE_SIZE];
+    static const uint16_t BPS_ERROR_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar bps_error_valueBuffer[BPS_ERROR_VALUE_SIZE];
+    static const uint16_t WATTS_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar wattsBuffer[WATTS_SIZE];
+    static const uint16_t VOLTS_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar voltsBuffer[VOLTS_SIZE];
 
 private:
 

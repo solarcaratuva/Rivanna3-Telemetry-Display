@@ -16,3 +16,19 @@ void DriverScreenPresenter::deactivate()
 {
 
 }
+
+
+float DriverScreenPresenter::getSpeed(int rpm)
+{
+    return model->calcSpeed(rpm);
+}
+
+bool DriverScreenPresenter::mtrError()
+{
+    return model->mtrError();
+}
+
+bool DriverScreenPresenter::bpsError()
+{
+    return model->bpsError();
+}
