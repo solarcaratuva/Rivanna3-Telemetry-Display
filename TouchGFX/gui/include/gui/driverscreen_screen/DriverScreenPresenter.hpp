@@ -33,6 +33,12 @@ public:
 
     bool bpsError();
 
+    bool getRightTurnSignal();
+
+    bool getLeftTurnSignal();
+
+    bool getHazards();
+
 private:
     DriverScreenPresenter();
 

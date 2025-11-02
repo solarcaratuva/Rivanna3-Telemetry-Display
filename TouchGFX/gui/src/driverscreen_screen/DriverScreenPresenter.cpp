@@ -32,3 +32,15 @@ bool DriverScreenPresenter::bpsError()
 {
     return model->bpsError();
 }
+
+bool DriverScreenPresenter::getRightTurnSignal() {
+    return model->isRightTurnSignal();
+}
+
+bool DriverScreenPresenter::getLeftTurnSignal() {
+    return model->isLeftTurnSignal(); 
+}
+
+bool DriverScreenPresenter::getHazards() {
+    return model->isHazards();
+}

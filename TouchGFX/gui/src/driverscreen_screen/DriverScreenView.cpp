@@ -1,5 +1,4 @@
 #include <gui/driverscreen_screen/DriverScreenView.hpp>
-
 #include <touchgfx/Color.hpp>
 
 #ifndef SIMULATOR
@@ -8,7 +7,10 @@
 
 DriverScreenView::DriverScreenView()
 {
-
+    line1.setPainter(line1Painter);
+    line1_1.setPainter(line1_1Painter);
+    shape1_2.setPainter(shape1_2Painter);
+    shape1_2_1.setPainter(shape1_2_1Painter);
 }
 
 void DriverScreenView::setupScreen()
@@ -43,18 +45,45 @@ void DriverScreenView::tearDownScreen()
 
 void DriverScreenView::main()
 {
-    #ifndef SIMULATOR
-        ReceivedCanData_t receivedCanData;
-        if (xQueueReceive(canReceivedQueue, &receivedCanData, (TickType_t)0 ) == pdTRUE) {
-            int rpm = receivedCanData.motor_controller_power_status.motor_rpm;
-            int auxBatteryMVolt = receivedCanData.aux_battery_status.aux_voltage;
-            int packCurr = receivedCanData.bps_pack_information.pack_current;
-        }
-    #else
-        int rpm = 1234;
-        int auxBatteryMVolt = 12569;
-        int packCurr = 5;
-    #endif
+    int packCurr = 0;
+    int rpm = 0;
+    int auxBatteryMVolt = 0;
+#ifndef SIMULATOR
+    ReceivedCanData_t receivedCanData;
+    if (xQueueReceive(canReceivedQueue, &receivedCanData, (TickType_t)0 ) == pdTRUE) {
+        int rpm = receivedCanData.motor_controller_power_status.motor_rpm;
+        int auxBatteryMVolt = receivedCanData.aux_battery_status.aux_voltage;
+        int packCurr = receivedCanData.bps_pack_information.pack_current;
+    }
+#else
+    packCurr = 5;
+    rpm = 1234;
+    auxBatteryMVolt = 12569;
+#endif
+    bool isRight = presenter->getRightTurnSignal(); 
+    bool isLeft = presenter->getLeftTurnSignal();
+    bool isHaz = presenter->getHazards();
+    if (isHaz) {
+        line1Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
+        shape1_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
+        line1_1Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
+        shape1_2Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
+    } else if (isLeft) {
+        line1Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
+        shape1_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
+        line1_1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+        shape1_2Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    } else if (isRight) {
+        line1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+        shape1_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+        line1_1Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
+        shape1_2Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
+    } else {
+        line1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+        shape1_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+        line1_1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+        shape1_2Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    }
     float packCurr_f = packCurr * 0.1f;
     float speedInMph = presenter->getSpeed(rpm);
     float auxBatteryVoltConv = auxBatteryMVolt * 0.001f;
