@@ -13,7 +13,6 @@
 #include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 #include <touchgfx/widgets/canvas/Shape.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
-#include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 
 class DriverScreenViewBase : public touchgfx::View<DriverScreenPresenter>
 {
@@ -56,7 +55,6 @@ protected:
     touchgfx::TextArea mtr_controller_err_text;
     touchgfx::TextArea bps_err_text;
     touchgfx::TextArea power_aux_err_text;
-    touchgfx::BoxProgress BatteryChargeFill;
     touchgfx::TextArea speed_title;
     touchgfx::TextArea errors;
     touchgfx::TextArea power_title;
@@ -67,9 +65,13 @@ protected:
     touchgfx::Line border1_1_1;
     touchgfx::PainterRGB888 border1_1_1Painter;
     touchgfx::TextAreaWithOneWildcard watts;
-    touchgfx::TextAreaWithOneWildcard volts;
+    touchgfx::TextAreaWithOneWildcard soc;
+    touchgfx::TextAreaWithOneWildcard bpsv;
+    touchgfx::TextAreaWithOneWildcard bpsc;
     touchgfx::TextArea textArea1;
     touchgfx::TextArea textArea4;
+    touchgfx::TextArea textArea5;
+    touchgfx::TextArea textArea5_1;
 
     /*
      * Wildcard Buffers
@@ -82,8 +84,12 @@ protected:
     touchgfx::Unicode::UnicodeChar bps_error_valueBuffer[BPS_ERROR_VALUE_SIZE];
     static const uint16_t WATTS_SIZE = 10;
     touchgfx::Unicode::UnicodeChar wattsBuffer[WATTS_SIZE];
-    static const uint16_t VOLTS_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar voltsBuffer[VOLTS_SIZE];
+    static const uint16_t SOC_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar socBuffer[SOC_SIZE];
+    static const uint16_t BPSV_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar bpsvBuffer[BPSV_SIZE];
+    static const uint16_t BPSC_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar bpscBuffer[BPSC_SIZE];
 
 private:
 

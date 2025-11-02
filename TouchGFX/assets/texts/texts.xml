@@ -10,6 +10,18 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_VG8V" Alignment="Center" TypographyId="V2_Screen2Val">
+        <Translation Language="GB"> &lt;value&gt; Amp</Translation>
+      </Text>
+      <Text Id="__SingleUse_8SLF" Alignment="Center" TypographyId="V2_Screen2Val">
+        <Translation Language="GB"> &lt;value&gt; V</Translation>
+      </Text>
+      <Text Id="__SingleUse_I07J" Alignment="Left" TypographyId="V2_Title">
+        <Translation Language="GB">BPS Curr</Translation>
+      </Text>
+      <Text Id="__SingleUse_4038" Alignment="Left" TypographyId="V2_Title">
+        <Translation Language="GB">BPS Volt</Translation>
+      </Text>
       <Text Id="__SingleUse_UL2I" Alignment="Left" TypographyId="V2_Screen2Val">
         <Translation Language="GB">0</Translation>
       </Text>
@@ -38,10 +50,10 @@
         <Translation Language="GB">Errors</Translation>
       </Text>
       <Text Id="__SingleUse_TQYW" Alignment="Center" TypographyId="V2_Screen2Val">
-        <Translation Language="GB"> &lt;value&gt; V</Translation>
+        <Translation Language="GB"> &lt;value&gt; </Translation>
       </Text>
       <Text Id="__SingleUse_D6MH" Alignment="Center" TypographyId="V2_Title">
-        <Translation Language="GB">Aux Battery </Translation>
+        <Translation Language="GB">BPS SOC</Translation>
       </Text>
       <Text Id="__SingleUse_DRUP" Alignment="Center" TypographyId="V2_Screen2Val">
         <Translation Language="GB">&lt;value&gt; W</Translation>

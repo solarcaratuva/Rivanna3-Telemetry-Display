@@ -1491,25 +1491,6 @@
             }
           },
           {
-            "Type": "BoxProgress",
-            "Name": "BatteryChargeFill",
-            "X": 40,
-            "Y": 415,
-            "Width": 200,
-            "Height": 10,
-            "Color": {
-              "Red": 99,
-              "Green": 199,
-              "Blue": 46
-            },
-            "Direction": "Right",
-            "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_normal_small.png",
-            "IndicatorPositionWidth": 300,
-            "IndicatorPositionHeight": 10,
-            "ProgressRangeMax": 100,
-            "ProgressInitialValue": 60
-          },
-          {
             "Type": "TextArea",
             "Name": "speed_title",
             "X": 182,
@@ -1635,12 +1616,50 @@
           },
           {
             "Type": "TextArea",
-            "Name": "volts",
-            "X": 34,
-            "Y": 348,
-            "Width": 185,
-            "Height": 42,
+            "Name": "soc",
+            "X": 9,
+            "Y": 342,
+            "Width": 167,
+            "Height": 41,
             "TextId": "__SingleUse_TQYW",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "bpsv",
+            "X": 17,
+            "Y": 726,
+            "Width": 167,
+            "Height": 41,
+            "TextId": "__SingleUse_8SLF",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "bpsc",
+            "X": 263,
+            "Y": 726,
+            "Width": 215,
+            "Height": 41,
+            "TextId": "__SingleUse_VG8V",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
@@ -1657,7 +1676,7 @@
             "Name": "textArea1",
             "X": 17,
             "Y": 272,
-            "Width": 238,
+            "Width": 161,
             "Height": 49,
             "TextId": "__SingleUse_D6MH",
             "TextRotation": "0",
@@ -1682,6 +1701,38 @@
               "Green": 255,
               "Blue": 255
             }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea5",
+            "X": 17,
+            "Y": 657,
+            "Width": 159,
+            "Height": 49,
+            "TextId": "__SingleUse_4038",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea5_1",
+            "X": 286,
+            "Y": 657,
+            "Width": 165,
+            "Height": 49,
+            "TextId": "__SingleUse_I07J",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
           }
         ],
         "Interactions": [
