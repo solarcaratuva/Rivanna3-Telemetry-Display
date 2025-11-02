@@ -1304,7 +1304,7 @@
             "Type": "Line",
             "Name": "line1",
             "X": 41,
-            "Y": 19,
+            "Y": 42,
             "Width": 140,
             "Height": 50,
             "Color": {
@@ -1322,7 +1322,7 @@
             "Type": "Shape",
             "Name": "shape1_2_1",
             "X": 17,
-            "Y": 13,
+            "Y": 36,
             "Width": 57,
             "Height": 56,
             "Color": {
@@ -1349,7 +1349,7 @@
             "Type": "Shape",
             "Name": "shape1_2",
             "X": 414,
-            "Y": 13,
+            "Y": 36,
             "Width": 66,
             "Height": 56,
             "Color": {
@@ -1377,7 +1377,7 @@
             "Type": "Line",
             "Name": "line1_1",
             "X": 377,
-            "Y": 19,
+            "Y": 42,
             "Width": 74,
             "Height": 40,
             "Color": {
