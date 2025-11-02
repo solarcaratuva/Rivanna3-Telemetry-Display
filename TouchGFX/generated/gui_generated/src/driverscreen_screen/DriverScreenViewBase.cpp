@@ -27,7 +27,7 @@ DriverScreenViewBase::DriverScreenViewBase()
     speed.setTypedText(touchgfx::TypedText(T_RESOURCEID1));
     add(speed);
 
-    line1.setPosition(41, 19, 140, 50);
+    line1.setPosition(41, 42, 140, 50);
     line1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     line1.setPainter(line1Painter);
     line1.setStart(0, 20);
@@ -36,7 +36,7 @@ DriverScreenViewBase::DriverScreenViewBase()
     line1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     add(line1);
 
-    shape1_2_1.setPosition(17, 13, 57, 56);
+    shape1_2_1.setPosition(17, 36, 57, 56);
     shape1_2_1.setOrigin(0.0f, 0.0f);
     shape1_2_1.setScale(0.7f, 0.7f);
     shape1_2_1.setAngle(0.0f);
@@ -46,7 +46,7 @@ DriverScreenViewBase::DriverScreenViewBase()
     shape1_2_1.setShape(shape1_2_1Points);
     add(shape1_2_1);
 
-    shape1_2.setPosition(414, 13, 66, 56);
+    shape1_2.setPosition(414, 36, 66, 56);
     shape1_2.setOrigin(0.0f, 0.0f);
     shape1_2.setScale(0.7f, 0.7f);
     shape1_2.setAngle(0.0f);
@@ -56,7 +56,7 @@ DriverScreenViewBase::DriverScreenViewBase()
     shape1_2.setShape(shape1_2Points);
     add(shape1_2);
 
-    line1_1.setPosition(377, 19, 74, 40);
+    line1_1.setPosition(377, 42, 74, 40);
     line1_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     line1_1.setPainter(line1_1Painter);
     line1_1.setStart(60, 20);

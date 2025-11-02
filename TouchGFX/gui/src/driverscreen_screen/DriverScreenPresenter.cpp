@@ -44,3 +44,13 @@ bool DriverScreenPresenter::getLeftTurnSignal() {
 bool DriverScreenPresenter::getHazards() {
     return model->isHazards();
 }
+
+void DriverScreenPresenter::toggleLeftTurnSignal()
+{
+    model->setLeftTurnSignal(!model->isLeftTurnSignal());
+}
+
+void DriverScreenPresenter::toggleRightTurnSignal()
+{
+    model->setRightTurnSignal(!model->isRightTurnSignal());
+}

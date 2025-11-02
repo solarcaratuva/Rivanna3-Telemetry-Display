@@ -43,6 +43,20 @@ void DriverScreenView::tearDownScreen()
     DriverScreenViewBase::tearDownScreen();
 }
 
+void DriverScreenView::handleKeyEvent(uint8_t key)
+{
+    // Use simple ASCII keys in the simulator window:
+    if (key == 'A' || key == 'a')
+    {
+        presenter->toggleLeftTurnSignal();
+    }
+    else if (key == 'D' || key == 'd')
+    {
+        presenter->toggleRightTurnSignal();
+    }
+    invalidate();
+}
+
 void DriverScreenView::main()
 {
     int packCurr = 0;
@@ -71,18 +85,18 @@ void DriverScreenView::main()
     } else if (isLeft) {
         line1Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
         shape1_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
-        line1_1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-        shape1_2Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+        line1_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        shape1_2Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     } else if (isRight) {
-        line1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-        shape1_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+        line1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        shape1_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
         line1_1Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
         shape1_2Painter.setColor(touchgfx::Color::getColorFromRGB(71, 201, 4));
     } else {
-        line1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-        shape1_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-        line1_1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-        shape1_2Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+        line1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        shape1_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        line1_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        shape1_2Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
     float packCurr_f = packCurr * 0.1f;
     float speedInMph = presenter->getSpeed(rpm);

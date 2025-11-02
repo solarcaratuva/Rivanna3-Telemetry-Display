@@ -39,6 +39,10 @@ public:
 
     bool getHazards();
 
+    void toggleLeftTurnSignal();
+
+    void toggleRightTurnSignal();
+
 private:
     DriverScreenPresenter();
 
