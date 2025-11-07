@@ -10,6 +10,12 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_UMNM" Alignment="Left" TypographyId="V2_Title">
+        <Translation Language="GB">Error</Translation>
+      </Text>
+      <Text Id="__SingleUse_DRDT" Alignment="Left" TypographyId="Error_title_V2">
+        <Translation Language="GB"></Translation>
+      </Text>
       <Text Id="__SingleUse_ATFQ" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB">Working</Translation>
       </Text>

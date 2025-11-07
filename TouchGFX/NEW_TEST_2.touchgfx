@@ -1434,7 +1434,7 @@
             "Type": "TextArea",
             "Name": "power_aux_error_value",
             "X": 40,
-            "Y": 458,
+            "Y": 503,
             "Width": 129,
             "Height": 37,
             "TextId": "__SingleUse_PCDE",
@@ -1448,7 +1448,7 @@
             "Type": "TextArea",
             "Name": "power_aux_error_value_1",
             "X": 317,
-            "Y": 458,
+            "Y": 503,
             "Width": 121,
             "Height": 37,
             "TextId": "__SingleUse_ATFQ",
@@ -1462,7 +1462,7 @@
             "Type": "TextArea",
             "Name": "mtr_controller_err_text",
             "X": 40,
-            "Y": 414,
+            "Y": 459,
             "Width": 224,
             "Height": 37,
             "TextId": "__SingleUse_I9HO",
@@ -1475,9 +1475,24 @@
           },
           {
             "Type": "TextArea",
+            "Name": "mtr_controller_err_text_1",
+            "X": 40,
+            "Y": 535,
+            "Width": 224,
+            "Height": 37,
+            "TextId": "__SingleUse_DRDT",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
             "Name": "bps_err_text",
             "X": 317,
-            "Y": 414,
+            "Y": 459,
             "Width": 70,
             "Height": 37,
             "TextId": "__SingleUse_QSZ8",
@@ -1496,6 +1511,22 @@
             "Width": 116,
             "Height": 49,
             "TextId": "__SingleUse_3ESY",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "error_title",
+            "X": 194,
+            "Y": 403,
+            "Width": 93,
+            "Height": 49,
+            "TextId": "__SingleUse_UMNM",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
@@ -1562,9 +1593,9 @@
             "Type": "Line",
             "Name": "border1_1_1",
             "X": 34,
-            "Y": 508,
+            "Y": 553,
             "Width": 412,
-            "Height": 71,
+            "Height": 19,
             "Color": {
               "Red": 51,
               "Green": 51,
