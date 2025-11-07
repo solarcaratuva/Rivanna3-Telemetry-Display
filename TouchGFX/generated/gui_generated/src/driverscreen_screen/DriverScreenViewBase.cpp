@@ -5,6 +5,7 @@
 #include <touchgfx/canvas_widget_renderer/CanvasWidgetRenderer.hpp>
 #include <touchgfx/Color.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
+#include <images/BitmapDatabase.hpp>
 
 DriverScreenViewBase::DriverScreenViewBase()
 {
@@ -80,29 +81,29 @@ DriverScreenViewBase::DriverScreenViewBase()
     bps_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GLTP));
     add(bps_error_value);
 
-    power_aux_error_value.setPosition(231, 571, 65, 36);
-    power_aux_error_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    power_aux_error_value.setPosition(40, 458, 129, 37);
+    power_aux_error_value.setColor(touchgfx::Color::getColorFromRGB(55, 255, 0));
     power_aux_error_value.setLinespacing(0);
     power_aux_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PCDE));
     add(power_aux_error_value);
 
-    mtr_controller_err_text.setPosition(17, 542, 168, 28);
+    power_aux_error_value_1.setPosition(317, 458, 121, 37);
+    power_aux_error_value_1.setColor(touchgfx::Color::getColorFromRGB(55, 255, 0));
+    power_aux_error_value_1.setLinespacing(0);
+    power_aux_error_value_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_ATFQ));
+    add(power_aux_error_value_1);
+
+    mtr_controller_err_text.setPosition(40, 414, 224, 37);
     mtr_controller_err_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     mtr_controller_err_text.setLinespacing(0);
     mtr_controller_err_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_I9HO));
     add(mtr_controller_err_text);
 
-    bps_err_text.setPosition(381, 542, 65, 28);
+    bps_err_text.setPosition(317, 414, 70, 37);
     bps_err_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     bps_err_text.setLinespacing(0);
     bps_err_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_QSZ8));
     add(bps_err_text);
-
-    power_aux_err_text.setPosition(209, 543, 108, 27);
-    power_aux_err_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    power_aux_err_text.setLinespacing(0);
-    power_aux_err_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_3BKL));
-    add(power_aux_err_text);
 
     speed_title.setXY(182, 36);
     speed_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -110,19 +111,13 @@ DriverScreenViewBase::DriverScreenViewBase()
     speed_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_3ESY));
     add(speed_title);
 
-    errors.setXY(185, 493);
-    errors.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    errors.setLinespacing(0);
-    errors.setTypedText(touchgfx::TypedText(T___SINGLEUSE_U4X1));
-    add(errors);
-
-    power_title.setXY(330, 272);
+    power_title.setXY(317, 304);
     power_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     power_title.setLinespacing(0);
     power_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_R0TU));
     add(power_title);
 
-    border1.setPosition(34, 237, 412, 71);
+    border1.setPosition(34, 158, 412, 19);
     border1Painter.setColor(touchgfx::Color::getColorFromRGB(51, 51, 51));
     border1.setPainter(border1Painter);
     border1.setStart(5, 5);
@@ -131,7 +126,7 @@ DriverScreenViewBase::DriverScreenViewBase()
     border1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     add(border1);
 
-    border1_1.setPosition(34, 471, 412, 71);
+    border1_1.setPosition(34, 392, 412, 22);
     border1_1Painter.setColor(touchgfx::Color::getColorFromRGB(51, 51, 51));
     border1_1.setPainter(border1_1Painter);
     border1_1.setStart(5, 5);
@@ -140,7 +135,7 @@ DriverScreenViewBase::DriverScreenViewBase()
     border1_1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     add(border1_1);
 
-    border1_1_1.setPosition(34, 635, 412, 71);
+    border1_1_1.setPosition(34, 508, 412, 71);
     border1_1_1Painter.setColor(touchgfx::Color::getColorFromRGB(51, 51, 51));
     border1_1_1.setPainter(border1_1_1Painter);
     border1_1_1.setStart(5, 5);
@@ -149,15 +144,23 @@ DriverScreenViewBase::DriverScreenViewBase()
     border1_1_1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     add(border1_1_1);
 
-    watts.setPosition(271, 348, 207, 42);
+    watts.setPosition(317, 341, 188, 34);
     watts.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     watts.setLinespacing(0);
-    wattsBuffer[0] = 0;
+    Unicode::snprintf(wattsBuffer, WATTS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_JYPR).getText());
     watts.setWildcard(wattsBuffer);
     watts.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DRUP));
     add(watts);
 
-    soc.setPosition(9, 342, 167, 41);
+    watts_1.setPosition(40, 341, 188, 34);
+    watts_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    watts_1.setLinespacing(0);
+    Unicode::snprintf(watts_1Buffer, WATTS_1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_QLG6).getText());
+    watts_1.setWildcard(watts_1Buffer);
+    watts_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BGJ2));
+    add(watts_1);
+
+    soc.setPosition(32, 342, 167, 41);
     soc.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     soc.setLinespacing(0);
     socBuffer[0] = 0;
@@ -165,45 +168,48 @@ DriverScreenViewBase::DriverScreenViewBase()
     soc.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TQYW));
     add(soc);
 
-    bpsv.setPosition(17, 726, 167, 41);
+    bpsv.setPosition(32, 222, 153, 34);
     bpsv.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     bpsv.setLinespacing(0);
-    bpsvBuffer[0] = 0;
+    Unicode::snprintf(bpsvBuffer, BPSV_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_L6JI).getText());
     bpsv.setWildcard(bpsvBuffer);
     bpsv.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8SLF));
     add(bpsv);
 
-    bpsc.setPosition(263, 726, 215, 41);
+    bpsc.setPosition(310, 222, 227, 34);
     bpsc.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     bpsc.setLinespacing(0);
-    bpscBuffer[0] = 0;
+    Unicode::snprintf(bpscBuffer, BPSC_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_ZQON).getText());
     bpsc.setWildcard(bpscBuffer);
     bpsc.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VG8V));
     add(bpsc);
 
-    textArea1.setXY(17, 272);
+    textArea1.setXY(40, 304);
     textArea1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_D6MH));
     add(textArea1);
 
-    textArea4.setPosition(194, 157, 92, 48);
-    textArea4.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    textArea4.setLinespacing(0);
-    textArea4.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2FUR));
-    add(textArea4);
-
-    textArea5.setXY(17, 657);
+    textArea5.setXY(40, 186);
     textArea5.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea5.setLinespacing(0);
     textArea5.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4038));
     add(textArea5);
 
-    textArea5_1.setXY(286, 657);
+    textArea5_1.setXY(317, 186);
     textArea5_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea5_1.setLinespacing(0);
     textArea5_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_I07J));
     add(textArea5_1);
+
+    boxProgress1.setXY(40, 375);
+    boxProgress1.setProgressIndicatorPosition(0, 0, 300, 10);
+    boxProgress1.setRange(0, 100);
+    boxProgress1.setDirection(touchgfx::AbstractDirectionProgress::RIGHT);
+    boxProgress1.setBackground(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BOXPROGRESS_NORMAL_SMALL_ID));
+    boxProgress1.setColor(touchgfx::Color::getColorFromRGB(55, 255, 0));
+    boxProgress1.setValue(60);
+    add(boxProgress1);
 }
 
 DriverScreenViewBase::~DriverScreenViewBase()

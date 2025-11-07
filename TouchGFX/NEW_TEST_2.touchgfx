@@ -1433,25 +1433,38 @@
           {
             "Type": "TextArea",
             "Name": "power_aux_error_value",
-            "X": 231,
-            "Y": 571,
-            "Width": 65,
-            "Height": 36,
+            "X": 40,
+            "Y": 458,
+            "Width": 129,
+            "Height": 37,
             "TextId": "__SingleUse_PCDE",
             "TextRotation": "0",
             "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
+              "Red": 55,
+              "Green": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "power_aux_error_value_1",
+            "X": 317,
+            "Y": 458,
+            "Width": 121,
+            "Height": 37,
+            "TextId": "__SingleUse_ATFQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 55,
+              "Green": 255
             }
           },
           {
             "Type": "TextArea",
             "Name": "mtr_controller_err_text",
-            "X": 17,
-            "Y": 542,
-            "Width": 168,
-            "Height": 28,
+            "X": 40,
+            "Y": 414,
+            "Width": 224,
+            "Height": 37,
             "TextId": "__SingleUse_I9HO",
             "TextRotation": "0",
             "Color": {
@@ -1463,26 +1476,11 @@
           {
             "Type": "TextArea",
             "Name": "bps_err_text",
-            "X": 381,
-            "Y": 542,
-            "Width": 65,
-            "Height": 28,
+            "X": 317,
+            "Y": 414,
+            "Width": 70,
+            "Height": 37,
             "TextId": "__SingleUse_QSZ8",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "power_aux_err_text",
-            "X": 209,
-            "Y": 543,
-            "Width": 108,
-            "Height": 27,
-            "TextId": "__SingleUse_3BKL",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
@@ -1508,27 +1506,11 @@
           },
           {
             "Type": "TextArea",
-            "Name": "errors",
-            "X": 185,
-            "Y": 493,
-            "Width": 111,
-            "Height": 49,
-            "TextId": "__SingleUse_U4X1",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true
-          },
-          {
-            "Type": "TextArea",
             "Name": "power_title",
-            "X": 330,
-            "Y": 272,
-            "Width": 118,
-            "Height": 49,
+            "X": 317,
+            "Y": 304,
+            "Width": 91,
+            "Height": 30,
             "TextId": "__SingleUse_R0TU",
             "TextRotation": "0",
             "Color": {
@@ -1542,9 +1524,9 @@
             "Type": "Line",
             "Name": "border1",
             "X": 34,
-            "Y": 237,
+            "Y": 158,
             "Width": 412,
-            "Height": 71,
+            "Height": 19,
             "Color": {
               "Red": 51,
               "Green": 51,
@@ -1561,9 +1543,9 @@
             "Type": "Line",
             "Name": "border1_1",
             "X": 34,
-            "Y": 471,
+            "Y": 392,
             "Width": 412,
-            "Height": 71,
+            "Height": 22,
             "Color": {
               "Red": 51,
               "Green": 51,
@@ -1580,7 +1562,7 @@
             "Type": "Line",
             "Name": "border1_1_1",
             "X": 34,
-            "Y": 635,
+            "Y": 508,
             "Width": 412,
             "Height": 71,
             "Color": {
@@ -1598,10 +1580,10 @@
           {
             "Type": "TextArea",
             "Name": "watts",
-            "X": 271,
-            "Y": 348,
-            "Width": 207,
-            "Height": 42,
+            "X": 317,
+            "Y": 341,
+            "Width": 188,
+            "Height": 34,
             "TextId": "__SingleUse_DRUP",
             "TextRotation": "0",
             "Color": {
@@ -1610,6 +1592,27 @@
               "Blue": 255
             },
             "Wildcard1": {
+              "TextId": "__SingleUse_JYPR",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "watts_1",
+            "X": 40,
+            "Y": 341,
+            "Width": 188,
+            "Height": 34,
+            "TextId": "__SingleUse_BGJ2",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_QLG6",
               "UseBuffer": true,
               "BufferSize": 10
             }
@@ -1617,7 +1620,7 @@
           {
             "Type": "TextArea",
             "Name": "soc",
-            "X": 9,
+            "X": 32,
             "Y": 342,
             "Width": 167,
             "Height": 41,
@@ -1636,10 +1639,10 @@
           {
             "Type": "TextArea",
             "Name": "bpsv",
-            "X": 17,
-            "Y": 726,
-            "Width": 167,
-            "Height": 41,
+            "X": 32,
+            "Y": 222,
+            "Width": 153,
+            "Height": 34,
             "TextId": "__SingleUse_8SLF",
             "TextRotation": "0",
             "Color": {
@@ -1648,6 +1651,7 @@
               "Blue": 255
             },
             "Wildcard1": {
+              "TextId": "__SingleUse_L6JI",
               "UseBuffer": true,
               "BufferSize": 10
             }
@@ -1655,10 +1659,10 @@
           {
             "Type": "TextArea",
             "Name": "bpsc",
-            "X": 263,
-            "Y": 726,
-            "Width": 215,
-            "Height": 41,
+            "X": 310,
+            "Y": 222,
+            "Width": 227,
+            "Height": 34,
             "TextId": "__SingleUse_VG8V",
             "TextRotation": "0",
             "Color": {
@@ -1667,6 +1671,7 @@
               "Blue": 255
             },
             "Wildcard1": {
+              "TextId": "__SingleUse_ZQON",
               "UseBuffer": true,
               "BufferSize": 10
             }
@@ -1674,10 +1679,10 @@
           {
             "Type": "TextArea",
             "Name": "textArea1",
-            "X": 17,
-            "Y": 272,
-            "Width": 161,
-            "Height": 49,
+            "X": 40,
+            "Y": 304,
+            "Width": 137,
+            "Height": 30,
             "TextId": "__SingleUse_D6MH",
             "TextRotation": "0",
             "Color": {
@@ -1689,26 +1694,11 @@
           },
           {
             "Type": "TextArea",
-            "Name": "textArea4",
-            "X": 194,
-            "Y": 157,
-            "Width": 92,
-            "Height": 48,
-            "TextId": "__SingleUse_2FUR",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            }
-          },
-          {
-            "Type": "TextArea",
             "Name": "textArea5",
-            "X": 17,
-            "Y": 657,
-            "Width": 159,
-            "Height": 49,
+            "X": 40,
+            "Y": 186,
+            "Width": 129,
+            "Height": 30,
             "TextId": "__SingleUse_4038",
             "TextRotation": "0",
             "Color": {
@@ -1721,10 +1711,10 @@
           {
             "Type": "TextArea",
             "Name": "textArea5_1",
-            "X": 286,
-            "Y": 657,
-            "Width": 165,
-            "Height": 49,
+            "X": 317,
+            "Y": 186,
+            "Width": 137,
+            "Height": 30,
             "TextId": "__SingleUse_I07J",
             "TextRotation": "0",
             "Color": {
@@ -1733,6 +1723,24 @@
               "Blue": 255
             },
             "AutoSize": true
+          },
+          {
+            "Type": "BoxProgress",
+            "Name": "boxProgress1",
+            "X": 40,
+            "Y": 375,
+            "Width": 200,
+            "Height": 10,
+            "Color": {
+              "Red": 55,
+              "Green": 255
+            },
+            "Direction": "Right",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_normal_small.png",
+            "IndicatorPositionWidth": 300,
+            "IndicatorPositionHeight": 10,
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
           }
         ],
         "Interactions": [

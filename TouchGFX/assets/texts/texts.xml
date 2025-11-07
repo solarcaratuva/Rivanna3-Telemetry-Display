@@ -6,33 +6,45 @@
   <Texts>
     <TextGroup Id="Group1">
       <Text Id="ResourceId1" Alignment="Center" TypographyId="V2_Screen2Val">
-        <Translation Language="GB">&lt;value&gt;</Translation>
+        <Translation Language="GB">&lt;value&gt; mph</Translation>
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_VG8V" Alignment="Center" TypographyId="V2_Screen2Val">
+      <Text Id="__SingleUse_ATFQ" Alignment="Left" TypographyId="Error_Font">
+        <Translation Language="GB">Working</Translation>
+      </Text>
+      <Text Id="__SingleUse_QLG6" Alignment="Left" TypographyId="Error_Font">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_BGJ2" Alignment="Left" TypographyId="Error_Font">
+        <Translation Language="GB">&lt;value&gt; W</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZQON" Alignment="Left" TypographyId="Error_Font">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_L6JI" Alignment="Left" TypographyId="Error_Font">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_JYPR" Alignment="Left" TypographyId="Error_Font">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_VG8V" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB"> &lt;value&gt; Amp</Translation>
       </Text>
-      <Text Id="__SingleUse_8SLF" Alignment="Center" TypographyId="V2_Screen2Val">
+      <Text Id="__SingleUse_8SLF" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB"> &lt;value&gt; V</Translation>
       </Text>
-      <Text Id="__SingleUse_I07J" Alignment="Left" TypographyId="V2_Title">
+      <Text Id="__SingleUse_I07J" Alignment="Left" TypographyId="Error_title_V2">
         <Translation Language="GB">BPS Curr</Translation>
       </Text>
-      <Text Id="__SingleUse_4038" Alignment="Left" TypographyId="V2_Title">
+      <Text Id="__SingleUse_4038" Alignment="Left" TypographyId="Error_title_V2">
         <Translation Language="GB">BPS Volt</Translation>
       </Text>
       <Text Id="__SingleUse_UL2I" Alignment="Left" TypographyId="V2_Screen2Val">
         <Translation Language="GB">0</Translation>
       </Text>
-      <Text Id="__SingleUse_2FUR" Alignment="Left" TypographyId="V2_Screen2Val">
-        <Translation Language="GB">mph</Translation>
-      </Text>
       <Text Id="__SingleUse_PCDE" Alignment="Left" TypographyId="Error_Font">
-        <Translation Language="GB">None</Translation>
-      </Text>
-      <Text Id="__SingleUse_3BKL" Alignment="Left" TypographyId="Error_title_V2">
-        <Translation Language="GB">Power Aux</Translation>
+        <Translation Language="GB">Working</Translation>
       </Text>
       <Text Id="__SingleUse_GLTP" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB">&lt;value&gt;</Translation>
@@ -46,19 +58,16 @@
       <Text Id="__SingleUse_I9HO" Alignment="Left" TypographyId="Error_title_V2">
         <Translation Language="GB">Mtr. Controller</Translation>
       </Text>
-      <Text Id="__SingleUse_U4X1" Alignment="Left" TypographyId="V2_Title">
-        <Translation Language="GB">Errors</Translation>
-      </Text>
       <Text Id="__SingleUse_TQYW" Alignment="Center" TypographyId="V2_Screen2Val">
         <Translation Language="GB"> &lt;value&gt; </Translation>
       </Text>
-      <Text Id="__SingleUse_D6MH" Alignment="Center" TypographyId="V2_Title">
+      <Text Id="__SingleUse_D6MH" Alignment="Center" TypographyId="Error_title_V2">
         <Translation Language="GB">BPS SOC</Translation>
       </Text>
-      <Text Id="__SingleUse_DRUP" Alignment="Center" TypographyId="V2_Screen2Val">
+      <Text Id="__SingleUse_DRUP" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB">&lt;value&gt; W</Translation>
       </Text>
-      <Text Id="__SingleUse_R0TU" Alignment="Left" TypographyId="V2_Title">
+      <Text Id="__SingleUse_R0TU" Alignment="Left" TypographyId="Error_title_V2">
         <Translation Language="GB">Power</Translation>
       </Text>
       <Text Id="__SingleUse_3ESY" Alignment="Left" TypographyId="V2_Title">
@@ -524,7 +533,8 @@
     <Typography Id="V2_Val" Font="verdanab.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="V2_Title" Font="leelauib.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="V2_Screen2Val" Font="verdanab.ttf" Size="35" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789." />
-    <Typography Id="Error_Font" Font="verdanab.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Error_title_V2" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Error_Font" Font="verdanab.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Error_title_V2" Font="verdana.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="V3_Title" Font="leelauib.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
 </TextDatabase>

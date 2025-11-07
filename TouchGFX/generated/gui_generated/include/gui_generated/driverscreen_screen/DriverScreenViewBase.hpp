@@ -13,6 +13,7 @@
 #include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 #include <touchgfx/widgets/canvas/Shape.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 
 class DriverScreenViewBase : public touchgfx::View<DriverScreenPresenter>
 {
@@ -52,11 +53,10 @@ protected:
     touchgfx::TextAreaWithOneWildcard mtr_controller_error_value;
     touchgfx::TextAreaWithOneWildcard bps_error_value;
     touchgfx::TextArea power_aux_error_value;
+    touchgfx::TextArea power_aux_error_value_1;
     touchgfx::TextArea mtr_controller_err_text;
     touchgfx::TextArea bps_err_text;
-    touchgfx::TextArea power_aux_err_text;
     touchgfx::TextArea speed_title;
-    touchgfx::TextArea errors;
     touchgfx::TextArea power_title;
     touchgfx::Line border1;
     touchgfx::PainterRGB888 border1Painter;
@@ -65,13 +65,14 @@ protected:
     touchgfx::Line border1_1_1;
     touchgfx::PainterRGB888 border1_1_1Painter;
     touchgfx::TextAreaWithOneWildcard watts;
+    touchgfx::TextAreaWithOneWildcard watts_1;
     touchgfx::TextAreaWithOneWildcard soc;
     touchgfx::TextAreaWithOneWildcard bpsv;
     touchgfx::TextAreaWithOneWildcard bpsc;
     touchgfx::TextArea textArea1;
-    touchgfx::TextArea textArea4;
     touchgfx::TextArea textArea5;
     touchgfx::TextArea textArea5_1;
+    touchgfx::BoxProgress boxProgress1;
 
     /*
      * Wildcard Buffers
@@ -84,6 +85,8 @@ protected:
     touchgfx::Unicode::UnicodeChar bps_error_valueBuffer[BPS_ERROR_VALUE_SIZE];
     static const uint16_t WATTS_SIZE = 10;
     touchgfx::Unicode::UnicodeChar wattsBuffer[WATTS_SIZE];
+    static const uint16_t WATTS_1_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar watts_1Buffer[WATTS_1_SIZE];
     static const uint16_t SOC_SIZE = 10;
     touchgfx::Unicode::UnicodeChar socBuffer[SOC_SIZE];
     static const uint16_t BPSV_SIZE = 10;

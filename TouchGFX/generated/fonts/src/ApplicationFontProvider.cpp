@@ -49,11 +49,14 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
         // verdanab_35_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[11]);
     case Typography::ERROR_FONT:
-        // verdanab_20_4bpp
-        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[3]);
-    case Typography::ERROR_TITLE_V2:
-        // verdana_20_4bpp
+        // verdanab_25_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[12]);
+    case Typography::ERROR_TITLE_V2:
+        // verdana_30_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[13]);
+    case Typography::V3_TITLE:
+        // leelauib_30_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[14]);
     default:
         return 0;
     }
