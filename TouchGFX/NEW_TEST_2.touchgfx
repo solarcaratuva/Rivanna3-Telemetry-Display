@@ -1440,8 +1440,9 @@
             "TextId": "__SingleUse_PCDE",
             "TextRotation": "0",
             "Color": {
-              "Red": 55,
-              "Green": 255
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
             }
           },
           {
@@ -1454,8 +1455,9 @@
             "TextId": "__SingleUse_ATFQ",
             "TextRotation": "0",
             "Color": {
-              "Red": 55,
-              "Green": 255
+              "Red": 219,
+              "Green": 39,
+              "Blue": 39
             }
           },
           {
@@ -2091,9 +2093,9 @@
             "TextId": "__SingleUse_K04C",
             "TextRotation": "0",
             "Color": {
-              "Red": 222,
-              "Green": 84,
-              "Blue": 84
+              "Red": 219,
+              "Green": 39,
+              "Blue": 39
             }
           },
           {

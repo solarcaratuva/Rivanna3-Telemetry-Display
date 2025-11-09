@@ -122,7 +122,7 @@ DataScreenViewBase::DataScreenViewBase()
     add(cruise_value);
 
     mtr_controller_error_value.setPosition(179, 604, 54, 25);
-    mtr_controller_error_value.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
+    mtr_controller_error_value.setColor(touchgfx::Color::getColorFromRGB(219, 39, 39));
     mtr_controller_error_value.setLinespacing(0);
     mtr_controller_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_K04C));
     add(mtr_controller_error_value);

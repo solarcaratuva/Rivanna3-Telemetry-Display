@@ -5,10 +5,13 @@
 FONT_TABLE_LOCATION_FLASH_PRAGMA
 KEEP extern const touchgfx::GlyphNode glyphs_leelauib_40_4bpp[] FONT_TABLE_LOCATION_FLASH_ATTRIBUTE = {
     {     0, 0x003F,  16,  30,  29,   1,  18,   0,   0, 0x00 },
-    {   240, 0x0053,  20,  30,  29,   1,  22,   0,   0, 0x00 },
-    {   540, 0x0064,  22,  31,  30,   1,  25,   0,   0, 0x00 },
-    {   881, 0x0065,  20,  23,  22,   1,  22,   0,   0, 0x00 },
-    {  1111, 0x0070,  22,  31,  22,   2,  25,   0,   0, 0x00 }
+    {   240, 0x0045,  17,  29,  29,   3,  21,   0,   0, 0x00 },
+    {   501, 0x0053,  20,  30,  29,   1,  22,   0,   0, 0x00 },
+    {   801, 0x0064,  22,  31,  30,   1,  25,   0,   0, 0x00 },
+    {  1142, 0x0065,  20,  23,  22,   1,  22,   0,   0, 0x00 },
+    {  1372, 0x006F,  22,  23,  22,   1,  24,   0,   0, 0x00 },
+    {  1625, 0x0070,  22,  31,  22,   2,  25,   0,   0, 0x00 },
+    {  1966, 0x0072,  14,  22,  22,   2,  16,   0,   0, 0x00 }
 };
 
 // leelauib_40_4bpp
@@ -26,6 +29,6 @@ touchgfx::GeneratedFont& getFont_leelauib_40_4bpp();
 
 touchgfx::GeneratedFont& getFont_leelauib_40_4bpp()
 {
-    static touchgfx::GeneratedFont leelauib_40_4bpp(glyphs_leelauib_40_4bpp, 5, 49, 40, 0, 0, 4, 1, 0, 0, unicodes_leelauib_40_4bpp, kerning_leelauib_40_4bpp, 63, 0, 0, 0);
+    static touchgfx::GeneratedFont leelauib_40_4bpp(glyphs_leelauib_40_4bpp, 8, 49, 40, 0, 0, 4, 1, 0, 0, unicodes_leelauib_40_4bpp, kerning_leelauib_40_4bpp, 63, 0, 0, 0);
     return leelauib_40_4bpp;
 }

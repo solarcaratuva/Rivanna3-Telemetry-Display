@@ -17,7 +17,7 @@
         <Translation Language="GB"></Translation>
       </Text>
       <Text Id="__SingleUse_ATFQ" Alignment="Left" TypographyId="Error_Font">
-        <Translation Language="GB">Working</Translation>
+        <Translation Language="GB">ERR</Translation>
       </Text>
       <Text Id="__SingleUse_QLG6" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB">0</Translation>
@@ -50,7 +50,7 @@
         <Translation Language="GB">0</Translation>
       </Text>
       <Text Id="__SingleUse_PCDE" Alignment="Left" TypographyId="Error_Font">
-        <Translation Language="GB">Working</Translation>
+        <Translation Language="GB">None</Translation>
       </Text>
       <Text Id="__SingleUse_GLTP" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB">&lt;value&gt;</Translation>
