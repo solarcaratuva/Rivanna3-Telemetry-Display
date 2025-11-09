@@ -10,6 +10,87 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_J8ZQ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">ERR</Translation>
+      </Text>
+      <Text Id="__SingleUse_HL3S" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">None</Translation>
+      </Text>
+      <Text Id="__SingleUse_SBPL" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">None</Translation>
+      </Text>
+      <Text Id="__SingleUse_3TP5" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">ERR</Translation>
+      </Text>
+      <Text Id="__SingleUse_FGAU" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_912I" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_BUW8" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_HD2X" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_FTUF" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_M2FT" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_1MCT" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_HU6J" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_OBDK" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">14.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_OCQW" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_6ST9" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">5.2</Translation>
+      </Text>
+      <Text Id="__SingleUse_KAXH" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_LL0C" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">80.4</Translation>
+      </Text>
+      <Text Id="__SingleUse_W9DR" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">34.1</Translation>
+      </Text>
+      <Text Id="__SingleUse_2DRE" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_R6GE" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">90.2</Translation>
+      </Text>
+      <Text Id="__SingleUse_VPUU" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_65ZA" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">24.5</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZQ8B" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">On</Translation>
+      </Text>
+      <Text Id="__SingleUse_F5OX" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0.5</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZIMR" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Off</Translation>
+      </Text>
+      <Text Id="__SingleUse_4VUU" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_KVMJ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">1234</Translation>
+      </Text>
       <Text Id="__SingleUse_UMNM" Alignment="Left" TypographyId="V2_Title">
         <Translation Language="GB">Error</Translation>
       </Text>
@@ -17,13 +98,13 @@
         <Translation Language="GB"></Translation>
       </Text>
       <Text Id="__SingleUse_ATFQ" Alignment="Left" TypographyId="Error_Font">
-        <Translation Language="GB">ERR</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_QLG6" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB">0</Translation>
       </Text>
       <Text Id="__SingleUse_BGJ2" Alignment="Left" TypographyId="Error_Font">
-        <Translation Language="GB">&lt;value&gt; W</Translation>
+        <Translation Language="GB">&lt;value&gt;%</Translation>
       </Text>
       <Text Id="__SingleUse_ZQON" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB">0</Translation>
@@ -50,9 +131,6 @@
         <Translation Language="GB">0</Translation>
       </Text>
       <Text Id="__SingleUse_PCDE" Alignment="Left" TypographyId="Error_Font">
-        <Translation Language="GB">None</Translation>
-      </Text>
-      <Text Id="__SingleUse_GLTP" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_VIXP" Alignment="Left" TypographyId="Error_Font">
@@ -63,9 +141,6 @@
       </Text>
       <Text Id="__SingleUse_I9HO" Alignment="Left" TypographyId="Error_title_V2">
         <Translation Language="GB">Mtr. Controller</Translation>
-      </Text>
-      <Text Id="__SingleUse_TQYW" Alignment="Center" TypographyId="V2_Screen2Val">
-        <Translation Language="GB"> &lt;value&gt; </Translation>
       </Text>
       <Text Id="__SingleUse_D6MH" Alignment="Center" TypographyId="Error_title_V2">
         <Translation Language="GB">BPS SOC</Translation>
@@ -80,82 +155,82 @@
         <Translation Language="GB">Speed</Translation>
       </Text>
       <Text Id="__SingleUse_50VA" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">None</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_K04C" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">ERR</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_36TP" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">On</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_5QLF" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">On</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_O790" Alignment="Right" TypographyId="V2_Val">
         <Translation Language="GB">On</Translation>
       </Text>
       <Text Id="__SingleUse_R06C" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">Off</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_C4U4" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">Off</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_7IX6" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">Off</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_I2CN" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">Off</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_9K7J" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">Off</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_1UT4" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">On</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_LTIJ" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">On</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_A8IX" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">On</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_EXUX" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">14.0%</Translation>
+        <Translation Language="GB">&lt;value&gt;%</Translation>
       </Text>
       <Text Id="__SingleUse_DBGV" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">5.2 A</Translation>
+        <Translation Language="GB">&lt;value&gt; A</Translation>
       </Text>
       <Text Id="__SingleUse_48GX" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">80.4 V</Translation>
+        <Translation Language="GB">&lt;value&gt; V</Translation>
       </Text>
       <Text Id="__SingleUse_3ZQK" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">0.0%</Translation>
+        <Translation Language="GB">&lt;value&gt;%</Translation>
       </Text>
       <Text Id="__SingleUse_N078" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">0.5%</Translation>
+        <Translation Language="GB">&lt;value&gt;%</Translation>
       </Text>
       <Text Id="__SingleUse_37LD" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">24.5%</Translation>
+        <Translation Language="GB">&lt;value&gt;%</Translation>
       </Text>
       <Text Id="__SingleUse_6B9Q" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">90.2%</Translation>
+        <Translation Language="GB">&lt;value&gt;%</Translation>
       </Text>
       <Text Id="__SingleUse_VURT" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">34.1 mph</Translation>
+        <Translation Language="GB">&lt;value&gt; mph</Translation>
       </Text>
       <Text Id="__SingleUse_NWTR" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">1234 rpm</Translation>
+        <Translation Language="GB">&lt;value&gt; rpm</Translation>
       </Text>
       <Text Id="__SingleUse_YPQR" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">Off</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_LZ09" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">On</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_N53R" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">Off</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_B6BN" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">On</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_BJIO" Alignment="Left" TypographyId="Medium">
         <Translation Language="GB">Error</Translation>
@@ -537,10 +612,10 @@
     <Typography Id="AUxBatteryPower" Font="SansSerifCollection.ttf" Size="22" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="V2_Default" Font="verdana.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="V2_Val" Font="verdanab.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="V2_Title" Font="leelauib.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="V2_Screen2Val" Font="verdanab.ttf" Size="35" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789." />
-    <Typography Id="Error_Font" Font="verdanab.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Error_title_V2" Font="verdana.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="V3_Title" Font="leelauib.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="V2_Title" Font="leelauib.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneER" />
+    <Typography Id="V2_Screen2Val" Font="verdanab.ttf" Size="35" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneER" />
+    <Typography Id="Error_Font" Font="verdanab.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneER" />
+    <Typography Id="Error_title_V2" Font="verdana.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneER" />
+    <Typography Id="V3_Title" Font="leelauib.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneER" />
   </Typographies>
 </TextDatabase>

@@ -11,6 +11,7 @@ public:
     virtual ~DataScreenView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+    virtual void main() override;
 protected:
 };
 

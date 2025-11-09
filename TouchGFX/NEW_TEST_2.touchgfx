@@ -1283,10 +1283,10 @@
           {
             "Type": "TextArea",
             "Name": "speed",
-            "X": 152,
-            "Y": 101,
-            "Width": 176,
-            "Height": 38,
+            "X": 115,
+            "Y": 98,
+            "Width": 256,
+            "Height": 41,
             "TextId": "ResourceId1",
             "TextRotation": "0",
             "Color": {
@@ -1394,7 +1394,7 @@
           },
           {
             "Type": "TextArea",
-            "Name": "mtr_controller_error_value",
+            "Name": "blank",
             "X": 41,
             "Y": 572,
             "Width": 95,
@@ -1413,26 +1413,7 @@
           },
           {
             "Type": "TextArea",
-            "Name": "bps_error_value",
-            "X": 381,
-            "Y": 571,
-            "Width": 65,
-            "Height": 36,
-            "TextId": "__SingleUse_GLTP",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Wildcard1": {
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "power_aux_error_value",
+            "Name": "mtr_controller_error_value",
             "X": 40,
             "Y": 503,
             "Width": 129,
@@ -1443,11 +1424,16 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_HL3S",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
             "Type": "TextArea",
-            "Name": "power_aux_error_value_1",
+            "Name": "bps_error_value",
             "X": 317,
             "Y": 503,
             "Width": 121,
@@ -1458,6 +1444,11 @@
               "Red": 219,
               "Green": 39,
               "Blue": 39
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_J8ZQ",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -1632,7 +1623,7 @@
           },
           {
             "Type": "TextArea",
-            "Name": "watts_1",
+            "Name": "soc",
             "X": 40,
             "Y": 341,
             "Width": 188,
@@ -1646,25 +1637,6 @@
             },
             "Wildcard1": {
               "TextId": "__SingleUse_QLG6",
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "soc",
-            "X": 32,
-            "Y": 342,
-            "Width": 167,
-            "Height": 41,
-            "TextId": "__SingleUse_TQYW",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Wildcard1": {
               "UseBuffer": true,
               "BufferSize": 10
             }
@@ -1781,7 +1753,7 @@
             "InteractionName": "Interaction1",
             "Trigger": {
               "Type": "TriggerOnEveryTick",
-              "TickCount": 1
+              "TickCount": 20
             },
             "Action": {
               "Type": "ActionCustom",
@@ -1916,6 +1888,11 @@
               "Red": 94,
               "Green": 255,
               "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_2DRE",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -1931,6 +1908,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_W9DR",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -1946,6 +1928,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_R6GE",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -1961,6 +1948,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_65ZA",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -1976,6 +1968,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_F5OX",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -1991,6 +1988,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_4VUU",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2006,6 +2008,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_VPUU",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2021,6 +2028,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_1MCT",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2036,6 +2048,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_M2FT",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2051,6 +2068,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_FTUF",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2066,6 +2088,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_FGAU",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2081,6 +2108,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_912I",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2096,6 +2128,11 @@
               "Red": 219,
               "Green": 39,
               "Blue": 39
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_3TP5",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2111,6 +2148,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_SBPL",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2126,6 +2168,11 @@
               "Red": 94,
               "Green": 255,
               "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_ZQ8B",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2141,6 +2188,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_ZIMR",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2156,6 +2208,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_KVMJ",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2171,6 +2228,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_LL0C",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2186,6 +2248,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_6ST9",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2201,6 +2268,11 @@
               "Red": 255,
               "Green": 255,
               "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_OBDK",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2216,6 +2288,11 @@
               "Red": 94,
               "Green": 255,
               "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_KAXH",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2231,6 +2308,11 @@
               "Red": 94,
               "Green": 255,
               "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_OCQW",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2246,6 +2328,11 @@
               "Red": 94,
               "Green": 255,
               "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_HU6J",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2276,6 +2363,11 @@
               "Red": 94,
               "Green": 255,
               "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_BUW8",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2291,6 +2383,11 @@
               "Red": 94,
               "Green": 255,
               "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_HD2X",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -2710,7 +2807,19 @@
             "AutoSize": true
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 20
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "main"
+            }
+          }
+        ]
       },
       {
         "Name": "SettingsScreen",

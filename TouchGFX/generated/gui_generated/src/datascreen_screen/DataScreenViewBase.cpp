@@ -5,7 +5,8 @@
 #include <touchgfx/Color.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 
-DataScreenViewBase::DataScreenViewBase()
+DataScreenViewBase::DataScreenViewBase() :
+    frameCountInteraction1Interval(0)
 {
     __background.setPosition(0, 0, 480, 800);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -52,138 +53,184 @@ DataScreenViewBase::DataScreenViewBase()
     cruise_drive_value.setPosition(196, 201, 37, 25);
     cruise_drive_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
     cruise_drive_value.setLinespacing(0);
+    Unicode::snprintf(cruise_drive_valueBuffer, CRUISE_DRIVE_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_2DRE).getText());
+    cruise_drive_value.setWildcard(cruise_drive_valueBuffer);
     cruise_drive_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_B6BN));
     add(cruise_drive_value);
 
     cruise_speed_value.setPosition(355, 201, 91, 25);
     cruise_speed_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     cruise_speed_value.setLinespacing(0);
+    Unicode::snprintf(cruise_speed_valueBuffer, CRUISE_SPEED_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_W9DR).getText());
+    cruise_speed_value.setWildcard(cruise_speed_valueBuffer);
     cruise_speed_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VURT));
     add(cruise_speed_value);
 
     regen_brake_value.setPosition(342, 167, 104, 25);
     regen_brake_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     regen_brake_value.setLinespacing(0);
+    Unicode::snprintf(regen_brake_valueBuffer, REGEN_BRAKE_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_R6GE).getText());
+    regen_brake_value.setWildcard(regen_brake_valueBuffer);
     regen_brake_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6B9Q));
     add(regen_brake_value);
 
     throttle_pedal_value.setPosition(342, 131, 104, 25);
     throttle_pedal_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     throttle_pedal_value.setLinespacing(0);
+    Unicode::snprintf(throttle_pedal_valueBuffer, THROTTLE_PEDAL_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_65ZA).getText());
+    throttle_pedal_value.setWildcard(throttle_pedal_valueBuffer);
     throttle_pedal_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_37LD));
     add(throttle_pedal_value);
 
     brake_pedal_value.setPosition(342, 97, 104, 25);
     brake_pedal_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     brake_pedal_value.setLinespacing(0);
+    Unicode::snprintf(brake_pedal_valueBuffer, BRAKE_PEDAL_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_F5OX).getText());
+    brake_pedal_value.setWildcard(brake_pedal_valueBuffer);
     brake_pedal_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_N078));
     add(brake_pedal_value);
 
     throttle_value.setPosition(342, 62, 104, 25);
     throttle_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     throttle_value.setLinespacing(0);
+    Unicode::snprintf(throttle_valueBuffer, THROTTLE_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_4VUU).getText());
+    throttle_value.setWildcard(throttle_valueBuffer);
     throttle_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_3ZQK));
     add(throttle_value);
 
     regen_drive_value.setPosition(196, 167, 37, 25);
     regen_drive_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     regen_drive_value.setLinespacing(0);
+    Unicode::snprintf(regen_drive_valueBuffer, REGEN_DRIVE_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_VPUU).getText());
+    regen_drive_value.setWildcard(regen_drive_valueBuffer);
     regen_drive_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_N53R));
     add(regen_drive_value);
 
     left_turn_value.setPosition(196, 422, 37, 25);
     left_turn_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     left_turn_value.setLinespacing(0);
+    Unicode::snprintf(left_turn_valueBuffer, LEFT_TURN_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_1MCT).getText());
+    left_turn_value.setWildcard(left_turn_valueBuffer);
     left_turn_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9K7J));
     add(left_turn_value);
 
     low_power_value.setPosition(196, 457, 37, 25);
     low_power_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     low_power_value.setLinespacing(0);
+    Unicode::snprintf(low_power_valueBuffer, LOW_POWER_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_M2FT).getText());
+    low_power_value.setWildcard(low_power_valueBuffer);
     low_power_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_I2CN));
     add(low_power_value);
 
     hazards_value.setPosition(409, 457, 37, 25);
     hazards_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     hazards_value.setLinespacing(0);
+    Unicode::snprintf(hazards_valueBuffer, HAZARDS_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_FTUF).getText());
+    hazards_value.setWildcard(hazards_valueBuffer);
     hazards_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7IX6));
     add(hazards_value);
 
     cruise_dec_value.setPosition(409, 527, 37, 25);
     cruise_dec_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     cruise_dec_value.setLinespacing(0);
+    Unicode::snprintf(cruise_dec_valueBuffer, CRUISE_DEC_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_FGAU).getText());
+    cruise_dec_value.setWildcard(cruise_dec_valueBuffer);
     cruise_dec_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_C4U4));
     add(cruise_dec_value);
 
     cruise_value.setPosition(196, 527, 37, 25);
     cruise_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     cruise_value.setLinespacing(0);
+    Unicode::snprintf(cruise_valueBuffer, CRUISE_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_912I).getText());
+    cruise_value.setWildcard(cruise_valueBuffer);
     cruise_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_R06C));
     add(cruise_value);
 
     mtr_controller_error_value.setPosition(179, 604, 54, 25);
     mtr_controller_error_value.setColor(touchgfx::Color::getColorFromRGB(219, 39, 39));
     mtr_controller_error_value.setLinespacing(0);
+    Unicode::snprintf(mtr_controller_error_valueBuffer, MTR_CONTROLLER_ERROR_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_3TP5).getText());
+    mtr_controller_error_value.setWildcard(mtr_controller_error_valueBuffer);
     mtr_controller_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_K04C));
     add(mtr_controller_error_value);
 
     bps_error_value.setPosition(378, 604, 68, 25);
     bps_error_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     bps_error_value.setLinespacing(0);
+    Unicode::snprintf(bps_error_valueBuffer, BPS_ERROR_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_SBPL).getText());
+    bps_error_value.setWildcard(bps_error_valueBuffer);
     bps_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_50VA));
     add(bps_error_value);
 
     man_drive_value.setPosition(196, 132, 37, 25);
     man_drive_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
     man_drive_value.setLinespacing(0);
+    Unicode::snprintf(man_drive_valueBuffer, MAN_DRIVE_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_ZQ8B).getText());
+    man_drive_value.setWildcard(man_drive_valueBuffer);
     man_drive_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LZ09));
     add(man_drive_value);
 
     braking_value.setPosition(196, 97, 37, 25);
     braking_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     braking_value.setLinespacing(0);
+    Unicode::snprintf(braking_valueBuffer, BRAKING_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_ZIMR).getText());
+    braking_value.setWildcard(braking_valueBuffer);
     braking_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YPQR));
     add(braking_value);
 
     rpm_value.setPosition(126, 62, 107, 25);
     rpm_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     rpm_value.setLinespacing(0);
+    Unicode::snprintf(rpm_valueBuffer, RPM_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_KVMJ).getText());
+    rpm_value.setWildcard(rpm_valueBuffer);
     rpm_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_NWTR));
     add(rpm_value);
 
     pack_volt_value.setPosition(126, 276, 107, 25);
     pack_volt_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     pack_volt_value.setLinespacing(0);
+    Unicode::snprintf(pack_volt_valueBuffer, PACK_VOLT_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_LL0C).getText());
+    pack_volt_value.setWildcard(pack_volt_valueBuffer);
     pack_volt_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_48GX));
     add(pack_volt_value);
 
     pack_curr_value.setPosition(126, 311, 107, 25);
     pack_curr_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     pack_curr_value.setLinespacing(0);
+    Unicode::snprintf(pack_curr_valueBuffer, PACK_CURR_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_6ST9).getText());
+    pack_curr_value.setWildcard(pack_curr_valueBuffer);
     pack_curr_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DBGV));
     add(pack_curr_value);
 
     pack_soc_value.setPosition(126, 346, 107, 25);
     pack_soc_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     pack_soc_value.setLinespacing(0);
+    Unicode::snprintf(pack_soc_valueBuffer, PACK_SOC_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_OBDK).getText());
+    pack_soc_value.setWildcard(pack_soc_valueBuffer);
     pack_soc_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EXUX));
     add(pack_soc_value);
 
     dtc_status_value.setPosition(339, 276, 107, 25);
     dtc_status_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
     dtc_status_value.setLinespacing(0);
+    Unicode::snprintf(dtc_status_valueBuffer, DTC_STATUS_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_KAXH).getText());
+    dtc_status_value.setWildcard(dtc_status_valueBuffer);
     dtc_status_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_A8IX));
     add(dtc_status_value);
 
     charge_relay_value.setPosition(339, 311, 107, 25);
     charge_relay_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
     charge_relay_value.setLinespacing(0);
+    Unicode::snprintf(charge_relay_valueBuffer, CHARGE_RELAY_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_OCQW).getText());
+    charge_relay_value.setWildcard(charge_relay_valueBuffer);
     charge_relay_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LTIJ));
     add(charge_relay_value);
 
     discharge_relay_status.setPosition(339, 346, 107, 25);
     discharge_relay_status.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
     discharge_relay_status.setLinespacing(0);
+    Unicode::snprintf(discharge_relay_statusBuffer, DISCHARGE_RELAY_STATUS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_HU6J).getText());
+    discharge_relay_status.setWildcard(discharge_relay_statusBuffer);
     discharge_relay_status.setTypedText(touchgfx::TypedText(T___SINGLEUSE_1UT4));
     add(discharge_relay_status);
 
@@ -196,12 +243,16 @@ DataScreenViewBase::DataScreenViewBase()
     cruise_inc_value.setPosition(339, 492, 107, 25);
     cruise_inc_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
     cruise_inc_value.setLinespacing(0);
+    Unicode::snprintf(cruise_inc_valueBuffer, CRUISE_INC_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_BUW8).getText());
+    cruise_inc_value.setWildcard(cruise_inc_valueBuffer);
     cruise_inc_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5QLF));
     add(cruise_inc_value);
 
     regen_value.setPosition(126, 492, 107, 25);
     regen_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
     regen_value.setLinespacing(0);
+    Unicode::snprintf(regen_valueBuffer, REGEN_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_HD2X).getText());
+    regen_value.setWildcard(regen_valueBuffer);
     regen_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_36TP));
     add(regen_value);
 
@@ -376,4 +427,17 @@ DataScreenViewBase::~DataScreenViewBase()
 void DataScreenViewBase::setupScreen()
 {
 
+}
+
+void DataScreenViewBase::handleTickEvent()
+{
+    frameCountInteraction1Interval++;
+    if(frameCountInteraction1Interval == TICK_INTERACTION1_INTERVAL)
+    {
+        //Interaction1
+        //When every N tick call virtual function
+        //Call main
+        main();
+        frameCountInteraction1Interval = 0;
+    }
 }

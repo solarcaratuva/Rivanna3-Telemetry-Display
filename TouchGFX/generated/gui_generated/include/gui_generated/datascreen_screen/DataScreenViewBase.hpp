@@ -9,6 +9,7 @@
 #include <gui/datascreen_screen/DataScreenPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class DataScreenViewBase : public touchgfx::View<DataScreenPresenter>
 {
@@ -16,6 +17,15 @@ public:
     DataScreenViewBase();
     virtual ~DataScreenViewBase();
     virtual void setupScreen();
+    virtual void handleTickEvent();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void main()
+    {
+        // Override and implement this function in DataScreen
+    }
 
 protected:
     FrontendApplication& application() {
@@ -34,32 +44,32 @@ protected:
     touchgfx::TextArea mtr_cmds_title;
     touchgfx::TextArea bps_title;
     touchgfx::TextArea rpm_text;
-    touchgfx::TextArea cruise_drive_value;
-    touchgfx::TextArea cruise_speed_value;
-    touchgfx::TextArea regen_brake_value;
-    touchgfx::TextArea throttle_pedal_value;
-    touchgfx::TextArea brake_pedal_value;
-    touchgfx::TextArea throttle_value;
-    touchgfx::TextArea regen_drive_value;
-    touchgfx::TextArea left_turn_value;
-    touchgfx::TextArea low_power_value;
-    touchgfx::TextArea hazards_value;
-    touchgfx::TextArea cruise_dec_value;
-    touchgfx::TextArea cruise_value;
-    touchgfx::TextArea mtr_controller_error_value;
-    touchgfx::TextArea bps_error_value;
-    touchgfx::TextArea man_drive_value;
-    touchgfx::TextArea braking_value;
-    touchgfx::TextArea rpm_value;
-    touchgfx::TextArea pack_volt_value;
-    touchgfx::TextArea pack_curr_value;
-    touchgfx::TextArea pack_soc_value;
-    touchgfx::TextArea dtc_status_value;
-    touchgfx::TextArea charge_relay_value;
-    touchgfx::TextArea discharge_relay_status;
+    touchgfx::TextAreaWithOneWildcard cruise_drive_value;
+    touchgfx::TextAreaWithOneWildcard cruise_speed_value;
+    touchgfx::TextAreaWithOneWildcard regen_brake_value;
+    touchgfx::TextAreaWithOneWildcard throttle_pedal_value;
+    touchgfx::TextAreaWithOneWildcard brake_pedal_value;
+    touchgfx::TextAreaWithOneWildcard throttle_value;
+    touchgfx::TextAreaWithOneWildcard regen_drive_value;
+    touchgfx::TextAreaWithOneWildcard left_turn_value;
+    touchgfx::TextAreaWithOneWildcard low_power_value;
+    touchgfx::TextAreaWithOneWildcard hazards_value;
+    touchgfx::TextAreaWithOneWildcard cruise_dec_value;
+    touchgfx::TextAreaWithOneWildcard cruise_value;
+    touchgfx::TextAreaWithOneWildcard mtr_controller_error_value;
+    touchgfx::TextAreaWithOneWildcard bps_error_value;
+    touchgfx::TextAreaWithOneWildcard man_drive_value;
+    touchgfx::TextAreaWithOneWildcard braking_value;
+    touchgfx::TextAreaWithOneWildcard rpm_value;
+    touchgfx::TextAreaWithOneWildcard pack_volt_value;
+    touchgfx::TextAreaWithOneWildcard pack_curr_value;
+    touchgfx::TextAreaWithOneWildcard pack_soc_value;
+    touchgfx::TextAreaWithOneWildcard dtc_status_value;
+    touchgfx::TextAreaWithOneWildcard charge_relay_value;
+    touchgfx::TextAreaWithOneWildcard discharge_relay_status;
     touchgfx::TextArea right_turn_value;
-    touchgfx::TextArea cruise_inc_value;
-    touchgfx::TextArea regen_value;
+    touchgfx::TextAreaWithOneWildcard cruise_inc_value;
+    touchgfx::TextAreaWithOneWildcard regen_value;
     touchgfx::TextArea throttle_text;
     touchgfx::TextArea brake_pedal_text;
     touchgfx::TextArea throttle_pedal_text;
@@ -88,7 +98,67 @@ protected:
     touchgfx::TextArea cruise_text;
     touchgfx::TextArea cruise_dec_text;
 
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t CRUISE_DRIVE_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar cruise_drive_valueBuffer[CRUISE_DRIVE_VALUE_SIZE];
+    static const uint16_t CRUISE_SPEED_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar cruise_speed_valueBuffer[CRUISE_SPEED_VALUE_SIZE];
+    static const uint16_t REGEN_BRAKE_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar regen_brake_valueBuffer[REGEN_BRAKE_VALUE_SIZE];
+    static const uint16_t THROTTLE_PEDAL_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar throttle_pedal_valueBuffer[THROTTLE_PEDAL_VALUE_SIZE];
+    static const uint16_t BRAKE_PEDAL_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar brake_pedal_valueBuffer[BRAKE_PEDAL_VALUE_SIZE];
+    static const uint16_t THROTTLE_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar throttle_valueBuffer[THROTTLE_VALUE_SIZE];
+    static const uint16_t REGEN_DRIVE_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar regen_drive_valueBuffer[REGEN_DRIVE_VALUE_SIZE];
+    static const uint16_t LEFT_TURN_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar left_turn_valueBuffer[LEFT_TURN_VALUE_SIZE];
+    static const uint16_t LOW_POWER_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar low_power_valueBuffer[LOW_POWER_VALUE_SIZE];
+    static const uint16_t HAZARDS_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar hazards_valueBuffer[HAZARDS_VALUE_SIZE];
+    static const uint16_t CRUISE_DEC_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar cruise_dec_valueBuffer[CRUISE_DEC_VALUE_SIZE];
+    static const uint16_t CRUISE_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar cruise_valueBuffer[CRUISE_VALUE_SIZE];
+    static const uint16_t MTR_CONTROLLER_ERROR_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar mtr_controller_error_valueBuffer[MTR_CONTROLLER_ERROR_VALUE_SIZE];
+    static const uint16_t BPS_ERROR_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar bps_error_valueBuffer[BPS_ERROR_VALUE_SIZE];
+    static const uint16_t MAN_DRIVE_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar man_drive_valueBuffer[MAN_DRIVE_VALUE_SIZE];
+    static const uint16_t BRAKING_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar braking_valueBuffer[BRAKING_VALUE_SIZE];
+    static const uint16_t RPM_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar rpm_valueBuffer[RPM_VALUE_SIZE];
+    static const uint16_t PACK_VOLT_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar pack_volt_valueBuffer[PACK_VOLT_VALUE_SIZE];
+    static const uint16_t PACK_CURR_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar pack_curr_valueBuffer[PACK_CURR_VALUE_SIZE];
+    static const uint16_t PACK_SOC_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar pack_soc_valueBuffer[PACK_SOC_VALUE_SIZE];
+    static const uint16_t DTC_STATUS_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar dtc_status_valueBuffer[DTC_STATUS_VALUE_SIZE];
+    static const uint16_t CHARGE_RELAY_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar charge_relay_valueBuffer[CHARGE_RELAY_VALUE_SIZE];
+    static const uint16_t DISCHARGE_RELAY_STATUS_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar discharge_relay_statusBuffer[DISCHARGE_RELAY_STATUS_SIZE];
+    static const uint16_t CRUISE_INC_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar cruise_inc_valueBuffer[CRUISE_INC_VALUE_SIZE];
+    static const uint16_t REGEN_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar regen_valueBuffer[REGEN_VALUE_SIZE];
+
 private:
+
+    /*
+     * Tick Counter Declarations
+     */
+    static const uint32_t TICK_INTERACTION1_INTERVAL = 20;
+    uint32_t frameCountInteraction1Interval;
 
 };
 

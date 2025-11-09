@@ -50,10 +50,9 @@ protected:
     touchgfx::PainterRGB888 shape1_2Painter;
     touchgfx::Line line1_1;
     touchgfx::PainterRGB888 line1_1Painter;
+    touchgfx::TextAreaWithOneWildcard blank;
     touchgfx::TextAreaWithOneWildcard mtr_controller_error_value;
     touchgfx::TextAreaWithOneWildcard bps_error_value;
-    touchgfx::TextArea power_aux_error_value;
-    touchgfx::TextArea power_aux_error_value_1;
     touchgfx::TextArea mtr_controller_err_text;
     touchgfx::TextArea mtr_controller_err_text_1;
     touchgfx::TextArea bps_err_text;
@@ -67,7 +66,6 @@ protected:
     touchgfx::Line border1_1_1;
     touchgfx::PainterRGB888 border1_1_1Painter;
     touchgfx::TextAreaWithOneWildcard watts;
-    touchgfx::TextAreaWithOneWildcard watts_1;
     touchgfx::TextAreaWithOneWildcard soc;
     touchgfx::TextAreaWithOneWildcard bpsv;
     touchgfx::TextAreaWithOneWildcard bpsc;
@@ -81,14 +79,14 @@ protected:
      */
     static const uint16_t SPEED_SIZE = 10;
     touchgfx::Unicode::UnicodeChar speedBuffer[SPEED_SIZE];
+    static const uint16_t BLANK_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar blankBuffer[BLANK_SIZE];
     static const uint16_t MTR_CONTROLLER_ERROR_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar mtr_controller_error_valueBuffer[MTR_CONTROLLER_ERROR_VALUE_SIZE];
     static const uint16_t BPS_ERROR_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar bps_error_valueBuffer[BPS_ERROR_VALUE_SIZE];
     static const uint16_t WATTS_SIZE = 10;
     touchgfx::Unicode::UnicodeChar wattsBuffer[WATTS_SIZE];
-    static const uint16_t WATTS_1_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar watts_1Buffer[WATTS_1_SIZE];
     static const uint16_t SOC_SIZE = 10;
     touchgfx::Unicode::UnicodeChar socBuffer[SOC_SIZE];
     static const uint16_t BPSV_SIZE = 10;
@@ -103,6 +101,12 @@ private:
      */
     static const uint32_t CANVAS_BUFFER_SIZE = 7200;
     uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
+
+    /*
+     * Tick Counter Declarations
+     */
+    static const uint32_t TICK_INTERACTION1_INTERVAL = 20;
+    uint32_t frameCountInteraction1Interval;
 
 };
 
