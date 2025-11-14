@@ -950,7 +950,7 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionWipe",
               "ScreenTransitionDirection": "North",
-              "ActionComponent": "DriverScreen"
+              "ActionComponent": "DataScreen"
             }
           }
         ]
@@ -2348,6 +2348,11 @@
               "Red": 94,
               "Green": 255,
               "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_VMS1",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {

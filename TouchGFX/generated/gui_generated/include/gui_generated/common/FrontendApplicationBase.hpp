@@ -29,8 +29,8 @@ public:
     // Screen2
     void gotoScreen2ScreenNoTransition();
 
-    // DriverScreen
-    void gotoDriverScreenScreenWipeTransitionNorth();
+    // DataScreen
+    void gotoDataScreenScreenWipeTransitionNorth();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
@@ -46,8 +46,8 @@ protected:
     // Screen2
     void gotoScreen2ScreenNoTransitionImpl();
 
-    // DriverScreen
-    void gotoDriverScreenScreenWipeTransitionNorthImpl();
+    // DataScreen
+    void gotoDataScreenScreenWipeTransitionNorthImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

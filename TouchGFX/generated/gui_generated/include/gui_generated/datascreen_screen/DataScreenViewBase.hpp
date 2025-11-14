@@ -67,7 +67,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard dtc_status_value;
     touchgfx::TextAreaWithOneWildcard charge_relay_value;
     touchgfx::TextAreaWithOneWildcard discharge_relay_status;
-    touchgfx::TextArea right_turn_value;
+    touchgfx::TextAreaWithOneWildcard right_turn_value;
     touchgfx::TextAreaWithOneWildcard cruise_inc_value;
     touchgfx::TextAreaWithOneWildcard regen_value;
     touchgfx::TextArea throttle_text;
@@ -147,6 +147,8 @@ protected:
     touchgfx::Unicode::UnicodeChar charge_relay_valueBuffer[CHARGE_RELAY_VALUE_SIZE];
     static const uint16_t DISCHARGE_RELAY_STATUS_SIZE = 10;
     touchgfx::Unicode::UnicodeChar discharge_relay_statusBuffer[DISCHARGE_RELAY_STATUS_SIZE];
+    static const uint16_t RIGHT_TURN_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar right_turn_valueBuffer[RIGHT_TURN_VALUE_SIZE];
     static const uint16_t CRUISE_INC_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar cruise_inc_valueBuffer[CRUISE_INC_VALUE_SIZE];
     static const uint16_t REGEN_VALUE_SIZE = 10;

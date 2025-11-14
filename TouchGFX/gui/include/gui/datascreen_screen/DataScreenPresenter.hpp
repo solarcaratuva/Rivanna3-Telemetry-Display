@@ -24,6 +24,40 @@ public:
      * (ie. made inactive). Teardown functionality can be placed here.
      */
     virtual void deactivate();
+    
+    float getSpeed(int rpm);
+
+    bool mtrError();
+
+    bool bpsError();
+
+    bool getRightTurnSignal();
+
+    bool getLeftTurnSignal();
+
+    bool getHazards();
+
+    void toggleLeftTurnSignal();
+
+    void toggleRightTurnSignal();
+
+    bool getRegenEn();
+
+    void toggleRegenEn();
+
+    void toggleLowPowerEn();
+
+    bool getCruiseEn();
+
+    bool getCruiseInc();
+
+    bool getCruiseDec();
+
+    bool getLowPowerMode();
+
+    void setRPM(int newRPM);
+
+    int getRPM();
 
     virtual ~DataScreenPresenter() {}
 

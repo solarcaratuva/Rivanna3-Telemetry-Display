@@ -10,6 +10,9 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_VMS1" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">On</Translation>
+      </Text>
       <Text Id="__SingleUse_J8ZQ" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">ERR</Translation>
       </Text>
@@ -167,7 +170,7 @@
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_O790" Alignment="Right" TypographyId="V2_Val">
-        <Translation Language="GB">On</Translation>
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_R06C" Alignment="Right" TypographyId="V2_Val">
         <Translation Language="GB">&lt;value&gt;</Translation>

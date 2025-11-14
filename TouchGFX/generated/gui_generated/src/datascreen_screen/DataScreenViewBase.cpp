@@ -237,6 +237,8 @@ DataScreenViewBase::DataScreenViewBase() :
     right_turn_value.setPosition(339, 422, 107, 25);
     right_turn_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
     right_turn_value.setLinespacing(0);
+    Unicode::snprintf(right_turn_valueBuffer, RIGHT_TURN_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_VMS1).getText());
+    right_turn_value.setWildcard(right_turn_valueBuffer);
     right_turn_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_O790));
     add(right_turn_value);
 

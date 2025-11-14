@@ -11,6 +11,7 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE;
 TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
     657,  // T_RESOURCEID1: "<> mph"
+    1014, // T___SINGLEUSE_VMS1: "On"
     1002, // T___SINGLEUSE_J8ZQ: "ERR"
     972,  // T___SINGLEUSE_HL3S: "None"
     972,  // T___SINGLEUSE_SBPL: "None"
@@ -63,7 +64,7 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
     22,   // T___SINGLEUSE_K04C: "<>"
     22,   // T___SINGLEUSE_36TP: "<>"
     22,   // T___SINGLEUSE_5QLF: "<>"
-    1014, // T___SINGLEUSE_O790: "On"
+    22,   // T___SINGLEUSE_O790: "<>"
     22,   // T___SINGLEUSE_R06C: "<>"
     22,   // T___SINGLEUSE_C4U4: "<>"
     22,   // T___SINGLEUSE_7IX6: "<>"

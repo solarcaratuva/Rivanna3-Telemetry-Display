@@ -86,15 +86,15 @@ void FrontendApplicationBase::gotoScreen2ScreenNoTransitionImpl()
     touchgfx::makeTransition<Screen2View, Screen2Presenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
-// DriverScreen
+// DataScreen
 
-void FrontendApplicationBase::gotoDriverScreenScreenWipeTransitionNorth()
+void FrontendApplicationBase::gotoDataScreenScreenWipeTransitionNorth()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoDriverScreenScreenWipeTransitionNorthImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoDataScreenScreenWipeTransitionNorthImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoDriverScreenScreenWipeTransitionNorthImpl()
+void FrontendApplicationBase::gotoDataScreenScreenWipeTransitionNorthImpl()
 {
-    touchgfx::makeTransition<DriverScreenView, DriverScreenPresenter, touchgfx::WipeTransition<NORTH>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<DataScreenView, DataScreenPresenter, touchgfx::WipeTransition<NORTH>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
