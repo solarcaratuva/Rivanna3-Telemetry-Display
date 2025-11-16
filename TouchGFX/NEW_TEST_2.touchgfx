@@ -819,40 +819,6 @@
             "TextId": "__SingleUse_SY0X",
             "TextRotation": "0",
             "AutoSize": true
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "flexButton1",
-            "X": 98,
-            "Y": -1,
-            "Width": 277,
-            "Height": 25,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "BoxWithBorderButtonStyle",
-                "Width": 277,
-                "Height": 25,
-                "LockToFlexButtonSize": true,
-                "BorderSize": 5,
-                "ColorReleased": {
-                  "Red": 255,
-                  "Green": 140
-                },
-                "ColorPressed": {
-                  "Red": 207,
-                  "Green": 91,
-                  "Blue": 2
-                },
-                "ColorBorderPressed": {
-                  "Red": 51,
-                  "Green": 51,
-                  "Blue": 51
-                }
-              }
-            ]
           }
         ],
         "Interactions": [
@@ -892,18 +858,6 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "function2"
-            }
-          },
-          {
-            "InteractionName": "Interaction5",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "flexButton1"
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Screen2"
             }
           }
         ]
@@ -950,7 +904,7 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionWipe",
               "ScreenTransitionDirection": "North",
-              "ActionComponent": "DataScreen"
+              "ActionComponent": "DriverScreen"
             }
           }
         ]
@@ -1067,41 +1021,6 @@
             },
             "AutoSize": true,
             "Fadeable": true
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "flexButton1",
-            "X": 98,
-            "Y": -1,
-            "Width": 277,
-            "Height": 25,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "BoxWithBorderButtonStyle",
-                "Width": 277,
-                "Height": 25,
-                "LockToFlexButtonSize": true,
-                "BorderSize": 5,
-                "ColorReleased": {
-                  "Red": 198,
-                  "Green": 90,
-                  "Blue": 30
-                },
-                "ColorPressed": {
-                  "Red": 148,
-                  "Green": 58,
-                  "Blue": 19
-                },
-                "ColorBorderPressed": {
-                  "Red": 51,
-                  "Green": 51,
-                  "Blue": 51
-                }
-              }
-            ]
           },
           {
             "Type": "TextArea",
@@ -1229,18 +1148,6 @@
           }
         ],
         "Interactions": [
-          {
-            "InteractionName": "Interaction1",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "flexButton1"
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Screen1"
-            }
-          },
           {
             "InteractionName": "Interaction2",
             "Trigger": {
@@ -1746,6 +1653,17 @@
             "IndicatorPositionHeight": 10,
             "ProgressRangeMax": 100,
             "ProgressInitialValue": 60
+          },
+          {
+            "Type": "Button",
+            "Name": "button1",
+            "X": 123,
+            "Y": 657,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.png",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_rounded_normal.json"
           }
         ],
         "Interactions": [
@@ -1758,6 +1676,18 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "main"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "button1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "DataScreen"
             }
           }
         ]
@@ -2810,6 +2740,17 @@
               "Blue": 255
             },
             "AutoSize": true
+          },
+          {
+            "Type": "Button",
+            "Name": "button1",
+            "X": 123,
+            "Y": 657,
+            "Width": 240,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.png",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\medium_rounded_normal.json"
           }
         ],
         "Interactions": [
@@ -2822,6 +2763,18 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "main"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "button1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "DriverScreen"
             }
           }
         ]

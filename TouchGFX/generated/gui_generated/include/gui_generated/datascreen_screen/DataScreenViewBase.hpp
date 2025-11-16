@@ -10,6 +10,7 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/Button.hpp>
 
 class DataScreenViewBase : public touchgfx::View<DataScreenPresenter>
 {
@@ -97,6 +98,7 @@ protected:
     touchgfx::TextArea regen_text;
     touchgfx::TextArea cruise_text;
     touchgfx::TextArea cruise_dec_text;
+    touchgfx::Button button1;
 
     /*
      * Wildcard Buffers
@@ -161,6 +163,16 @@ private:
      */
     static const uint32_t TICK_INTERACTION1_INTERVAL = 20;
     uint32_t frameCountInteraction1Interval;
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<DataScreenViewBase, const touchgfx::AbstractButton&> buttonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
 };
 

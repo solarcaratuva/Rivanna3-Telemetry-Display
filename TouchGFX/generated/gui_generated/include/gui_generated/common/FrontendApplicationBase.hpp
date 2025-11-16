@@ -20,34 +20,32 @@ public:
         gotoStartupScreenScreenNoTransition();
     }
 
-    // Screen1
-    void gotoScreen1ScreenNoTransition();
-
     // StartupScreen
     void gotoStartupScreenScreenNoTransition();
 
-    // Screen2
-    void gotoScreen2ScreenNoTransition();
+    // DriverScreen
+    void gotoDriverScreenScreenWipeTransitionNorth();
+
+    void gotoDriverScreenScreenNoTransition();
 
     // DataScreen
-    void gotoDataScreenScreenWipeTransitionNorth();
+    void gotoDataScreenScreenNoTransition();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
     Model& model;
 
-    // Screen1
-    void gotoScreen1ScreenNoTransitionImpl();
-
     // StartupScreen
     void gotoStartupScreenScreenNoTransitionImpl();
 
-    // Screen2
-    void gotoScreen2ScreenNoTransitionImpl();
+    // DriverScreen
+    void gotoDriverScreenScreenWipeTransitionNorthImpl();
+
+    void gotoDriverScreenScreenNoTransitionImpl();
 
     // DataScreen
-    void gotoDataScreenScreenWipeTransitionNorthImpl();
+    void gotoDataScreenScreenNoTransitionImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

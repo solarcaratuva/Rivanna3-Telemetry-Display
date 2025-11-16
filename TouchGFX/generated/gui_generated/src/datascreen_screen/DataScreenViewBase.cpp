@@ -4,9 +4,11 @@
 #include <gui_generated/datascreen_screen/DataScreenViewBase.hpp>
 #include <touchgfx/Color.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
+#include <images/BitmapDatabase.hpp>
 
 DataScreenViewBase::DataScreenViewBase() :
-    frameCountInteraction1Interval(0)
+    frameCountInteraction1Interval(0),
+    buttonCallback(this, &DataScreenViewBase::buttonCallbackHandler)
 {
     __background.setPosition(0, 0, 480, 800);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -419,6 +421,11 @@ DataScreenViewBase::DataScreenViewBase() :
     cruise_dec_text.setLinespacing(0);
     cruise_dec_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UMO4));
     add(cruise_dec_text);
+
+    button1.setXY(123, 657);
+    button1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_PRESSED_ID));
+    button1.setAction(buttonCallback);
+    add(button1);
 }
 
 DataScreenViewBase::~DataScreenViewBase()
@@ -429,6 +436,17 @@ DataScreenViewBase::~DataScreenViewBase()
 void DataScreenViewBase::setupScreen()
 {
 
+}
+
+void DataScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &button1)
+    {
+        //Interaction2
+        //When button1 clicked change screen to DriverScreen
+        //Go to DriverScreen with no screen transition
+        application().gotoDriverScreenScreenNoTransition();
+    }
 }
 
 void DataScreenViewBase::handleTickEvent()

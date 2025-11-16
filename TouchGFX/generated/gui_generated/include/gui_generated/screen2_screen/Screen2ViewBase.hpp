@@ -14,7 +14,6 @@
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/EasingEquations.hpp>
 #include <touchgfx/mixins/FadeAnimator.hpp>
-#include <touchgfx/containers/buttons/Buttons.hpp>
 #include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 
 class Screen2ViewBase : public touchgfx::View<Screen2Presenter>
@@ -55,7 +54,6 @@ protected:
     touchgfx::FadeAnimator< touchgfx::TextArea > MtrComm_Warning;
     touchgfx::FadeAnimator< touchgfx::TextArea > BPS_Warning;
     touchgfx::FadeAnimator< touchgfx::TextArea > PowerAux_Warning;
-    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  flexButton1;
     touchgfx::TextAreaWithOneWildcard speedMph;
     touchgfx::TextArea speed;
     touchgfx::TextArea mph;
@@ -86,16 +84,6 @@ private:
      */
     static const uint32_t CANVAS_BUFFER_SIZE = 7200;
     uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
-
-    /*
-     * Callback Declarations
-     */
-    touchgfx::Callback<Screen2ViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
-
-    /*
-     * Callback Handler Declarations
-     */
-    void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
 
     /*
      * Tick Counter Declarations

@@ -17,7 +17,6 @@
 #include <touchgfx/EasingEquations.hpp>
 #include <touchgfx/mixins/FadeAnimator.hpp>
 #include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
-#include <touchgfx/containers/buttons/Buttons.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -109,7 +108,6 @@ protected:
     touchgfx::TextAreaWithOneWildcard errorLine2;
     touchgfx::TextAreaWithOneWildcard errorLine3;
     touchgfx::TextArea textArea3;
-    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  flexButton1;
 
     /*
      * Wildcard Buffers
@@ -190,16 +188,6 @@ private:
      */
     static const uint32_t TICK_INTERACTION4_INTERVAL = 15;
     uint32_t frameCountInteraction4Interval;
-
-    /*
-     * Callback Declarations
-     */
-    touchgfx::Callback<Screen1ViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
-
-    /*
-     * Callback Handler Declarations
-     */
-    void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
 
 };
 

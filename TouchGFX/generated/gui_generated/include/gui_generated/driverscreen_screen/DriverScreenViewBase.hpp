@@ -14,6 +14,7 @@
 #include <touchgfx/widgets/canvas/Shape.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
+#include <touchgfx/widgets/Button.hpp>
 
 class DriverScreenViewBase : public touchgfx::View<DriverScreenPresenter>
 {
@@ -73,6 +74,7 @@ protected:
     touchgfx::TextArea textArea5;
     touchgfx::TextArea textArea5_1;
     touchgfx::BoxProgress boxProgress1;
+    touchgfx::Button button1;
 
     /*
      * Wildcard Buffers
@@ -107,6 +109,16 @@ private:
      */
     static const uint32_t TICK_INTERACTION1_INTERVAL = 20;
     uint32_t frameCountInteraction1Interval;
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<DriverScreenViewBase, const touchgfx::AbstractButton&> buttonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
 
 };
 

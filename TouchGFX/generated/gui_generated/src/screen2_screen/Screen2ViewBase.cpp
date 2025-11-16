@@ -8,7 +8,6 @@
 #include <images/BitmapDatabase.hpp>
 
 Screen2ViewBase::Screen2ViewBase() :
-    flexButtonCallback(this, &Screen2ViewBase::flexButtonCallbackHandler),
     frameCountInteraction3Interval(0)
 {
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
@@ -64,13 +63,6 @@ Screen2ViewBase::Screen2ViewBase() :
     PowerAux_Warning.setLinespacing(0);
     PowerAux_Warning.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PD5D));
     add(PowerAux_Warning);
-
-    flexButton1.setBoxWithBorderPosition(0, 0, 277, 25);
-    flexButton1.setBorderSize(5);
-    flexButton1.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(198, 90, 30), touchgfx::Color::getColorFromRGB(148, 58, 19), touchgfx::Color::getColorFromRGB(0, 0, 0), touchgfx::Color::getColorFromRGB(51, 51, 51));
-    flexButton1.setAction(flexButtonCallback);
-    flexButton1.setPosition(98, -1, 277, 25);
-    add(flexButton1);
 
     speedMph.setPosition(0, 86, 480, 105);
     speedMph.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
@@ -147,17 +139,6 @@ Screen2ViewBase::~Screen2ViewBase()
 void Screen2ViewBase::setupScreen()
 {
 
-}
-
-void Screen2ViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
-{
-    if (&src == &flexButton1)
-    {
-        //Interaction1
-        //When flexButton1 clicked change screen to Screen1
-        //Go to Screen1 with no screen transition
-        application().gotoScreen1ScreenNoTransition();
-    }
 }
 
 void Screen2ViewBase::handleTickEvent()

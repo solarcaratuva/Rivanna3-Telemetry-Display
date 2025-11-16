@@ -8,7 +8,8 @@
 #include <images/BitmapDatabase.hpp>
 
 DriverScreenViewBase::DriverScreenViewBase() :
-    frameCountInteraction1Interval(0)
+    frameCountInteraction1Interval(0),
+    buttonCallback(this, &DriverScreenViewBase::buttonCallbackHandler)
 {
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
 
@@ -211,6 +212,11 @@ DriverScreenViewBase::DriverScreenViewBase() :
     boxProgress1.setColor(touchgfx::Color::getColorFromRGB(55, 255, 0));
     boxProgress1.setValue(60);
     add(boxProgress1);
+
+    button1.setXY(123, 657);
+    button1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_PRESSED_ID));
+    button1.setAction(buttonCallback);
+    add(button1);
 }
 
 DriverScreenViewBase::~DriverScreenViewBase()
@@ -221,6 +227,17 @@ DriverScreenViewBase::~DriverScreenViewBase()
 void DriverScreenViewBase::setupScreen()
 {
 
+}
+
+void DriverScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &button1)
+    {
+        //Interaction2
+        //When button1 clicked change screen to DataScreen
+        //Go to DataScreen with no screen transition
+        application().gotoDataScreenScreenNoTransition();
+    }
 }
 
 void DriverScreenViewBase::handleTickEvent()
