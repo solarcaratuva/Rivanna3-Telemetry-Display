@@ -26,10 +26,10 @@ public:
     // DriverScreen
     void gotoDriverScreenScreenWipeTransitionNorth();
 
-    void gotoDriverScreenScreenNoTransition();
+    void gotoDriverScreenScreenSlideTransitionWest();
 
     // DataScreen
-    void gotoDataScreenScreenNoTransition();
+    void gotoDataScreenScreenSlideTransitionEast();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
@@ -42,10 +42,10 @@ protected:
     // DriverScreen
     void gotoDriverScreenScreenWipeTransitionNorthImpl();
 
-    void gotoDriverScreenScreenNoTransitionImpl();
+    void gotoDriverScreenScreenSlideTransitionWestImpl();
 
     // DataScreen
-    void gotoDataScreenScreenNoTransitionImpl();
+    void gotoDataScreenScreenSlideTransitionEastImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

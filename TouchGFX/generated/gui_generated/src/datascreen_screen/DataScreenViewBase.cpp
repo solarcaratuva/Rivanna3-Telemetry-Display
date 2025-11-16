@@ -444,8 +444,8 @@ void DataScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& s
     {
         //Interaction2
         //When button1 clicked change screen to DriverScreen
-        //Go to DriverScreen with no screen transition
-        application().gotoDriverScreenScreenNoTransition();
+        //Go to DriverScreen with screen transition towards West
+        application().gotoDriverScreenScreenSlideTransitionWest();
     }
 }
 

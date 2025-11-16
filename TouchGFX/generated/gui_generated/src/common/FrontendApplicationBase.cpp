@@ -73,26 +73,26 @@ void FrontendApplicationBase::gotoDriverScreenScreenWipeTransitionNorthImpl()
     touchgfx::makeTransition<DriverScreenView, DriverScreenPresenter, touchgfx::WipeTransition<NORTH>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
-void FrontendApplicationBase::gotoDriverScreenScreenNoTransition()
+void FrontendApplicationBase::gotoDriverScreenScreenSlideTransitionWest()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoDriverScreenScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoDriverScreenScreenSlideTransitionWestImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoDriverScreenScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoDriverScreenScreenSlideTransitionWestImpl()
 {
-    touchgfx::makeTransition<DriverScreenView, DriverScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<DriverScreenView, DriverScreenPresenter, touchgfx::SlideTransition<WEST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
 // DataScreen
 
-void FrontendApplicationBase::gotoDataScreenScreenNoTransition()
+void FrontendApplicationBase::gotoDataScreenScreenSlideTransitionEast()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoDataScreenScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoDataScreenScreenSlideTransitionEastImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoDataScreenScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoDataScreenScreenSlideTransitionEastImpl()
 {
-    touchgfx::makeTransition<DataScreenView, DataScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<DataScreenView, DataScreenPresenter, touchgfx::SlideTransition<EAST>, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
