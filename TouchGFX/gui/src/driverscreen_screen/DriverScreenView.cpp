@@ -125,7 +125,7 @@ void DriverScreenView::main()
     Unicode::snprintfFloat(wattsBuffer, WATTS_SIZE, "%.1f", watt);
     Unicode::snprintfFloat(bpsvBuffer, BPSV_SIZE, "%.2f", packVolt_f);
     Unicode::snprintfFloat(bpscBuffer, BPSC_SIZE, "%.2f", packCurr_f);
-    if (mtrError == false)
+    if (mtrError == true)
     {
         // Set text to "ERR" and color to red
         Unicode::snprintf(mtr_controller_error_valueBuffer, MTR_CONTROLLER_ERROR_VALUE_SIZE, "ERR");
@@ -137,7 +137,7 @@ void DriverScreenView::main()
         Unicode::snprintf(mtr_controller_error_valueBuffer, MTR_CONTROLLER_ERROR_VALUE_SIZE, "None");
         mtr_controller_error_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
-    if (bpsError == false)
+    if (bpsError == true)
     {
         // Set text to "ERR" and color to red
         Unicode::snprintf(bps_error_valueBuffer, MTR_CONTROLLER_ERROR_VALUE_SIZE, "ERR");

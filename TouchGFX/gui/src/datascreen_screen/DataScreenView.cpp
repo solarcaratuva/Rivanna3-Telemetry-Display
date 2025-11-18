@@ -190,12 +190,12 @@ void DataScreenView::main()
     bool discharge_relay = false;
     bool left = false;
     bool right = false;
-    bool lowpow = false; //missing
+    bool lowpow = false; 
     bool hazard = false; 
-    bool regenval = false; //missing
-    bool cruiseinc = false; //missing
-    bool cruiseval = false; //missing
-    bool cruisedec = false; //missing
+    bool regenval = false; 
+    bool cruiseinc = false; 
+    bool cruiseval = false; 
+    bool cruisedec = false; 
     bool mtr = false;
     bool bps = false;
 #ifndef SIMULATOR
