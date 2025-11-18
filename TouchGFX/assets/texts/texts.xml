@@ -10,6 +10,12 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_P5X9" Alignment="Center" TypographyId="V2_Screen2Val">
+        <Translation Language="GB">Debug</Translation>
+      </Text>
+      <Text Id="__SingleUse_UWPU" Alignment="Center" TypographyId="V2_Screen2Val">
+        <Translation Language="GB">Driver</Translation>
+      </Text>
       <Text Id="__SingleUse_VMS1" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">On</Translation>
       </Text>

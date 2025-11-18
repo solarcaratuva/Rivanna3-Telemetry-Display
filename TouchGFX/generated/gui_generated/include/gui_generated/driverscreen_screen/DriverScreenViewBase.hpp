@@ -75,6 +75,7 @@ protected:
     touchgfx::TextArea textArea5_1;
     touchgfx::BoxProgress boxProgress1;
     touchgfx::Button button1;
+    touchgfx::TextArea textArea1_1;
 
     /*
      * Wildcard Buffers

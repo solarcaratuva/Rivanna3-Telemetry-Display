@@ -422,10 +422,16 @@ DataScreenViewBase::DataScreenViewBase() :
     cruise_dec_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UMO4));
     add(cruise_dec_text);
 
-    button1.setXY(123, 657);
-    button1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_MEDIUM_ROUNDED_PRESSED_ID));
+    button1.setXY(55, 652);
+    button1.setBitmaps(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_LARGE_ROUND_NORMAL_ID), touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BUTTON_REGULAR_HEIGHT_50_LARGE_ROUND_PRESSED_ID));
     button1.setAction(buttonCallback);
     add(button1);
+
+    textArea1.setXY(180, 656);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    textArea1.setLinespacing(0);
+    textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UWPU));
+    add(textArea1);
 }
 
 DataScreenViewBase::~DataScreenViewBase()

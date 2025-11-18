@@ -99,6 +99,7 @@ protected:
     touchgfx::TextArea cruise_text;
     touchgfx::TextArea cruise_dec_text;
     touchgfx::Button button1;
+    touchgfx::TextArea textArea1;
 
     /*
      * Wildcard Buffers
