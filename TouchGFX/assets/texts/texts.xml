@@ -160,9 +160,6 @@
       <Text Id="__SingleUse_R0TU" Alignment="Left" TypographyId="Error_title_V2">
         <Translation Language="GB">Power</Translation>
       </Text>
-      <Text Id="__SingleUse_3ESY" Alignment="Left" TypographyId="V2_Title">
-        <Translation Language="GB">Speed</Translation>
-      </Text>
       <Text Id="__SingleUse_50VA" Alignment="Right" TypographyId="V2_Val">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>

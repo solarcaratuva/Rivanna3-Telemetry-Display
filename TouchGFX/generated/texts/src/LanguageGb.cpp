@@ -61,7 +61,6 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
     868,  // T___SINGLEUSE_D6MH: "BPS SOC"
     777,  // T___SINGLEUSE_DRUP: "<> W"
     853,  // T___SINGLEUSE_R0TU: "Power"
-    944,  // T___SINGLEUSE_3ESY: "Speed"
     22,   // T___SINGLEUSE_50VA: "<>"
     22,   // T___SINGLEUSE_K04C: "<>"
     22,   // T___SINGLEUSE_36TP: "<>"

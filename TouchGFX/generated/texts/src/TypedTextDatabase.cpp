@@ -95,7 +95,6 @@ const touchgfx::TypedText::TypedTextData typedText_database_DEFAULT[] TEXT_LOCAT
     { 13, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
     { 12, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 13, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 10, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 4, touchgfx::RIGHT, touchgfx::TEXT_DIRECTION_LTR },
     { 4, touchgfx::RIGHT, touchgfx::TEXT_DIRECTION_LTR },
     { 4, touchgfx::RIGHT, touchgfx::TEXT_DIRECTION_LTR },

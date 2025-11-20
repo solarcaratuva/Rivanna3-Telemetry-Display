@@ -57,7 +57,6 @@ protected:
     touchgfx::TextArea mtr_controller_err_text;
     touchgfx::TextArea mtr_controller_err_text_1;
     touchgfx::TextArea bps_err_text;
-    touchgfx::TextArea speed_title;
     touchgfx::TextArea error_title;
     touchgfx::TextArea power_title;
     touchgfx::Line border1;

@@ -19,14 +19,11 @@ KEEP extern const touchgfx::GlyphNode glyphs_leelauib_40_4bpp[] FONT_TABLE_LOCAT
     {  3231, 0x004E,  26,  29,  29,   3,  32,   0,   0, 0x00 },
     {  3608, 0x004F,  28,  30,  29,   1,  30,   0,   0, 0x00 },
     {  4028, 0x0052,  24,  29,  29,   3,  26,   0,   0, 0x00 },
-    {  4376, 0x0053,  20,  30,  29,   1,  22,   0,   0, 0x00 },
-    {  4676, 0x0064,  22,  31,  30,   1,  25,   4,   1, 0x00 },
-    {  5017, 0x0065,  20,  23,  22,   1,  22,   5,   1, 0x00 },
-    {  5247, 0x0066,  16,  31,  31,   0,  15,   6,   3, 0x00 },
-    {  5495, 0x006E,  20,  22,  22,   2,  24,   0,   0, 0x00 },
-    {  5715, 0x006F,  22,  23,  22,   1,  24,   9,   1, 0x00 },
-    {  5968, 0x0070,  22,  31,  22,   2,  25,   0,   0, 0x00 },
-    {  6309, 0x0072,  14,  22,  22,   2,  16,   0,   0, 0x00 }
+    {  4376, 0x0065,  20,  23,  22,   1,  22,   4,   1, 0x00 },
+    {  4606, 0x0066,  16,  31,  31,   0,  15,   5,   2, 0x00 },
+    {  4854, 0x006E,  20,  22,  22,   2,  24,   0,   0, 0x00 },
+    {  5074, 0x006F,  22,  23,  22,   1,  24,   7,   1, 0x00 },
+    {  5327, 0x0072,  14,  22,  22,   2,  16,   0,   0, 0x00 }
 };
 
 // leelauib_40_4bpp
@@ -44,6 +41,6 @@ touchgfx::GeneratedFont& getFont_leelauib_40_4bpp();
 
 touchgfx::GeneratedFont& getFont_leelauib_40_4bpp()
 {
-    static touchgfx::GeneratedFont leelauib_40_4bpp(glyphs_leelauib_40_4bpp, 23, 49, 40, 0, 0, 4, 1, 0, 1, unicodes_leelauib_40_4bpp, kerning_leelauib_40_4bpp, 63, 0, 0, 0);
+    static touchgfx::GeneratedFont leelauib_40_4bpp(glyphs_leelauib_40_4bpp, 20, 41, 40, 0, 0, 4, 1, 0, 1, unicodes_leelauib_40_4bpp, kerning_leelauib_40_4bpp, 63, 0, 0, 0);
     return leelauib_40_4bpp;
 }
