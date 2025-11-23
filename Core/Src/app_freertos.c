@@ -25,6 +25,8 @@
 #include "rivanna3.h"
 #include "data_queues.h"
 #include "wheelboard_can.h"
+#include <stdlib.h>   // For rand(), srand()
+#include <time.h>     // For time()
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,6 +50,7 @@ ReceivedCanData_t receivedCanData;
 FDCAN_RxHeaderTypeDef RxHeader;
 uint8_t RxData[8];
 /* USER CODE END Variables */
+
 /* Definitions for defaultTask */
 osThreadId_t sendHeartbeatTaskHandle;
 const osThreadAttr_t sendHeartbeatTask_attributes = {
@@ -55,13 +58,6 @@ const osThreadAttr_t sendHeartbeatTask_attributes = {
   .priority = (osPriority_t) osPriorityHigh,
   .stack_size = 128 * 4
 };
-
-// osThreadId_t sendTestDashBoardTaskHandle;
-// const osThreadAttr_t sendTestDashBoardTask_attributes = {
-//   .name = "sendTestDashBoardTask",
-//   .priority = (osPriority_t) osPriorityHigh,
-//   .stack_size = 128 * 4
-// };
 
 osThreadId_t sendDashBoardTaskHandle;
 const osThreadAttr_t sendDashBoardTask_attributes = {
@@ -84,7 +80,7 @@ const osThreadAttr_t receiveCanTask_attributes = {
   .stack_size = 128 * 4
 };
 
-/* Definitions for TouchGFXTask */
+/* TouchGFX Task */
 osThreadId_t TouchGFXTaskHandle;
 const osThreadAttr_t TouchGFXTask_attributes = {
   .name = "TouchGFXTask",
@@ -92,11 +88,20 @@ const osThreadAttr_t TouchGFXTask_attributes = {
   .stack_size = 8192 * 4
 };
 
+/* Mock CAN Task */
+osThreadId_t mockCanTaskHandle;
+const osThreadAttr_t mockCanTask_attributes = {
+    .name = "mockCanTask",
+    .priority = (osPriority_t) osPriorityHigh,
+    .stack_size = 128 * 4
+};
+
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
 void sendHeartBeatTask(void *argument);
 void sendDashBoardTask(void *argument);
 void receiveCanTask(void *argument);
+void mockCanTask(void *argument); // added
 /* USER CODE END FunctionPrototypes */
 
 /* USER CODE BEGIN 5 */
@@ -107,21 +112,17 @@ void sendHeartBeatTask(void *argument)
   const TickType_t xPeriod = pdMS_TO_TICKS(10);
 
   struct rivanna3_heartbeat_t heartbeat_can;
-
   heartbeat_can.from_telemetry_board = 0; 
   heartbeat_can.from_wheel_board = 1;
   heartbeat_can.from_power_board = 0;
 
-  rivanna3_heartbeat_pack(TxData, &heartbeat_can, RIVANNA3_HEARTBEAT_LENGTH);// removed ->data from TxData
+  rivanna3_heartbeat_pack(TxData, &heartbeat_can, RIVANNA3_HEARTBEAT_LENGTH);
 
   TickType_t xLastWakeTime = xTaskGetTickCount();
 
   for (;;)
   {
-      // Your periodic function call
       send_can_message(RIVANNA3_HEARTBEAT_FRAME_ID, RIVANNA3_HEARTBEAT_LENGTH, TxData);
-
-      // Wait for the next cycle
       vTaskDelayUntil(&xLastWakeTime, xPeriod);
   }
 }
@@ -133,30 +134,30 @@ void sendDashBoardTask(void *argument) {
 
   struct rivanna3_dashboard_commands_t dashboard_can;
 
-    // Previous raw button states (for edge detection)
-    static bool prevLeft = false;
-    static bool prevRight = false;
-    static bool prevLowPower = false;
-    static bool prevRegen = false;
-    static bool prevCruise = false;
-    static bool prevHazard = false;
-    static bool prevInc = false;
-    static bool prevDec = false;
+  // Previous raw button states (for edge detection)
+  static bool prevLeft = false;
+  static bool prevRight = false;
+  static bool prevLowPower = false;
+  static bool prevRegen = false;
+  static bool prevCruise = false;
+  static bool prevHazard = false;
+  static bool prevInc = false;
+  static bool prevDec = false;
 
-    // Latched states
-    static bool latchedLeft = false;
-    static bool latchedRight = false;
-    static bool latchedLowPower = false;
-    static bool latchedRegen = false;
-    static bool latchedCruise = false;
-    static bool latchedHazard = false;
+  // Latched states
+  static bool latchedLeft = false;
+  static bool latchedRight = false;
+  static bool latchedLowPower = false;
+  static bool latchedRegen = false;
+  static bool latchedCruise = false;
+  static bool latchedHazard = false;
 
-    static int debounceLeft = 0;
-    static int debounceRight = 0;
-    static int debounceLowPower = 0;
-    static int debounceRegen = 0;
-    static int debounceCruise = 0;
-    static int debounceHazard = 0;
+  static int debounceLeft = 0;
+  static int debounceRight = 0;
+  static int debounceLowPower = 0;
+  static int debounceRegen = 0;
+  static int debounceCruise = 0;
+  static int debounceHazard = 0;
 
   for (;;)
   {
@@ -169,18 +170,17 @@ void sendDashBoardTask(void *argument) {
     bool rawInc      = HAL_GPIO_ReadPin(USR_BTN_7_GPIO_Port, USR_BTN_7_Pin) == GPIO_PIN_RESET;
     bool rawDec      = HAL_GPIO_ReadPin(USR_BTN_8_GPIO_Port, USR_BTN_8_Pin) == GPIO_PIN_RESET;
 
-    // Toggle latching logic on rising edge
     if (!prevLeft && rawLeft && debounceLeft == 0) {
-    latchedLeft = !latchedLeft;
-    debounceLeft = DEBOUNCE_TICKS;
+        latchedLeft = !latchedLeft;
+        debounceLeft = DEBOUNCE_TICKS;
     }
     if (!prevRight && rawRight && debounceRight == 0) {
         latchedRight = !latchedRight;
         debounceRight = DEBOUNCE_TICKS;
     }
     if (!prevLowPower && rawLowPower && debounceLowPower == 0) {
-    latchedLowPower = !latchedLowPower;
-    debounceLowPower = DEBOUNCE_TICKS;
+        latchedLowPower = !latchedLowPower;
+        debounceLowPower = DEBOUNCE_TICKS;
     }
     if (!prevRegen && rawRegen && debounceRegen == 0) {
         latchedRegen = !latchedRegen;
@@ -195,18 +195,14 @@ void sendDashBoardTask(void *argument) {
         debounceHazard = DEBOUNCE_TICKS;
     }
 
-
     dashboard_can.cruise_inc = rawInc;
     dashboard_can.cruise_dec = rawDec;
-
-    // Always send the current latched states
     dashboard_can.left_turn_signal = rawLeft;
     dashboard_can.right_turn_signal = rawRight;
     dashboard_can.regen_en = rawRegen;
     dashboard_can.cruise_en = rawCruise;
     dashboard_can.hazards = rawHazard;
 
-    // Update previous states
     prevLeft = rawLeft;
     prevRight = rawRight;
     prevLowPower = rawLowPower;
@@ -223,7 +219,6 @@ void sendDashBoardTask(void *argument) {
     if (debounceCruise > 0) debounceCruise--;
     if (debounceHazard > 0) debounceHazard--;
 
-    // Pack and send
     rivanna3_dashboard_commands_pack(TxData, &dashboard_can, RIVANNA3_DASHBOARD_COMMANDS_LENGTH);
     send_can_message(RIVANNA3_DASHBOARD_COMMANDS_FRAME_ID, RIVANNA3_DASHBOARD_COMMANDS_LENGTH, TxData);
 
@@ -234,20 +229,16 @@ void sendDashBoardTask(void *argument) {
 void sendChargingModeTask(void *argument)
 {
   uint8_t TxData[8];
-
   const TickType_t xPeriod = pdMS_TO_TICKS(10);
-
   struct rivanna3_charging_mode_t chargingmode_can;
-
   TickType_t xLastWakeTime = xTaskGetTickCount();
 
   for (;;)
   {
     bool state = HAL_GPIO_ReadPin(USR_BTN_9_GPIO_Port, USR_BTN_9_Pin) == GPIO_PIN_RESET;
     chargingmode_can.charging_mode_enable = state;
-    rivanna3_charging_mode_pack(TxData, &chargingmode_can, RIVANNA3_CHARGING_MODE_LENGTH);// removed ->data from TxData
+    rivanna3_charging_mode_pack(TxData, &chargingmode_can, RIVANNA3_CHARGING_MODE_LENGTH);
     send_can_message(RIVANNA3_CHARGING_MODE_FRAME_ID, RIVANNA3_CHARGING_MODE_LENGTH, TxData);
-
     vTaskDelayUntil(&xLastWakeTime, xPeriod);
   }
 }
@@ -258,7 +249,6 @@ void receiveCanTask(void *argument) {
 
   for(;;) {
     uint32_t pending = HAL_FDCAN_GetRxFifoFillLevel(&hfdcan1, FDCAN_RX_FIFO0);
-    uint32_t pendingSaved = pending;
     while(pending > 0) {
       if (HAL_FDCAN_GetRxMessage(&hfdcan1, FDCAN_RX_FIFO0, &RxHeader, RxData) == HAL_OK) {
         updateReceivedCanData(&receivedCanData, RxHeader.Identifier, RxData);
@@ -270,44 +260,79 @@ void receiveCanTask(void *argument) {
   }
 }
 
-void vApplicationMallocFailedHook(void)
-{
-   /* vApplicationMallocFailedHook() will only be called if
-   configUSE_MALLOC_FAILED_HOOK is set to 1 in FreeRTOSConfig.h. It is a hook
-   function that will get called if a call to pvPortMalloc() fails.
-   pvPortMalloc() is called internally by the kernel whenever a task, queue,
-   timer or semaphore is created. It is also called by various parts of the
-   demo application. If heap_1.c or heap_2.c are used, then the size of the
-   heap available to pvPortMalloc() is defined by configTOTAL_HEAP_SIZE in
-   FreeRTOSConfig.h, and the xPortGetFreeHeapSize() API function can be used
-   to query the size of free heap space that remains (although it does not
-   provide information on how the remaining heap might be fragmented). */
+/* Mock CAN task for testing TouchGFX without real CAN */
+void mockCanTask(void *argument) {
+    const TickType_t xPeriod = pdMS_TO_TICKS(10);
+    TickType_t xLastWakeTime = xTaskGetTickCount();
+    srand((unsigned int)time(NULL)); // seed random
+
+    // Simulated vehicle parameters
+    uint16_t rpm = 0;
+    uint16_t bps_voltage = 3600;  // mV
+    uint16_t bps_current = 0;     // mA
+    uint8_t throttle = 0;         
+    uint8_t brake = 0;
+
+    int rpm_step = 20;
+    int voltage_step = 2;
+    int current_step = 5;
+    int throttle_step = 2;
+    int brake_step = 2;
+
+    for (;;) {
+        // Smoothly vary throttle and brake
+        throttle += throttle_step;
+        if (throttle >= 255 || throttle == 0) throttle_step = -throttle_step;
+
+        brake += brake_step;
+        if (brake >= 255 || brake == 0) brake_step = -brake_step;
+
+        // RPM variation
+        rpm += rpm_step;
+        if (rpm >= 10000 || rpm == 0) rpm_step = -rpm_step;
+
+        // BPS voltage variation
+        bps_voltage += voltage_step;
+        if (bps_voltage >= 4200 || bps_voltage <= 3000) voltage_step = -voltage_step;
+
+        // BPS current variation
+        bps_current += current_step;
+        if (bps_current >= 2000 || bps_current == 0) current_step = -current_step;
+
+        // Pack motor CAN frame (example ID: 0x100)
+        uint8_t motorData[8];
+        motorData[0] = (uint8_t)(rpm >> 8);;
+        motorData[1] = (uint8_t)(rpm >> 8);;
+        motorData[2] = (uint8_t)(rpm >> 8);
+        motorData[3] = (uint8_t)(rpm & 0xFF);
+        motorData[4] = (uint8_t)(bps_voltage >> 8);
+        motorData[5] = (uint8_t)(bps_voltage & 0xFF);
+        motorData[6] = (uint8_t)(bps_current >> 8);
+        motorData[7] = (uint8_t)(bps_current & 0xFF);
+
+        updateReceivedCanData(&receivedCanData, 0x100, motorData);
+
+        // Randomized dashboard input signals (example ID: 0x200)
+        uint8_t dashboardData[8];
+        for (int i = 0; i < 8; i++) {
+            dashboardData[i] = rand() % 2; // 0 or 1 for buttons/flags
+        }
+        updateReceivedCanData(&receivedCanData, 0x200, dashboardData);
+
+        // Send updated mock data to queue
+        xQueueOverwrite(canReceivedQueue, &receivedCanData);
+
+        vTaskDelayUntil(&xLastWakeTime, xPeriod);
+    }
 }
+
 /* USER CODE END 5 */
 
 /* USER CODE BEGIN 2 */
-void vApplicationIdleHook( void )
-{
-   /* vApplicationIdleHook() will only be called if configUSE_IDLE_HOOK is set
-   to 1 in FreeRTOSConfig.h. It will be called on each iteration of the idle
-   task. It is essential that code added to this hook function never attempts
-   to block in any way (for example, call xQueueReceive() with a block time
-   specified, or call vTaskDelay()). If the application makes use of the
-   vTaskDelete() API function (as this demo application does) then it is also
-   important that vApplicationIdleHook() is permitted to return to its calling
-   function, because it is the responsibility of the idle task to clean up
-   memory allocated by the kernel to any task that has since been deleted. */
-}
+void vApplicationIdleHook( void ) {}
+void vApplicationStackOverflowHook(xTaskHandle xTask, char *pcTaskName) {}
+void vApplicationMallocFailedHook(void) {}
 /* USER CODE END 2 */
-
-/* USER CODE BEGIN 4 */
-void vApplicationStackOverflowHook(xTaskHandle xTask, char *pcTaskName)
-{
-   /* Run time stack overflow checking is performed if
-   configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2. This hook function is
-   called if a stack overflow is detected. */
-}
-/* USER CODE END 4 */
 
 /**
   * @brief  FreeRTOS initialization
@@ -315,52 +340,13 @@ void vApplicationStackOverflowHook(xTaskHandle xTask, char *pcTaskName)
   * @retval None
   */
 void MX_FREERTOS_Init(void) {
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
-  /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
-
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
-
-  /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
-
-  /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
-  /* creation of heartBeatTask */
   sendHeartbeatTaskHandle = osThreadNew(sendHeartBeatTask, NULL, &sendHeartbeatTask_attributes);
-
-  /* creation of DashBoardCommands */
   sendDashBoardTaskHandle = osThreadNew(sendDashBoardTask, NULL, &sendDashBoardTask_attributes);
-
-  /* creation of ChargingModeTask */
   sendChargingModeTaskHandle = osThreadNew(sendChargingModeTask, NULL, &sendChargingModeTask_attributes);
 
-  /* creation of receiveCanTask */
-  receiveCanTaskHandle = osThreadNew(receiveCanTask, NULL, &receiveCanTask_attributes);
+  // Use either real CAN or mock CAN
+  // receiveCanTaskHandle = osThreadNew(receiveCanTask, NULL, &receiveCanTask_attributes);
+  mockCanTaskHandle = osThreadNew(mockCanTask, NULL, &mockCanTask_attributes);
 
-  /* creation of TouchGFXTask */
   TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
-
-  /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
-  /* USER CODE END RTOS_THREADS */
-
-  /* USER CODE BEGIN RTOS_EVENTS */
-  /* add events, ... */
-  /* USER CODE END RTOS_EVENTS */
-
 }
-
-/* Private application code --------------------------------------------------*/
-/* USER CODE BEGIN Application */
-
-/* USER CODE END Application */
-
