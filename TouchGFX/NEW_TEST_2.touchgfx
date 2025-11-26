@@ -1422,9 +1422,9 @@
           {
             "Type": "TextArea",
             "Name": "power_title",
-            "X": 317,
+            "X": 308,
             "Y": 270,
-            "Width": 91,
+            "Width": 162,
             "Height": 30,
             "TextId": "__SingleUse_R0TU",
             "TextRotation": "0",
@@ -1495,7 +1495,7 @@
           {
             "Type": "TextArea",
             "Name": "watts",
-            "X": 317,
+            "X": 308,
             "Y": 307,
             "Width": 188,
             "Height": 34,
@@ -1555,7 +1555,7 @@
           {
             "Type": "TextArea",
             "Name": "bpsc",
-            "X": 310,
+            "X": 301,
             "Y": 202,
             "Width": 227,
             "Height": 34,
@@ -1577,7 +1577,7 @@
             "Name": "textArea1",
             "X": 40,
             "Y": 270,
-            "Width": 137,
+            "Width": 131,
             "Height": 30,
             "TextId": "__SingleUse_D6MH",
             "TextRotation": "0",
@@ -1607,7 +1607,7 @@
           {
             "Type": "TextArea",
             "Name": "textArea5_1",
-            "X": 317,
+            "X": 308,
             "Y": 163,
             "Width": 137,
             "Height": 30,

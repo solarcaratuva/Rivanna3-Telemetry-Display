@@ -152,13 +152,13 @@
         <Translation Language="GB">Mtr. Controller</Translation>
       </Text>
       <Text Id="__SingleUse_D6MH" Alignment="Center" TypographyId="Error_title_V2">
-        <Translation Language="GB">BPS SOC</Translation>
+        <Translation Language="GB">BPS SoC</Translation>
       </Text>
       <Text Id="__SingleUse_DRUP" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB">&lt;value&gt; W</Translation>
       </Text>
       <Text Id="__SingleUse_R0TU" Alignment="Left" TypographyId="Error_title_V2">
-        <Translation Language="GB">Power</Translation>
+        <Translation Language="GB">BPS Power</Translation>
       </Text>
       <Text Id="__SingleUse_50VA" Alignment="Right" TypographyId="V2_Val">
         <Translation Language="GB">&lt;value&gt;</Translation>

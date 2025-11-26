@@ -115,7 +115,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     error_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UMNM));
     add(error_title);
 
-    power_title.setXY(317, 270);
+    power_title.setXY(308, 270);
     power_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     power_title.setLinespacing(0);
     power_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_R0TU));
@@ -148,7 +148,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     border1_1_1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     add(border1_1_1);
 
-    watts.setPosition(317, 307, 188, 34);
+    watts.setPosition(308, 307, 188, 34);
     watts.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     watts.setLinespacing(0);
     Unicode::snprintf(wattsBuffer, WATTS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_JYPR).getText());
@@ -172,7 +172,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     bpsv.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8SLF));
     add(bpsv);
 
-    bpsc.setPosition(310, 202, 227, 34);
+    bpsc.setPosition(301, 202, 227, 34);
     bpsc.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     bpsc.setLinespacing(0);
     Unicode::snprintf(bpscBuffer, BPSC_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_ZQON).getText());
@@ -192,7 +192,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     textArea5.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4038));
     add(textArea5);
 
-    textArea5_1.setXY(317, 163);
+    textArea5_1.setXY(308, 163);
     textArea5_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea5_1.setLinespacing(0);
     textArea5_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_I07J));
