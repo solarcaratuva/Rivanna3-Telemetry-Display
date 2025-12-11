@@ -20,22 +20,32 @@ public:
         gotoStartupScreenScreenNoTransition();
     }
 
-    // Screen1
-    void gotoScreen1ScreenWipeTransitionNorth();
-
     // StartupScreen
     void gotoStartupScreenScreenNoTransition();
+
+    // DriverScreen
+    void gotoDriverScreenScreenWipeTransitionNorth();
+
+    void gotoDriverScreenScreenSlideTransitionWest();
+
+    // DataScreen
+    void gotoDataScreenScreenSlideTransitionEast();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
     Model& model;
 
-    // Screen1
-    void gotoScreen1ScreenWipeTransitionNorthImpl();
-
     // StartupScreen
     void gotoStartupScreenScreenNoTransitionImpl();
+
+    // DriverScreen
+    void gotoDriverScreenScreenWipeTransitionNorthImpl();
+
+    void gotoDriverScreenScreenSlideTransitionWestImpl();
+
+    // DataScreen
+    void gotoDataScreenScreenSlideTransitionEastImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

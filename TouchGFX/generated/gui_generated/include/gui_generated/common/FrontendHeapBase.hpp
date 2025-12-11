@@ -10,6 +10,7 @@
 
 #include <touchgfx/transitions/NoTransition.hpp>
 #include <touchgfx/transitions/WipeTransition.hpp>
+#include <touchgfx/transitions/SlideTransition.hpp>
 
 #include <gui/common/FrontendApplication.hpp>
 #include <gui/model/Model.hpp>
@@ -18,6 +19,16 @@
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <gui/startupscreen_screen/StartupScreenView.hpp>
 #include <gui/startupscreen_screen/StartupScreenPresenter.hpp>
+#include <gui/screen2_screen/Screen2View.hpp>
+#include <gui/screen2_screen/Screen2Presenter.hpp>
+#include <gui/driverscreen_screen/DriverScreenView.hpp>
+#include <gui/driverscreen_screen/DriverScreenPresenter.hpp>
+#include <gui/datascreen_screen/DataScreenView.hpp>
+#include <gui/datascreen_screen/DataScreenPresenter.hpp>
+#include <gui/settingsscreen_screen/SettingsScreenView.hpp>
+#include <gui/settingsscreen_screen/SettingsScreenPresenter.hpp>
+#include <gui/startupscreen2_screen/StartupScreen2View.hpp>
+#include <gui/startupscreen2_screen/StartupScreen2Presenter.hpp>
 
 
 /**
@@ -42,7 +53,12 @@ public:
      */
     typedef touchgfx::meta::TypeList< Screen1View,
             touchgfx::meta::TypeList< StartupScreenView,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< Screen2View,
+            touchgfx::meta::TypeList< DriverScreenView,
+            touchgfx::meta::TypeList< DataScreenView,
+            touchgfx::meta::TypeList< SettingsScreenView,
+            touchgfx::meta::TypeList< StartupScreen2View,
+            touchgfx::meta::Nil > > > > > >
             > GeneratedViewTypes;
 
     /**
@@ -56,7 +72,12 @@ public:
      */
     typedef touchgfx::meta::TypeList< Screen1Presenter,
             touchgfx::meta::TypeList< StartupScreenPresenter,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< Screen2Presenter,
+            touchgfx::meta::TypeList< DriverScreenPresenter,
+            touchgfx::meta::TypeList< DataScreenPresenter,
+            touchgfx::meta::TypeList< SettingsScreenPresenter,
+            touchgfx::meta::TypeList< StartupScreen2Presenter,
+            touchgfx::meta::Nil > > > > > >
             > GeneratedPresenterTypes;
 
     /**
@@ -70,7 +91,9 @@ public:
      */
     typedef touchgfx::meta::TypeList< touchgfx::NoTransition,
             touchgfx::meta::TypeList< WipeTransition<NORTH>,
-            touchgfx::meta::Nil >
+            touchgfx::meta::TypeList< SlideTransition<EAST>,
+            touchgfx::meta::TypeList< SlideTransition<WEST>,
+            touchgfx::meta::Nil > > >
             > GeneratedTransitionTypes;
 
     /**

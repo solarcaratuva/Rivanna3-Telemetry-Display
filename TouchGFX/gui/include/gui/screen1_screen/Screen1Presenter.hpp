@@ -45,6 +45,10 @@ public:
 
     bool getCruiseEn();
 
+    void setRPM(int newRPM);
+
+    int getRPM();
+
     bool getCruiseInc();
 
     bool getCruiseDec();

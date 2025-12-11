@@ -8,6 +8,8 @@
           {
             "Type": "Box",
             "Name": "box1",
+            "X": 1,
+            "Y": -1,
             "Width": 480,
             "Height": 800,
             "Color": {
@@ -902,10 +904,1930 @@
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionWipe",
               "ScreenTransitionDirection": "North",
-              "ActionComponent": "Screen1"
+              "ActionComponent": "DriverScreen"
             }
           }
         ]
+      },
+      {
+        "Name": "Screen2",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 480,
+            "Height": 800,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "Line",
+            "Name": "line1_2",
+            "X": 11,
+            "Y": 658,
+            "Width": 484,
+            "Height": 16,
+            "Color": {
+              "Red": 92,
+              "Green": 92,
+              "Blue": 92
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 450.0,
+            "EndY": 5.0,
+            "LineWidth": 4.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "Line",
+            "Name": "line1_1",
+            "X": 11,
+            "Y": 468,
+            "Width": 484,
+            "Height": 16,
+            "Color": {
+              "Red": 92,
+              "Green": 92,
+              "Blue": 92
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 450.0,
+            "EndY": 5.0,
+            "LineWidth": 4.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cruiseDrive",
+            "X": 98,
+            "Y": 687,
+            "Width": 336,
+            "Height": 41,
+            "TextId": "__SingleUse_3UR6",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "__SingleUse_5058",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "MtrComm_Warning",
+            "X": 375,
+            "Y": 577,
+            "Width": 89,
+            "Height": 24,
+            "TextId": "__SingleUse_PHLI",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Fadeable": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "BPS_Warning",
+            "X": 214,
+            "Y": 577,
+            "Width": 44,
+            "Height": 24,
+            "TextId": "__SingleUse_6K44",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Fadeable": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "PowerAux_Warning",
+            "X": 11,
+            "Y": 577,
+            "Width": 115,
+            "Height": 24,
+            "TextId": "__SingleUse_PD5D",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Fadeable": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "speedMph",
+            "Y": 86,
+            "Width": 480,
+            "Height": 105,
+            "TextId": "__SingleUse_XPSB",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "__SingleUse_R1BM",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "speed",
+            "X": 188,
+            "Y": 50,
+            "Width": 86,
+            "Height": 37,
+            "TextId": "__SingleUse_XV1F",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "mph",
+            "X": 196,
+            "Y": 192,
+            "Width": 65,
+            "Height": 37,
+            "TextId": "__SingleUse_AMJ2",
+            "TextRotation": "0",
+            "AutoSize": true
+          },
+          {
+            "Type": "BoxProgress",
+            "Name": "BatteryChargeFill",
+            "X": 11,
+            "Y": 377,
+            "Width": 200,
+            "Height": 10,
+            "Color": {
+              "Red": 99,
+              "Green": 199,
+              "Blue": 46
+            },
+            "Direction": "Right",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_normal_small.png",
+            "IndicatorPositionWidth": 300,
+            "IndicatorPositionHeight": 10,
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
+          },
+          {
+            "Type": "TextArea",
+            "Name": "auxBatteryVolt",
+            "X": 11,
+            "Y": 347,
+            "Width": 194,
+            "Height": 30,
+            "TextId": "__SingleUse_HD6R",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "__SingleUse_F8GP",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "powerWatts",
+            "X": 299,
+            "Y": 340,
+            "Width": 135,
+            "Height": 45,
+            "TextId": "__SingleUse_MHQJ",
+            "TextRotation": "0",
+            "Wildcard1": {
+              "TextId": "__SingleUse_YGMT",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "power",
+            "X": 299,
+            "Y": 387,
+            "Width": 135,
+            "Height": 46,
+            "TextId": "__SingleUse_RTP9",
+            "TextRotation": "0"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "errors",
+            "X": 174,
+            "Y": 484,
+            "Width": 105,
+            "Height": 46,
+            "TextId": "__SingleUse_TUN6",
+            "TextRotation": "0"
+          },
+          {
+            "Type": "Line",
+            "Name": "line1",
+            "X": 11,
+            "Y": 291,
+            "Width": 484,
+            "Height": 16,
+            "Color": {
+              "Red": 92,
+              "Green": 92,
+              "Blue": 92
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 450.0,
+            "EndY": 5.0,
+            "LineWidth": 4.0,
+            "LineEndingStyle": "Round"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "function1"
+            }
+          },
+          {
+            "InteractionName": "Interaction3",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 15
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "function2"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "DriverScreen",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "Width": 480,
+            "Height": 800,
+            "Color": {
+              "Red": 23,
+              "Green": 26,
+              "Blue": 32
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "speed",
+            "X": 115,
+            "Y": 41,
+            "Width": 256,
+            "Height": 41,
+            "TextId": "ResourceId1",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_UL2I",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "Line",
+            "Name": "line1",
+            "X": 41,
+            "Y": 42,
+            "Width": 140,
+            "Height": 50,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "StartY": 20.0,
+            "EndX": 50.0,
+            "EndY": 20.0,
+            "LineWidth": 10.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "Shape",
+            "Name": "shape1_2_1",
+            "X": 17,
+            "Y": 36,
+            "Width": 57,
+            "Height": 56,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Points": [
+              {
+                "X": 40.0
+              },
+              {
+                "X": 40.0,
+                "Y": 75.0
+              },
+              {
+                "Y": 35.0
+              }
+            ],
+            "XScale": 0.7,
+            "YScale": 0.7
+          },
+          {
+            "Type": "Shape",
+            "Name": "shape1_2",
+            "X": 414,
+            "Y": 36,
+            "Width": 66,
+            "Height": 56,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Points": [
+              {
+                "X": 35.0
+              },
+              {
+                "X": 35.0,
+                "Y": 75.0
+              },
+              {
+                "X": 75.0,
+                "Y": 35.0
+              }
+            ],
+            "XScale": 0.7,
+            "YScale": 0.7
+          },
+          {
+            "Type": "Line",
+            "Name": "line1_1",
+            "X": 377,
+            "Y": 42,
+            "Width": 74,
+            "Height": 40,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "StartX": 60.0,
+            "StartY": 20.0,
+            "EndX": 10.0,
+            "EndY": 20.0,
+            "LineWidth": 10.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "blank",
+            "X": 41,
+            "Y": 572,
+            "Width": 95,
+            "Height": 35,
+            "TextId": "__SingleUse_VIXP",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 222,
+              "Green": 84,
+              "Blue": 84
+            },
+            "Wildcard1": {
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "mtr_controller_error_value",
+            "X": 40,
+            "Y": 483,
+            "Width": 129,
+            "Height": 37,
+            "TextId": "__SingleUse_PCDE",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_HL3S",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "bps_error_value",
+            "X": 317,
+            "Y": 483,
+            "Width": 121,
+            "Height": 37,
+            "TextId": "__SingleUse_ATFQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 219,
+              "Green": 39,
+              "Blue": 39
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_J8ZQ",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "mtr_controller_err_text",
+            "X": 40,
+            "Y": 439,
+            "Width": 224,
+            "Height": 37,
+            "TextId": "__SingleUse_I9HO",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "mtr_controller_err_text_1",
+            "X": 40,
+            "Y": 535,
+            "Width": 224,
+            "Height": 37,
+            "TextId": "__SingleUse_DRDT",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "bps_err_text",
+            "X": 317,
+            "Y": 439,
+            "Width": 70,
+            "Height": 37,
+            "TextId": "__SingleUse_QSZ8",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "error_title",
+            "X": 194,
+            "Y": 383,
+            "Width": 93,
+            "Height": 41,
+            "TextId": "__SingleUse_UMNM",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "power_title",
+            "X": 308,
+            "Y": 270,
+            "Width": 162,
+            "Height": 30,
+            "TextId": "__SingleUse_R0TU",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Line",
+            "Name": "border1",
+            "X": 34,
+            "Y": 127,
+            "Width": 412,
+            "Height": 19,
+            "Color": {
+              "Red": 51,
+              "Green": 51,
+              "Blue": 51
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 400.0,
+            "EndY": 5.0,
+            "LineWidth": 3.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "Line",
+            "Name": "border1_1",
+            "X": 34,
+            "Y": 372,
+            "Width": 412,
+            "Height": 22,
+            "Color": {
+              "Red": 51,
+              "Green": 51,
+              "Blue": 51
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 400.0,
+            "EndY": 5.0,
+            "LineWidth": 3.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "Line",
+            "Name": "border1_1_1",
+            "X": 34,
+            "Y": 533,
+            "Width": 412,
+            "Height": 19,
+            "Color": {
+              "Red": 51,
+              "Green": 51,
+              "Blue": 51
+            },
+            "StartX": 5.0,
+            "StartY": 5.0,
+            "EndX": 400.0,
+            "EndY": 5.0,
+            "LineWidth": 3.0,
+            "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "watts",
+            "X": 308,
+            "Y": 307,
+            "Width": 188,
+            "Height": 34,
+            "TextId": "__SingleUse_DRUP",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_JYPR",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "soc",
+            "X": 40,
+            "Y": 307,
+            "Width": 188,
+            "Height": 34,
+            "TextId": "__SingleUse_BGJ2",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_QLG6",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "bpsv",
+            "X": 32,
+            "Y": 202,
+            "Width": 153,
+            "Height": 34,
+            "TextId": "__SingleUse_8SLF",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_L6JI",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "bpsc",
+            "X": 301,
+            "Y": 202,
+            "Width": 227,
+            "Height": 34,
+            "TextId": "__SingleUse_VG8V",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_ZQON",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 40,
+            "Y": 270,
+            "Width": 131,
+            "Height": 30,
+            "TextId": "__SingleUse_D6MH",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea5",
+            "X": 40,
+            "Y": 163,
+            "Width": 129,
+            "Height": 30,
+            "TextId": "__SingleUse_4038",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea5_1",
+            "X": 308,
+            "Y": 163,
+            "Width": 137,
+            "Height": 30,
+            "TextId": "__SingleUse_I07J",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "BoxProgress",
+            "Name": "boxProgress1",
+            "X": 40,
+            "Y": 344,
+            "Width": 200,
+            "Height": 10,
+            "Color": {
+              "Red": 55,
+              "Green": 255
+            },
+            "Direction": "Right",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_normal_small.png",
+            "IndicatorPositionWidth": 300,
+            "IndicatorPositionHeight": 10,
+            "ProgressRangeMax": 100,
+            "ProgressInitialValue": 60
+          },
+          {
+            "Type": "Button",
+            "Name": "button1",
+            "X": 55,
+            "Y": 735,
+            "Width": 370,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_large_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_large_round_normal.png",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\large_round_normal.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1_1",
+            "X": 195,
+            "Y": 745,
+            "Width": 90,
+            "Height": 30,
+            "TextId": "__SingleUse_P5X9",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 20
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "main"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "button1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "DataScreen"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "DataScreen",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "Width": 480,
+            "Height": 800,
+            "Color": {
+              "Red": 23,
+              "Green": 26,
+              "Blue": 32
+            }
+          },
+          {
+            "Type": "Box",
+            "Name": "mtr_cmds_background",
+            "X": 27,
+            "Y": 23,
+            "Width": 426,
+            "Height": 203,
+            "Color": {
+              "Red": 30,
+              "Green": 33,
+              "Blue": 41
+            }
+          },
+          {
+            "Type": "Box",
+            "Name": "bps_background",
+            "X": 27,
+            "Y": 237,
+            "Width": 426,
+            "Height": 133,
+            "Color": {
+              "Red": 30,
+              "Green": 33,
+              "Blue": 41
+            }
+          },
+          {
+            "Type": "Box",
+            "Name": "dash_cmds_background",
+            "X": 27,
+            "Y": 383,
+            "Width": 426,
+            "Height": 168,
+            "Color": {
+              "Red": 30,
+              "Green": 33,
+              "Blue": 41
+            }
+          },
+          {
+            "Type": "Box",
+            "Name": "error_background",
+            "X": 27,
+            "Y": 565,
+            "Width": 426,
+            "Height": 64,
+            "Color": {
+              "Red": 30,
+              "Green": 33,
+              "Blue": 41
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "mtr_cmds_title",
+            "X": 37,
+            "Y": 30,
+            "Width": 196,
+            "Height": 24,
+            "TextId": "__SingleUse_7A3W",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 173,
+              "Green": 173,
+              "Blue": 173
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "bps_title",
+            "X": 37,
+            "Y": 244,
+            "Width": 44,
+            "Height": 24,
+            "TextId": "__SingleUse_NUMQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 173,
+              "Green": 173,
+              "Blue": 173
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "rpm_text",
+            "X": 37,
+            "Y": 62,
+            "Width": 92,
+            "Height": 25,
+            "TextId": "__SingleUse_W3YL",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cruise_drive_value",
+            "X": 196,
+            "Y": 201,
+            "Width": 37,
+            "Height": 25,
+            "TextId": "__SingleUse_B6BN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 94,
+              "Green": 255,
+              "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_2DRE",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cruise_speed_value",
+            "X": 355,
+            "Y": 201,
+            "Width": 91,
+            "Height": 25,
+            "TextId": "__SingleUse_VURT",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_W9DR",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "regen_brake_value",
+            "X": 342,
+            "Y": 167,
+            "Width": 104,
+            "Height": 25,
+            "TextId": "__SingleUse_6B9Q",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_R6GE",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "throttle_pedal_value",
+            "X": 342,
+            "Y": 131,
+            "Width": 104,
+            "Height": 25,
+            "TextId": "__SingleUse_37LD",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_65ZA",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "brake_pedal_value",
+            "X": 342,
+            "Y": 97,
+            "Width": 104,
+            "Height": 25,
+            "TextId": "__SingleUse_N078",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_F5OX",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "throttle_value",
+            "X": 342,
+            "Y": 62,
+            "Width": 104,
+            "Height": 25,
+            "TextId": "__SingleUse_3ZQK",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_4VUU",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "regen_drive_value",
+            "X": 196,
+            "Y": 167,
+            "Width": 37,
+            "Height": 25,
+            "TextId": "__SingleUse_N53R",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_VPUU",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "left_turn_value",
+            "X": 196,
+            "Y": 422,
+            "Width": 37,
+            "Height": 25,
+            "TextId": "__SingleUse_9K7J",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_1MCT",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "low_power_value",
+            "X": 196,
+            "Y": 457,
+            "Width": 37,
+            "Height": 25,
+            "TextId": "__SingleUse_I2CN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_M2FT",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "hazards_value",
+            "X": 409,
+            "Y": 457,
+            "Width": 37,
+            "Height": 25,
+            "TextId": "__SingleUse_7IX6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_FTUF",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cruise_dec_value",
+            "X": 409,
+            "Y": 527,
+            "Width": 37,
+            "Height": 25,
+            "TextId": "__SingleUse_C4U4",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_FGAU",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cruise_value",
+            "X": 196,
+            "Y": 527,
+            "Width": 37,
+            "Height": 25,
+            "TextId": "__SingleUse_R06C",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_912I",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "mtr_controller_error_value",
+            "X": 179,
+            "Y": 604,
+            "Width": 54,
+            "Height": 25,
+            "TextId": "__SingleUse_K04C",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 219,
+              "Green": 39,
+              "Blue": 39
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_3TP5",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "bps_error_value",
+            "X": 378,
+            "Y": 604,
+            "Width": 68,
+            "Height": 25,
+            "TextId": "__SingleUse_50VA",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_SBPL",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "man_drive_value",
+            "X": 196,
+            "Y": 132,
+            "Width": 37,
+            "Height": 25,
+            "TextId": "__SingleUse_LZ09",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 94,
+              "Green": 255,
+              "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_ZQ8B",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "braking_value",
+            "X": 196,
+            "Y": 97,
+            "Width": 37,
+            "Height": 25,
+            "TextId": "__SingleUse_YPQR",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_ZIMR",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "rpm_value",
+            "X": 126,
+            "Y": 62,
+            "Width": 107,
+            "Height": 25,
+            "TextId": "__SingleUse_NWTR",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_KVMJ",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pack_volt_value",
+            "X": 126,
+            "Y": 276,
+            "Width": 107,
+            "Height": 25,
+            "TextId": "__SingleUse_48GX",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_LL0C",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pack_curr_value",
+            "X": 126,
+            "Y": 311,
+            "Width": 107,
+            "Height": 25,
+            "TextId": "__SingleUse_DBGV",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_6ST9",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pack_soc_value",
+            "X": 126,
+            "Y": 346,
+            "Width": 107,
+            "Height": 25,
+            "TextId": "__SingleUse_EXUX",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_OBDK",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dtc_status_value",
+            "X": 339,
+            "Y": 276,
+            "Width": 107,
+            "Height": 25,
+            "TextId": "__SingleUse_A8IX",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 94,
+              "Green": 255,
+              "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_KAXH",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "charge_relay_value",
+            "X": 339,
+            "Y": 311,
+            "Width": 107,
+            "Height": 25,
+            "TextId": "__SingleUse_LTIJ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 94,
+              "Green": 255,
+              "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_OCQW",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "discharge_relay_status",
+            "X": 339,
+            "Y": 346,
+            "Width": 107,
+            "Height": 25,
+            "TextId": "__SingleUse_1UT4",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 94,
+              "Green": 255,
+              "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_HU6J",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "right_turn_value",
+            "X": 339,
+            "Y": 422,
+            "Width": 107,
+            "Height": 25,
+            "TextId": "__SingleUse_O790",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 94,
+              "Green": 255,
+              "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_VMS1",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cruise_inc_value",
+            "X": 339,
+            "Y": 492,
+            "Width": 107,
+            "Height": 25,
+            "TextId": "__SingleUse_5QLF",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 94,
+              "Green": 255,
+              "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_BUW8",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "regen_value",
+            "X": 126,
+            "Y": 492,
+            "Width": 107,
+            "Height": 25,
+            "TextId": "__SingleUse_36TP",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 94,
+              "Green": 255,
+              "Blue": 135
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_HD2X",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "throttle_text",
+            "X": 247,
+            "Y": 62,
+            "Width": 95,
+            "Height": 25,
+            "TextId": "__SingleUse_S7LD",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "brake_pedal_text",
+            "X": 247,
+            "Y": 97,
+            "Width": 131,
+            "Height": 25,
+            "TextId": "__SingleUse_JHNT",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "throttle_pedal_text",
+            "X": 247,
+            "Y": 131,
+            "Width": 151,
+            "Height": 25,
+            "TextId": "__SingleUse_YE0J",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "regen_braking_text",
+            "X": 247,
+            "Y": 167,
+            "Width": 101,
+            "Height": 25,
+            "TextId": "__SingleUse_DYWA",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cruise_speed_text",
+            "X": 247,
+            "Y": 201,
+            "Width": 108,
+            "Height": 25,
+            "TextId": "__SingleUse_ME9Q",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cruise_drive_text",
+            "X": 37,
+            "Y": 201,
+            "Width": 151,
+            "Height": 25,
+            "TextId": "__SingleUse_RB63",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "braking_text",
+            "X": 37,
+            "Y": 97,
+            "Width": 64,
+            "Height": 18,
+            "TextId": "__SingleUse_YD7K",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "man_drive_text",
+            "X": 37,
+            "Y": 132,
+            "Width": 89,
+            "Height": 18,
+            "TextId": "__SingleUse_9XUE",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "regen_drive_text",
+            "X": 37,
+            "Y": 167,
+            "Width": 99,
+            "Height": 18,
+            "TextId": "__SingleUse_UKZW",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pack_volt_text",
+            "X": 37,
+            "Y": 276,
+            "Width": 118,
+            "Height": 25,
+            "TextId": "__SingleUse_CSGS",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dtc_status_text",
+            "X": 247,
+            "Y": 276,
+            "Width": 131,
+            "Height": 25,
+            "TextId": "__SingleUse_D6BQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "charge_relay_text",
+            "X": 247,
+            "Y": 311,
+            "Width": 151,
+            "Height": 24,
+            "TextId": "__SingleUse_AQ20",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "discharge_relay_text",
+            "X": 247,
+            "Y": 346,
+            "Width": 131,
+            "Height": 25,
+            "TextId": "__SingleUse_6C3K",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pack_curr_text",
+            "X": 37,
+            "Y": 311,
+            "Width": 79,
+            "Height": 18,
+            "TextId": "__SingleUse_7VF5",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pack_soc_text",
+            "X": 37,
+            "Y": 346,
+            "Width": 89,
+            "Height": 18,
+            "TextId": "__SingleUse_YA1U",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "dash_cmds_title",
+            "X": 37,
+            "Y": 391,
+            "Width": 251,
+            "Height": 24,
+            "TextId": "__SingleUse_8HOJ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 173,
+              "Green": 173,
+              "Blue": 173
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "left_turn_text",
+            "X": 37,
+            "Y": 422,
+            "Width": 118,
+            "Height": 25,
+            "TextId": "__SingleUse_QPXU",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "right_turn_text",
+            "X": 247,
+            "Y": 422,
+            "Width": 131,
+            "Height": 25,
+            "TextId": "__SingleUse_2WMJ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "error_title",
+            "X": 37,
+            "Y": 573,
+            "Width": 58,
+            "Height": 24,
+            "TextId": "__SingleUse_BJIO",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 173,
+              "Green": 173,
+              "Blue": 173
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "mtr_controller_err_text",
+            "X": 37,
+            "Y": 604,
+            "Width": 158,
+            "Height": 25,
+            "TextId": "__SingleUse_765M",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "bps_err_text",
+            "X": 247,
+            "Y": 604,
+            "Width": 131,
+            "Height": 25,
+            "TextId": "__SingleUse_82XM",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "hazards_text",
+            "X": 247,
+            "Y": 457,
+            "Width": 151,
+            "Height": 24,
+            "TextId": "__SingleUse_DXFP",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cruise_inc_text",
+            "X": 247,
+            "Y": 492,
+            "Width": 172,
+            "Height": 25,
+            "TextId": "__SingleUse_HC3K",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "low_power_text",
+            "X": 37,
+            "Y": 457,
+            "Width": 77,
+            "Height": 18,
+            "TextId": "__SingleUse_45ON",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "regen_text",
+            "X": 37,
+            "Y": 492,
+            "Width": 54,
+            "Height": 18,
+            "TextId": "__SingleUse_BQON",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cruise_text",
+            "X": 37,
+            "Y": 527,
+            "Width": 54,
+            "Height": 18,
+            "TextId": "__SingleUse_5CGK",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "cruise_dec_text",
+            "X": 247,
+            "Y": 527,
+            "Width": 88,
+            "Height": 18,
+            "TextId": "__SingleUse_UMO4",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Button",
+            "Name": "button1",
+            "X": 55,
+            "Y": 735,
+            "Width": 370,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_button_regular_height_50_large_round_pressed.png",
+            "Released": "__generated\\alternate_theme_images_widgets_button_regular_height_50_large_round_normal.png",
+            "Preset": "alternate_theme\\presets\\button\\regular\\height_50\\large_round_normal.json"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 197,
+            "Y": 745,
+            "Width": 87,
+            "Height": 30,
+            "TextId": "__SingleUse_UWPU",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 20
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "main"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "button1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionSlide",
+              "ScreenTransitionDirection": "West",
+              "ActionComponent": "DriverScreen"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "SettingsScreen",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 480,
+            "Height": 800,
+            "Color": {
+              "Red": 23,
+              "Green": 26,
+              "Blue": 32
+            }
+          }
+        ],
+        "Interactions": []
+      },
+      {
+        "Name": "StartupScreen2",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "image2",
+            "X": 12,
+            "Y": 22,
+            "Width": 180,
+            "Height": 59,
+            "RelativeFilename": "SolarCarTeamLogo1.png"
+          }
+        ],
+        "Interactions": []
       }
     ],
     "CustomContainerDefinitions": [],

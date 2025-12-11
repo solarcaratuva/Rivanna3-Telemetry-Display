@@ -18,16 +18,38 @@ struct Typography
     static const touchgfx::FontId SMALL = 2;
     static const touchgfx::FontId MEDIUM = 3;
     static const touchgfx::FontId BLINKER = 4;
+    static const touchgfx::FontId TYPOGRAPHY_00 = 5;
+    static const touchgfx::FontId TYPOGRAPHY_01 = 6;
+    static const touchgfx::FontId POWERANDWATTS = 7;
+    static const touchgfx::FontId AUXBATTERYPOWER = 8;
+    static const touchgfx::FontId V2_DEFAULT = 9;
+    static const touchgfx::FontId V2_VAL = 10;
+    static const touchgfx::FontId V2_TITLE = 11;
+    static const touchgfx::FontId V2_SCREEN2VAL = 12;
+    static const touchgfx::FontId ERROR_FONT = 13;
+    static const touchgfx::FontId ERROR_TITLE_V2 = 14;
+    static const touchgfx::FontId V3_TITLE = 15;
 };
 
 struct TypographyFontIndex
 {
-    static const touchgfx::FontId DEFAULT = 0; // verdanab_30_4bpp
-    static const touchgfx::FontId LARGE = 1;   // verdana_40_4bpp
-    static const touchgfx::FontId SMALL = 2;   // verdana_10_4bpp
-    static const touchgfx::FontId MEDIUM = 3;  // verdanab_20_4bpp
-    static const touchgfx::FontId BLINKER = 4; // verdanab_15_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 5;
+    static const touchgfx::FontId DEFAULT = 0;         // verdanab_30_4bpp
+    static const touchgfx::FontId LARGE = 1;           // verdana_40_4bpp
+    static const touchgfx::FontId SMALL = 2;           // verdana_10_4bpp
+    static const touchgfx::FontId MEDIUM = 3;          // verdanab_20_4bpp
+    static const touchgfx::FontId BLINKER = 4;         // verdanab_15_4bpp
+    static const touchgfx::FontId TYPOGRAPHY_00 = 5;   // times_100_4bpp
+    static const touchgfx::FontId TYPOGRAPHY_01 = 6;   // SansSerifCollection_30_4bpp
+    static const touchgfx::FontId POWERANDWATTS = 7;   // SansSerifCollection_35_4bpp
+    static const touchgfx::FontId AUXBATTERYPOWER = 8; // SansSerifCollection_22_4bpp
+    static const touchgfx::FontId V2_DEFAULT = 9;      // verdana_15_4bpp
+    static const touchgfx::FontId V2_VAL = 4;          // verdanab_15_4bpp
+    static const touchgfx::FontId V2_TITLE = 10;        // leelauib_40_4bpp
+    static const touchgfx::FontId V2_SCREEN2VAL = 11;   // verdanab_35_4bpp
+    static const touchgfx::FontId ERROR_FONT = 12;      // verdanab_25_4bpp
+    static const touchgfx::FontId ERROR_TITLE_V2 = 13;  // verdana_30_4bpp
+    static const touchgfx::FontId V3_TITLE = 14;        // leelauib_30_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 15;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider

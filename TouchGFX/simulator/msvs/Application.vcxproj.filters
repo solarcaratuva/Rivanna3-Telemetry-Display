@@ -196,6 +196,66 @@
     <Filter Include="Header Files\generated\gui_generated\startupscreen_screen">
       <UniqueIdentifier>C31976BF-013A-5A85-3139-24EC67D345DC</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\gui\screen2_screen">
+      <UniqueIdentifier>793516F1-2A0D-1C48-1D2D-664CED062FFE</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\screen2_screen">
+      <UniqueIdentifier>E12BDCDE-CE37-74FE-4E44-0F292CEAD475</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\datascreen_screen">
+      <UniqueIdentifier>C58A16E7-FC4F-EDCE-2EEC-53AE965CE242</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\settingsscreen_screen">
+      <UniqueIdentifier>09F09789-1733-80FC-2A5E-6734B7B2A9AC</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\settingsscreen_screen">
+      <UniqueIdentifier>5D5CCD34-FB82-B3FE-C54D-E5833FECC1E2</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\datascreen_screen">
+      <UniqueIdentifier>2565C4B7-B393-2018-5A22-3267D1D615FD</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\settingsscreen_screen">
+      <UniqueIdentifier>694A5313-DF06-71F2-6E72-89A72DBE7496</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\settingsscreen_screen">
+      <UniqueIdentifier>B87E9CA1-5A60-B033-887C-FCDD9599D526</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\datascreen_screen">
+      <UniqueIdentifier>681B409C-6B01-12A4-2693-6FE358D0F1D7</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\datascreen_screen">
+      <UniqueIdentifier>362F9149-8063-8FC2-94C1-63FE19F5947E</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\startupscreen2_screen">
+      <UniqueIdentifier>FD90B420-21A2-C2B3-B2EF-1C93729042CC</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\startupscreen2_screen">
+      <UniqueIdentifier>B7C35198-82FC-03F9-0E59-B9C0B73A7566</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\startupscreen2_screen">
+      <UniqueIdentifier>0D9CF2B9-1858-F6B7-941D-79F8A36AA35B</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\startupscreen2_screen">
+      <UniqueIdentifier>5291E68D-8E72-1AC3-B81D-5DC797FDCCF8</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\screen2_screen">
+      <UniqueIdentifier>31E5D8F4-737A-9656-96CA-23E9266E6CD8</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\screen2_screen">
+      <UniqueIdentifier>80572A5A-47FD-20FE-DCAF-80D60A1C1986</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\driverscreen_screen">
+      <UniqueIdentifier>47FD9019-9356-9F47-DF86-A7990FB33D6B</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\driverscreen_screen">
+      <UniqueIdentifier>8722C9B9-1B32-C2E4-0F3D-F6815AFD5814</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\driverscreen_screen">
+      <UniqueIdentifier>66A0BBBD-CD4E-519F-0B43-D63EC16269A4</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\driverscreen_screen">
+      <UniqueIdentifier>4EBE1D00-F179-0D3F-5B3F-E0CBD05C202E</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -245,6 +305,51 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\startupscreen_screen\StartupScreenViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\startupscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\screen2_screen\Screen2Presenter.cpp">
+      <Filter>Source Files\gui\screen2_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\screen2_screen\Screen2View.cpp">
+      <Filter>Source Files\gui\screen2_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\datascreen_screen\DataScreenPresenter.cpp">
+      <Filter>Source Files\gui\datascreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\datascreen_screen\DataScreenView.cpp">
+      <Filter>Source Files\gui\datascreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\datascreen_screen\DataScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\datascreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settingsscreen_screen\SettingsScreenPresenter.cpp">
+      <Filter>Source Files\gui\settingsscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settingsscreen_screen\SettingsScreenView.cpp">
+      <Filter>Source Files\gui\settingsscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\settingsscreen_screen\SettingsScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\settingsscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\startupscreen2_screen\StartupScreen2Presenter.cpp">
+      <Filter>Source Files\gui\startupscreen2_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\startupscreen2_screen\StartupScreen2View.cpp">
+      <Filter>Source Files\gui\startupscreen2_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\startupscreen2_screen\StartupScreen2ViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\startupscreen2_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\screen2_screen\Screen2ViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\screen2_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\driverscreen_screen\DriverScreenPresenter.cpp">
+      <Filter>Source Files\gui\driverscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\driverscreen_screen\DriverScreenView.cpp">
+      <Filter>Source Files\gui\driverscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\driverscreen_screen\DriverScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\driverscreen_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -705,6 +810,51 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\startupscreen_screen\StartupScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\startupscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\screen2_screen\Screen2Presenter.hpp">
+      <Filter>Header Files\gui\screen2_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\screen2_screen\Screen2View.hpp">
+      <Filter>Header Files\gui\screen2_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\datascreen_screen\DataScreenPresenter.hpp">
+      <Filter>Header Files\gui\datascreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\datascreen_screen\DataScreenView.hpp">
+      <Filter>Header Files\gui\datascreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\datascreen_screen\DataScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\datascreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settingsscreen_screen\SettingsScreenPresenter.hpp">
+      <Filter>Header Files\gui\settingsscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settingsscreen_screen\SettingsScreenView.hpp">
+      <Filter>Header Files\gui\settingsscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\settingsscreen_screen\SettingsScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\settingsscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\startupscreen2_screen\StartupScreen2Presenter.hpp">
+      <Filter>Header Files\gui\startupscreen2_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\startupscreen2_screen\StartupScreen2View.hpp">
+      <Filter>Header Files\gui\startupscreen2_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\startupscreen2_screen\StartupScreen2ViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\startupscreen2_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen2_screen\Screen2ViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\screen2_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\driverscreen_screen\DriverScreenPresenter.hpp">
+      <Filter>Header Files\gui\driverscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\driverscreen_screen\DriverScreenView.hpp">
+      <Filter>Header Files\gui\driverscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\driverscreen_screen\DriverScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\driverscreen_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
