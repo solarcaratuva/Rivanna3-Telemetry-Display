@@ -1,5 +1,9 @@
 #include <gui/datascreen_screen/DataScreenView.hpp>
 #include <touchgfx/Color.hpp>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <list>
 
 #ifndef SIMULATOR
 #include "data_queues.h"
@@ -65,6 +69,9 @@ void DataScreenView::setupScreen()
     cruise_dec_value.setWildcard(cruise_dec_valueBuffer);
     mtr_controller_error_value.setWildcard(mtr_controller_error_valueBuffer);
     bps_error_value.setWildcard(bps_error_valueBuffer);
+    error_list_1.setWildcard(error_list_1Buffer);
+    error_list_2.setWildcard(error_list_2Buffer);
+    error_list_3.setWildcard(error_list_3Buffer);
 
     uint32_t onColor = touchgfx::Color::getColorFromRGB(0x5E, 0xFF, 0x87);
     uint32_t offColor = touchgfx::Color::getColorFromRGB(255, 255, 255);
@@ -136,6 +143,12 @@ void DataScreenView::setupScreen()
     Unicode::snprintf(bps_error_valueBuffer, BPS_ERROR_VALUE_SIZE, bps ? "ERR" : "None");
     bps_error_value.setColor(bps ? errColor : offColor);
 
+    Unicode::snprintf(error_list_1Buffer, ERROR_LIST_1_SIZE, bps ? "ERR" : "None");
+
+    Unicode::snprintf(error_list_2Buffer, ERROR_LIST_2_SIZE, bps ? "ERR" : "None");
+
+    Unicode::snprintf(error_list_3Buffer, ERROR_LIST_3_SIZE, bps ? "ERR" : "None");
+
     // Invalidate all to refresh the screen
     rpm_value.invalidate();
     braking_value.invalidate();
@@ -163,6 +176,9 @@ void DataScreenView::setupScreen()
     cruise_dec_value.invalidate();
     mtr_controller_error_value.invalidate();
     bps_error_value.invalidate();
+    error_list_1.invalidate();
+    error_list_2.invalidate();
+    error_list_3.invalidate();
 }
 
 void DataScreenView::tearDownScreen()
@@ -198,6 +214,41 @@ void DataScreenView::main()
     bool cruisedec = false; 
     bool mtr = false;
     bool bps = false;
+    bool curBps[15] = {
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    };
+    static const char* bpsNames[15] = {
+            "Internal Cell Communication Fault",
+            "Current sensor Fault",
+            "Weak Pack Fault",
+            "Thermistor Fault",
+            "CAN Communication Fault",
+            "Redundant Power Supply Fault",
+            "High Voltage Isolation Fault",
+            "Charge Enable Relay Fault",
+            "Discharge Enable Relay Fault",
+            "Internal Hardware Fault",
+            "Internal Heatsink Thermistor Fault",
+            "Internal Logic Fault",
+            "Highest Cell Voltage Too High Fault",
+            "Lowest Cell Voltage Too Low Fault",
+            "Pack Too Hot Fault"
+        };
+    std::list<std::string> arrayList;
 #ifndef SIMULATOR
     ReceivedCanData_t receivedCanData;
     if (xQueueReceive(canReceivedQueue, &receivedCanData, (TickType_t)0 ) == pdTRUE) {
@@ -217,14 +268,50 @@ void DataScreenView::main()
         discharge_relay = receivedCanData.bps_pack_information.discharge_relay_status;
         charge_relay = receivedCanData.bps_pack_information.charge_relay_status;
 
-        bool mtr = (receivedCanData.motor_controller_error.analog_sensor_err || receivedCanData.motor_controller_error.motor_current_sensor_u_err || receivedCanData.motor_controller_error.motor_current_sensor_w_err ||
+        mtr = (receivedCanData.motor_controller_error.analog_sensor_err || receivedCanData.motor_controller_error.motor_current_sensor_u_err || receivedCanData.motor_controller_error.motor_current_sensor_w_err ||
         receivedCanData.motor_controller_error.fet_thermistor_err || receivedCanData.motor_controller_error.battery_voltage_sensor_err || receivedCanData.motor_controller_error.battery_current_sensor_adj_err ||
         receivedCanData.motor_controller_error.motor_current_sensor_adj_err || receivedCanData.motor_controller_error.accelerator_position_err || receivedCanData.motor_controller_error.controller_voltage_sensor_err ||
         receivedCanData.motor_controller_error.power_system_err || receivedCanData.motor_controller_error.overcurrent_err || receivedCanData.motor_controller_error.overvoltage_err ||
         receivedCanData.motor_controller_error.overcurrent_limit || receivedCanData.motor_controller_error.motor_system_err || receivedCanData.motor_controller_error.motor_lock ||
         receivedCanData.motor_controller_error.hall_sensor_short || receivedCanData.motor_controller_error.hall_sensor_open || receivedCanData.motor_controller_error.overheat_level);
         
-        bool bps = receivedCanData.bps_error.dtc_p0_a1_f_internal_cell_communication_fault || receivedCanData.bps_error.current_sensor_fault || receivedCanData.bps_error.weak_pack_fault || receivedCanData.bps_error.thermistor_fault || receivedCanData.bps_error.can_communication_fault || receivedCanData.bps_error.redundant_power_supply_fault || receivedCanData.bps_error.high_voltage_isolation_fault || receivedCanData.bps_error.charge_enable_relay_fault || receivedCanData.bps_error.discharge_enable_relay_fault || receivedCanData.bps_error.internal_hardware_fault || receivedCanData.bps_error.dtc_p0_a0_a_internal_heatsink_thermistor_fault || receivedCanData.bps_error.internal_logic_fault || receivedCanData.bps_error.dtc_p0_a0_c_highest_cell_voltage_too_high_fault || receivedCanData.bps_error.dtc_p0_a0_e_lowest_cell_voltage_too_low_fault || receivedCanData.bps_error.pack_too_hot_fault;
+        bps = receivedCanData.bps_error.dtc_p0_a1_f_internal_cell_communication_fault || receivedCanData.bps_error.current_sensor_fault || receivedCanData.bps_error.weak_pack_fault || receivedCanData.bps_error.thermistor_fault || receivedCanData.bps_error.can_communication_fault || receivedCanData.bps_error.redundant_power_supply_fault || receivedCanData.bps_error.high_voltage_isolation_fault || receivedCanData.bps_error.charge_enable_relay_fault || receivedCanData.bps_error.discharge_enable_relay_fault || receivedCanData.bps_error.internal_hardware_fault || receivedCanData.bps_error.dtc_p0_a0_a_internal_heatsink_thermistor_fault || receivedCanData.bps_error.internal_logic_fault || receivedCanData.bps_error.dtc_p0_a0_c_highest_cell_voltage_too_high_fault || receivedCanData.bps_error.dtc_p0_a0_e_lowest_cell_voltage_too_low_fault || receivedCanData.bps_error.pack_too_hot_fault;
+
+        // curBps = {
+        //     receivedCanData.bps_error.dtc_p0_a1_f_internal_cell_communication_fault,
+        //     receivedCanData.bps_error.current_sensor_fault,
+        //     receivedCanData.bps_error.weak_pack_fault,
+        //     receivedCanData.bps_error.thermistor_fault,
+        //     receivedCanData.bps_error.can_communication_fault,
+        //     receivedCanData.bps_error.redundant_power_supply_fault,
+        //     receivedCanData.bps_error.high_voltage_isolation_fault,
+        //     receivedCanData.bps_error.charge_enable_relay_fault,
+        //     receivedCanData.bps_error.discharge_enable_relay_fault,
+        //     receivedCanData.bps_error.internal_hardware_fault,
+        //     receivedCanData.bps_error.dtc_p0_a0_a_internal_heatsink_thermistor_fault,
+        //     receivedCanData.bps_error.internal_logic_fault,
+        //     receivedCanData.bps_error.dtc_p0_a0_c_highest_cell_voltage_too_high_fault,
+        //     receivedCanData.bps_error.dtc_p0_a0_e_lowest_cell_voltage_too_low_fault,
+        //     receivedCanData.bps_error.pack_too_hot_fault
+        // };
+
+        // bpsNames = {
+        //     "Internal Cell Communication Fault",
+        //     "Current sensor Fault",
+        //     "Weak Pack Fault",
+        //     "Thermistor Fault",
+        //     "CAN Communication Fault",
+        //     "Redundant Power Supply Fault",
+        //     "High Voltage Isolation Fault",
+        //     "Charge Enable Relay Fault",
+        //     "Discharge Enable Relay Fault",
+        //     "Internal Hardware Fault",
+        //     "Internal Heatsink Thermistor Fault",
+        //     "Internal Logic Fault",
+        //     "Highest Cell Voltage Too High Fault",
+        //     "Lowest Cell Voltage Too Low Fault",
+        //     "Pack Too Hot Fault"
+        // };
     }
 #else
     rpm = 1.0f;
@@ -280,6 +367,9 @@ void DataScreenView::main()
     cruise_dec_value.setWildcard(cruise_dec_valueBuffer);
     mtr_controller_error_value.setWildcard(mtr_controller_error_valueBuffer);
     bps_error_value.setWildcard(bps_error_valueBuffer);
+    error_list_1.setWildcard(error_list_1Buffer);
+    error_list_2.setWildcard(error_list_2Buffer);
+    error_list_3.setWildcard(error_list_3Buffer);
 
     uint32_t onColor = touchgfx::Color::getColorFromRGB(0x5E, 0xFF, 0x87);
     uint32_t offColor = touchgfx::Color::getColorFromRGB(255, 255, 255);
@@ -351,6 +441,33 @@ void DataScreenView::main()
     Unicode::snprintf(bps_error_valueBuffer, BPS_ERROR_VALUE_SIZE, bps ? "ERR" : "None");
     bps_error_value.setColor(bps ? errColor : offColor);
 
+    bool err1 = false;
+    bool err2 = false;
+    bool err3 = false;
+
+    if(bps == true)
+    {
+        for(int i = 0; i < 15; i++)
+        {
+            if(curBps[i] == true)
+            {
+                arrayList.push_back(bpsNames[i]);
+                if(err1 == false)
+                    err1 = true;
+                else if(err2 == false)
+                    err2 = true;
+                else
+                    err3 = true;
+            }
+        }
+    }
+
+    Unicode::snprintf(error_list_1Buffer, ERROR_LIST_1_SIZE, err1 ? bpsNames[arrayList.size()-1] : "None");
+    Unicode::snprintf(error_list_2Buffer, ERROR_LIST_2_SIZE, err2 ? bpsNames[arrayList.size()-2] : "None");
+    Unicode::snprintf(error_list_3Buffer, ERROR_LIST_3_SIZE, err3 ? bpsNames[arrayList.size()-3] : "None");
+
+
+
     // Invalidate all to refresh the screen
     rpm_value.invalidate();
     braking_value.invalidate();
@@ -378,4 +495,7 @@ void DataScreenView::main()
     cruise_dec_value.invalidate();
     mtr_controller_error_value.invalidate();
     bps_error_value.invalidate();
+    error_list_1.invalidate();
+    error_list_2.invalidate();
+    error_list_3.invalidate();
 }

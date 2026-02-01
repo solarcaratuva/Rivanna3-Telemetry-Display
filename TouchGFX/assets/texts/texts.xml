@@ -10,6 +10,27 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_5N6T" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">None</Translation>
+      </Text>
+      <Text Id="__SingleUse_QOXL" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_H11C" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">None</Translation>
+      </Text>
+      <Text Id="__SingleUse_APP8" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZEL2" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">None</Translation>
+      </Text>
+      <Text Id="__SingleUse_NPZ6" Alignment="Right" TypographyId="V2_Val">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_FGUJ" Alignment="Left" TypographyId="Medium">
+        <Translation Language="GB">Error</Translation>
+      </Text>
       <Text Id="__SingleUse_P5X9" Alignment="Center" TypographyId="Error_Font">
         <Translation Language="GB">Debug</Translation>
       </Text>

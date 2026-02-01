@@ -1760,6 +1760,19 @@
             }
           },
           {
+            "Type": "Box",
+            "Name": "error_background_1",
+            "X": 27,
+            "Y": 641,
+            "Width": 426,
+            "Height": 64,
+            "Color": {
+              "Red": 30,
+              "Green": 33,
+              "Blue": 41
+            }
+          },
+          {
             "Type": "TextArea",
             "Name": "mtr_cmds_title",
             "X": 37,
@@ -2082,6 +2095,66 @@
             },
             "Wildcard1": {
               "TextId": "__SingleUse_SBPL",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "error_list_1",
+            "X": 170,
+            "Y": 641,
+            "Width": 140,
+            "Height": 24,
+            "TextId": "__SingleUse_NPZ6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_ZEL2",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "error_list_2",
+            "X": 170,
+            "Y": 665,
+            "Width": 140,
+            "Height": 25,
+            "TextId": "__SingleUse_APP8",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_H11C",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "error_list_3",
+            "X": 170,
+            "Y": 690,
+            "Width": 140,
+            "Height": 25,
+            "TextId": "__SingleUse_QOXL",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_5N6T",
               "UseBuffer": true,
               "BufferSize": 10
             }
@@ -2610,6 +2683,22 @@
             "Width": 58,
             "Height": 24,
             "TextId": "__SingleUse_BJIO",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 173,
+              "Green": 173,
+              "Blue": 173
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "errors_title",
+            "X": 35,
+            "Y": 641,
+            "Width": 58,
+            "Height": 24,
+            "TextId": "__SingleUse_FGUJ",
             "TextRotation": "0",
             "Color": {
               "Red": 173,
