@@ -1,106 +1,77 @@
-Car Display Board (TouchGFX Project)
-Overview
+# Rivanna3 Telemetry Display
 
-This project is a car display board built with TouchGFX. It provides drivers with clear, real-time information about the vehicle while offering programmers a modular foundation for further development.
+This program is for displaying, monitoring, and visualizing live vehicle telemetry on an embedded display. It is a one-stop interface for TouchGFX-based telemetry visualization and debugging.
 
-The display is designed to be:
+## Installation
 
-Driver-friendly → Simple, intuitive interface
+1. Clone the GitHub repo.
+2. Navigate to the root directory of the cloned repo (`Rivanna3-Telemetry-Display`)
+3. Open **Visual Studio Code**
+4. Open the project in TouchGFX:
+   - cd .../rivanna3-telemetry-display → explorer .
+   - Click on TouchGfX folder and then run the .touchgfx file
+5. You now have the backend code and frontend display avaliable to you
 
-Developer-friendly → Clear code structure, easy customization
+## Starting the program
 
-For Drivers
-Features
+Perform the following steps in **TouchGFX**:
 
-Real-time display of speed, motor controller commands, and battery status
+1. Connect the target hardware to the host computer using **ST-Link**.
+2. Power the display and MCU.
+3. Build the project
+4. Flash and run the application
 
-Dashboard inputs for turn signals, cruise, hazards, and regen
+**Data Source**
 
-Error reporting (motor controller + BPS)
+User must include the telemetry data source that will be used to populate the display. The currently available data source options are:
 
-Auxiliary battery monitoring
+1. `can`: Reads live telemetry data from the vehicle CAN bus using the FDCAN peripheral.
+2. `mock`: Generates simulated telemetry data for UI development and testing.
 
-Screen Reference Guide
-Top Bar – Driving Modes & Speed
+**Flags**
 
-Regen → Regenerative braking active
+Configuration is handled at compile time and through firmware configuration files. No runtime flags are supported.
 
-LowPower → Limits system power for efficiency
+## Navigating the user interface
 
-Cruise → Cruise control active
+### Startup UI
 
-INC / DEC → Increase/decrease cruise control speed
+1. The user interface will be launched automatically upon power-up or reset.
+2. During startup, the system initializes peripherals, RTOS tasks, and the TouchGFX framework.
+3. Once initialization is complete, the default dashboard screen is displayed.
 
-___ mph → Current vehicle speed
+### Main UI
 
-MotorCommands
+There are 2 views, selected by navigating through on-screen controls:
 
-Braking → Brake command status (1 = on, 0 = off)
+- **Dashboard View** - Shows the current state of key telemetry values such as speed, voltage, current, and system status.
+- **Telemetry View** - Shows detailed telemetry data from subsystems such as the motor controller and battery management system.
 
-Manual Drive → Manual drive mode active
+## Overview of the Backend (for New Developers)
 
-Brake Pedal → Brake pedal position (0 = not pressed, higher = pressed)
+### Startup Flow
 
-Cruise Speed → Target cruise control speed
+The program supports a single startup mode:
 
-Throttle Pedal → Throttle pedal position (0 = not pressed, higher = pressed)
+1. MCU reset and HAL initialization.
+2. Peripheral initialization (FDCAN, LTDC, DMA2D, GPIO, etc.).
+3. FreeRTOS kernel startup.
+4. Creation of telemetry producer and consumer tasks.
+5. Startup of the TouchGFX task responsible for rendering and UI updates.
 
-Regen Drive → Regenerative drive command active
+### Data Processing
 
-Cruise Drive → Cruise control active
+The backend uses a Producer-Consumer software pattern to receive telemetry data and update the user interface.
 
-Throttle → Throttle command sent to the motor
+The backend also uses custom data structures to streamline this process:
 
-Regen Braking → Amount of regenerative braking applied
+- A custom telemetry message structure to represent parsed CAN and sensor data.
+- A centralized telemetry state accessed by the TouchGFX model and presenter layers.
 
-Motor RPM → Motor speed in revolutions per minute
+The backend flow of data is as follows:
 
-BPS (Battery Protection System)
-
-PackVoltage → Total battery pack voltage
-
-PackSOC → State of charge (%) of battery pack
-
-DischargeRelay → Battery discharge circuit status (1 = on)
-
-PackCurrent → Current flowing into/out of the battery pack
-
-DTCStatus → Diagnostic Trouble Codes (error/warning flags)
-
-ChargeRelay → Battery charging circuit status (1 = on)
-
-DashboardCommands
-
-LeftTurn → Left turn signal (1 = on)
-
-Hazards → Hazard lights active
-
-RightTurn → Right turn signal (1 = on)
-
-RegenEN → Regenerative braking enabled
-
-lowPowerEN → Low power mode enabled
-
-CruiseDEC → Command to decrease cruise speed
-
-CruiseEN → Cruise control enabled
-
-CruiseINC → Command to increase cruise speed
-
-Error Section
-
-motorControllerError → Error flag from motor controller
-
-bpsError → Error flag from battery protection system
-
-ErrorLog
-
-Displays recent errors and warnings
-
-Empty brackets ([]) mean no errors logged
-
-Auxiliary Battery Status
-
-Aux Battery % Full → Charge level of the auxiliary battery
-
-AuxBatteryVolt → Voltage of the auxiliary battery
+1. Telemetry data is received via CAN interrupts or generated by a mock data source.
+2. Producer tasks parse incoming telemetry data and push messages into a shared FreeRTOS queue.
+3. Consumer tasks pop messages from the queue and update centralized telemetry state.
+4. The TouchGFX model reads updated telemetry values and notifies the presenter.
+5. The presenter updates the view to reflect the new data.
