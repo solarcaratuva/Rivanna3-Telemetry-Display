@@ -44,22 +44,10 @@ Configuration is handled at compile time and through firmware configuration file
 
 There are 2 views, selected by navigating through on-screen controls:
 
-- **Dashboard View** - Shows the current state of key telemetry values such as speed, voltage, current, and system status.
-- **Telemetry View** - Shows detailed telemetry data from subsystems such as the motor controller and battery management system.
+- **Driver Screen** - Shows the current state of key telemetry values such as speed, voltage, current, and system status.
+- **Data Screen** - Shows detailed telemetry data from subsystems such as the motor controller and battery management system.
 
 ## Overview of the Backend (for New Developers)
-
-### Startup Flow
-
-The program supports a single startup mode:
-
-1. MCU reset and HAL initialization.
-2. Peripheral initialization (FDCAN, LTDC, DMA2D, GPIO, etc.).
-3. FreeRTOS kernel startup.
-4. Creation of telemetry producer and consumer tasks.
-5. Startup of the TouchGFX task responsible for rendering and UI updates.
-
-### Data Processing
 
 The backend uses a Producer-Consumer software pattern to receive telemetry data and update the user interface.
 
