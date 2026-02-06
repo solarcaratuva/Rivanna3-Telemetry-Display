@@ -213,9 +213,9 @@ void DataScreenView::main()
     bool cruiseval = false; 
     bool cruisedec = false; 
     bool mtr = false;
-    bool bps = false;
+    bool bps = true;
     bool curBps[15] = {
-        false,
+        true,
         false,
         false,
         false,
@@ -314,23 +314,69 @@ void DataScreenView::main()
         // };
     }
 #else
-    rpm = 1.0f;
-    brake = false;
-    man = true;
-    regen = false;
-    cruise = true;
-    throttle = 0.0f;
-    brake_pedal = 0.5f;
-    throttle_pedal = 24.5f;
-    regen_brake = 90.2f;
-    cruise_speed = 34.1f;
-    pack_volt = 80.4f;
-    pack_curr = 5.2f;
-    pack_soc = 14.0f;
-    charge_relay = true;
-    discharge_relay = true;
-    mtr = true;
-    bps = false;
+    // rpm = 1.0f;
+    // brake = false;
+    // man = true;
+    // regen = false;
+    // cruise = true;
+    // throttle = 0.0f;
+    // brake_pedal = 0.5f;
+    // throttle_pedal = 24.5f;
+    // regen_brake = 90.2f;
+    // cruise_speed = 34.1f;
+    // pack_volt = 80.4f;
+    // pack_curr = 5.2f;
+    // pack_soc = 14.0f;
+    // charge_relay = true;
+    // discharge_relay = true;
+    // mtr = true;
+    // bps = true;
+    static uint32_t tick = 0;
+    tick++;
+
+    // ---------- Numeric values ----------
+    rpm = (tick * 25) % 8000;
+
+    throttle = (tick % 100);
+    brake_pedal = (tick % 100) * 0.5f;
+    throttle_pedal = (tick % 100) * 0.7f;
+    regen_brake = (tick % 100);
+
+    cruise_speed = 20.0f + (tick % 60);
+
+    pack_volt = 60.0f + (tick % 40);
+    pack_curr = -50.0f + (tick % 100);
+    pack_soc = tick % 100;
+
+    // ---------- Toggle booleans ----------
+    brake   = (tick / 20) % 2;
+    man     = (tick / 40) % 2;
+    regen   = (tick / 60) % 2;
+    cruise  = (tick / 80) % 2;
+
+    charge_relay    = (tick / 30) % 2;
+    discharge_relay = (tick / 45) % 2;
+
+    left   = (tick / 25) % 2;
+    right  = (tick / 50) % 2;
+    hazard = (tick / 100) % 2;
+
+    lowpow    = (tick / 120) % 2;
+    regenval  = (tick / 70) % 2;
+    cruiseinc = (tick / 90) % 2;
+    cruiseval = (tick / 110) % 2;
+    cruisedec = (tick / 130) % 2;
+
+    // ---------- Error states ----------
+    mtr = (tick / 150) % 2;
+
+    bps = true;  // always test detailed errors
+
+    for (int i = 0; i < 15; i++)
+    {
+        // Each fault flips at a different speed
+        curBps[i] = ((tick / (3 + i)) % 2) == 0;
+    }
 #endif
     right = presenter->getRightTurnSignal(); 
     left = presenter->getLeftTurnSignal();

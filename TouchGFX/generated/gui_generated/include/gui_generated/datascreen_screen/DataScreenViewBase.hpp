@@ -137,11 +137,11 @@ protected:
     touchgfx::Unicode::UnicodeChar mtr_controller_error_valueBuffer[MTR_CONTROLLER_ERROR_VALUE_SIZE];
     static const uint16_t BPS_ERROR_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar bps_error_valueBuffer[BPS_ERROR_VALUE_SIZE];
-    static const uint16_t ERROR_LIST_1_SIZE = 10;
+    static const uint16_t ERROR_LIST_1_SIZE = 35;
     touchgfx::Unicode::UnicodeChar error_list_1Buffer[ERROR_LIST_1_SIZE];
-    static const uint16_t ERROR_LIST_2_SIZE = 10;
+    static const uint16_t ERROR_LIST_2_SIZE = 35;
     touchgfx::Unicode::UnicodeChar error_list_2Buffer[ERROR_LIST_2_SIZE];
-    static const uint16_t ERROR_LIST_3_SIZE = 10;
+    static const uint16_t ERROR_LIST_3_SIZE = 35;
     touchgfx::Unicode::UnicodeChar error_list_3Buffer[ERROR_LIST_3_SIZE];
     static const uint16_t MAN_DRIVE_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar man_drive_valueBuffer[MAN_DRIVE_VALUE_SIZE];

@@ -2102,9 +2102,9 @@
           {
             "Type": "TextArea",
             "Name": "error_list_1",
-            "X": 170,
+            "X": 101,
             "Y": 641,
-            "Width": 140,
+            "Width": 352,
             "Height": 24,
             "TextId": "__SingleUse_NPZ6",
             "TextRotation": "0",
@@ -2116,15 +2116,15 @@
             "Wildcard1": {
               "TextId": "__SingleUse_ZEL2",
               "UseBuffer": true,
-              "BufferSize": 10
+              "BufferSize": 35
             }
           },
           {
             "Type": "TextArea",
             "Name": "error_list_2",
-            "X": 170,
+            "X": 101,
             "Y": 665,
-            "Width": 140,
+            "Width": 352,
             "Height": 25,
             "TextId": "__SingleUse_APP8",
             "TextRotation": "0",
@@ -2136,15 +2136,15 @@
             "Wildcard1": {
               "TextId": "__SingleUse_H11C",
               "UseBuffer": true,
-              "BufferSize": 10
+              "BufferSize": 35
             }
           },
           {
             "Type": "TextArea",
             "Name": "error_list_3",
-            "X": 170,
+            "X": 101,
             "Y": 690,
-            "Width": 140,
+            "Width": 352,
             "Height": 25,
             "TextId": "__SingleUse_QOXL",
             "TextRotation": "0",
@@ -2156,7 +2156,7 @@
             "Wildcard1": {
               "TextId": "__SingleUse_5N6T",
               "UseBuffer": true,
-              "BufferSize": 10
+              "BufferSize": 35
             }
           },
           {

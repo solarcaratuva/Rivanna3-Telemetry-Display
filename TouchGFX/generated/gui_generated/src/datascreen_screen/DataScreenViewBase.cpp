@@ -168,7 +168,7 @@ DataScreenViewBase::DataScreenViewBase() :
     bps_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_50VA));
     add(bps_error_value);
 
-    error_list_1.setPosition(170, 641, 140, 24);
+    error_list_1.setPosition(101, 641, 352, 24);
     error_list_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     error_list_1.setLinespacing(0);
     Unicode::snprintf(error_list_1Buffer, ERROR_LIST_1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_ZEL2).getText());
@@ -176,7 +176,7 @@ DataScreenViewBase::DataScreenViewBase() :
     error_list_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_NPZ6));
     add(error_list_1);
 
-    error_list_2.setPosition(170, 665, 140, 25);
+    error_list_2.setPosition(101, 665, 352, 25);
     error_list_2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     error_list_2.setLinespacing(0);
     Unicode::snprintf(error_list_2Buffer, ERROR_LIST_2_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_H11C).getText());
@@ -184,7 +184,7 @@ DataScreenViewBase::DataScreenViewBase() :
     error_list_2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_APP8));
     add(error_list_2);
 
-    error_list_3.setPosition(170, 690, 140, 25);
+    error_list_3.setPosition(101, 690, 352, 25);
     error_list_3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     error_list_3.setLinespacing(0);
     Unicode::snprintf(error_list_3Buffer, ERROR_LIST_3_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_5N6T).getText());
