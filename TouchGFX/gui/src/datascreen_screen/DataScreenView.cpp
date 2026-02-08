@@ -214,12 +214,13 @@ void DataScreenView::main()
     bool cruisedec = false; 
     bool mtr = false;
     bool bps = true;
-    bool curBps[15] = {
-        true,
+    static uint32_t tick = 0;
+    static bool curBps[15] = {
         false,
         false,
         false,
-        true,
+        false,
+        false,
         false,
         false,
         false,
@@ -248,7 +249,7 @@ void DataScreenView::main()
             "Lowest Cell Voltage Too Low Fault",
             "Pack Too Hot Fault"
         };
-    std::list<std::string> arrayList;
+    std::vector<std::string> arrayList;
 #ifndef SIMULATOR
     ReceivedCanData_t receivedCanData;
     if (xQueueReceive(canReceivedQueue, &receivedCanData, (TickType_t)0 ) == pdTRUE) {
@@ -277,23 +278,21 @@ void DataScreenView::main()
         
         bps = receivedCanData.bps_error.dtc_p0_a1_f_internal_cell_communication_fault || receivedCanData.bps_error.current_sensor_fault || receivedCanData.bps_error.weak_pack_fault || receivedCanData.bps_error.thermistor_fault || receivedCanData.bps_error.can_communication_fault || receivedCanData.bps_error.redundant_power_supply_fault || receivedCanData.bps_error.high_voltage_isolation_fault || receivedCanData.bps_error.charge_enable_relay_fault || receivedCanData.bps_error.discharge_enable_relay_fault || receivedCanData.bps_error.internal_hardware_fault || receivedCanData.bps_error.dtc_p0_a0_a_internal_heatsink_thermistor_fault || receivedCanData.bps_error.internal_logic_fault || receivedCanData.bps_error.dtc_p0_a0_c_highest_cell_voltage_too_high_fault || receivedCanData.bps_error.dtc_p0_a0_e_lowest_cell_voltage_too_low_fault || receivedCanData.bps_error.pack_too_hot_fault;
 
-        // curBps = {
-        //     receivedCanData.bps_error.dtc_p0_a1_f_internal_cell_communication_fault,
-        //     receivedCanData.bps_error.current_sensor_fault,
-        //     receivedCanData.bps_error.weak_pack_fault,
-        //     receivedCanData.bps_error.thermistor_fault,
-        //     receivedCanData.bps_error.can_communication_fault,
-        //     receivedCanData.bps_error.redundant_power_supply_fault,
-        //     receivedCanData.bps_error.high_voltage_isolation_fault,
-        //     receivedCanData.bps_error.charge_enable_relay_fault,
-        //     receivedCanData.bps_error.discharge_enable_relay_fault,
-        //     receivedCanData.bps_error.internal_hardware_fault,
-        //     receivedCanData.bps_error.dtc_p0_a0_a_internal_heatsink_thermistor_fault,
-        //     receivedCanData.bps_error.internal_logic_fault,
-        //     receivedCanData.bps_error.dtc_p0_a0_c_highest_cell_voltage_too_high_fault,
-        //     receivedCanData.bps_error.dtc_p0_a0_e_lowest_cell_voltage_too_low_fault,
-        //     receivedCanData.bps_error.pack_too_hot_fault
-        // };
+        curBps[0] = receivedCanData.bps_error.dtc_p0_a1_f_internal_cell_communication_fault;
+        curBps[1] = receivedCanData.bps_error.current_sensor_fault;
+        curBps[2] = receivedCanData.bps_error.weak_pack_fault;
+        curBps[3] = receivedCanData.bps_error.thermistor_fault;
+        curBps[4] = receivedCanData.bps_error.can_communication_fault;
+        curBps[5] = receivedCanData.bps_error.redundant_power_supply_fault;
+        curBps[6] = receivedCanData.bps_error.high_voltage_isolation_fault;
+        curBps[7] = receivedCanData.bps_error.charge_enable_relay_fault;
+        curBps[8] = receivedCanData.bps_error.discharge_enable_relay_fault;
+        curBps[9] = receivedCanData.bps_error.internal_hardware_fault;
+        curBps[10] = receivedCanData.bps_error.dtc_p0_a0_a_internal_heatsink_thermistor_fault;
+        curBps[11] = receivedCanData.bps_error.internal_logic_fault;
+        curBps[12] = receivedCanData.bps_error.dtc_p0_a0_c_highest_cell_voltage_too_high_fault;
+        curBps[13] = receivedCanData.bps_error.dtc_p0_a0_e_lowest_cell_voltage_too_low_fault;
+        curBps[14] = receivedCanData.bps_error.pack_too_hot_fault;
 
         // bpsNames = {
         //     "Internal Cell Communication Fault",
@@ -314,68 +313,81 @@ void DataScreenView::main()
         // };
     }
 #else
-    // rpm = 1.0f;
-    // brake = false;
-    // man = true;
-    // regen = false;
-    // cruise = true;
-    // throttle = 0.0f;
-    // brake_pedal = 0.5f;
-    // throttle_pedal = 24.5f;
-    // regen_brake = 90.2f;
-    // cruise_speed = 34.1f;
-    // pack_volt = 80.4f;
-    // pack_curr = 5.2f;
-    // pack_soc = 14.0f;
-    // charge_relay = true;
-    // discharge_relay = true;
-    // mtr = true;
-    // bps = true;
-    static uint32_t tick = 0;
+    arrayList.clear();
+    rpm = 1.0f;
+    brake = false;
+    man = true;
+    regen = false;
+    cruise = true;
+    throttle = 0.0f;
+    brake_pedal = 0.5f;
+    throttle_pedal = 24.5f;
+    regen_brake = 90.2f;
+    cruise_speed = 34.1f;
+    pack_volt = 80.4f;
+    pack_curr = 5.2f;
+    pack_soc = 14.0f;
+    charge_relay = true;
+    discharge_relay = true;
+    mtr = true;
+    bps = true;
     tick++;
 
-    // ---------- Numeric values ----------
-    rpm = (tick * 25) % 8000;
+    // // ---------- Numeric values ----------
+    // rpm = (tick * 25) % 8000;
 
-    throttle = (tick % 100);
-    brake_pedal = (tick % 100) * 0.5f;
-    throttle_pedal = (tick % 100) * 0.7f;
-    regen_brake = (tick % 100);
+    // throttle = (tick % 100);
+    // brake_pedal = (tick % 100) * 0.5f;
+    // throttle_pedal = (tick % 100) * 0.7f;
+    // regen_brake = (tick % 100);
 
-    cruise_speed = 20.0f + (tick % 60);
+    // cruise_speed = 20.0f + (tick % 60);
 
-    pack_volt = 60.0f + (tick % 40);
-    pack_curr = -50.0f + (tick % 100);
-    pack_soc = tick % 100;
+    // pack_volt = 60.0f + (tick % 40);
+    // pack_curr = -50.0f + (tick % 100);
+    // pack_soc = tick % 100;
 
-    // ---------- Toggle booleans ----------
-    brake   = (tick / 20) % 2;
-    man     = (tick / 40) % 2;
-    regen   = (tick / 60) % 2;
-    cruise  = (tick / 80) % 2;
+    // // ---------- Toggle booleans ----------
+    // brake   = (tick / 20) % 2;
+    // man     = (tick / 40) % 2;
+    // regen   = (tick / 60) % 2;
+    // cruise  = (tick / 80) % 2;
 
-    charge_relay    = (tick / 30) % 2;
-    discharge_relay = (tick / 45) % 2;
+    // charge_relay    = (tick / 30) % 2;
+    // discharge_relay = (tick / 45) % 2;
 
-    left   = (tick / 25) % 2;
-    right  = (tick / 50) % 2;
-    hazard = (tick / 100) % 2;
+    // left   = (tick / 25) % 2;
+    // right  = (tick / 50) % 2;
+    // hazard = (tick / 100) % 2;
 
-    lowpow    = (tick / 120) % 2;
-    regenval  = (tick / 70) % 2;
-    cruiseinc = (tick / 90) % 2;
-    cruiseval = (tick / 110) % 2;
-    cruisedec = (tick / 130) % 2;
+    // lowpow    = (tick / 120) % 2;
+    // regenval  = (tick / 70) % 2;
+    // cruiseinc = (tick / 90) % 2;
+    // cruiseval = (tick / 110) % 2;
+    // cruisedec = (tick / 130) % 2;
 
-    // ---------- Error states ----------
-    mtr = (tick / 150) % 2;
+    // // ---------- Error states ----------
+    // mtr = (tick / 150) % 2;
 
-    bps = true;  // always test detailed errors
-
-    for (int i = 0; i < 15; i++)
+    // 50 calls × 20 ticks = ~1 second
+    if (tick % 2 == 0)
     {
-        // Each fault flips at a different speed
-        curBps[i] = ((tick / (3 + i)) % 2) == 0;
+        curBps[1] = true;
+        curBps[2] = false;
+        curBps[3] = true;
+        curBps[4] = false;
+        curBps[5] = true;
+        curBps[6] = false;
+
+    }
+    else
+    {
+        curBps[1] = false;
+        curBps[2] = true;
+        curBps[3] = false;
+        curBps[4] = true;
+        curBps[5] = false;
+        curBps[6] = true;
     }
 #endif
     right = presenter->getRightTurnSignal(); 
@@ -487,10 +499,6 @@ void DataScreenView::main()
     Unicode::snprintf(bps_error_valueBuffer, BPS_ERROR_VALUE_SIZE, bps ? "ERR" : "None");
     bps_error_value.setColor(bps ? errColor : offColor);
 
-    bool err1 = false;
-    bool err2 = false;
-    bool err3 = false;
-
     if(bps == true)
     {
         for(int i = 0; i < 15; i++)
@@ -498,19 +506,15 @@ void DataScreenView::main()
             if(curBps[i] == true)
             {
                 arrayList.push_back(bpsNames[i]);
-                if(err1 == false)
-                    err1 = true;
-                else if(err2 == false)
-                    err2 = true;
-                else
-                    err3 = true;
             }
         }
     }
 
-    Unicode::snprintf(error_list_1Buffer, ERROR_LIST_1_SIZE, err1 ? bpsNames[arrayList.size()-1] : "None");
-    Unicode::snprintf(error_list_2Buffer, ERROR_LIST_2_SIZE, err2 ? bpsNames[arrayList.size()-2] : "None");
-    Unicode::snprintf(error_list_3Buffer, ERROR_LIST_3_SIZE, err3 ? bpsNames[arrayList.size()-3] : "None");
+    int n = arrayList.size();
+
+    Unicode::snprintf(error_list_1Buffer, ERROR_LIST_1_SIZE, n > 0 ? arrayList[n-1].c_str() : "None");
+    Unicode::snprintf(error_list_2Buffer, ERROR_LIST_2_SIZE, n > 1 ? arrayList[n-2].c_str() : "None");
+    Unicode::snprintf(error_list_3Buffer, ERROR_LIST_3_SIZE, n > 2 ? arrayList[n-3].c_str() : "None");
 
 
 
