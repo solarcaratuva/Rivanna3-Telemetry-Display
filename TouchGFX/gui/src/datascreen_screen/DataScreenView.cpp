@@ -294,23 +294,6 @@ void DataScreenView::main()
         curBps[13] = receivedCanData.bps_error.dtc_p0_a0_e_lowest_cell_voltage_too_low_fault;
         curBps[14] = receivedCanData.bps_error.pack_too_hot_fault;
 
-        // bpsNames = {
-        //     "Internal Cell Communication Fault",
-        //     "Current sensor Fault",
-        //     "Weak Pack Fault",
-        //     "Thermistor Fault",
-        //     "CAN Communication Fault",
-        //     "Redundant Power Supply Fault",
-        //     "High Voltage Isolation Fault",
-        //     "Charge Enable Relay Fault",
-        //     "Discharge Enable Relay Fault",
-        //     "Internal Hardware Fault",
-        //     "Internal Heatsink Thermistor Fault",
-        //     "Internal Logic Fault",
-        //     "Highest Cell Voltage Too High Fault",
-        //     "Lowest Cell Voltage Too Low Fault",
-        //     "Pack Too Hot Fault"
-        // };
     }
 #else
     arrayList.clear();
@@ -333,43 +316,6 @@ void DataScreenView::main()
     bps = true;
     tick++;
 
-    // // ---------- Numeric values ----------
-    // rpm = (tick * 25) % 8000;
-
-    // throttle = (tick % 100);
-    // brake_pedal = (tick % 100) * 0.5f;
-    // throttle_pedal = (tick % 100) * 0.7f;
-    // regen_brake = (tick % 100);
-
-    // cruise_speed = 20.0f + (tick % 60);
-
-    // pack_volt = 60.0f + (tick % 40);
-    // pack_curr = -50.0f + (tick % 100);
-    // pack_soc = tick % 100;
-
-    // // ---------- Toggle booleans ----------
-    // brake   = (tick / 20) % 2;
-    // man     = (tick / 40) % 2;
-    // regen   = (tick / 60) % 2;
-    // cruise  = (tick / 80) % 2;
-
-    // charge_relay    = (tick / 30) % 2;
-    // discharge_relay = (tick / 45) % 2;
-
-    // left   = (tick / 25) % 2;
-    // right  = (tick / 50) % 2;
-    // hazard = (tick / 100) % 2;
-
-    // lowpow    = (tick / 120) % 2;
-    // regenval  = (tick / 70) % 2;
-    // cruiseinc = (tick / 90) % 2;
-    // cruiseval = (tick / 110) % 2;
-    // cruisedec = (tick / 130) % 2;
-
-    // // ---------- Error states ----------
-    // mtr = (tick / 150) % 2;
-
-    // 50 calls × 20 ticks = ~1 second
     if (tick % 2 == 0)
     {
         curBps[1] = true;
