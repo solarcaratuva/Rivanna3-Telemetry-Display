@@ -1360,6 +1360,126 @@
           },
           {
             "Type": "TextArea",
+            "Name": "bottom_heart",
+            "X": 160,
+            "Y": 599,
+            "Width": 34,
+            "Height": 18,
+            "TextId": "__SingleUse_RV8X",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 219,
+              "Green": 39,
+              "Blue": 39
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_FL4J",
+              "UseBuffer": true,
+              "BufferSize": 20
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "relay_heart",
+            "X": 334,
+            "Y": 599,
+            "Width": 43,
+            "Height": 18,
+            "TextId": "__SingleUse_5HLV",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 219,
+              "Green": 39,
+              "Blue": 39
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_O1TB",
+              "UseBuffer": true,
+              "BufferSize": 20
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "motor_heart",
+            "X": 334,
+            "Y": 635,
+            "Width": 37,
+            "Height": 18,
+            "TextId": "__SingleUse_JVYB",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 219,
+              "Green": 39,
+              "Blue": 39
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_9BH3",
+              "UseBuffer": true,
+              "BufferSize": 20
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "wheel_heart",
+            "X": 334,
+            "Y": 672,
+            "Width": 36,
+            "Height": 18,
+            "TextId": "__SingleUse_6EPF",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 219,
+              "Green": 39,
+              "Blue": 39
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_O7FP",
+              "UseBuffer": true,
+              "BufferSize": 20
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "telem_heart",
+            "X": 160,
+            "Y": 635,
+            "Width": 36,
+            "Height": 18,
+            "TextId": "__SingleUse_PPBC",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 219,
+              "Green": 39,
+              "Blue": 39
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_N7TJ",
+              "UseBuffer": true,
+              "BufferSize": 20
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "top_heart",
+            "X": 160,
+            "Y": 672,
+            "Width": 38,
+            "Height": 18,
+            "TextId": "__SingleUse_SH8P",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 219,
+              "Green": 39,
+              "Blue": 39
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_WF7J",
+              "UseBuffer": true,
+              "BufferSize": 20
+            }
+          },
+          {
+            "Type": "TextArea",
             "Name": "mtr_controller_err_text",
             "X": 40,
             "Y": 439,
@@ -1405,6 +1525,96 @@
           },
           {
             "Type": "TextArea",
+            "Name": "Bottom_Dist_Text",
+            "X": 57,
+            "Y": 598,
+            "Width": 104,
+            "Height": 19,
+            "TextId": "__SingleUse_K88X",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Top_Dist_Text",
+            "X": 79,
+            "Y": 672,
+            "Width": 72,
+            "Height": 18,
+            "TextId": "__SingleUse_TKQ6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Relay_Text",
+            "X": 280,
+            "Y": 598,
+            "Width": 48,
+            "Height": 19,
+            "TextId": "__SingleUse_P9S6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Motor_Text",
+            "X": 277,
+            "Y": 635,
+            "Width": 55,
+            "Height": 18,
+            "TextId": "__SingleUse_HFFU",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Wheel_text",
+            "X": 272,
+            "Y": 672,
+            "Width": 53,
+            "Height": 18,
+            "TextId": "__SingleUse_N2Q5",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Telemetry_Text",
+            "X": 57,
+            "Y": 635,
+            "Width": 95,
+            "Height": 18,
+            "TextId": "__SingleUse_SQQ8",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
             "Name": "error_title",
             "X": 194,
             "Y": 383,
@@ -1421,11 +1631,27 @@
           },
           {
             "Type": "TextArea",
+            "Name": "Heartbeat_title",
+            "X": 147,
+            "Y": 542,
+            "Width": 193,
+            "Height": 41,
+            "TextId": "__SingleUse_9S5U",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
             "Name": "power_title",
             "X": 308,
             "Y": 270,
             "Width": 162,
-            "Height": 30,
+            "Height": 36,
             "TextId": "__SingleUse_R0TU",
             "TextRotation": "0",
             "Color": {
@@ -1578,7 +1804,7 @@
             "X": 40,
             "Y": 270,
             "Width": 131,
-            "Height": 30,
+            "Height": 36,
             "TextId": "__SingleUse_D6MH",
             "TextRotation": "0",
             "Color": {
@@ -1594,7 +1820,7 @@
             "X": 40,
             "Y": 163,
             "Width": 129,
-            "Height": 30,
+            "Height": 36,
             "TextId": "__SingleUse_4038",
             "TextRotation": "0",
             "Color": {
@@ -1610,7 +1836,7 @@
             "X": 308,
             "Y": 163,
             "Width": 137,
-            "Height": 30,
+            "Height": 36,
             "TextId": "__SingleUse_I07J",
             "TextRotation": "0",
             "Color": {

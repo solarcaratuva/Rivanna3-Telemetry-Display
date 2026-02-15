@@ -10,6 +10,63 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_N2Q5" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Wheel:</Translation>
+      </Text>
+      <Text Id="__SingleUse_TKQ6" Alignment="Right" TypographyId="V2_Default">
+        <Translation Language="GB">Top Dist:</Translation>
+      </Text>
+      <Text Id="__SingleUse_HFFU" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Motor:</Translation>
+      </Text>
+      <Text Id="__SingleUse_SQQ8" Alignment="Right" TypographyId="V2_Default">
+        <Translation Language="GB">Telemetry:</Translation>
+      </Text>
+      <Text Id="__SingleUse_P9S6" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Relay:</Translation>
+      </Text>
+      <Text Id="__SingleUse_K88X" Alignment="Left" TypographyId="V2_Default">
+        <Translation Language="GB">Bottom Dist:</Translation>
+      </Text>
+      <Text Id="__SingleUse_O7FP" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">ERR</Translation>
+      </Text>
+      <Text Id="__SingleUse_6EPF" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_9BH3" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">ERR</Translation>
+      </Text>
+      <Text Id="__SingleUse_JVYB" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_O1TB" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">ERR</Translation>
+      </Text>
+      <Text Id="__SingleUse_5HLV" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_WF7J" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">ERR</Translation>
+      </Text>
+      <Text Id="__SingleUse_SH8P" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_N7TJ" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">ERR</Translation>
+      </Text>
+      <Text Id="__SingleUse_PPBC" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_FL4J" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">ERR</Translation>
+      </Text>
+      <Text Id="__SingleUse_RV8X" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_9S5U" Alignment="Left" TypographyId="V2_Title">
+        <Translation Language="GB">Heartbeat</Translation>
+      </Text>
       <Text Id="__SingleUse_5N6T" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">None</Translation>
       </Text>
@@ -639,10 +696,10 @@
     <Typography Id="AUxBatteryPower" Font="SansSerifCollection.ttf" Size="22" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="V2_Default" Font="verdana.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="V2_Val" Font="verdanab.ttf" Size="15" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="V2_Title" Font="leelauib.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneER" />
-    <Typography Id="V2_Screen2Val" Font="verdanab.ttf" Size="35" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneER" />
-    <Typography Id="Error_Font" Font="verdanab.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneER" />
-    <Typography Id="Error_title_V2" Font="verdana.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneER" />
-    <Typography Id="V3_Title" Font="leelauib.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneER" />
+    <Typography Id="V2_Title" Font="leelauib.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneERkK" />
+    <Typography Id="V2_Screen2Val" Font="verdanab.ttf" Size="35" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneERkK" />
+    <Typography Id="Error_Font" Font="verdanab.ttf" Size="25" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneERkK" />
+    <Typography Id="Error_title_V2" Font="verdana.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneERkK" />
+    <Typography Id="V3_Title" Font="leelauib.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789.NoOfneERkK" />
   </Typographies>
 </TextDatabase>
