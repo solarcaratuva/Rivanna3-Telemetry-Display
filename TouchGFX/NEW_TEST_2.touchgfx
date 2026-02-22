@@ -1651,7 +1651,7 @@
             "X": 308,
             "Y": 270,
             "Width": 162,
-            "Height": 36,
+            "Height": 30,
             "TextId": "__SingleUse_R0TU",
             "TextRotation": "0",
             "Color": {
@@ -1804,7 +1804,7 @@
             "X": 40,
             "Y": 270,
             "Width": 131,
-            "Height": 36,
+            "Height": 30,
             "TextId": "__SingleUse_D6MH",
             "TextRotation": "0",
             "Color": {
@@ -1820,7 +1820,7 @@
             "X": 40,
             "Y": 163,
             "Width": 129,
-            "Height": 36,
+            "Height": 30,
             "TextId": "__SingleUse_4038",
             "TextRotation": "0",
             "Color": {
@@ -1836,7 +1836,7 @@
             "X": 308,
             "Y": 163,
             "Width": 137,
-            "Height": 36,
+            "Height": 30,
             "TextId": "__SingleUse_I07J",
             "TextRotation": "0",
             "Color": {

@@ -99,12 +99,31 @@ void DriverScreenView::main()
     bool wheelHeart = true;
 #ifndef SIMULATOR
     ReceivedCanData_t receivedCanData;
+    TickType_t now = xTaskGetTickCount();
+    const TickType_t HEARTBEAT_TIMEOUT = pdMS_TO_TICKS(500);
     if (xQueueReceive(canReceivedQueue, &receivedCanData, (TickType_t)0 ) == pdTRUE) {
         rpm = receivedCanData.motor_controller_power_status.motor_rpm;
         packVolt = receivedCanData.bps_pack_information.pack_voltage;
         packSOC = receivedCanData.bps_pack_information.pack_soc;
         auxBatteryMVolt = receivedCanData.aux_battery_status.aux_voltage;
         packCurr = receivedCanData.bps_pack_information.pack_current;
+        telemHeart =
+            (now - receivedCanData.heartbeat_ts.telemetry) < HEARTBEAT_TIMEOUT;
+
+        bottomHeart =
+            (now - receivedCanData.heartbeat_ts.bottom) < HEARTBEAT_TIMEOUT;
+
+        topHeart =
+            (now - receivedCanData.heartbeat_ts.top) < HEARTBEAT_TIMEOUT;
+
+        relayHeart =
+            (now - receivedCanData.heartbeat_ts.relay) < HEARTBEAT_TIMEOUT;
+
+        motorHeart =
+            (now - receivedCanData.heartbeat_ts.motor) < HEARTBEAT_TIMEOUT;
+
+        wheelHeart =
+            (now - receivedCanData.heartbeat_ts.wheel) < HEARTBEAT_TIMEOUT;
     }
 #else
     packCurr = 5;

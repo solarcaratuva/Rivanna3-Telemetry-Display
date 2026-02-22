@@ -94,8 +94,11 @@ bool mock_can_receive(FDCAN_RxHeaderTypeDef *rxHeader, uint8_t *data)
 
   struct rivanna3_heartbeat_t hb = {
     .from_telemetry_board = 1,
-    .from_wheel_board     = 0,
-    .from_power_board     = 0
+    .from_wheel_board     = 1,
+    .from_bottom_dist_board    = 1,
+    .from_motor_board = 1,
+    .from_relay_board = 1,
+    .from_top_dist_board = 1
   };
 
   rxHeader->Identifier = RIVANNA3_HEARTBEAT_FRAME_ID;
