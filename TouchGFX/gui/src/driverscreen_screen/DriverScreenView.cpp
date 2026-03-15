@@ -107,23 +107,23 @@ void DriverScreenView::main()
         packSOC = receivedCanData.bps_pack_information.pack_soc;
         auxBatteryMVolt = receivedCanData.aux_battery_status.aux_voltage;
         packCurr = receivedCanData.bps_pack_information.pack_current;
-        telemHeart =
-            (now - receivedCanData.heartbeat_ts.telemetry) < HEARTBEAT_TIMEOUT;
+        // telemHeart =
+        //     (now - receivedCanData.heartbeat_ts.telemetry) < HEARTBEAT_TIMEOUT;
 
-        bottomHeart =
-            (now - receivedCanData.heartbeat_ts.bottom) < HEARTBEAT_TIMEOUT;
+        // bottomHeart =
+        //     (now - receivedCanData.heartbeat_ts.bottom_dist) < HEARTBEAT_TIMEOUT;
 
-        topHeart =
-            (now - receivedCanData.heartbeat_ts.top) < HEARTBEAT_TIMEOUT;
+        // topHeart =
+        //     (now - receivedCanData.heartbeat_ts.top_dist) < HEARTBEAT_TIMEOUT;
 
-        relayHeart =
-            (now - receivedCanData.heartbeat_ts.relay) < HEARTBEAT_TIMEOUT;
+        // relayHeart =
+        //     (now - receivedCanData.heartbeat_ts.relay) < HEARTBEAT_TIMEOUT;
 
-        motorHeart =
-            (now - receivedCanData.heartbeat_ts.motor) < HEARTBEAT_TIMEOUT;
+        // motorHeart =
+        //     (now - receivedCanData.heartbeat_ts.motor) < HEARTBEAT_TIMEOUT;
 
-        wheelHeart =
-            (now - receivedCanData.heartbeat_ts.wheel) < HEARTBEAT_TIMEOUT;
+        // wheelHeart =
+        //     (now - receivedCanData.heartbeat_ts.wheel) < HEARTBEAT_TIMEOUT;
     }
 #else
     packCurr = 5;

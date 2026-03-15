@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <semphr.h>
 
-#define USE_MOCK_CAN 1   // 1 = simulator, 0 = real values SINGLE SWITCH
+#define USE_MOCK_CAN 0   // 1 = simulator, 0 = real values SINGLE SWITCH
 
 #if USE_MOCK_CAN
 #include "rivanna3.h"
@@ -94,8 +94,8 @@ bool mock_can_receive(FDCAN_RxHeaderTypeDef *rxHeader, uint8_t *data)
 
   struct rivanna3_heartbeat_t hb = {
     .from_telemetry_board = 1,
-    .from_wheel_board     = 1,
-    .from_bottom_dist_board    = 1,
+    .from_wheel_board = 1,
+    .from_bottom_dist_board = 1,
     .from_motor_board = 1,
     .from_relay_board = 1,
     .from_top_dist_board = 1
