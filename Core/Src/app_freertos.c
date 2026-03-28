@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "rivanna3.h"
+#include "rivanna3_s.h"
 #include "data_queues.h"
 #include "wheelboard_can.h"
 /* USER CODE END Includes */
@@ -106,20 +106,20 @@ void sendHeartBeatTask(void *argument)
 
   const TickType_t xPeriod = pdMS_TO_TICKS(10);
 
-  struct rivanna3_heartbeat_t heartbeat_can;
+  struct rivanna3_s_s_heartbeat_t heartbeat_can;
 
   heartbeat_can.from_telemetry_board = 0; 
   heartbeat_can.from_wheel_board = 1;
   heartbeat_can.from_power_board = 0;
 
-  rivanna3_heartbeat_pack(TxData, &heartbeat_can, RIVANNA3_HEARTBEAT_LENGTH);// removed ->data from TxData
+  rivanna3_s_heartbeat_pack(TxData, &heartbeat_can, rivanna3_s_HEARTBEAT_LENGTH);// removed ->data from TxData
 
   TickType_t xLastWakeTime = xTaskGetTickCount();
 
   for (;;)
   {
       // Your periodic function call
-      send_can_message(RIVANNA3_HEARTBEAT_FRAME_ID, RIVANNA3_HEARTBEAT_LENGTH, TxData);
+      send_can_message(rivanna3_s_HEARTBEAT_FRAME_ID, rivanna3_s_HEARTBEAT_LENGTH, TxData);
 
       // Wait for the next cycle
       vTaskDelayUntil(&xLastWakeTime, xPeriod);
@@ -131,7 +131,7 @@ void sendDashBoardTask(void *argument) {
   const TickType_t xPeriod = pdMS_TO_TICKS(10);
   TickType_t xLastWakeTime = xTaskGetTickCount();
 
-  struct rivanna3_dashboard_commands_t dashboard_can;
+  struct rivanna3_s_dashboard_commands_t dashboard_can;
 
     // Previous raw button states (for edge detection)
     static bool prevLeft = false;
@@ -224,29 +224,8 @@ void sendDashBoardTask(void *argument) {
     if (debounceHazard > 0) debounceHazard--;
 
     // Pack and send
-    rivanna3_dashboard_commands_pack(TxData, &dashboard_can, RIVANNA3_DASHBOARD_COMMANDS_LENGTH);
-    send_can_message(RIVANNA3_DASHBOARD_COMMANDS_FRAME_ID, RIVANNA3_DASHBOARD_COMMANDS_LENGTH, TxData);
-
-    vTaskDelayUntil(&xLastWakeTime, xPeriod);
-  }
-}
-
-void sendChargingModeTask(void *argument)
-{
-  uint8_t TxData[8];
-
-  const TickType_t xPeriod = pdMS_TO_TICKS(10);
-
-  struct rivanna3_charging_mode_t chargingmode_can;
-
-  TickType_t xLastWakeTime = xTaskGetTickCount();
-
-  for (;;)
-  {
-    bool state = HAL_GPIO_ReadPin(USR_BTN_9_GPIO_Port, USR_BTN_9_Pin) == GPIO_PIN_RESET;
-    chargingmode_can.charging_mode_enable = state;
-    rivanna3_charging_mode_pack(TxData, &chargingmode_can, RIVANNA3_CHARGING_MODE_LENGTH);// removed ->data from TxData
-    send_can_message(RIVANNA3_CHARGING_MODE_FRAME_ID, RIVANNA3_CHARGING_MODE_LENGTH, TxData);
+    rivanna3_s_dashboard_commands_pack(TxData, &dashboard_can, rivanna3_s_DASHBOARD_COMMANDS_LENGTH);
+    send_can_message(rivanna3_s_DASHBOARD_COMMANDS_FRAME_ID, rivanna3_s_DASHBOARD_COMMANDS_LENGTH, TxData);
 
     vTaskDelayUntil(&xLastWakeTime, xPeriod);
   }

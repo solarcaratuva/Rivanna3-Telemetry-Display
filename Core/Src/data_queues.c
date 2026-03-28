@@ -12,11 +12,11 @@ void setupDataQueues() {
 
 void updateReceivedCanData(ReceivedCanData_t *oldData, uint32_t Identifier, uint8_t *RxData) {
   switch(Identifier) {
-    case RIVANNA3_MOTOR_COMMANDS_FRAME_ID:
-      rivanna3_motor_commands_unpack(&oldData->motor_commands, RxData, RxDataSize);
+    case rivanna3_s_MOTOR_COMMANDS_FRAME_ID:
+      rivanna3_s_motor_commands_unpack(&oldData->motor_commands, RxData, RxDataSize);
       break;
-    case RIVANNA3_AUX_BATTERY_STATUS_FRAME_ID:
-      rivanna3_aux_battery_status_unpack(&oldData->aux_battery_status, RxData, RxDataSize);
+    case rivanna3_s_AUX_BATTERY_STATUS_FRAME_ID:
+      rivanna3_s_aux_battery_status_unpack(&oldData->aux_battery_status, RxData, RxDataSize);
       break;
     case BPS_MSGID_0_X406_FRAME_ID:
       bps_msgid_0_x406_unpack(&oldData->bps_pack_information, RxData, RxDataSize);

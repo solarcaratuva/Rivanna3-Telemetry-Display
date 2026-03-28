@@ -8,7 +8,7 @@ extern "C" {
 #include "FreeRTOS.h"
 #include "queue.h"
 #include "stdint.h"
-#include "rivanna3.h"
+#include "rivanna3_s.h"
 #include "bps.h"
 #include "motor_controller.h"
 
@@ -19,9 +19,9 @@ extern QueueHandle_t canReceivedQueue;
  */
 typedef struct {
      /**
-      * Definition found in rivanna3.h
+      * Definition found in rivanna3_s.h
       */
-     struct rivanna3_motor_commands_t motor_commands;
+     struct rivanna3_s_motor_commands_t motor_commands;
 
      /**
       * Definition found in bps.h
@@ -35,7 +35,7 @@ typedef struct {
      struct motor_controller_motor_controller_power_status_t motor_controller_power_status;
      struct motor_controller_motor_controller_error_t motor_controller_error;
 
-     struct rivanna3_aux_battery_status_t  aux_battery_status;
+     struct rivanna3_s_aux_battery_status_t  aux_battery_status;
     
 } ReceivedCanData_t;
 

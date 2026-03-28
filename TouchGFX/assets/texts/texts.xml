@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.25.0">
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.26.0">
   <Languages>
     <Language Id="GB" />
   </Languages>
@@ -104,7 +104,7 @@
         <Translation Language="GB">Error</Translation>
       </Text>
       <Text Id="__SingleUse_DRDT" Alignment="Left" TypographyId="Error_title_V2">
-        <Translation Language="GB"></Translation>
+        <Translation Language="GB" />
       </Text>
       <Text Id="__SingleUse_ATFQ" Alignment="Left" TypographyId="Error_Font">
         <Translation Language="GB">&lt;value&gt;</Translation>
