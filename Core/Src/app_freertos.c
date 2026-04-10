@@ -106,20 +106,20 @@ void sendHeartBeatTask(void *argument)
 
   const TickType_t xPeriod = pdMS_TO_TICKS(10);
 
-  struct rivanna3_s_s_heartbeat_t heartbeat_can;
+  struct rivanna3_s_heartbeat_t heartbeat_can;
 
   heartbeat_can.from_telemetry_board = 0; 
   heartbeat_can.from_wheel_board = 1;
   heartbeat_can.from_power_board = 0;
 
-  rivanna3_s_heartbeat_pack(TxData, &heartbeat_can, rivanna3_s_HEARTBEAT_LENGTH);// removed ->data from TxData
+  rivanna3_s_heartbeat_pack(TxData, &heartbeat_can, RIVANNA3_S_HEARTBEAT_LENGTH);// removed ->data from TxData
 
   TickType_t xLastWakeTime = xTaskGetTickCount();
 
   for (;;)
   {
       // Your periodic function call
-      send_can_message(rivanna3_s_HEARTBEAT_FRAME_ID, rivanna3_s_HEARTBEAT_LENGTH, TxData);
+      send_can_message(RIVANNA3_S_HEARTBEAT_FRAME_ID, RIVANNA3_S_HEARTBEAT_LENGTH, TxData);
 
       // Wait for the next cycle
       vTaskDelayUntil(&xLastWakeTime, xPeriod);
@@ -224,8 +224,8 @@ void sendDashBoardTask(void *argument) {
     if (debounceHazard > 0) debounceHazard--;
 
     // Pack and send
-    rivanna3_s_dashboard_commands_pack(TxData, &dashboard_can, rivanna3_s_DASHBOARD_COMMANDS_LENGTH);
-    send_can_message(rivanna3_s_DASHBOARD_COMMANDS_FRAME_ID, rivanna3_s_DASHBOARD_COMMANDS_LENGTH, TxData);
+    rivanna3_s_dashboard_commands_pack(TxData, &dashboard_can, RIVANNA3_S_DASHBOARD_COMMANDS_LENGTH);
+    send_can_message(RIVANNA3_S_DASHBOARD_COMMANDS_FRAME_ID, RIVANNA3_S_DASHBOARD_COMMANDS_LENGTH, TxData);
 
     vTaskDelayUntil(&xLastWakeTime, xPeriod);
   }
@@ -318,9 +318,6 @@ void MX_FREERTOS_Init(void) {
 
   /* creation of DashBoardCommands */
   sendDashBoardTaskHandle = osThreadNew(sendDashBoardTask, NULL, &sendDashBoardTask_attributes);
-
-  /* creation of ChargingModeTask */
-  sendChargingModeTaskHandle = osThreadNew(sendChargingModeTask, NULL, &sendChargingModeTask_attributes);
 
   /* creation of receiveCanTask */
   receiveCanTaskHandle = osThreadNew(receiveCanTask, NULL, &receiveCanTask_attributes);
