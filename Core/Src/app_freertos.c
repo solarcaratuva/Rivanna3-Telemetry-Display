@@ -108,10 +108,6 @@ void sendHeartBeatTask(void *argument)
 
   struct rivanna3_s_heartbeat_t heartbeat_can;
 
-  heartbeat_can.from_telemetry_board = 0; 
-  heartbeat_can.from_wheel_board = 1;
-  heartbeat_can.from_power_board = 0;
-
   rivanna3_s_heartbeat_pack(TxData, &heartbeat_can, RIVANNA3_S_HEARTBEAT_LENGTH);// removed ->data from TxData
 
   TickType_t xLastWakeTime = xTaskGetTickCount();

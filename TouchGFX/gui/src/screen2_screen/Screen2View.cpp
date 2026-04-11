@@ -173,7 +173,6 @@ void Screen2View::function1()
         packDischargeRelay2 = receivedCanData.bps_pack_information.discharge_relay_status;
         packChargeRelay2 = receivedCanData.bps_pack_information.charge_relay_status;
         rpm2 = receivedCanData.motor_controller_power_status.motor_rpm;
-        braking2 = receivedCanData.motor_commands.braking;
         regen2 = receivedCanData.motor_commands.regen_braking;
         manual2 = receivedCanData.motor_commands.manual_drive;
         cruise2 = receivedCanData.motor_commands.cruise_drive;

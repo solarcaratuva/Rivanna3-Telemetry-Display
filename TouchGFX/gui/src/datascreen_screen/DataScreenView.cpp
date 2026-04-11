@@ -205,15 +205,14 @@ void DataScreenView::main()
         pack_volt = receivedCanData.bps_pack_information.pack_voltage;
         pack_soc = receivedCanData.bps_pack_information.pack_soc;
         pack_curr = receivedCanData.bps_pack_information.pack_current;
-        brake = receivedCanData.motor_commands.braking;
         regen_brake = receivedCanData.motor_commands.regen_braking;
         man = receivedCanData.motor_commands.manual_drive;
         cruise = receivedCanData.motor_commands.cruise_drive;
-        brake_pedal = receivedCanData.motor_commands.brake_pedal;
+        brake_pedal = receivedCanData.pedal_status.brake_pedal;
         throttle = receivedCanData.motor_commands.throttle;
         cruise_speed = receivedCanData.motor_commands.cruise_speed;
         regen = receivedCanData.motor_commands.regen_drive;
-        throttle_pedal = receivedCanData.motor_commands.throttle_pedal;
+        throttle_pedal = receivedCanData.pedal_status.throttle_pedal;
         discharge_relay = receivedCanData.bps_pack_information.discharge_relay_status;
         charge_relay = receivedCanData.bps_pack_information.charge_relay_status;
 
