@@ -201,6 +201,7 @@ void sendDashBoardTask(void *argument) {
     dashboard_can.regen_en = rawRegen;
     dashboard_can.cruise_en = rawCruise;
     dashboard_can.hazards = rawHazard;
+    dashboard_can.charging_mode_en = rawLowPower;
 
     // Update previous states
     prevLeft = rawLeft;
