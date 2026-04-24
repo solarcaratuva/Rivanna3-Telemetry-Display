@@ -167,7 +167,7 @@ void DriverScreenView::main()
     float soc_f = packSOC * 0.5f;
     float speedInMph = presenter->getSpeed(rpm);
     float auxBatteryVoltConv = auxBatteryMVolt * 0.001f;
-    float watt = auxBatteryVoltConv * packCurr_f;
+    float watt = packVolt_f * packCurr_f;
     bool mtrError = presenter->mtrError();
     bool bpsError = presenter->bpsError();
     Unicode::snprintfFloat(speedBuffer, SPEED_SIZE, "%.1f", speedInMph);
