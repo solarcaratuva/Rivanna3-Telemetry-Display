@@ -257,15 +257,14 @@ void DataScreenView::main()
         pack_volt = receivedCanData.bps_pack_information.pack_voltage;
         pack_soc = receivedCanData.bps_pack_information.pack_soc;
         pack_curr = receivedCanData.bps_pack_information.pack_current;
-        brake = receivedCanData.motor_commands.braking;
         regen_brake = receivedCanData.motor_commands.regen_braking;
         man = receivedCanData.motor_commands.manual_drive;
         cruise = receivedCanData.motor_commands.cruise_drive;
-        brake_pedal = receivedCanData.motor_commands.brake_pedal;
+        brake_pedal = receivedCanData.pedal_status.brake_pedal;
         throttle = receivedCanData.motor_commands.throttle;
         cruise_speed = receivedCanData.motor_commands.cruise_speed;
         regen = receivedCanData.motor_commands.regen_drive;
-        throttle_pedal = receivedCanData.motor_commands.throttle_pedal;
+        throttle_pedal = receivedCanData.pedal_status.throttle_pedal;
         discharge_relay = receivedCanData.bps_pack_information.discharge_relay_status;
         charge_relay = receivedCanData.bps_pack_information.charge_relay_status;
 
@@ -276,24 +275,7 @@ void DataScreenView::main()
         receivedCanData.motor_controller_error.overcurrent_limit || receivedCanData.motor_controller_error.motor_system_err || receivedCanData.motor_controller_error.motor_lock ||
         receivedCanData.motor_controller_error.hall_sensor_short || receivedCanData.motor_controller_error.hall_sensor_open || receivedCanData.motor_controller_error.overheat_level);
         
-        bps = receivedCanData.bps_error.dtc_p0_a1_f_internal_cell_communication_fault || receivedCanData.bps_error.current_sensor_fault || receivedCanData.bps_error.weak_pack_fault || receivedCanData.bps_error.thermistor_fault || receivedCanData.bps_error.can_communication_fault || receivedCanData.bps_error.redundant_power_supply_fault || receivedCanData.bps_error.high_voltage_isolation_fault || receivedCanData.bps_error.charge_enable_relay_fault || receivedCanData.bps_error.discharge_enable_relay_fault || receivedCanData.bps_error.internal_hardware_fault || receivedCanData.bps_error.dtc_p0_a0_a_internal_heatsink_thermistor_fault || receivedCanData.bps_error.internal_logic_fault || receivedCanData.bps_error.dtc_p0_a0_c_highest_cell_voltage_too_high_fault || receivedCanData.bps_error.dtc_p0_a0_e_lowest_cell_voltage_too_low_fault || receivedCanData.bps_error.pack_too_hot_fault;
-
-        curBps[0] = receivedCanData.bps_error.dtc_p0_a1_f_internal_cell_communication_fault;
-        curBps[1] = receivedCanData.bps_error.current_sensor_fault;
-        curBps[2] = receivedCanData.bps_error.weak_pack_fault;
-        curBps[3] = receivedCanData.bps_error.thermistor_fault;
-        curBps[4] = receivedCanData.bps_error.can_communication_fault;
-        curBps[5] = receivedCanData.bps_error.redundant_power_supply_fault;
-        curBps[6] = receivedCanData.bps_error.high_voltage_isolation_fault;
-        curBps[7] = receivedCanData.bps_error.charge_enable_relay_fault;
-        curBps[8] = receivedCanData.bps_error.discharge_enable_relay_fault;
-        curBps[9] = receivedCanData.bps_error.internal_hardware_fault;
-        curBps[10] = receivedCanData.bps_error.dtc_p0_a0_a_internal_heatsink_thermistor_fault;
-        curBps[11] = receivedCanData.bps_error.internal_logic_fault;
-        curBps[12] = receivedCanData.bps_error.dtc_p0_a0_c_highest_cell_voltage_too_high_fault;
-        curBps[13] = receivedCanData.bps_error.dtc_p0_a0_e_lowest_cell_voltage_too_low_fault;
-        curBps[14] = receivedCanData.bps_error.pack_too_hot_fault;
-
+        bool bps = receivedCanData.bps_error.internal_cell_communication_fault || receivedCanData.bps_error.current_sensor_fault || receivedCanData.bps_error.weak_pack_fault || receivedCanData.bps_error.thermistor_fault || receivedCanData.bps_error.can_communication_fault || receivedCanData.bps_error.redundant_power_supply_fault || receivedCanData.bps_error.high_voltage_isolation_fault || receivedCanData.bps_error.charge_enable_relay_fault || receivedCanData.bps_error.discharge_enable_relay_fault || receivedCanData.bps_error.internal_hardware_fault || receivedCanData.bps_error.internal_heatsink_thermistor_fault || receivedCanData.bps_error.internal_logic_fault || receivedCanData.bps_error.highest_cell_voltage_too_high_fault || receivedCanData.bps_error.lowest_cell_voltage_too_low_fault || receivedCanData.bps_error.pack_too_hot_fault;
     }
 #else
     arrayList.clear();
