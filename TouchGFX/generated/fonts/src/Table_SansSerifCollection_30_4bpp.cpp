@@ -4,23 +4,7 @@
 
 FONT_TABLE_LOCATION_FLASH_PRAGMA
 KEEP extern const touchgfx::GlyphNode glyphs_SansSerifCollection_30_4bpp[] FONT_TABLE_LOCATION_FLASH_ATTRIBUTE = {
-    {     0, 0x0020,   0,   0,   0,   0,   8,   0,   0, 0x00 },
-    {     0, 0x0030,  15,  22,  22,   1,  17,   0,   0, 0x00 },
-    {   176, 0x003A,   4,  17,  17,   2,   8,   0,   0, 0x00 },
-    {   210, 0x003F,  13,  22,  22,   0,  13,   0,   0, 0x00 },
-    {   364, 0x0043,  17,  22,  22,   1,  19,   0,   0, 0x00 },
-    {   562, 0x0044,  19,  22,  22,   2,  22,   0,   0, 0x00 },
-    {   782, 0x0053,  14,  22,  22,   1,  16,   0,   0, 0x00 },
-    {   936, 0x0064,  15,  23,  23,   1,  18,   0,   0, 0x00 },
-    {  1120, 0x0065,  15,  17,  17,   1,  17,   0,   0, 0x00 },
-    {  1256, 0x0068,  15,  23,  23,   2,  19,   0,   0, 0x00 },
-    {  1440, 0x0069,   4,  23,  23,   2,   8,   0,   0, 0x00 },
-    {  1486, 0x006D,  24,  17,  17,   2,  28,   0,   0, 0x00 },
-    {  1690, 0x0070,  15,  24,  17,   2,  18,   0,   0, 0x00 },
-    {  1882, 0x0072,  10,  17,  17,   2,  12,   0,   0, 0x00 },
-    {  1967, 0x0073,  12,  17,  17,   1,  14,   0,   0, 0x00 },
-    {  2069, 0x0075,  14,  17,  17,   2,  19,   0,   0, 0x00 },
-    {  2188, 0x0076,  16,  17,  17,   0,  15,   0,   0, 0x00 }
+    {     0, 0x003F,  13,  22,  22,   0,  13,   0,   0, 0x00 }
 };
 
 // SansSerifCollection_30_4bpp
@@ -39,6 +23,6 @@ touchgfx::GeneratedFont& getFont_SansSerifCollection_30_4bpp();
 
 touchgfx::GeneratedFont& getFont_SansSerifCollection_30_4bpp()
 {
-    static touchgfx::GeneratedFont SansSerifCollection_30_4bpp(glyphs_SansSerifCollection_30_4bpp, 17, 37, 30, 0, 0, 4, 1, 0, 1, unicodes_SansSerifCollection_30_4bpp, kerning_SansSerifCollection_30_4bpp, 63, 0, 0, &SansSerifCollection_contextualFormsTable);
+    static touchgfx::GeneratedFont SansSerifCollection_30_4bpp(glyphs_SansSerifCollection_30_4bpp, 1, 30, 30, 0, 0, 4, 1, 0, 0, unicodes_SansSerifCollection_30_4bpp, kerning_SansSerifCollection_30_4bpp, 63, 0, 0, &SansSerifCollection_contextualFormsTable);
     return SansSerifCollection_30_4bpp;
 }

@@ -36,7 +36,7 @@ void DriverScreenView::setupScreen()
     Unicode::snprintfFloat(bpscBuffer, BPSC_SIZE, "%.1f", bps_c);
     Unicode::snprintf(mtr_controller_error_valueBuffer, MTR_CONTROLLER_ERROR_VALUE_SIZE, "ERR");
     mtr_controller_error_value.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
-    Unicode::snprintf(bps_error_valueBuffer, MTR_CONTROLLER_ERROR_VALUE_SIZE, "None");
+    Unicode::snprintf(bps_error_valueBuffer, BPS_ERROR_VALUE_SIZE, "None");
     bps_error_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     Unicode::snprintf(bottom_heartBuffer, BOTTOM_HEART_SIZE, "Ok");
     bottom_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
@@ -90,13 +90,14 @@ void DriverScreenView::main()
     int packVolt = 0;
     int packCurr = 0;
     int rpm = 0;
-    int auxBatteryMVolt = 0;
-    bool bottomHeart = false;
-    bool telemHeart = false;
-    bool topHeart = true;
-    bool relayHeart = false;
-    bool motorHeart = true;
-    bool wheelHeart = true;
+    // int auxBatteryMVolt = 0;
+    // bool bottomHeart = false;
+    // bool telemHeart = false;
+    // bool topHeart = false;
+    // bool relayHeart = false;
+    // bool motorHeart = false;
+    // bool wheelHeart = false;
+    bool bpsError = false;
 #ifndef SIMULATOR
     ReceivedCanData_t receivedCanData;
     TickType_t now = xTaskGetTickCount();
@@ -105,7 +106,7 @@ void DriverScreenView::main()
         rpm = receivedCanData.motor_controller_power_status.motor_rpm;
         packVolt = receivedCanData.bps_pack_information.pack_voltage;
         packSOC = receivedCanData.bps_pack_information.pack_soc;
-        auxBatteryMVolt = receivedCanData.aux_battery_status.aux_voltage;
+        // auxBatteryMVolt = receivedCanData.aux_battery_status.aux_voltage;
         packCurr = receivedCanData.bps_pack_information.pack_current;
         // telemHeart =
         //     (now - receivedCanData.heartbeat_ts.telemetry) < HEARTBEAT_TIMEOUT;
@@ -124,19 +125,35 @@ void DriverScreenView::main()
 
         // wheelHeart =
         //     (now - receivedCanData.heartbeat_ts.wheel) < HEARTBEAT_TIMEOUT;
+        bpsError = receivedCanData.bps_error.internal_cell_communication_fault ||
+            receivedCanData.bps_error.weak_cell_fault ||
+            receivedCanData.bps_error.low_cell_voltage_fault ||
+            receivedCanData.bps_error.cell_open_wiring_fault ||
+            receivedCanData.bps_error.thermistor_fault ||
+            receivedCanData.bps_error.current_sensor_fault ||
+            receivedCanData.bps_error.weak_pack_fault ||
+            receivedCanData.bps_error.can_communication_fault ||
+            receivedCanData.bps_error.redundant_power_supply_fault ||
+            receivedCanData.bps_error.high_voltage_isolation_fault ||
+            receivedCanData.bps_error.charge_enable_relay_fault ||
+            receivedCanData.bps_error.discharge_enable_relay_fault ||
+            receivedCanData.bps_error.internal_conversion_fault ||
+            receivedCanData.bps_error.internal_memory_fault ||
+            receivedCanData.bps_error.internal_thermistor_fault ||
+            receivedCanData.bps_error.internal_logic_fault;
     }
 #else
     packCurr = 5;
     rpm = 1234;
-    auxBatteryMVolt = 12569;
-    packVolt  = 42;
-    packSOC   = 0;
-    bottomHeart = false;
-    telemHeart = true;
-    topHeart = true;
-    relayHeart = false;
-    motorHeart = true;
-    wheelHeart = true;
+    // auxBatteryMVolt = 12569;
+    packVolt = 42;
+    packSOC = 199;
+    // bottomHeart = false;
+    // telemHeart = false;
+    // topHeart = true;
+    // relayHeart = false;
+    // motorHeart = true;
+    // wheelHeart = true;
 #endif
     bool isRight = presenter->getRightTurnSignal(); 
     bool isLeft = presenter->getLeftTurnSignal();
@@ -166,10 +183,9 @@ void DriverScreenView::main()
     float packCurr_f = packCurr * 0.1f;
     float soc_f = packSOC * 0.5f;
     float speedInMph = presenter->getSpeed(rpm);
-    float auxBatteryVoltConv = auxBatteryMVolt * 0.001f;
+    // float auxBatteryVoltConv = auxBatteryMVolt * 0.001f;
     float watt = packVolt_f * packCurr_f;
     bool mtrError = presenter->mtrError();
-    bool bpsError = presenter->bpsError();
     Unicode::snprintfFloat(speedBuffer, SPEED_SIZE, "%.1f", speedInMph);
     Unicode::snprintfFloat(socBuffer, SOC_SIZE, "%.1f", soc_f);
     Unicode::snprintfFloat(wattsBuffer, WATTS_SIZE, "%.1f", watt);
@@ -190,75 +206,89 @@ void DriverScreenView::main()
     if (bpsError == true)
     {
         // Set text to "ERR" and color to red
-        Unicode::snprintf(bps_error_valueBuffer, MTR_CONTROLLER_ERROR_VALUE_SIZE, "ERR");
+        Unicode::snprintf(bps_error_valueBuffer, BPS_ERROR_VALUE_SIZE, "ERR");
         bps_error_value.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
     }
     else
     {
         // Set text to "None" and color to white
-        Unicode::snprintf(bps_error_valueBuffer, MTR_CONTROLLER_ERROR_VALUE_SIZE, "None");
+        Unicode::snprintf(bps_error_valueBuffer, BPS_ERROR_VALUE_SIZE, "None");
         bps_error_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     }
-    if (bottomHeart == true)
-    {
-        Unicode::snprintf(bottom_heartBuffer, BOTTOM_HEART_SIZE, "Ok");
-        bottom_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
-    }
-    else
-    {
-        Unicode::snprintf(bottom_heartBuffer, BOTTOM_HEART_SIZE, "ERR");
-        bottom_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
-    }
-    if (telemHeart == true)
-    {
-        Unicode::snprintf(telem_heartBuffer, TELEM_HEART_SIZE, "Ok");
-        telem_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
-    }
-    else
-    {
-        Unicode::snprintf(telem_heartBuffer, TELEM_HEART_SIZE, "ERR");
-        telem_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
-    }
-    if (topHeart == true)
-    {
-        Unicode::snprintf(top_heartBuffer, TOP_HEART_SIZE, "Ok");
-        top_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
-    }
-    else
-    {
-        Unicode::snprintf(top_heartBuffer, TOP_HEART_SIZE, "ERR");
-        top_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
-    }
-    if (relayHeart == true)
-    {
-        Unicode::snprintf(relay_heartBuffer, RELAY_HEART_SIZE, "Ok");
-        relay_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
-    }
-    else
-    {
-        Unicode::snprintf(relay_heartBuffer, RELAY_HEART_SIZE, "ERR");
-        relay_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
-    }
-    if (motorHeart == true)
-    {
-        Unicode::snprintf(motor_heartBuffer, MOTOR_HEART_SIZE, "Ok");
-        motor_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
-    }
-    else
-    {
-        Unicode::snprintf(motor_heartBuffer, MOTOR_HEART_SIZE, "ERR");
-        motor_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
-    }
-    if (wheelHeart == true)
-    {
-        Unicode::snprintf(wheel_heartBuffer, WHEEL_HEART_SIZE, "Ok");
-        wheel_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
-    }
-    else
-    {
-        Unicode::snprintf(wheel_heartBuffer, WHEEL_HEART_SIZE, "ERR");
-        wheel_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
-    }
+
+    Unicode::snprintf(bottom_heartBuffer, BOTTOM_HEART_SIZE, "None");
+    Unicode::snprintf(telem_heartBuffer, TELEM_HEART_SIZE, "None");
+    Unicode::snprintf(top_heartBuffer, TOP_HEART_SIZE, "None");
+    Unicode::snprintf(relay_heartBuffer, RELAY_HEART_SIZE, "None");
+    Unicode::snprintf(motor_heartBuffer, MOTOR_HEART_SIZE, "None");
+    Unicode::snprintf(wheel_heartBuffer, WHEEL_HEART_SIZE, "None");
+    bottom_heart.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    telem_heart.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    top_heart.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    relay_heart.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    motor_heart.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    wheel_heart.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+
+    // if (bottomHeart == true)
+    // {
+    //     Unicode::snprintf(bottom_heartBuffer, BOTTOM_HEART_SIZE, "Ok");
+    //     bottom_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
+    // }
+    // else
+    // {
+    //     Unicode::snprintf(bottom_heartBuffer, BOTTOM_HEART_SIZE, "None");
+    //     // bottom_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
+    // }
+    // if (telemHeart == true)
+    // {
+    //     Unicode::snprintf(telem_heartBuffer, TELEM_HEART_SIZE, "Ok");
+    //     telem_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
+    // }
+    // else
+    // {
+    //     Unicode::snprintf(telem_heartBuffer, TELEM_HEART_SIZE, "None");
+    //     // telem_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
+    // }
+    // if (topHeart == true)
+    // {
+    //     Unicode::snprintf(top_heartBuffer, TOP_HEART_SIZE, "Ok");
+    //     top_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
+    // }
+    // else
+    // {
+    //     Unicode::snprintf(top_heartBuffer, TOP_HEART_SIZE, "None");
+    //     // top_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
+    // }
+    // if (relayHeart == true)
+    // {
+    //     Unicode::snprintf(relay_heartBuffer, RELAY_HEART_SIZE, "Ok");
+    //     relay_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
+    // }
+    // else
+    // {
+    //     Unicode::snprintf(relay_heartBuffer, RELAY_HEART_SIZE, "None");
+    //     // relay_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
+    // }
+    // if (motorHeart == true)
+    // {
+    //     Unicode::snprintf(motor_heartBuffer, MOTOR_HEART_SIZE, "Ok");
+    //     motor_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
+    // }
+    // else
+    // {
+    //     Unicode::snprintf(motor_heartBuffer, MOTOR_HEART_SIZE, "None");
+    //     // motor_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
+    // }
+    // if (wheelHeart == true)
+    // {
+    //     Unicode::snprintf(wheel_heartBuffer, WHEEL_HEART_SIZE, "Ok");
+    //     wheel_heart.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));
+    // }
+    // else
+    // {
+    //     Unicode::snprintf(wheel_heartBuffer, WHEEL_HEART_SIZE, "None");
+    //     // wheel_heart.setColor(touchgfx::Color::getColorFromRGB(222, 84, 84));
+    // }
     speed.invalidate();
     soc.invalidate();
     watts.invalidate();
@@ -272,4 +302,13 @@ void DriverScreenView::main()
     relay_heart.invalidate();
     motor_heart.invalidate();
     wheel_heart.invalidate();
+
+    // progress bar for SoC
+    boxProgress1.setProgressIndicatorPosition(0, 0, boxProgress1.getWidth(), boxProgress1.getHeight());
+    int socBar = (int)(soc_f);
+    if (socBar < 0) socBar = 0;
+    if (socBar > 100) socBar = 100;
+
+    boxProgress1.setValue(socBar);
+    boxProgress1.invalidate();
 }

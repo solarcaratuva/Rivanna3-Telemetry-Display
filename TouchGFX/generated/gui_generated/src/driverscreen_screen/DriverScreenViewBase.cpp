@@ -91,7 +91,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     bps_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_ATFQ));
     add(bps_error_value);
 
-    bottom_heart.setPosition(160, 599, 34, 18);
+    bottom_heart.setPosition(160, 599, 83, 18);
     bottom_heart.setColor(touchgfx::Color::getColorFromRGB(219, 39, 39));
     bottom_heart.setLinespacing(0);
     Unicode::snprintf(bottom_heartBuffer, BOTTOM_HEART_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_FL4J).getText());
@@ -99,7 +99,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     bottom_heart.setTypedText(touchgfx::TypedText(T___SINGLEUSE_RV8X));
     add(bottom_heart);
 
-    relay_heart.setPosition(334, 599, 43, 18);
+    relay_heart.setPosition(334, 599, 91, 18);
     relay_heart.setColor(touchgfx::Color::getColorFromRGB(219, 39, 39));
     relay_heart.setLinespacing(0);
     Unicode::snprintf(relay_heartBuffer, RELAY_HEART_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_O1TB).getText());
@@ -107,7 +107,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     relay_heart.setTypedText(touchgfx::TypedText(T___SINGLEUSE_5HLV));
     add(relay_heart);
 
-    motor_heart.setPosition(334, 635, 37, 18);
+    motor_heart.setPosition(334, 635, 91, 18);
     motor_heart.setColor(touchgfx::Color::getColorFromRGB(219, 39, 39));
     motor_heart.setLinespacing(0);
     Unicode::snprintf(motor_heartBuffer, MOTOR_HEART_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_9BH3).getText());
@@ -115,7 +115,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     motor_heart.setTypedText(touchgfx::TypedText(T___SINGLEUSE_JVYB));
     add(motor_heart);
 
-    wheel_heart.setPosition(334, 672, 36, 18);
+    wheel_heart.setPosition(334, 672, 91, 18);
     wheel_heart.setColor(touchgfx::Color::getColorFromRGB(219, 39, 39));
     wheel_heart.setLinespacing(0);
     Unicode::snprintf(wheel_heartBuffer, WHEEL_HEART_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_O7FP).getText());
@@ -123,7 +123,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     wheel_heart.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6EPF));
     add(wheel_heart);
 
-    telem_heart.setPosition(160, 635, 36, 18);
+    telem_heart.setPosition(160, 635, 83, 18);
     telem_heart.setColor(touchgfx::Color::getColorFromRGB(219, 39, 39));
     telem_heart.setLinespacing(0);
     Unicode::snprintf(telem_heartBuffer, TELEM_HEART_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_N7TJ).getText());
@@ -131,7 +131,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     telem_heart.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PPBC));
     add(telem_heart);
 
-    top_heart.setPosition(160, 672, 38, 18);
+    top_heart.setPosition(160, 672, 80, 18);
     top_heart.setColor(touchgfx::Color::getColorFromRGB(219, 39, 39));
     top_heart.setLinespacing(0);
     Unicode::snprintf(top_heartBuffer, TOP_HEART_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_WF7J).getText());

@@ -4,9 +4,7 @@
 
 FONT_TABLE_LOCATION_FLASH_PRAGMA
 KEEP extern const touchgfx::GlyphNode glyphs_times_100_4bpp[] FONT_TABLE_LOCATION_FLASH_ATTRIBUTE = {
-    {     0, 0x0020,   0,   0,   0,   0,  25,   0,   0, 0x00 },
-    {     0, 0x0030,  44,  69,  68,   3,  50,   0,   0, 0x00 },
-    {  1518, 0x003F,  37,  69,  68,   4,  44,   0,   0, 0x00 }
+    {     0, 0x003F,  37,  69,  68,   4,  44,   0,   0, 0x00 }
 };
 
 // times_100_4bpp
@@ -180,6 +178,6 @@ touchgfx::GeneratedFont& getFont_times_100_4bpp();
 
 touchgfx::GeneratedFont& getFont_times_100_4bpp()
 {
-    static touchgfx::GeneratedFont times_100_4bpp(glyphs_times_100_4bpp, 3, 101, 100, 0, 0, 4, 1, 0, 0, unicodes_times_100_4bpp, kerning_times_100_4bpp, 63, 0, 0, &times_contextualFormsTable);
+    static touchgfx::GeneratedFont times_100_4bpp(glyphs_times_100_4bpp, 1, 101, 100, 0, 0, 4, 1, 0, 0, unicodes_times_100_4bpp, kerning_times_100_4bpp, 63, 0, 0, &times_contextualFormsTable);
     return times_100_4bpp;
 }
