@@ -254,6 +254,14 @@ DriverScreenViewBase::DriverScreenViewBase() :
     soc.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BGJ2));
     add(soc);
 
+    odometryText.setPosition(110, 101, 266, 26);
+    odometryText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    odometryText.setLinespacing(0);
+    Unicode::snprintf(odometryTextBuffer, ODOMETRYTEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_FHJ7).getText());
+    odometryText.setWildcard(odometryTextBuffer);
+    odometryText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_I6AV));
+    add(odometryText);
+
     bpsv.setPosition(32, 202, 153, 34);
     bpsv.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     bpsv.setLinespacing(0);

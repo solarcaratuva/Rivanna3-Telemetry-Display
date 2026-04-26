@@ -90,6 +90,7 @@ void DriverScreenView::main()
     int packVolt = 0;
     int packCurr = 0;
     int rpm = 0;
+    int odometry_revolutions = 0;
     // int auxBatteryMVolt = 0;
     // bool bottomHeart = false;
     // bool telemHeart = false;
@@ -98,6 +99,7 @@ void DriverScreenView::main()
     // bool motorHeart = false;
     // bool wheelHeart = false;
     bool bpsError = false;
+    bool motorError = false;
 #ifndef SIMULATOR
     ReceivedCanData_t receivedCanData;
     TickType_t now = xTaskGetTickCount();
@@ -108,6 +110,8 @@ void DriverScreenView::main()
         packSOC = receivedCanData.bps_pack_information.pack_soc;
         // auxBatteryMVolt = receivedCanData.aux_battery_status.aux_voltage;
         packCurr = receivedCanData.bps_pack_information.pack_current;
+        
+        odometry_revolutions = receivedCanData.odometry_data.distance;
         // telemHeart =
         //     (now - receivedCanData.heartbeat_ts.telemetry) < HEARTBEAT_TIMEOUT;
 
@@ -141,6 +145,13 @@ void DriverScreenView::main()
             receivedCanData.bps_error.internal_memory_fault ||
             receivedCanData.bps_error.internal_thermistor_fault ||
             receivedCanData.bps_error.internal_logic_fault;
+
+        motorError = (receivedCanData.motor_controller_error.analog_sensor_err || receivedCanData.motor_controller_error.motor_current_sensor_u_err || receivedCanData.motor_controller_error.motor_current_sensor_w_err ||
+            receivedCanData.motor_controller_error.fet_thermistor_err || receivedCanData.motor_controller_error.battery_voltage_sensor_err || receivedCanData.motor_controller_error.battery_current_sensor_adj_err ||
+            receivedCanData.motor_controller_error.motor_current_sensor_adj_err || receivedCanData.motor_controller_error.accelerator_position_err || receivedCanData.motor_controller_error.controller_voltage_sensor_err ||
+            receivedCanData.motor_controller_error.power_system_err || receivedCanData.motor_controller_error.overcurrent_err || receivedCanData.motor_controller_error.overvoltage_err ||
+            receivedCanData.motor_controller_error.overcurrent_limit || receivedCanData.motor_controller_error.motor_system_err || receivedCanData.motor_controller_error.motor_lock ||
+            receivedCanData.motor_controller_error.hall_sensor_short || receivedCanData.motor_controller_error.hall_sensor_open || receivedCanData.motor_controller_error.overheat_level);
     }
 #else
     packCurr = 5;
@@ -148,6 +159,7 @@ void DriverScreenView::main()
     // auxBatteryMVolt = 12569;
     packVolt = 42;
     packSOC = 199;
+    odometry_revolutions = 777;
     // bottomHeart = false;
     // telemHeart = false;
     // topHeart = true;
@@ -182,16 +194,32 @@ void DriverScreenView::main()
     float packVolt_f = packVolt * 0.1f;
     float packCurr_f = packCurr * 0.1f;
     float soc_f = packSOC * 0.5f;
-    float speedInMph = presenter->getSpeed(rpm);
+
+    static constexpr float WHEEL_DIAMETER_M = 22.0f * 0.0254f;
+    const float WHEEL_CIRCUM_M = 3.14159265f * WHEEL_DIAMETER_M;
+    const float GEAR_RATIO = 1.0f;
+    const float METERS_TO_MILES = 1609.344f;
+    
+    float rps = static_cast<float>(rpm) / 60.0f;  
+    float wheelInRps = rps / GEAR_RATIO;
+    float speedInMps = wheelInRps * WHEEL_CIRCUM_M;  
+    
+    odometry_revolutions += 1;
+    
+    float odometry_distance_meters_f = odometry_revolutions * WHEEL_CIRCUM_M / GEAR_RATIO;
+    float odometry_distance_miles_f = odometry_distance_meters_f / METERS_TO_MILES;
+    Unicode::snprintfFloat(odometryTextBuffer, ODOMETRYTEXT_SIZE, "%.2f", odometry_distance_miles_f);
+    odometryText.invalidate();
+
+    float speedInMph = speedInMps * 2.23694f;
     // float auxBatteryVoltConv = auxBatteryMVolt * 0.001f;
     float watt = packVolt_f * packCurr_f;
-    bool mtrError = presenter->mtrError();
     Unicode::snprintfFloat(speedBuffer, SPEED_SIZE, "%.1f", speedInMph);
     Unicode::snprintfFloat(socBuffer, SOC_SIZE, "%.1f", soc_f);
     Unicode::snprintfFloat(wattsBuffer, WATTS_SIZE, "%.1f", watt);
     Unicode::snprintfFloat(bpsvBuffer, BPSV_SIZE, "%.2f", packVolt_f);
     Unicode::snprintfFloat(bpscBuffer, BPSC_SIZE, "%.2f", packCurr_f);
-    if (mtrError == true)
+    if (motorError == true)
     {
         // Set text to "ERR" and color to red
         Unicode::snprintf(mtr_controller_error_valueBuffer, MTR_CONTROLLER_ERROR_VALUE_SIZE, "ERR");
@@ -311,4 +339,5 @@ void DriverScreenView::main()
 
     boxProgress1.setValue(socBar);
     boxProgress1.invalidate();
+
 }

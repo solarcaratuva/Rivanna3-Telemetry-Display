@@ -10,6 +10,12 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_FHJ7" Alignment="Left" TypographyId="V2_Val">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_I6AV" Alignment="Center" TypographyId="V2_Val">
+        <Translation Language="GB">Distance: &lt;value&gt; miles</Translation>
+      </Text>
       <Text Id="__SingleUse_N2Q5" Alignment="Left" TypographyId="V2_Default">
         <Translation Language="GB">Wheel:</Translation>
       </Text>

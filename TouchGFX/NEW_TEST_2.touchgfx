@@ -636,6 +636,26 @@
           },
           {
             "Type": "TextArea",
+            "Name": "odometryText",
+            "X": 110,
+            "Y": 101,
+            "Width": 266,
+            "Height": 26,
+            "TextId": "__SingleUse_I6AV",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_FHJ7",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
             "Name": "bpsv",
             "X": 32,
             "Y": 202,

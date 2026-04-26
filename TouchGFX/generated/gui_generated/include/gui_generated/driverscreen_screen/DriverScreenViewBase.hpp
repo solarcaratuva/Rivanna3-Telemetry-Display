@@ -80,6 +80,7 @@ protected:
     touchgfx::PainterRGB888 border1_1_1Painter;
     touchgfx::TextAreaWithOneWildcard watts;
     touchgfx::TextAreaWithOneWildcard soc;
+    touchgfx::TextAreaWithOneWildcard odometryText;
     touchgfx::TextAreaWithOneWildcard bpsv;
     touchgfx::TextAreaWithOneWildcard bpsc;
     touchgfx::TextArea textArea1;
@@ -116,6 +117,8 @@ protected:
     touchgfx::Unicode::UnicodeChar wattsBuffer[WATTS_SIZE];
     static const uint16_t SOC_SIZE = 10;
     touchgfx::Unicode::UnicodeChar socBuffer[SOC_SIZE];
+    static const uint16_t ODOMETRYTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar odometryTextBuffer[ODOMETRYTEXT_SIZE];
     static const uint16_t BPSV_SIZE = 10;
     touchgfx::Unicode::UnicodeChar bpsvBuffer[BPSV_SIZE];
     static const uint16_t BPSC_SIZE = 10;
