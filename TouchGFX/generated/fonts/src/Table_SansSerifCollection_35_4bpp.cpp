@@ -4,17 +4,7 @@
 
 FONT_TABLE_LOCATION_FLASH_PRAGMA
 KEEP extern const touchgfx::GlyphNode glyphs_SansSerifCollection_35_4bpp[] FONT_TABLE_LOCATION_FLASH_ATTRIBUTE = {
-    {     0, 0x0020,   0,   0,   0,   0,   9,   0,   0, 0x00 },
-    {     0, 0x0030,  18,  25,  25,   1,  20,   0,   0, 0x00 },
-    {   225, 0x003F,  15,  25,  25,   0,  15,   0,   0, 0x00 },
-    {   425, 0x0045,  15,  25,  25,   3,  19,   0,   0, 0x00 },
-    {   625, 0x004F,  24,  25,  25,   2,  27,   0,   0, 0x00 },
-    {   925, 0x0050,  17,  25,  25,   3,  21,   0,   0, 0x00 },
-    {  1150, 0x0052,  19,  25,  25,   3,  22,   0,   0, 0x00 },
-    {  1400, 0x0057,  32,  25,  25,   0,  33,   0,   0, 0x00 },
-    {  1800, 0x006F,  19,  19,  19,   1,  21,   0,   0, 0x00 },
-    {  1990, 0x0072,  11,  19,  19,   3,  14,   0,   0, 0x00 },
-    {  2104, 0x0073,  15,  19,  19,   1,  17,   0,   0, 0x00 }
+    {     0, 0x003F,  15,  25,  25,   0,  15,   0,   0, 0x00 }
 };
 
 // SansSerifCollection_35_4bpp
@@ -33,6 +23,6 @@ touchgfx::GeneratedFont& getFont_SansSerifCollection_35_4bpp();
 
 touchgfx::GeneratedFont& getFont_SansSerifCollection_35_4bpp()
 {
-    static touchgfx::GeneratedFont SansSerifCollection_35_4bpp(glyphs_SansSerifCollection_35_4bpp, 11, 35, 35, 0, 0, 4, 1, 0, 0, unicodes_SansSerifCollection_35_4bpp, kerning_SansSerifCollection_35_4bpp, 63, 0, 0, &SansSerifCollection_contextualFormsTable);
+    static touchgfx::GeneratedFont SansSerifCollection_35_4bpp(glyphs_SansSerifCollection_35_4bpp, 1, 35, 35, 0, 0, 4, 1, 0, 0, unicodes_SansSerifCollection_35_4bpp, kerning_SansSerifCollection_35_4bpp, 63, 0, 0, &SansSerifCollection_contextualFormsTable);
     return SansSerifCollection_35_4bpp;
 }

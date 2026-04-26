@@ -107,6 +107,7 @@ void sendHeartBeatTask(void *argument)
   const TickType_t xPeriod = pdMS_TO_TICKS(10);
 
   struct rivanna3_s_heartbeat_t heartbeat_can;
+  heartbeat_can.source = 5;
 
   rivanna3_s_heartbeat_pack(TxData, &heartbeat_can, RIVANNA3_S_HEARTBEAT_LENGTH);// removed ->data from TxData
 

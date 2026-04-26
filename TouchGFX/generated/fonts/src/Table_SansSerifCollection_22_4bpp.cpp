@@ -4,22 +4,7 @@
 
 FONT_TABLE_LOCATION_FLASH_PRAGMA
 KEEP extern const touchgfx::GlyphNode glyphs_SansSerifCollection_22_4bpp[] FONT_TABLE_LOCATION_FLASH_ATTRIBUTE = {
-    {     0, 0x0020,   0,   0,   0,   0,   6,   0,   0, 0x00 },
-    {     0, 0x0030,  11,  16,  16,   1,  13,   0,   0, 0x00 },
-    {    96, 0x003A,   4,  12,  12,   1,   6,   0,   0, 0x00 },
-    {   120, 0x003F,   9,  16,  16,   0,  10,   0,   0, 0x00 },
-    {   200, 0x0041,  14,  16,  16,   0,  14,   0,   0, 0x00 },
-    {   312, 0x0042,  12,  16,  16,   2,  14,   0,   0, 0x00 },
-    {   408, 0x0056,  14,  16,  16,   0,  13,   0,   0, 0x00 },
-    {   520, 0x0061,  10,  12,  12,   1,  12,   0,   0, 0x00 },
-    {   580, 0x0065,  11,  12,  12,   1,  12,   0,   0, 0x00 },
-    {   652, 0x006C,   3,  16,  16,   1,   6,   0,   0, 0x00 },
-    {   684, 0x006F,  12,  12,  12,   1,  13,   0,   0, 0x00 },
-    {   756, 0x0072,   8,  12,  12,   1,   9,   0,   0, 0x00 },
-    {   804, 0x0074,   8,  15,  15,   0,   8,   0,   0, 0x00 },
-    {   864, 0x0075,  11,  12,  12,   1,  14,   0,   0, 0x00 },
-    {   936, 0x0078,  12,  12,  12,   0,  12,   0,   0, 0x00 },
-    {  1008, 0x0079,  12,  17,  12,   0,  11,   0,   0, 0x00 }
+    {     0, 0x003F,   9,  16,  16,   0,  10,   0,   0, 0x00 }
 };
 
 // SansSerifCollection_22_4bpp
@@ -98,6 +83,6 @@ touchgfx::GeneratedFont& getFont_SansSerifCollection_22_4bpp();
 
 touchgfx::GeneratedFont& getFont_SansSerifCollection_22_4bpp()
 {
-    static touchgfx::GeneratedFont SansSerifCollection_22_4bpp(glyphs_SansSerifCollection_22_4bpp, 16, 27, 22, 0, 0, 4, 1, 0, 1, unicodes_SansSerifCollection_22_4bpp, kerning_SansSerifCollection_22_4bpp, 63, 0, 0, &SansSerifCollection_contextualFormsTable);
+    static touchgfx::GeneratedFont SansSerifCollection_22_4bpp(glyphs_SansSerifCollection_22_4bpp, 1, 22, 22, 0, 0, 4, 1, 0, 0, unicodes_SansSerifCollection_22_4bpp, kerning_SansSerifCollection_22_4bpp, 63, 0, 0, &SansSerifCollection_contextualFormsTable);
     return SansSerifCollection_22_4bpp;
 }
