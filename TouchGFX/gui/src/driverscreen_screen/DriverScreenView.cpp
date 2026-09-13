@@ -5,6 +5,8 @@
 #include "data_queues.h"
 #endif
 
+int DriverScreenView::lapValue = 0;
+
 DriverScreenView::DriverScreenView()
 {
     line1.setPainter(line1Painter);
@@ -29,6 +31,8 @@ void DriverScreenView::setupScreen()
     mtr_controller_error_value.setWildcard(mtr_controller_error_valueBuffer);
     bps_error_value.setWildcard(bps_error_valueBuffer);
     bottom_heart.setWildcard(bottom_heartBuffer);
+    lap_value.setWildcard(lapValueBuffer);
+    Unicode::snprintf(lapValueBuffer, LAP_VALUE_SIZE, "%d", lapValue);
     Unicode::snprintfFloat(speedBuffer, SPEED_SIZE, "%.1f", speedMph);
     Unicode::snprintfFloat(socBuffer, SOC_SIZE, "%.1f", state);
     Unicode::snprintfFloat(wattsBuffer, WATTS_SIZE, "%.1f", watt);
@@ -55,6 +59,7 @@ void DriverScreenView::setupScreen()
     watts.invalidate();
     bpsv.invalidate();
     bpsc.invalidate();
+    lap_value.invalidate();
     mtr_controller_error_value.invalidate();
     bps_error_value.invalidate();
     bottom_heart.invalidate();
@@ -340,4 +345,23 @@ void DriverScreenView::main()
     boxProgress1.setValue(socBar);
     boxProgress1.invalidate();
 
+}
+
+void DriverScreenView::lapIncrease()
+{
+    lapValue++;
+
+    Unicode::snprintf(lapValueBuffer, LAP_VALUE_SIZE, "%d", lapValue);
+    lap_value.invalidate();
+}
+
+void DriverScreenView::lapDecrease()
+{
+    if (lapValue > 0)
+    {
+        lapValue--;
+
+        Unicode::snprintf(lapValueBuffer, LAP_VALUE_SIZE, "%d", lapValue);
+        lap_value.invalidate();
+    }
 }

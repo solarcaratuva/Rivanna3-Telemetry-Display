@@ -55,6 +55,7 @@
           {
             "Type": "Box",
             "Name": "background",
+            "Y": 3,
             "Width": 480,
             "Height": 800,
             "Color": {
@@ -100,6 +101,26 @@
             "EndY": 20.0,
             "LineWidth": 10.0,
             "LineEndingStyle": "Round"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "lap_value",
+            "X": 122,
+            "Y": 147,
+            "Width": 255,
+            "Height": 41,
+            "TextId": "__SingleUse_EB4M",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_R4DJ",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
           },
           {
             "Type": "Shape",
@@ -525,7 +546,7 @@
             "Type": "TextArea",
             "Name": "power_title",
             "X": 308,
-            "Y": 270,
+            "Y": 284,
             "Width": 162,
             "Height": 30,
             "TextId": "__SingleUse_R0TU",
@@ -541,7 +562,7 @@
             "Type": "Line",
             "Name": "border1",
             "X": 34,
-            "Y": 127,
+            "Y": 188,
             "Width": 412,
             "Height": 19,
             "Color": {
@@ -598,7 +619,7 @@
             "Type": "TextArea",
             "Name": "watts",
             "X": 308,
-            "Y": 307,
+            "Y": 318,
             "Width": 188,
             "Height": 34,
             "TextId": "__SingleUse_DRUP",
@@ -618,7 +639,7 @@
             "Type": "TextArea",
             "Name": "soc",
             "X": 40,
-            "Y": 307,
+            "Y": 318,
             "Width": 188,
             "Height": 34,
             "TextId": "__SingleUse_BGJ2",
@@ -658,7 +679,7 @@
             "Type": "TextArea",
             "Name": "bpsv",
             "X": 32,
-            "Y": 202,
+            "Y": 234,
             "Width": 153,
             "Height": 34,
             "TextId": "__SingleUse_8SLF",
@@ -678,7 +699,7 @@
             "Type": "TextArea",
             "Name": "bpsc",
             "X": 301,
-            "Y": 202,
+            "Y": 234,
             "Width": 227,
             "Height": 34,
             "TextId": "__SingleUse_VG8V",
@@ -698,7 +719,7 @@
             "Type": "TextArea",
             "Name": "textArea1",
             "X": 40,
-            "Y": 270,
+            "Y": 284,
             "Width": 131,
             "Height": 30,
             "TextId": "__SingleUse_D6MH",
@@ -714,7 +735,7 @@
             "Type": "TextArea",
             "Name": "textArea5",
             "X": 40,
-            "Y": 163,
+            "Y": 202,
             "Width": 129,
             "Height": 30,
             "TextId": "__SingleUse_4038",
@@ -730,7 +751,7 @@
             "Type": "TextArea",
             "Name": "textArea5_1",
             "X": 308,
-            "Y": 163,
+            "Y": 202,
             "Width": 137,
             "Height": 30,
             "TextId": "__SingleUse_I07J",
@@ -746,7 +767,7 @@
             "Type": "BoxProgress",
             "Name": "boxProgress1",
             "X": 40,
-            "Y": 344,
+            "Y": 353,
             "Width": 200,
             "Height": 10,
             "Color": {
@@ -786,6 +807,128 @@
               "Blue": 255
             },
             "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Laps_Label",
+            "X": 198,
+            "Y": 92,
+            "Width": 90,
+            "Height": 42,
+            "TextId": "__SingleUse_U0ZL",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "lap_increase",
+            "X": 284,
+            "Y": 147,
+            "Width": 44,
+            "Height": 41,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 44,
+                "Height": 41,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Green": 102,
+                  "Blue": 153
+                },
+                "ColorPressed": {
+                  "Green": 153,
+                  "Blue": 204
+                },
+                "ColorBorderReleased": {
+                  "Green": 51,
+                  "Blue": 102
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 102,
+                  "Blue": 153
+                }
+              }
+            ]
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "lap_decrease",
+            "X": 158,
+            "Y": 147,
+            "Width": 43,
+            "Height": 41,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "BoxWithBorderButtonStyle",
+                "Width": 43,
+                "Height": 41,
+                "LockToFlexButtonSize": true,
+                "BorderSize": 5,
+                "ColorReleased": {
+                  "Green": 102,
+                  "Blue": 153
+                },
+                "ColorPressed": {
+                  "Green": 153,
+                  "Blue": 204
+                },
+                "ColorBorderReleased": {
+                  "Green": 51,
+                  "Blue": 102
+                },
+                "ColorBorderPressed": {
+                  "Red": 51,
+                  "Green": 102,
+                  "Blue": 153
+                }
+              }
+            ]
+          },
+          {
+            "Type": "TextArea",
+            "Name": "lap_increase_label",
+            "X": 291,
+            "Y": 146,
+            "Width": 30,
+            "Height": 42,
+            "TextId": "__SingleUse_Z261",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "lap_decrease_label",
+            "X": 171,
+            "Y": 146,
+            "Width": 17,
+            "Height": 42,
+            "TextId": "__SingleUse_OZKJ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
           }
         ],
         "Interactions": [
@@ -811,6 +954,28 @@
               "ScreenTransitionType": "ScreenTransitionSlide",
               "ScreenTransitionDirection": "East",
               "ActionComponent": "DataScreen"
+            }
+          },
+          {
+            "InteractionName": "Interaction3",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "lap_increase"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "lapIncrease"
+            }
+          },
+          {
+            "InteractionName": "Interaction4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "lap_decrease"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "lapDecrease"
             }
           }
         ]

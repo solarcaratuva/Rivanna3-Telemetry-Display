@@ -15,6 +15,7 @@
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 #include <touchgfx/widgets/Button.hpp>
+#include <touchgfx/containers/buttons/Buttons.hpp>
 
 class DriverScreenViewBase : public touchgfx::View<DriverScreenPresenter>
 {
@@ -28,6 +29,14 @@ public:
      * Virtual Action Handlers
      */
     virtual void main()
+    {
+        // Override and implement this function in DriverScreen
+    }
+    virtual void lapIncrease()
+    {
+        // Override and implement this function in DriverScreen
+    }
+    virtual void lapDecrease()
     {
         // Override and implement this function in DriverScreen
     }
@@ -45,6 +54,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard speed;
     touchgfx::Line line1;
     touchgfx::PainterRGB888 line1Painter;
+    touchgfx::TextAreaWithOneWildcard lap_value;
     touchgfx::Shape<3> shape1_2_1;
     touchgfx::PainterRGB888 shape1_2_1Painter;
     touchgfx::Shape<3> shape1_2;
@@ -89,12 +99,19 @@ protected:
     touchgfx::BoxProgress boxProgress1;
     touchgfx::Button button1;
     touchgfx::TextArea textArea1_1;
+    touchgfx::TextArea Laps_Label;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  lap_increase;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  lap_decrease;
+    touchgfx::TextArea lap_increase_label;
+    touchgfx::TextArea lap_decrease_label;
 
     /*
      * Wildcard Buffers
      */
     static const uint16_t SPEED_SIZE = 10;
     touchgfx::Unicode::UnicodeChar speedBuffer[SPEED_SIZE];
+    static const uint16_t LAP_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar lap_valueBuffer[LAP_VALUE_SIZE];
     static const uint16_t BLANK_SIZE = 10;
     touchgfx::Unicode::UnicodeChar blankBuffer[BLANK_SIZE];
     static const uint16_t MTR_CONTROLLER_ERROR_VALUE_SIZE = 10;
@@ -142,11 +159,13 @@ private:
      * Callback Declarations
      */
     touchgfx::Callback<DriverScreenViewBase, const touchgfx::AbstractButton&> buttonCallback;
+    touchgfx::Callback<DriverScreenViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
 
     /*
      * Callback Handler Declarations
      */
     void buttonCallbackHandler(const touchgfx::AbstractButton& src);
+    void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
 
 };
 
