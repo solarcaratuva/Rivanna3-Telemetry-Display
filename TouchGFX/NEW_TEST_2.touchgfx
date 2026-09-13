@@ -658,11 +658,11 @@
           {
             "Type": "TextArea",
             "Name": "odometryText",
-            "X": 110,
-            "Y": 101,
+            "X": -133,
+            "Y": 121,
             "Width": 266,
             "Height": 26,
-            "TextId": "__SingleUse_I6AV",
+            "TextId": "__SingleUse_HX96",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
@@ -670,7 +670,6 @@
               "Blue": 255
             },
             "Wildcard1": {
-              "TextId": "__SingleUse_FHJ7",
               "UseBuffer": true,
               "BufferSize": 10
             }
@@ -1065,7 +1064,7 @@
             "X": 37,
             "Y": 30,
             "Width": 196,
-            "Height": 20,
+            "Height": 24,
             "TextId": "__SingleUse_7A3W",
             "TextRotation": "0",
             "Color": {
@@ -1081,7 +1080,7 @@
             "X": 37,
             "Y": 244,
             "Width": 44,
-            "Height": 20,
+            "Height": 24,
             "TextId": "__SingleUse_NUMQ",
             "TextRotation": "0",
             "Color": {
@@ -1922,7 +1921,7 @@
             "X": 37,
             "Y": 391,
             "Width": 251,
-            "Height": 20,
+            "Height": 24,
             "TextId": "__SingleUse_8HOJ",
             "TextRotation": "0",
             "Color": {
@@ -1968,7 +1967,7 @@
             "X": 37,
             "Y": 573,
             "Width": 58,
-            "Height": 20,
+            "Height": 24,
             "TextId": "__SingleUse_BJIO",
             "TextRotation": "0",
             "Color": {
@@ -1984,7 +1983,7 @@
             "X": 35,
             "Y": 647,
             "Width": 58,
-            "Height": 20,
+            "Height": 24,
             "TextId": "__SingleUse_FGUJ",
             "TextRotation": "0",
             "Color": {

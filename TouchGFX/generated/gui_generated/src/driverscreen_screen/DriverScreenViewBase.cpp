@@ -9,7 +9,8 @@
 
 DriverScreenViewBase::DriverScreenViewBase() :
     frameCountInteraction1Interval(0),
-    buttonCallback(this, &DriverScreenViewBase::buttonCallbackHandler)
+    buttonCallback(this, &DriverScreenViewBase::buttonCallbackHandler),
+    flexButtonCallback(this, &DriverScreenViewBase::flexButtonCallbackHandler)
 {
     touchgfx::CanvasWidgetRenderer::setupBuffer(canvasBuffer, CANVAS_BUFFER_SIZE);
 
@@ -17,7 +18,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    background.setPosition(0, 0, 480, 800);
+    background.setPosition(0, 3, 480, 800);
     background.setColor(touchgfx::Color::getColorFromRGB(23, 26, 32));
     add(background);
 
@@ -37,6 +38,14 @@ DriverScreenViewBase::DriverScreenViewBase() :
     line1.setLineWidth(10);
     line1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     add(line1);
+
+    lap_value.setPosition(122, 147, 255, 41);
+    lap_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    lap_value.setLinespacing(0);
+    Unicode::snprintf(lap_valueBuffer, LAP_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_R4DJ).getText());
+    lap_value.setWildcard(lap_valueBuffer);
+    lap_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EB4M));
+    add(lap_value);
 
     shape1_2_1.setPosition(17, 36, 57, 56);
     shape1_2_1.setOrigin(0.0f, 0.0f);
@@ -205,13 +214,13 @@ DriverScreenViewBase::DriverScreenViewBase() :
     Heartbeat_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9S5U));
     add(Heartbeat_title);
 
-    power_title.setXY(308, 270);
+    power_title.setXY(308, 284);
     power_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     power_title.setLinespacing(0);
     power_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_R0TU));
     add(power_title);
 
-    border1.setPosition(34, 127, 412, 19);
+    border1.setPosition(34, 188, 412, 19);
     border1Painter.setColor(touchgfx::Color::getColorFromRGB(51, 51, 51));
     border1.setPainter(border1Painter);
     border1.setStart(5, 5);
@@ -238,7 +247,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     border1_1_1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     add(border1_1_1);
 
-    watts.setPosition(308, 307, 188, 34);
+    watts.setPosition(308, 318, 188, 34);
     watts.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     watts.setLinespacing(0);
     Unicode::snprintf(wattsBuffer, WATTS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_JYPR).getText());
@@ -246,7 +255,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     watts.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DRUP));
     add(watts);
 
-    soc.setPosition(40, 307, 188, 34);
+    soc.setPosition(40, 318, 188, 34);
     soc.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     soc.setLinespacing(0);
     Unicode::snprintf(socBuffer, SOC_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_QLG6).getText());
@@ -254,15 +263,15 @@ DriverScreenViewBase::DriverScreenViewBase() :
     soc.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BGJ2));
     add(soc);
 
-    odometryText.setPosition(110, 101, 266, 26);
+    odometryText.setPosition(-133, 121, 266, 26);
     odometryText.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     odometryText.setLinespacing(0);
-    Unicode::snprintf(odometryTextBuffer, ODOMETRYTEXT_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_FHJ7).getText());
+    odometryTextBuffer[0] = 0;
     odometryText.setWildcard(odometryTextBuffer);
-    odometryText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_I6AV));
+    odometryText.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HX96));
     add(odometryText);
 
-    bpsv.setPosition(32, 202, 153, 34);
+    bpsv.setPosition(32, 234, 153, 34);
     bpsv.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     bpsv.setLinespacing(0);
     Unicode::snprintf(bpsvBuffer, BPSV_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_L6JI).getText());
@@ -270,7 +279,7 @@ DriverScreenViewBase::DriverScreenViewBase() :
     bpsv.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8SLF));
     add(bpsv);
 
-    bpsc.setPosition(301, 202, 227, 34);
+    bpsc.setPosition(301, 234, 227, 34);
     bpsc.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     bpsc.setLinespacing(0);
     Unicode::snprintf(bpscBuffer, BPSC_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_ZQON).getText());
@@ -278,25 +287,25 @@ DriverScreenViewBase::DriverScreenViewBase() :
     bpsc.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VG8V));
     add(bpsc);
 
-    textArea1.setXY(40, 270);
+    textArea1.setXY(40, 284);
     textArea1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea1.setLinespacing(0);
     textArea1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_D6MH));
     add(textArea1);
 
-    textArea5.setXY(40, 163);
+    textArea5.setXY(40, 202);
     textArea5.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea5.setLinespacing(0);
     textArea5.setTypedText(touchgfx::TypedText(T___SINGLEUSE_4038));
     add(textArea5);
 
-    textArea5_1.setXY(308, 163);
+    textArea5_1.setXY(308, 202);
     textArea5_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     textArea5_1.setLinespacing(0);
     textArea5_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_I07J));
     add(textArea5_1);
 
-    boxProgress1.setXY(40, 344);
+    boxProgress1.setXY(40, 353);
     boxProgress1.setProgressIndicatorPosition(0, 0, 300, 10);
     boxProgress1.setRange(0, 100);
     boxProgress1.setDirection(touchgfx::AbstractDirectionProgress::RIGHT);
@@ -315,6 +324,38 @@ DriverScreenViewBase::DriverScreenViewBase() :
     textArea1_1.setLinespacing(0);
     textArea1_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_P5X9));
     add(textArea1_1);
+
+    Laps_Label.setXY(198, 92);
+    Laps_Label.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    Laps_Label.setLinespacing(0);
+    Laps_Label.setTypedText(touchgfx::TypedText(T___SINGLEUSE_U0ZL));
+    add(Laps_Label);
+
+    lap_increase.setBoxWithBorderPosition(0, 0, 44, 41);
+    lap_increase.setBorderSize(5);
+    lap_increase.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 102, 153), touchgfx::Color::getColorFromRGB(0, 153, 204), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
+    lap_increase.setAction(flexButtonCallback);
+    lap_increase.setPosition(284, 147, 44, 41);
+    add(lap_increase);
+
+    lap_decrease.setBoxWithBorderPosition(0, 0, 43, 41);
+    lap_decrease.setBorderSize(5);
+    lap_decrease.setBoxWithBorderColors(touchgfx::Color::getColorFromRGB(0, 102, 153), touchgfx::Color::getColorFromRGB(0, 153, 204), touchgfx::Color::getColorFromRGB(0, 51, 102), touchgfx::Color::getColorFromRGB(51, 102, 153));
+    lap_decrease.setAction(flexButtonCallback);
+    lap_decrease.setPosition(158, 147, 43, 41);
+    add(lap_decrease);
+
+    lap_increase_label.setXY(291, 146);
+    lap_increase_label.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    lap_increase_label.setLinespacing(0);
+    lap_increase_label.setTypedText(touchgfx::TypedText(T___SINGLEUSE_Z261));
+    add(lap_increase_label);
+
+    lap_decrease_label.setXY(171, 146);
+    lap_decrease_label.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    lap_decrease_label.setLinespacing(0);
+    lap_decrease_label.setTypedText(touchgfx::TypedText(T___SINGLEUSE_OZKJ));
+    add(lap_decrease_label);
 }
 
 DriverScreenViewBase::~DriverScreenViewBase()
@@ -335,6 +376,24 @@ void DriverScreenViewBase::buttonCallbackHandler(const touchgfx::AbstractButton&
         //When button1 clicked change screen to DataScreen
         //Go to DataScreen with screen transition towards East
         application().gotoDataScreenScreenSlideTransitionEast();
+    }
+}
+
+void DriverScreenViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)
+{
+    if (&src == &lap_increase)
+    {
+        //Interaction3
+        //When lap_increase clicked call virtual function
+        //Call lapIncrease
+        lapIncrease();
+    }
+    if (&src == &lap_decrease)
+    {
+        //Interaction4
+        //When lap_decrease clicked call virtual function
+        //Call lapDecrease
+        lapDecrease();
     }
 }
 
