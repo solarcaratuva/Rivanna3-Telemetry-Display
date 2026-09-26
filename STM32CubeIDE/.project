@@ -530,6 +530,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/LVGLPro/fonts</locationURI>
 		</link>
 		<link>
+			<name>Application/LVGLPro/images</name>
+			<type>2</type>
+			<locationURI>PARENT-1-PROJECT_LOC/LVGLPro/images</locationURI>
+		</link>
+		<link>
 			<name>Application/LVGLPro/rivanna_ui.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/LVGLPro/rivanna_ui.c</locationURI>

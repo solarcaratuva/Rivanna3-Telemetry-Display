@@ -10,5 +10,6 @@
         "main.h": "c",
         "data_queues.h": "c"
     },
-    "ros.distro": "humble"
+    "ros.distro": "humble",
+    "cmake.sourceDirectory": "/Users/ethanmathias/Desktop/UVA/SolarCar/Rivanna3-Telemetry-Display/LVGLPro"
 }

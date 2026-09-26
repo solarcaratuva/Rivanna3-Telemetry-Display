@@ -22,6 +22,12 @@
         <color name="accel_tint" value="0x0D301D" />
         <color name="alert_tint" value="0x2F1213" />
 
+        <!-- Startup screen (matches the white team logo) -->
+        <color name="splash_bg" value="0xFFFFFF" />
+        <color name="splash_track" value="0xE3E8EF" />
+        <color name="uva_orange" value="0xF57C2B" />
+        <color name="uva_navy" value="0x04305F" />
+
     </consts>
     <fonts>
         <bin name="montserrat_20" src_path="fonts/Montserrat-Regular.ttf" size="20" bpp="4" range="0x20-0x7F" as_file="false" />
@@ -32,6 +38,9 @@
         <bin name="speed_160" src_path="fonts/Montserrat-Medium.ttf" size="160" bpp="4" range="0x2D-0x2D" symbols="0123456789" as_file="false" />
         <bin name="arrows_56" src_path="fonts/Montserrat-Regular.ttf" size="56" bpp="4" range="0x25B6-0x25B6" symbols="◀" as_file="false" />
     </fonts>
+    <images>
+        <data name="team_logo" src_path="images/team_logo.png" color_format="rgb565" />
+    </images>
     <styles>
         <!-- Shared (startup screen, card component) -->
         <style name="dashboard_screen" bg_color="#screen_bg" bg_opa="100%" text_color="#text_primary" />
@@ -39,6 +48,12 @@
         <style name="label_20" text_font="montserrat_20" text_color="#text_primary" />
         <style name="label_28" text_font="montserrat_28" text_color="#text_primary" />
         <style name="label_40" text_font="montserrat_40" text_color="#text_primary" />
+
+        <!-- Startup screen -->
+        <style name="splash_screen" bg_color="#splash_bg" bg_opa="100%" />
+        <style name="splash_arc_track" arc_color="#splash_track" arc_width="6" arc_rounded="true" />
+        <style name="splash_arc_ind" arc_color="#uva_orange" arc_width="6" arc_rounded="true" />
+        <style name="splash_caption" text_font="caption_16" text_color="#uva_navy" text_letter_space="4" />
 
         <!-- Driver: typography -->
         <style name="speed_text" text_font="speed_160" text_color="#text_primary" text_letter_space="-4" />

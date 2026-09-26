@@ -65,6 +65,9 @@ extern lv_font_t arrows_56_data;
  * Images
  *----------------*/
 
+const void * team_logo;
+extern const void * team_logo_data;
+
 /*----------------
  * Global styles
  *----------------*/
@@ -74,6 +77,10 @@ lv_style_t card;
 lv_style_t label_20;
 lv_style_t label_28;
 lv_style_t label_40;
+lv_style_t splash_screen;
+lv_style_t splash_arc_track;
+lv_style_t splash_arc_ind;
+lv_style_t splash_caption;
 lv_style_t speed_text;
 lv_style_t caption;
 lv_style_t value;
@@ -215,6 +222,8 @@ void rivanna_ui_init_gen(const char * asset_path)
     /*----------------
      * Images
      *----------------*/
+    team_logo = &team_logo_data;
+
     /*----------------
      * Global styles
      *----------------*/
@@ -246,6 +255,25 @@ void rivanna_ui_init_gen(const char * asset_path)
         lv_style_init(&label_40);
         lv_style_set_text_font(&label_40, montserrat_40);
         lv_style_set_text_color(&label_40, TEXT_PRIMARY);
+
+        lv_style_init(&splash_screen);
+        lv_style_set_bg_color(&splash_screen, SPLASH_BG);
+        lv_style_set_bg_opa(&splash_screen, (255 * 100 / 100));
+
+        lv_style_init(&splash_arc_track);
+        lv_style_set_arc_color(&splash_arc_track, SPLASH_TRACK);
+        lv_style_set_arc_width(&splash_arc_track, 6);
+        lv_style_set_arc_rounded(&splash_arc_track, true);
+
+        lv_style_init(&splash_arc_ind);
+        lv_style_set_arc_color(&splash_arc_ind, UVA_ORANGE);
+        lv_style_set_arc_width(&splash_arc_ind, 6);
+        lv_style_set_arc_rounded(&splash_arc_ind, true);
+
+        lv_style_init(&splash_caption);
+        lv_style_set_text_font(&splash_caption, caption_16);
+        lv_style_set_text_color(&splash_caption, UVA_NAVY);
+        lv_style_set_text_letter_space(&splash_caption, 4);
 
         lv_style_init(&speed_text);
         lv_style_set_text_font(&speed_text, speed_160);
@@ -883,6 +911,7 @@ void rivanna_ui_init_gen(const char * asset_path)
      * While running in the editor skip this step to update the preview when the XML changes */
 #if LV_USE_XML && !defined(LV_EDITOR_PREVIEW)
     /* Register images */
+    lv_xml_register_image(NULL, "team_logo", team_logo);
 #endif
 
 #if LV_USE_XML == 0

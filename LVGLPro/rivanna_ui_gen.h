@@ -75,6 +75,14 @@ extern "C" {
 
 #define ALERT_TINT lv_color_hex(0x2F1213)
 
+#define SPLASH_BG lv_color_hex(0xFFFFFF)
+
+#define SPLASH_TRACK lv_color_hex(0xE3E8EF)
+
+#define UVA_ORANGE lv_color_hex(0xF57C2B)
+
+#define UVA_NAVY lv_color_hex(0x04305F)
+
 /**********************
  *      TYPEDEFS
  **********************/
@@ -99,6 +107,10 @@ extern lv_style_t card;
 extern lv_style_t label_20;
 extern lv_style_t label_28;
 extern lv_style_t label_40;
+extern lv_style_t splash_screen;
+extern lv_style_t splash_arc_track;
+extern lv_style_t splash_arc_ind;
+extern lv_style_t splash_caption;
 extern lv_style_t speed_text;
 extern lv_style_t caption;
 extern lv_style_t value;
@@ -158,6 +170,8 @@ extern lv_font_t * arrows_56;
 /*----------------
  * Images
  *----------------*/
+
+extern const void * team_logo;
 
 /*----------------
  * Subjects
