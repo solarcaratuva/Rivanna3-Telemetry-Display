@@ -1,0 +1,75 @@
+# Standalone LVGL firmware build. Run: make -f Makefile.lvgl -j4
+TOOLCHAIN ?= arm-none-eabi-
+PYTHON ?= python3
+CC := $(TOOLCHAIN)gcc
+OBJCOPY := $(TOOLCHAIN)objcopy
+SIZE := $(TOOLCHAIN)size
+BUILD := build/lvgl
+CAN_REPO := ThirdParty/CAN-messages
+CAN_BUILD := Generated/CAN
+CAN_STAGE := build/can
+CAN_NAMES := bps motor_controller mppt rivanna3_s
+CAN_SOURCES := $(addprefix $(CAN_BUILD)/,$(addsuffix .c,$(CAN_NAMES)))
+CAN_INPUTS := $(addprefix $(CAN_REPO)/,BPS.dbc MotorController.dbc MPPT.dbc Rivanna3S.dbc generate.py generate_all.py) scripts/generate_can.py
+
+FREERTOS := Middlewares/Third_Party/FreeRTOS/Source
+PORT := $(FREERTOS)/portable/GCC/ARM_CM33_NTZ/non_secure
+
+CORE_SOURCES := $(filter-out Core/Src/data_queues.c Core/Src/bps.c Core/Src/motor_controller.c Core/Src/mppt.c Core/Src/rivanna3_s.c,$(wildcard Core/Src/*.c))
+APP_SOURCES := $(wildcard App/Src/*.c)
+PRO_SOURCES := $(shell find LVGLPro -name '*.c' -not -path '*/preview-build/*')
+HAL_SOURCES := $(wildcard Drivers/STM32U5xx_HAL_Driver/Src/*.c)
+LVGL_SOURCES := $(shell find ThirdParty/lvgl/src -name '*.c')
+RTOS_SOURCES := $(addprefix $(FREERTOS)/,croutine.c event_groups.c list.c queue.c stream_buffer.c tasks.c timers.c) \
+                $(FREERTOS)/CMSIS_RTOS_V2/cmsis_os2.c \
+                $(FREERTOS)/portable/MemMang/heap_4.c $(PORT)/port.c $(PORT)/portasm.c
+SOURCES := $(CORE_SOURCES) $(APP_SOURCES) $(PRO_SOURCES) $(CAN_SOURCES) $(HAL_SOURCES) $(LVGL_SOURCES) $(RTOS_SOURCES) \
+           Drivers/BSP/Components/mx25lm51245g/mx25lm51245g.c \
+           gcc/startup_stm32u5a9njhxq.s
+OBJECTS := $(addprefix $(BUILD)/,$(addsuffix .o,$(SOURCES)))
+
+INCLUDES := $(CAN_BUILD) App/Inc Core/Inc Drivers/STM32U5xx_HAL_Driver/Inc \
+            Drivers/STM32U5xx_HAL_Driver/Inc/Legacy \
+            Drivers/CMSIS/Device/ST/STM32U5xx/Include Drivers/CMSIS/Include \
+            Drivers/BSP/Components/mx25lm51245g \
+            $(FREERTOS)/include $(FREERTOS)/CMSIS_RTOS_V2 $(PORT) \
+            Middlewares/Third_Party/CMSIS/RTOS2/Include \
+            ThirdParty ThirdParty/lvgl ThirdParty/lvgl/include LVGLPro
+
+ARCH := -mcpu=cortex-m33 -mthumb -mfpu=fpv5-sp-d16 -mfloat-abi=hard
+CPPFLAGS := $(addprefix -I,$(INCLUDES)) -DUSE_HAL_DRIVER -DSTM32U5A9xx -DLV_CONF_INCLUDE_SIMPLE -DUI_SUBJECT_STRING_LENGTH=64
+CFLAGS := $(ARCH) -std=gnu11 -Os -ffunction-sections -fdata-sections -fno-strict-aliasing -MMD -MP
+LDFLAGS := $(ARCH) -TSTM32CubeIDE/STM32U5A9NJHXQ_FLASH.ld \
+           --specs=nano.specs --specs=nosys.specs -Wl,--gc-sections \
+           -Wl,-Map,$(BUILD)/rivanna-lvgl.map -Wl,--print-memory-usage
+
+.PHONY: all clean
+all: $(BUILD)/rivanna-lvgl.elf $(BUILD)/rivanna-lvgl.hex
+
+$(CAN_STAGE)/.generated: $(CAN_INPUTS)
+	$(PYTHON) scripts/generate_can.py
+
+$(CAN_SOURCES): $(CAN_STAGE)/.generated
+	@test -f $@
+
+$(OBJECTS): | $(CAN_STAGE)/.generated
+
+$(BUILD)/rivanna-lvgl.elf: $(OBJECTS)
+	$(CC) $(OBJECTS) $(LDFLAGS) -Wl,--start-group -lc -lm -Wl,--end-group -o $@
+	$(SIZE) $@
+
+$(BUILD)/rivanna-lvgl.hex: $(BUILD)/rivanna-lvgl.elf
+	$(OBJCOPY) -O ihex $< $@
+
+$(BUILD)/%.c.o: %.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+$(BUILD)/%.s.o: %.s
+	@mkdir -p $(dir $@)
+	$(CC) $(CPPFLAGS) $(ARCH) -x assembler-with-cpp -c $< -o $@
+
+clean:
+	$(RM) -r $(BUILD) $(CAN_STAGE)
+
+-include $(OBJECTS:.o=.d)

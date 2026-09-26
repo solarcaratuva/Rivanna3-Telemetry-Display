@@ -1,0 +1,1293 @@
+/**
+ * @file bps.h
+ *
+ * @brief This header file was generated from CAN-messages DBCs by cantools.
+ *
+ * @copyright Copyright (c) 2018-2019 Erik Moqvist
+ *
+ * @par License
+ * The MIT License (MIT)
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use, copy,
+ * modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+ * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+#ifndef BPS_H
+#define BPS_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+
+#ifndef EINVAL
+#    define EINVAL 22
+#endif
+
+/* Frame ids. */
+#define BPS_BPS_STATUS_FRAME_ID (0x406u)
+#define BPS_BPS_ERROR_FRAME_ID (0x3aau)
+
+/* Frame lengths in bytes. */
+#define BPS_BPS_STATUS_LENGTH (6u)
+#define BPS_BPS_ERROR_LENGTH (4u)
+
+/* Extended or standard frame types. */
+#define BPS_BPS_STATUS_IS_EXTENDED (0)
+#define BPS_BPS_ERROR_IS_EXTENDED (0)
+
+/* Frame cycle times in milliseconds. */
+
+
+/* Signal choices. */
+
+
+/* Frame Names. */
+#define BPS_BPS_STATUS_NAME "BpsStatus"
+#define BPS_BPS_ERROR_NAME "BpsError"
+
+/* Signal Names. */
+#define BPS_BPS_STATUS_PACK_VOLTAGE_NAME "pack_voltage"
+#define BPS_BPS_STATUS_PACK_CURRENT_NAME "pack_current"
+#define BPS_BPS_STATUS_PACK_SOC_NAME "pack_soc"
+#define BPS_BPS_STATUS_DISCHARGE_RELAY_STATUS_NAME "discharge_relay_status"
+#define BPS_BPS_STATUS_CHARGE_RELAY_STATUS_NAME "charge_relay_status"
+#define BPS_BPS_STATUS_CHARGER_SAFETY_NAME "charger_safety"
+#define BPS_BPS_STATUS_CHARGE_POWER_SIGNAL_NAME "charge_power_signal"
+#define BPS_BPS_STATUS_BALANCING_ACTIVE_NAME "balancing_active"
+#define BPS_BPS_ERROR_INTERNAL_CELL_COMMUNICATION_FAULT_NAME "internal_cell_communication_fault"
+#define BPS_BPS_ERROR_WEAK_CELL_FAULT_NAME "weak_cell_fault"
+#define BPS_BPS_ERROR_LOW_CELL_VOLTAGE_FAULT_NAME "low_cell_voltage_fault"
+#define BPS_BPS_ERROR_CELL_OPEN_WIRING_FAULT_NAME "cell_open_wiring_fault"
+#define BPS_BPS_ERROR_THERMISTOR_FAULT_NAME "thermistor_fault"
+#define BPS_BPS_ERROR_CURRENT_SENSOR_FAULT_NAME "current_sensor_fault"
+#define BPS_BPS_ERROR_WEAK_PACK_FAULT_NAME "weak_pack_fault"
+#define BPS_BPS_ERROR_CAN_COMMUNICATION_FAULT_NAME "can_communication_fault"
+#define BPS_BPS_ERROR_REDUNDANT_POWER_SUPPLY_FAULT_NAME "redundant_power_supply_fault"
+#define BPS_BPS_ERROR_HIGH_VOLTAGE_ISOLATION_FAULT_NAME "high_voltage_isolation_fault"
+#define BPS_BPS_ERROR_CHARGE_ENABLE_RELAY_FAULT_NAME "charge_enable_relay_fault"
+#define BPS_BPS_ERROR_DISCHARGE_ENABLE_RELAY_FAULT_NAME "discharge_enable_relay_fault"
+#define BPS_BPS_ERROR_INTERNAL_CONVERSION_FAULT_NAME "internal_conversion_fault"
+#define BPS_BPS_ERROR_INTERNAL_MEMORY_FAULT_NAME "internal_memory_fault"
+#define BPS_BPS_ERROR_INTERNAL_THERMISTOR_FAULT_NAME "internal_thermistor_fault"
+#define BPS_BPS_ERROR_INTERNAL_LOGIC_FAULT_NAME "internal_logic_fault"
+#define BPS_BPS_ERROR_REDUCED_LOW_SOC_NAME "reduced_low_soc"
+#define BPS_BPS_ERROR_REDUCED_HIGH_CELL_RESISTANCE_NAME "reduced_high_cell_resistance"
+#define BPS_BPS_ERROR_REDUCED_HIGH_TEMP_NAME "reduced_high_temp"
+#define BPS_BPS_ERROR_REDUCED_LOW_CELL_VOLTAGE_NAME "reduced_low_cell_voltage"
+#define BPS_BPS_ERROR_REDUCED_LOW_PACK_VOLTAGE_NAME "reduced_low_pack_voltage"
+#define BPS_BPS_ERROR_REDUCED_VOLTAGE_FAILSAFE_NAME "reduced_voltage_failsafe"
+#define BPS_BPS_ERROR_REDUCED_COMMS_FAILSAFE_NAME "reduced_comms_failsafe"
+
+/**
+ * Signals in message BpsStatus.
+ *
+ * This ID Transmits at 8 ms.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct bps_bps_status_t {
+    /**
+     * Range: -
+     * Scale: 0.1
+     * Offset: 0
+     */
+    uint16_t pack_voltage;
+
+    /**
+     * Range: -
+     * Scale: 0.1
+     * Offset: 0
+     */
+    int16_t pack_current;
+
+    /**
+     * Range: -
+     * Scale: 0.5
+     * Offset: 0
+     */
+    uint8_t pack_soc;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t discharge_relay_status;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t charge_relay_status;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t charger_safety;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t charge_power_signal;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t balancing_active;
+};
+
+/**
+ * Signals in message BpsError.
+ *
+ * This ID Transmits at 8 ms.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct bps_bps_error_t {
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t internal_cell_communication_fault;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t weak_cell_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t low_cell_voltage_fault;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t cell_open_wiring_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t thermistor_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t current_sensor_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t weak_pack_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t can_communication_fault;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t redundant_power_supply_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t high_voltage_isolation_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t charge_enable_relay_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t discharge_enable_relay_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t internal_conversion_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t internal_memory_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t internal_thermistor_fault;
+
+    /**
+     * fault
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t internal_logic_fault;
+
+    /**
+     * fault
+     *
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t reduced_low_soc;
+
+    /**
+     * fault
+     *
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t reduced_high_cell_resistance;
+
+    /**
+     * fault
+     *
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t reduced_high_temp;
+
+    /**
+     * fault
+     *
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t reduced_low_cell_voltage;
+
+    /**
+     * faults
+     *
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t reduced_low_pack_voltage;
+
+    /**
+     * fault
+     *
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t reduced_voltage_failsafe;
+
+    /**
+     * fault
+     *
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t reduced_comms_failsafe;
+};
+
+/**
+ * Pack message BpsStatus.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int bps_bps_status_pack(
+    uint8_t *dst_p,
+    const struct bps_bps_status_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message BpsStatus.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int bps_bps_status_unpack(
+    struct bps_bps_status_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from BpsStatus.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int bps_bps_status_init(struct bps_bps_status_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint16_t bps_bps_status_pack_voltage_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_status_pack_voltage_decode(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_status_pack_voltage_is_in_range(uint16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t bps_bps_status_pack_current_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_status_pack_current_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_status_pack_current_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_status_pack_soc_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_status_pack_soc_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_status_pack_soc_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_status_discharge_relay_status_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_status_discharge_relay_status_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_status_discharge_relay_status_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_status_charge_relay_status_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_status_charge_relay_status_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_status_charge_relay_status_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_status_charger_safety_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_status_charger_safety_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_status_charger_safety_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_status_charge_power_signal_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_status_charge_power_signal_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_status_charge_power_signal_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_status_balancing_active_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_status_balancing_active_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_status_balancing_active_is_in_range(uint8_t value);
+
+/**
+ * Pack message BpsError.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int bps_bps_error_pack(
+    uint8_t *dst_p,
+    const struct bps_bps_error_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message BpsError.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int bps_bps_error_unpack(
+    struct bps_bps_error_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from BpsError.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int bps_bps_error_init(struct bps_bps_error_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_internal_cell_communication_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_internal_cell_communication_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_internal_cell_communication_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_weak_cell_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_weak_cell_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_weak_cell_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_low_cell_voltage_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_low_cell_voltage_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_low_cell_voltage_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_cell_open_wiring_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_cell_open_wiring_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_cell_open_wiring_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_thermistor_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_thermistor_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_thermistor_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_current_sensor_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_current_sensor_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_current_sensor_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_weak_pack_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_weak_pack_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_weak_pack_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_can_communication_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_can_communication_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_can_communication_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_redundant_power_supply_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_redundant_power_supply_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_redundant_power_supply_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_high_voltage_isolation_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_high_voltage_isolation_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_high_voltage_isolation_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_charge_enable_relay_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_charge_enable_relay_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_charge_enable_relay_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_discharge_enable_relay_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_discharge_enable_relay_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_discharge_enable_relay_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_internal_conversion_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_internal_conversion_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_internal_conversion_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_internal_memory_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_internal_memory_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_internal_memory_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_internal_thermistor_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_internal_thermistor_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_internal_thermistor_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_internal_logic_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_internal_logic_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_internal_logic_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_reduced_low_soc_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_reduced_low_soc_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_reduced_low_soc_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_reduced_high_cell_resistance_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_reduced_high_cell_resistance_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_reduced_high_cell_resistance_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_reduced_high_temp_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_reduced_high_temp_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_reduced_high_temp_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_reduced_low_cell_voltage_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_reduced_low_cell_voltage_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_reduced_low_cell_voltage_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_reduced_low_pack_voltage_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_reduced_low_pack_voltage_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_reduced_low_pack_voltage_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_reduced_voltage_failsafe_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_reduced_voltage_failsafe_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_reduced_voltage_failsafe_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t bps_bps_error_reduced_comms_failsafe_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double bps_bps_error_reduced_comms_failsafe_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool bps_bps_error_reduced_comms_failsafe_is_in_range(uint8_t value);
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

@@ -1,0 +1,2903 @@
+/**
+ * @file rivanna3_s.h
+ *
+ * @brief This header file was generated from CAN-messages DBCs by cantools.
+ *
+ * @copyright Copyright (c) 2018-2019 Erik Moqvist
+ *
+ * @par License
+ * The MIT License (MIT)
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use, copy,
+ * modify, merge, publish, distribute, sublicense, and/or sell copies
+ * of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+ * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+#ifndef RIVANNA3_S_H
+#define RIVANNA3_S_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include <stdint.h>
+#include <stdbool.h>
+#include <stddef.h>
+
+#ifndef EINVAL
+#    define EINVAL 22
+#endif
+
+/* Frame ids. */
+#define RIVANNA3_S_AUX_BATTERY_STATUS_FRAME_ID (0x64u)
+#define RIVANNA3_S_MOTOR_COMMANDS_FRAME_ID (0xc8u)
+#define RIVANNA3_S_DASHBOARD_COMMANDS_FRAME_ID (0x12cu)
+#define RIVANNA3_S_HEARTBEAT_FRAME_ID (0x190u)
+#define RIVANNA3_S_PEDAL_STATUS_FRAME_ID (0x1f4u)
+#define RIVANNA3_S_PRECHARGE_STATUS_FRAME_ID (0x258u)
+#define RIVANNA3_S_CONTACTOR12_ERROR_FRAME_ID (0x2bcu)
+#define RIVANNA3_S_UPDATE_CONTROL_FRAME_ID (0x76cu)
+#define RIVANNA3_S_UPDATE_DATA_FRAME_ID (0x7d0u)
+#define RIVANNA3_S_ODOMETRY_DATA_FRAME_ID (0x320u)
+#define RIVANNA3_S_VN200_ATTITUDE_FRAME_ID (0x384u)
+#define RIVANNA3_S_VN200_ANGULAR_RATE_FRAME_ID (0x385u)
+#define RIVANNA3_S_VN200_ACCELERATION_FRAME_ID (0x386u)
+#define RIVANNA3_S_VN200_POSITION_FRAME_ID (0x387u)
+#define RIVANNA3_S_VN200_VELOCITY_FRAME_ID (0x388u)
+#define RIVANNA3_S_VN200_STATUS_FRAME_ID (0x389u)
+
+/* Frame lengths in bytes. */
+#define RIVANNA3_S_AUX_BATTERY_STATUS_LENGTH (3u)
+#define RIVANNA3_S_MOTOR_COMMANDS_LENGTH (4u)
+#define RIVANNA3_S_DASHBOARD_COMMANDS_LENGTH (1u)
+#define RIVANNA3_S_HEARTBEAT_LENGTH (1u)
+#define RIVANNA3_S_PEDAL_STATUS_LENGTH (3u)
+#define RIVANNA3_S_PRECHARGE_STATUS_LENGTH (7u)
+#define RIVANNA3_S_CONTACTOR12_ERROR_LENGTH (1u)
+#define RIVANNA3_S_UPDATE_CONTROL_LENGTH (5u)
+#define RIVANNA3_S_UPDATE_DATA_LENGTH (64u)
+#define RIVANNA3_S_ODOMETRY_DATA_LENGTH (4u)
+#define RIVANNA3_S_VN200_ATTITUDE_LENGTH (8u)
+#define RIVANNA3_S_VN200_ANGULAR_RATE_LENGTH (8u)
+#define RIVANNA3_S_VN200_ACCELERATION_LENGTH (8u)
+#define RIVANNA3_S_VN200_POSITION_LENGTH (8u)
+#define RIVANNA3_S_VN200_VELOCITY_LENGTH (8u)
+#define RIVANNA3_S_VN200_STATUS_LENGTH (8u)
+
+/* Extended or standard frame types. */
+#define RIVANNA3_S_AUX_BATTERY_STATUS_IS_EXTENDED (0)
+#define RIVANNA3_S_MOTOR_COMMANDS_IS_EXTENDED (0)
+#define RIVANNA3_S_DASHBOARD_COMMANDS_IS_EXTENDED (0)
+#define RIVANNA3_S_HEARTBEAT_IS_EXTENDED (0)
+#define RIVANNA3_S_PEDAL_STATUS_IS_EXTENDED (0)
+#define RIVANNA3_S_PRECHARGE_STATUS_IS_EXTENDED (0)
+#define RIVANNA3_S_CONTACTOR12_ERROR_IS_EXTENDED (0)
+#define RIVANNA3_S_UPDATE_CONTROL_IS_EXTENDED (0)
+#define RIVANNA3_S_UPDATE_DATA_IS_EXTENDED (0)
+#define RIVANNA3_S_ODOMETRY_DATA_IS_EXTENDED (0)
+#define RIVANNA3_S_VN200_ATTITUDE_IS_EXTENDED (0)
+#define RIVANNA3_S_VN200_ANGULAR_RATE_IS_EXTENDED (0)
+#define RIVANNA3_S_VN200_ACCELERATION_IS_EXTENDED (0)
+#define RIVANNA3_S_VN200_POSITION_IS_EXTENDED (0)
+#define RIVANNA3_S_VN200_VELOCITY_IS_EXTENDED (0)
+#define RIVANNA3_S_VN200_STATUS_IS_EXTENDED (0)
+
+/* Frame cycle times in milliseconds. */
+
+
+/* Signal choices. */
+
+
+/* Frame Names. */
+#define RIVANNA3_S_AUX_BATTERY_STATUS_NAME "AuxBatteryStatus"
+#define RIVANNA3_S_MOTOR_COMMANDS_NAME "MotorCommands"
+#define RIVANNA3_S_DASHBOARD_COMMANDS_NAME "DashboardCommands"
+#define RIVANNA3_S_HEARTBEAT_NAME "Heartbeat"
+#define RIVANNA3_S_PEDAL_STATUS_NAME "PedalStatus"
+#define RIVANNA3_S_PRECHARGE_STATUS_NAME "PrechargeStatus"
+#define RIVANNA3_S_CONTACTOR12_ERROR_NAME "Contactor12Error"
+#define RIVANNA3_S_UPDATE_CONTROL_NAME "UpdateControl"
+#define RIVANNA3_S_UPDATE_DATA_NAME "UpdateData"
+#define RIVANNA3_S_ODOMETRY_DATA_NAME "OdometryData"
+#define RIVANNA3_S_VN200_ATTITUDE_NAME "VN200Attitude"
+#define RIVANNA3_S_VN200_ANGULAR_RATE_NAME "VN200AngularRate"
+#define RIVANNA3_S_VN200_ACCELERATION_NAME "VN200Acceleration"
+#define RIVANNA3_S_VN200_POSITION_NAME "VN200Position"
+#define RIVANNA3_S_VN200_VELOCITY_NAME "VN200Velocity"
+#define RIVANNA3_S_VN200_STATUS_NAME "VN200Status"
+
+/* Signal Names. */
+#define RIVANNA3_S_AUX_BATTERY_STATUS_AUX_VOLTAGE_NAME "aux_voltage"
+#define RIVANNA3_S_AUX_BATTERY_STATUS_PERCENT_FULL_NAME "percent_full"
+#define RIVANNA3_S_MOTOR_COMMANDS_REGEN_BRAKING_NAME "regen_braking"
+#define RIVANNA3_S_MOTOR_COMMANDS_CRUISE_SPEED_NAME "cruise_speed"
+#define RIVANNA3_S_MOTOR_COMMANDS_THROTTLE_NAME "throttle"
+#define RIVANNA3_S_MOTOR_COMMANDS_MANUAL_DRIVE_NAME "manual_drive"
+#define RIVANNA3_S_MOTOR_COMMANDS_REGEN_DRIVE_NAME "regen_drive"
+#define RIVANNA3_S_MOTOR_COMMANDS_CRUISE_DRIVE_NAME "cruise_drive"
+#define RIVANNA3_S_DASHBOARD_COMMANDS_HAZARDS_NAME "hazards"
+#define RIVANNA3_S_DASHBOARD_COMMANDS_LEFT_TURN_SIGNAL_NAME "left_turn_signal"
+#define RIVANNA3_S_DASHBOARD_COMMANDS_RIGHT_TURN_SIGNAL_NAME "right_turn_signal"
+#define RIVANNA3_S_DASHBOARD_COMMANDS_REGEN_EN_NAME "regen_en"
+#define RIVANNA3_S_DASHBOARD_COMMANDS_CRUISE_INC_NAME "cruise_inc"
+#define RIVANNA3_S_DASHBOARD_COMMANDS_CRUISE_EN_NAME "cruise_en"
+#define RIVANNA3_S_DASHBOARD_COMMANDS_CRUISE_DEC_NAME "cruise_dec"
+#define RIVANNA3_S_DASHBOARD_COMMANDS_CHARGING_MODE_EN_NAME "charging_mode_en"
+#define RIVANNA3_S_HEARTBEAT_SOURCE_NAME "source"
+#define RIVANNA3_S_PEDAL_STATUS_THROTTLE_PEDAL_NAME "throttle_pedal"
+#define RIVANNA3_S_PEDAL_STATUS_BRAKE_PEDAL_NAME "brake_pedal"
+#define RIVANNA3_S_PRECHARGE_STATUS_MOTOR_STAGE_NAME "motor_stage"
+#define RIVANNA3_S_PRECHARGE_STATUS_MPPT_STAGE_NAME "mppt_stage"
+#define RIVANNA3_S_PRECHARGE_STATUS_CONT12_FAULT_NAME "cont12_fault"
+#define RIVANNA3_S_PRECHARGE_STATUS_OTHER_FAULT_NAME "other_fault"
+#define RIVANNA3_S_PRECHARGE_STATUS_THRESHOLD_NAME "threshold"
+#define RIVANNA3_S_PRECHARGE_STATUS_CONT12_NAME "cont12"
+#define RIVANNA3_S_PRECHARGE_STATUS_HAL_EFFECT_MOTOR_NAME "hal_effect_motor"
+#define RIVANNA3_S_PRECHARGE_STATUS_HAL_EFFECT_MPPT_NAME "hal_effect_mppt"
+#define RIVANNA3_S_CONTACTOR12_ERROR_CONT12_WENT_LOW_NAME "cont12_went_low"
+#define RIVANNA3_S_UPDATE_CONTROL_TARGET_BOARD_NAME "target_board"
+#define RIVANNA3_S_UPDATE_CONTROL_SETUP_NAME "setup"
+#define RIVANNA3_S_UPDATE_CONTROL_SETUP_ACK_NAME "setup_ack"
+#define RIVANNA3_S_UPDATE_CONTROL_READY_FOR_DATA_NAME "ready_for_data"
+#define RIVANNA3_S_UPDATE_CONTROL_DONE_NAME "done"
+#define RIVANNA3_S_UPDATE_CONTROL_FINAL_CRC_NAME "final_crc"
+#define RIVANNA3_S_UPDATE_DATA_DATA_NAME "data"
+#define RIVANNA3_S_ODOMETRY_DATA_DISTANCE_NAME "distance"
+#define RIVANNA3_S_VN200_ATTITUDE_YAW_NAME "yaw"
+#define RIVANNA3_S_VN200_ATTITUDE_PITCH_NAME "pitch"
+#define RIVANNA3_S_VN200_ATTITUDE_ROLL_NAME "roll"
+#define RIVANNA3_S_VN200_ATTITUDE_SEQUENCE_NAME "sequence"
+#define RIVANNA3_S_VN200_ANGULAR_RATE_GYRO_X_NAME "gyro_x"
+#define RIVANNA3_S_VN200_ANGULAR_RATE_GYRO_Y_NAME "gyro_y"
+#define RIVANNA3_S_VN200_ANGULAR_RATE_GYRO_Z_NAME "gyro_z"
+#define RIVANNA3_S_VN200_ANGULAR_RATE_SEQUENCE_NAME "sequence"
+#define RIVANNA3_S_VN200_ACCELERATION_ACCEL_X_NAME "accel_x"
+#define RIVANNA3_S_VN200_ACCELERATION_ACCEL_Y_NAME "accel_y"
+#define RIVANNA3_S_VN200_ACCELERATION_ACCEL_Z_NAME "accel_z"
+#define RIVANNA3_S_VN200_ACCELERATION_SEQUENCE_NAME "sequence"
+#define RIVANNA3_S_VN200_POSITION_LATITUDE_NAME "latitude"
+#define RIVANNA3_S_VN200_POSITION_LONGITUDE_NAME "longitude"
+#define RIVANNA3_S_VN200_VELOCITY_VEL_N_NAME "vel_n"
+#define RIVANNA3_S_VN200_VELOCITY_VEL_E_NAME "vel_e"
+#define RIVANNA3_S_VN200_VELOCITY_VEL_D_NAME "vel_d"
+#define RIVANNA3_S_VN200_VELOCITY_NUM_SATS_NAME "num_sats"
+#define RIVANNA3_S_VN200_VELOCITY_GNSS_FIX_NAME "gnss_fix"
+#define RIVANNA3_S_VN200_STATUS_ALTITUDE_NAME "altitude"
+#define RIVANNA3_S_VN200_STATUS_INS_STATUS_NAME "ins_status"
+#define RIVANNA3_S_VN200_STATUS_TIME_STATUS_NAME "time_status"
+#define RIVANNA3_S_VN200_STATUS_SEQUENCE_NAME "sequence"
+
+/**
+ * Signals in message AuxBatteryStatus.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_aux_battery_status_t {
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t aux_voltage;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t percent_full;
+};
+
+/**
+ * Signals in message MotorCommands.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_motor_commands_t {
+    /**
+     * Range: 0..256 (0..256 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t regen_braking;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t cruise_speed;
+
+    /**
+     * Range: 0..256 (0..256 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t throttle;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t manual_drive;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t regen_drive;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t cruise_drive;
+};
+
+/**
+ * Signals in message DashboardCommands.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_dashboard_commands_t {
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t hazards;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t left_turn_signal;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t right_turn_signal;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t regen_en;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t cruise_inc;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t cruise_en;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t cruise_dec;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t charging_mode_en;
+};
+
+/**
+ * Signals in message Heartbeat.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_heartbeat_t {
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t source;
+};
+
+/**
+ * Signals in message PedalStatus.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_pedal_status_t {
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t throttle_pedal;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t brake_pedal;
+};
+
+/**
+ * Signals in message PrechargeStatus.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_precharge_status_t {
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t motor_stage;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t mppt_stage;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t cont12_fault;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t other_fault;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t threshold;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t cont12;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t hal_effect_motor;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t hal_effect_mppt;
+};
+
+/**
+ * Signals in message Contactor12Error.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_contactor12_error_t {
+    /**
+     * fault
+     *
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t cont12_went_low;
+};
+
+/**
+ * Signals in message UpdateControl.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_update_control_t {
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t target_board;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t setup;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t setup_ack;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ready_for_data;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t done;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint32_t final_crc;
+};
+
+/**
+ * Signals in message UpdateData.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_update_data_t {
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint64_t data;
+};
+
+/**
+ * Signals in message OdometryData.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_odometry_data_t {
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint32_t distance;
+};
+
+/**
+ * Signals in message VN200Attitude.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_vn200_attitude_t {
+    /**
+     * Range: -
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int16_t yaw;
+
+    /**
+     * Range: -
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int16_t pitch;
+
+    /**
+     * Range: -
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int16_t roll;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t sequence;
+};
+
+/**
+ * Signals in message VN200AngularRate.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_vn200_angular_rate_t {
+    /**
+     * Range: -
+     * Scale: 0.001
+     * Offset: 0
+     */
+    int16_t gyro_x;
+
+    /**
+     * Range: -
+     * Scale: 0.001
+     * Offset: 0
+     */
+    int16_t gyro_y;
+
+    /**
+     * Range: -
+     * Scale: 0.001
+     * Offset: 0
+     */
+    int16_t gyro_z;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t sequence;
+};
+
+/**
+ * Signals in message VN200Acceleration.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_vn200_acceleration_t {
+    /**
+     * Range: -
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int16_t accel_x;
+
+    /**
+     * Range: -
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int16_t accel_y;
+
+    /**
+     * Range: -
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int16_t accel_z;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t sequence;
+};
+
+/**
+ * Signals in message VN200Position.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_vn200_position_t {
+    /**
+     * Range: -
+     * Scale: 1e-07
+     * Offset: 0
+     */
+    int32_t latitude;
+
+    /**
+     * Range: -
+     * Scale: 1e-07
+     * Offset: 0
+     */
+    int32_t longitude;
+};
+
+/**
+ * Signals in message VN200Velocity.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_vn200_velocity_t {
+    /**
+     * Range: -
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int16_t vel_n;
+
+    /**
+     * Range: -
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int16_t vel_e;
+
+    /**
+     * Range: -
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int16_t vel_d;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t num_sats;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t gnss_fix;
+};
+
+/**
+ * Signals in message VN200Status.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct rivanna3_s_vn200_status_t {
+    /**
+     * Range: -
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int32_t altitude;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ins_status;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t time_status;
+
+    /**
+     * Range: -
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t sequence;
+};
+
+/**
+ * Pack message AuxBatteryStatus.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_aux_battery_status_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_aux_battery_status_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message AuxBatteryStatus.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_aux_battery_status_unpack(
+    struct rivanna3_s_aux_battery_status_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from AuxBatteryStatus.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_aux_battery_status_init(struct rivanna3_s_aux_battery_status_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint16_t rivanna3_s_aux_battery_status_aux_voltage_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_aux_battery_status_aux_voltage_decode(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_aux_battery_status_aux_voltage_is_in_range(uint16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_aux_battery_status_percent_full_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_aux_battery_status_percent_full_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_aux_battery_status_percent_full_is_in_range(uint8_t value);
+
+/**
+ * Pack message MotorCommands.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_motor_commands_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_motor_commands_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message MotorCommands.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_motor_commands_unpack(
+    struct rivanna3_s_motor_commands_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from MotorCommands.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_motor_commands_init(struct rivanna3_s_motor_commands_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint16_t rivanna3_s_motor_commands_regen_braking_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_motor_commands_regen_braking_decode(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_motor_commands_regen_braking_is_in_range(uint16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_motor_commands_cruise_speed_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_motor_commands_cruise_speed_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_motor_commands_cruise_speed_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint16_t rivanna3_s_motor_commands_throttle_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_motor_commands_throttle_decode(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_motor_commands_throttle_is_in_range(uint16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_motor_commands_manual_drive_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_motor_commands_manual_drive_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_motor_commands_manual_drive_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_motor_commands_regen_drive_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_motor_commands_regen_drive_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_motor_commands_regen_drive_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_motor_commands_cruise_drive_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_motor_commands_cruise_drive_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_motor_commands_cruise_drive_is_in_range(uint8_t value);
+
+/**
+ * Pack message DashboardCommands.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_dashboard_commands_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_dashboard_commands_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message DashboardCommands.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_dashboard_commands_unpack(
+    struct rivanna3_s_dashboard_commands_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from DashboardCommands.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_dashboard_commands_init(struct rivanna3_s_dashboard_commands_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_dashboard_commands_hazards_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_dashboard_commands_hazards_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_dashboard_commands_hazards_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_dashboard_commands_left_turn_signal_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_dashboard_commands_left_turn_signal_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_dashboard_commands_left_turn_signal_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_dashboard_commands_right_turn_signal_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_dashboard_commands_right_turn_signal_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_dashboard_commands_right_turn_signal_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_dashboard_commands_regen_en_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_dashboard_commands_regen_en_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_dashboard_commands_regen_en_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_dashboard_commands_cruise_inc_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_dashboard_commands_cruise_inc_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_dashboard_commands_cruise_inc_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_dashboard_commands_cruise_en_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_dashboard_commands_cruise_en_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_dashboard_commands_cruise_en_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_dashboard_commands_cruise_dec_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_dashboard_commands_cruise_dec_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_dashboard_commands_cruise_dec_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_dashboard_commands_charging_mode_en_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_dashboard_commands_charging_mode_en_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_dashboard_commands_charging_mode_en_is_in_range(uint8_t value);
+
+/**
+ * Pack message Heartbeat.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_heartbeat_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_heartbeat_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message Heartbeat.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_heartbeat_unpack(
+    struct rivanna3_s_heartbeat_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from Heartbeat.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_heartbeat_init(struct rivanna3_s_heartbeat_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_heartbeat_source_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_heartbeat_source_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_heartbeat_source_is_in_range(uint8_t value);
+
+/**
+ * Pack message PedalStatus.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_pedal_status_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_pedal_status_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message PedalStatus.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_pedal_status_unpack(
+    struct rivanna3_s_pedal_status_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from PedalStatus.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_pedal_status_init(struct rivanna3_s_pedal_status_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint16_t rivanna3_s_pedal_status_throttle_pedal_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_pedal_status_throttle_pedal_decode(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_pedal_status_throttle_pedal_is_in_range(uint16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint16_t rivanna3_s_pedal_status_brake_pedal_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_pedal_status_brake_pedal_decode(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_pedal_status_brake_pedal_is_in_range(uint16_t value);
+
+/**
+ * Pack message PrechargeStatus.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_precharge_status_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_precharge_status_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message PrechargeStatus.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_precharge_status_unpack(
+    struct rivanna3_s_precharge_status_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from PrechargeStatus.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_precharge_status_init(struct rivanna3_s_precharge_status_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_precharge_status_motor_stage_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_precharge_status_motor_stage_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_precharge_status_motor_stage_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_precharge_status_mppt_stage_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_precharge_status_mppt_stage_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_precharge_status_mppt_stage_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_precharge_status_cont12_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_precharge_status_cont12_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_precharge_status_cont12_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_precharge_status_other_fault_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_precharge_status_other_fault_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_precharge_status_other_fault_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint16_t rivanna3_s_precharge_status_threshold_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_precharge_status_threshold_decode(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_precharge_status_threshold_is_in_range(uint16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint16_t rivanna3_s_precharge_status_cont12_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_precharge_status_cont12_decode(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_precharge_status_cont12_is_in_range(uint16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint16_t rivanna3_s_precharge_status_hal_effect_motor_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_precharge_status_hal_effect_motor_decode(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_precharge_status_hal_effect_motor_is_in_range(uint16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint16_t rivanna3_s_precharge_status_hal_effect_mppt_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_precharge_status_hal_effect_mppt_decode(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_precharge_status_hal_effect_mppt_is_in_range(uint16_t value);
+
+/**
+ * Pack message Contactor12Error.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_contactor12_error_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_contactor12_error_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message Contactor12Error.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_contactor12_error_unpack(
+    struct rivanna3_s_contactor12_error_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from Contactor12Error.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_contactor12_error_init(struct rivanna3_s_contactor12_error_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_contactor12_error_cont12_went_low_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_contactor12_error_cont12_went_low_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_contactor12_error_cont12_went_low_is_in_range(uint8_t value);
+
+/**
+ * Pack message UpdateControl.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_update_control_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_update_control_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message UpdateControl.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_update_control_unpack(
+    struct rivanna3_s_update_control_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from UpdateControl.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_update_control_init(struct rivanna3_s_update_control_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_update_control_target_board_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_update_control_target_board_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_update_control_target_board_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_update_control_setup_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_update_control_setup_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_update_control_setup_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_update_control_setup_ack_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_update_control_setup_ack_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_update_control_setup_ack_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_update_control_ready_for_data_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_update_control_ready_for_data_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_update_control_ready_for_data_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_update_control_done_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_update_control_done_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_update_control_done_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint32_t rivanna3_s_update_control_final_crc_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_update_control_final_crc_decode(uint32_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_update_control_final_crc_is_in_range(uint32_t value);
+
+/**
+ * Pack message UpdateData.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_update_data_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_update_data_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message UpdateData.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_update_data_unpack(
+    struct rivanna3_s_update_data_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from UpdateData.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_update_data_init(struct rivanna3_s_update_data_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint64_t rivanna3_s_update_data_data_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_update_data_data_decode(uint64_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_update_data_data_is_in_range(uint64_t value);
+
+/**
+ * Pack message OdometryData.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_odometry_data_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_odometry_data_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message OdometryData.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_odometry_data_unpack(
+    struct rivanna3_s_odometry_data_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from OdometryData.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_odometry_data_init(struct rivanna3_s_odometry_data_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint32_t rivanna3_s_odometry_data_distance_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_odometry_data_distance_decode(uint32_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_odometry_data_distance_is_in_range(uint32_t value);
+
+/**
+ * Pack message VN200Attitude.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_vn200_attitude_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_vn200_attitude_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message VN200Attitude.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_vn200_attitude_unpack(
+    struct rivanna3_s_vn200_attitude_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from VN200Attitude.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_vn200_attitude_init(struct rivanna3_s_vn200_attitude_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_attitude_yaw_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_attitude_yaw_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_attitude_yaw_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_attitude_pitch_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_attitude_pitch_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_attitude_pitch_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_attitude_roll_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_attitude_roll_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_attitude_roll_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_vn200_attitude_sequence_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_attitude_sequence_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_attitude_sequence_is_in_range(uint8_t value);
+
+/**
+ * Pack message VN200AngularRate.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_vn200_angular_rate_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_vn200_angular_rate_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message VN200AngularRate.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_vn200_angular_rate_unpack(
+    struct rivanna3_s_vn200_angular_rate_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from VN200AngularRate.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_vn200_angular_rate_init(struct rivanna3_s_vn200_angular_rate_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_angular_rate_gyro_x_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_angular_rate_gyro_x_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_angular_rate_gyro_x_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_angular_rate_gyro_y_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_angular_rate_gyro_y_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_angular_rate_gyro_y_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_angular_rate_gyro_z_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_angular_rate_gyro_z_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_angular_rate_gyro_z_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_vn200_angular_rate_sequence_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_angular_rate_sequence_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_angular_rate_sequence_is_in_range(uint8_t value);
+
+/**
+ * Pack message VN200Acceleration.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_vn200_acceleration_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_vn200_acceleration_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message VN200Acceleration.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_vn200_acceleration_unpack(
+    struct rivanna3_s_vn200_acceleration_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from VN200Acceleration.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_vn200_acceleration_init(struct rivanna3_s_vn200_acceleration_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_acceleration_accel_x_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_acceleration_accel_x_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_acceleration_accel_x_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_acceleration_accel_y_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_acceleration_accel_y_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_acceleration_accel_y_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_acceleration_accel_z_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_acceleration_accel_z_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_acceleration_accel_z_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_vn200_acceleration_sequence_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_acceleration_sequence_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_acceleration_sequence_is_in_range(uint8_t value);
+
+/**
+ * Pack message VN200Position.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_vn200_position_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_vn200_position_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message VN200Position.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_vn200_position_unpack(
+    struct rivanna3_s_vn200_position_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from VN200Position.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_vn200_position_init(struct rivanna3_s_vn200_position_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int32_t rivanna3_s_vn200_position_latitude_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_position_latitude_decode(int32_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_position_latitude_is_in_range(int32_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int32_t rivanna3_s_vn200_position_longitude_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_position_longitude_decode(int32_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_position_longitude_is_in_range(int32_t value);
+
+/**
+ * Pack message VN200Velocity.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_vn200_velocity_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_vn200_velocity_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message VN200Velocity.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_vn200_velocity_unpack(
+    struct rivanna3_s_vn200_velocity_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from VN200Velocity.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_vn200_velocity_init(struct rivanna3_s_vn200_velocity_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_velocity_vel_n_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_velocity_vel_n_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_velocity_vel_n_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_velocity_vel_e_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_velocity_vel_e_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_velocity_vel_e_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int16_t rivanna3_s_vn200_velocity_vel_d_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_velocity_vel_d_decode(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_velocity_vel_d_is_in_range(int16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_vn200_velocity_num_sats_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_velocity_num_sats_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_velocity_num_sats_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_vn200_velocity_gnss_fix_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_velocity_gnss_fix_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_velocity_gnss_fix_is_in_range(uint8_t value);
+
+/**
+ * Pack message VN200Status.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int rivanna3_s_vn200_status_pack(
+    uint8_t *dst_p,
+    const struct rivanna3_s_vn200_status_t *src_p,
+    size_t size);
+
+/**
+ * Unpack message VN200Status.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int rivanna3_s_vn200_status_unpack(
+    struct rivanna3_s_vn200_status_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from VN200Status.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int rivanna3_s_vn200_status_init(struct rivanna3_s_vn200_status_t *msg_p);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+int32_t rivanna3_s_vn200_status_altitude_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_status_altitude_decode(int32_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_status_altitude_is_in_range(int32_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint16_t rivanna3_s_vn200_status_ins_status_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_status_ins_status_decode(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_status_ins_status_is_in_range(uint16_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_vn200_status_time_status_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_status_time_status_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_status_time_status_is_in_range(uint8_t value);
+
+/**
+ * Encode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to encode.
+ *
+ * @return Encoded signal.
+ */
+uint8_t rivanna3_s_vn200_status_sequence_encode(double value);
+
+/**
+ * Decode given signal by applying scaling and offset.
+ *
+ * @param[in] value Signal to decode.
+ *
+ * @return Decoded signal.
+ */
+double rivanna3_s_vn200_status_sequence_decode(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool rivanna3_s_vn200_status_sequence_is_in_range(uint8_t value);
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

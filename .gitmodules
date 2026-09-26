@@ -1,0 +1,6 @@
+[submodule "ThirdParty/lvgl"]
+	path = ThirdParty/lvgl
+	url = https://github.com/lvgl/lvgl.git
+[submodule "ThirdParty/CAN-messages"]
+	path = ThirdParty/CAN-messages
+	url = https://github.com/solarcaratuva/CAN-messages.git

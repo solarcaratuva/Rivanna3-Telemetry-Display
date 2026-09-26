@@ -41,12 +41,12 @@
 #include "usart.h"
 #include "usb_otg.h"
 #include "gpio.h"
-#include "app_touchgfx.h"
+#include "app_state.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "wheelboard_can.h"
-#include "data_queues.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -151,9 +151,6 @@ int main(void)
   // MX_USART3_UART_Init();
   // MX_USART6_UART_Init();
   MX_USB_OTG_HS_USB_Init();
-  MX_TouchGFX_Init();
-  /* Call PreOsInit function */
-  MX_TouchGFX_PreOSInit();
 
   /* Initialize interrupts */
   MX_NVIC_Init();
@@ -168,7 +165,7 @@ int main(void)
 
   HAL_GPIO_WritePin(LCD_DISP_RESET_GPIO_Port, LCD_DISP_RESET_Pin, GPIO_PIN_SET);
   FDCAN_Config();
-  setupDataQueues();
+  app_state_init();
   /* USER CODE END 2 */
 
   /* Init scheduler */

@@ -169,10 +169,16 @@ SECTIONS
   
 FramebufferSection (NOLOAD) :
   {
-    *(TouchGFX_Framebuffer TouchGFX_Framebuffer.*)
-    *(.gnu.linkonce.r.*)
-    . = ALIGN(0x4);
+    . = ALIGN(32);
+    __lvgl_framebuffer_start = .;
+    . = . + 800 * 480 * 3; /* LTDC RGB888 scanout at 0x20000000 */
+    __lvgl_heap_start = .;
+    . = . + 128K;          /* LVGL allocator at 0x20119400 */
+    __lvgl_heap_end = .;
   } >FB_RAM
+
+  ASSERT(__lvgl_framebuffer_start == 0x20000000, "LVGL framebuffer address changed")
+  ASSERT(__lvgl_heap_start == 0x20119400, "LVGL heap address changed")
   
 ExtFlashSection :
   {

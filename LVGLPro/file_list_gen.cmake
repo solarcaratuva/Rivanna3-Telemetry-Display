@@ -1,0 +1,18 @@
+set(LV_EDITOR_PROJECT_SOURCES)
+list(
+  APPEND
+  LV_EDITOR_PROJECT_SOURCES
+  ${CMAKE_CURRENT_LIST_DIR}/components/card/card_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/components/dbg_row/dbg_row_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/arrows_56_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/caption_16_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/montserrat_20_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/montserrat_28_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/montserrat_40_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/speed_160_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/value_28_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/rivanna_ui_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/rivanna_ui.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/driver_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/startup_gen.c
+  ${CMAKE_CURRENT_LIST_DIR}/screens/telemetry_data_gen.c)

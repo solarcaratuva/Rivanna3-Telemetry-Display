@@ -1,0 +1,22 @@
+<component>
+    <api>
+        <prop name="caption" type="string" default="FIELD" />
+        <prop name="subject" type="subject" />
+        <!-- Row tints red and the value turns red while alert_subject == 1. -->
+        <prop name="alert_subject" type="subject" default="no_status" />
+    </api>
+    <previews>
+        <preview name="row" width="234" height="22" style_bg_color="#screen_bg" />
+    </previews>
+    <view extends="lv_obj" width="234" height="22" scrollable="false">
+        <style name="dbg_row" />
+        <bind_style name="dbg_row_alert" subject="$alert_subject" ref_value="1" />
+        <lv_label x="4" align="left_mid" text="$caption">
+            <style name="dbg_caption" />
+        </lv_label>
+        <lv_label x="-4" align="right_mid" bind_text="$subject">
+            <style name="dbg_value" />
+            <bind_style name="dbg_value_alert" subject="$alert_subject" ref_value="1" />
+        </lv_label>
+    </view>
+</component>

@@ -1,3 +1,0 @@
-C:/Users/Ethan/Documents/SolarCar/Rivanna3_Telemetry_Display/Core/Src/lptim.c:30:6:MX_LPTIM2_Init	2
-C:/Users/Ethan/Documents/SolarCar/Rivanna3_Telemetry_Display/Core/Src/lptim.c:62:6:HAL_LPTIM_MspInit	3
-C:/Users/Ethan/Documents/SolarCar/Rivanna3_Telemetry_Display/Core/Src/lptim.c:110:6:HAL_LPTIM_MspDeInit	2

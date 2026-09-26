@@ -1,3 +1,0 @@
-C:/Users/Ethan/Documents/SolarCar/Rivanna3_Telemetry_Display/Core/Src/rtc.c:30:6:MX_RTC_Init	112	static
-C:/Users/Ethan/Documents/SolarCar/Rivanna3_Telemetry_Display/Core/Src/rtc.c:116:6:HAL_RTC_MspInit	272	static
-C:/Users/Ethan/Documents/SolarCar/Rivanna3_Telemetry_Display/Core/Src/rtc.c:157:6:HAL_RTC_MspDeInit	16	static

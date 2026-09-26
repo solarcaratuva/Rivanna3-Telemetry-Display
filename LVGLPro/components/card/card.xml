@@ -1,0 +1,8 @@
+<component>
+    <previews>
+        <preview name="card" width="260" height="160" style_bg_color="#screen_bg" />
+    </previews>
+    <view extends="lv_obj" scrollable="false">
+        <style name="card" />
+    </view>
+</component>

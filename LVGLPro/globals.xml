@@ -1,0 +1,167 @@
+<globals>
+    <consts>
+        <!-- Driver screen -->
+        <color name="screen_bg" value="0x05070A" />
+        <color name="card_bg" value="0x11151B" />
+        <color name="card_border" value="0x262C35" />
+        <color name="nav_bg" value="0x151A21" />
+        <color name="text_primary" value="0xF2F4F7" />
+        <color name="text_dim" value="0x5E6874" />
+        <color name="text_off" value="0x262C35" />
+        <color name="track" value="0x151A21" />
+        <color name="hairline" value="0x1C2129" />
+        <color name="status_ok" value="0x2FD66B" />
+        <color name="status_error" value="0xF0453A" />
+        <color name="accel" value="0x2FD66B" />
+        <color name="regen" value="0x2EB8F0" />
+        <color name="brake" value="0xF0453A" />
+        <color name="turn_on" value="0x2FD66B" />
+        <color name="turn_off" value="0x161B22" />
+        <color name="warn" value="0xF5A524" />
+        <color name="panel_bg" value="0x0C1015" />
+        <color name="accel_tint" value="0x0D301D" />
+        <color name="alert_tint" value="0x2F1213" />
+
+    </consts>
+    <fonts>
+        <bin name="montserrat_20" src_path="fonts/Montserrat-Regular.ttf" size="20" bpp="4" range="0x20-0x7F" as_file="false" />
+        <bin name="montserrat_28" src_path="fonts/Montserrat-Regular.ttf" size="28" bpp="4" range="0x20-0x7F" as_file="false" />
+        <bin name="montserrat_40" src_path="fonts/Montserrat-Regular.ttf" size="40" bpp="4" range="0x20-0x7F" as_file="false" />
+        <bin name="caption_16" src_path="fonts/Montserrat-Medium.ttf" size="16" bpp="4" range="0x20-0x7F" symbols="‹›" as_file="false" />
+        <bin name="value_28" src_path="fonts/Montserrat-Medium.ttf" size="28" bpp="4" range="0x20-0x7F" as_file="false" />
+        <bin name="speed_160" src_path="fonts/Montserrat-Medium.ttf" size="160" bpp="4" range="0x2D-0x2D" symbols="0123456789" as_file="false" />
+        <bin name="arrows_56" src_path="fonts/Montserrat-Regular.ttf" size="56" bpp="4" range="0x25B6-0x25B6" symbols="◀" as_file="false" />
+    </fonts>
+    <styles>
+        <!-- Shared (startup screen, card component) -->
+        <style name="dashboard_screen" bg_color="#screen_bg" bg_opa="100%" text_color="#text_primary" />
+        <style name="card" bg_color="#card_bg" bg_opa="100%" border_color="#card_border" border_width="1" radius="12" pad_all="0" />
+        <style name="label_20" text_font="montserrat_20" text_color="#text_primary" />
+        <style name="label_28" text_font="montserrat_28" text_color="#text_primary" />
+        <style name="label_40" text_font="montserrat_40" text_color="#text_primary" />
+
+        <!-- Driver: typography -->
+        <style name="speed_text" text_font="speed_160" text_color="#text_primary" text_letter_space="-4" />
+        <style name="caption" text_font="caption_16" text_color="#text_dim" text_letter_space="2" />
+        <style name="value" text_font="value_28" text_color="#text_primary" />
+        <style name="center_text" text_align="center" />
+        <style name="right_text" text_align="right" />
+        <style name="warn_text" text_color="#warn" />
+
+        <!-- Driver: turn arrows -->
+        <style name="arrow" text_font="arrows_56" text_color="#turn_off" />
+        <style name="arrow_lit" text_color="#turn_on" />
+
+        <!-- Driver: telltales. Dark until active, like a real cluster. -->
+        <style name="telltale" bg_color="#status_error" bg_opa="0%" border_width="0" radius="4" pad_hor="8" pad_ver="4" text_font="caption_16" text_color="#text_off" text_letter_space="2" />
+        <style name="telltale_ok" text_color="#text_dim" />
+        <style name="telltale_green" text_color="#accel" />
+        <style name="telltale_blue" text_color="#regen" />
+        <style name="telltale_amber" text_color="#warn" />
+        <style name="telltale_fault" bg_opa="100%" text_color="#text_primary" />
+        <style name="telltale_row" bg_opa="0%" border_width="0" pad_all="0" pad_column="12" />
+
+        <!-- Driver: slim pedal and battery bars -->
+        <style name="bar_track" bg_color="#track" bg_opa="100%" border_width="0" radius="6" pad_all="0" />
+        <style name="bar_fill" radius="6" />
+        <style name="bar_accel" bg_color="#accel" />
+        <style name="bar_regen" bg_color="#regen" />
+        <style name="bar_brake" bg_color="#brake" />
+        <style name="bar_soc" bg_color="#text_primary" />
+        <style name="bar_soc_low" bg_color="#warn" />
+        <style name="hairline" bg_color="#hairline" bg_opa="100%" border_width="0" radius="0" />
+
+        <!-- Driver: nav -->
+        <style name="nav_ghost" bg_color="#nav_bg" bg_opa="100%" border_width="0" radius="22" shadow_width="0" text_font="caption_16" text_color="#text_primary" text_letter_space="2" />
+        <style name="nav_ghost_pressed" bg_color="#hairline" />
+
+        <!-- Diagnostics screen -->
+        <style name="dbg_row" bg_color="#screen_bg" bg_opa="100%" border_side="bottom" border_color="#hairline" border_width="1" radius="0" pad_all="0" />
+        <style name="dbg_row_alert" bg_color="#alert_tint" />
+        <style name="dbg_caption" text_font="caption_16" text_color="#text_dim" />
+        <style name="dbg_value" text_font="caption_16" text_color="#text_primary" />
+        <style name="dbg_value_alert" text_color="#status_error" />
+        <style name="chip" bg_color="#track" bg_opa="100%" radius="6" pad_top="11" text_font="caption_16" text_color="#text_dim" text_align="center" text_letter_space="1" />
+        <style name="chip_on" bg_color="#accel_tint" text_color="#accel" />
+        <style name="panel" bg_color="#panel_bg" bg_opa="100%" border_width="0" radius="8" pad_all="0" />
+        <style name="badge" bg_color="#track" bg_opa="100%" radius="4" pad_hor="8" pad_ver="2" text_font="caption_16" text_color="#text_dim" />
+        <style name="badge_fault" bg_color="#status_error" text_color="#text_primary" />
+        <style name="status_chip" bg_color="#status_error" bg_opa="0%" radius="4" pad_hor="8" pad_ver="4" text_font="caption_16" text_color="#accel" text_letter_space="2" />
+        <style name="status_chip_bad" bg_opa="100%" text_color="#text_primary" />
+    </styles>
+    <subjects>
+        <!-- Driver screen -->
+        <string name="drv_speed" value="--" />
+        <string name="drv_power" value="--" />
+        <string name="drv_pack_voltage" value="--" />
+        <string name="drv_pack_current" value="--" />
+        <string name="drv_soc_text" value="--%" />
+        <int name="drv_soc" value="0" min_value="0" max_value="100" />
+        <int name="drv_soc_low" value="0" />
+        <int name="drv_accel" value="0" min_value="0" max_value="100" />
+        <int name="drv_regen" value="0" min_value="0" max_value="100" />
+        <int name="drv_brake" value="0" min_value="0" max_value="100" />
+        <string name="drv_accel_text" value="--" />
+        <string name="drv_regen_text" value="--" />
+        <string name="drv_brake_text" value="--" />
+        <string name="drv_cruise_text" value="CRUISE" />
+
+        <!-- Status ints: -1 unknown, 0 off/ok, 1 on/fault -->
+        <int name="motor_status" value="-1" />
+        <int name="bps_status" value="-1" />
+        <int name="no_status" value="-1" />
+        <int name="left_lit" value="0" />
+        <int name="right_lit" value="0" />
+        <int name="left_status" value="-1" />
+        <int name="right_status" value="-1" />
+        <int name="hazards_status" value="-1" />
+        <int name="cruise_status" value="-1" />
+        <int name="regen_status" value="-1" />
+        <int name="low_power_status" value="-1" />
+        <int name="cruise_up_status" value="-1" />
+        <int name="cruise_down_status" value="-1" />
+        <int name="telemetry_status" value="0" />
+        <int name="fault_active" value="0" />
+
+        <!-- Debug screen: motor controller -->
+        <string name="dbg_rpm" value="--" />
+        <string name="dbg_speed" value="--" />
+        <string name="dbg_mc_voltage" value="--" />
+        <string name="dbg_mc_current" value="--" />
+        <string name="dbg_mc_direction" value="--" />
+        <string name="dbg_motor_current" value="--" />
+        <string name="dbg_fet_temp" value="--" />
+        <string name="dbg_pwm_duty" value="--" />
+        <string name="dbg_lead_angle" value="--" />
+        <string name="dbg_motor_error" value="--" />
+
+        <!-- Debug screen: battery -->
+        <string name="dbg_pack_voltage" value="--" />
+        <string name="dbg_pack_current" value="--" />
+        <string name="dbg_soc" value="--" />
+        <string name="dbg_power" value="--" />
+        <string name="dbg_discharge_relay" value="--" />
+        <string name="dbg_charge_relay" value="--" />
+        <string name="dbg_charger_safety" value="--" />
+        <string name="dbg_charge_signal" value="--" />
+        <string name="dbg_balancing" value="--" />
+        <string name="dbg_aux" value="--" />
+        <string name="dbg_bps_error" value="--" />
+
+        <!-- Debug screen: driver inputs + commands -->
+        <string name="dbg_throttle_pedal" value="--" />
+        <string name="dbg_brake_pedal" value="--" />
+        <string name="dbg_throttle" value="--" />
+        <string name="dbg_regen_brake" value="--" />
+        <string name="dbg_cruise_speed" value="--" />
+        <string name="dbg_drive_mode" value="--" />
+
+        <!-- Debug screen: header + fault log -->
+        <string name="dbg_status" value="NO DATA" />
+        <string name="dbg_uptime" value="UPTIME 0:00:00" />
+        <string name="dbg_fault_count" value="0" />
+        <string name="dbg_fault_1" value="Waiting for CAN data" />
+        <string name="dbg_fault_2" value="" />
+        <string name="dbg_fault_3" value="" />
+    </subjects>
+</globals>

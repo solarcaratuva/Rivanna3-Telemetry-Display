@@ -1,0 +1,11 @@
+<screen>
+    <view extends="lv_obj" scrollable="false">
+        <style name="dashboard_screen" />
+        <lv_label x="24" y="16" text="RIVANNA 3">
+            <style name="label_28" />
+        </lv_label>
+        <lv_label x="235" y="215" text="SOLAR CAR TELEMETRY">
+            <style name="label_28" />
+        </lv_label>
+    </view>
+</screen>

@@ -1,65 +1,99 @@
-# Rivanna3 Telemetry Display
+# Rivanna 3 telemetry display
 
-This program is for displaying, monitoring, and visualizing live vehicle telemetry on an embedded display. It is a one-stop interface for TouchGFX-based telemetry visualization and debugging.
+STM32U5A9 firmware for the 800×480 Riverdi display. The active UI uses
+[LVGL v9.6.0](https://github.com/lvgl/lvgl/tree/v9.6.0), FreeRTOS, and the
+existing STM32 HAL peripheral setup.
 
-## Installation
+## Open in LVGL Pro
 
-1. Clone the GitHub repo.
-2. Navigate to the root directory of the cloned repo (`Rivanna3-Telemetry-Display`)
-3. Open **Visual Studio Code**
-4. Open the project in TouchGFX:
-   - cd .../rivanna3-telemetry-display → explorer .
-   - Click on TouchGfX folder and then run the .touchgfx file
-5. You now have the backend code and frontend display avaliable to you
+Choose **Open UI Project** in LVGL Pro and select the [`LVGLPro/`](LVGLPro/)
+folder. It contains the editable 800×480 Startup, Driver, and Telemetry Data
+screens used by the firmware. After editing, use Pro's **Compile and export
+code** action before rebuilding the firmware. See
+[`LVGLPro/README.md`](LVGLPro/README.md) for the workflow.
 
-## Starting the program
+## Build
 
-Perform the following steps in **TouchGFX**:
+Install Python 3.9+ and `cantools` (`python3 -m pip install -r requirements-can.txt`) along with
+the ARM toolchain. The CAN definitions are pinned in `ThirdParty/CAN-messages`.
 
-1. Connect the target hardware to the host computer using **ST-Link**.
-2. Power the display and MCU.
-3. Build the project
-4. Flash and run the application
+```sh
+git submodule update --init
+python3 compile.py
+```
 
-**Data Source**
+`python3 compile.py --clean` removes the old build first; `--jobs N` changes
+parallelism and `--silent` shows output only if the build fails. This script
+wraps `make -f Makefile.lvgl` and works from any directory.
 
-User must include the telemetry data source that will be used to populate the display. The currently available data source options are:
+The Makefile runs the submodule's `generate_all.py` through
+`scripts/generate_can.py` whenever a DBC or generator changes. It stages the
+inputs in `build/can` and updates `Generated/CAN` only if the output differs.
+The STM32CubeIDE Debug and Release configurations run the same script before
+building. Generated CAN code is committed so CubeIDE can discover its source
+files before the first build; the submodule remains the DBC source of truth.
 
-1. `can`: Reads live telemetry data from the vehicle CAN bus using the FDCAN peripheral.
-2. `mock`: Generates simulated telemetry data for UI development and testing.
+The output is `build/lvgl/rivanna-lvgl.elf` and `.hex`. The toolchain prefix
+can be changed with `TOOLCHAIN=...`. The `STM32CubeIDE/` project metadata also
+links the LVGL, `LVGLPro/`, and `App/` sources, but the standalone Makefile is the
+reproducible build used for this migration.
 
-**Flags**
+## Flash with ST-Link
 
-Configuration is handled at compile time and through firmware configuration files. No runtime flags are supported.
+Connect and power the display, then connect an ST-Link to its SWD port. Install
+STM32CubeProgrammer and make `STM32_Programmer_CLI` available on your `PATH`.
+From the repository root, run:
 
-## Navigating the user interface
+```sh
+python3 compile.py
+python3 upload.py
+```
 
-### Startup UI
+`upload.py` programs `build/lvgl/rivanna-lvgl.hex`, verifies it, and resets the
+MCU. If normal SWD connection fails and NRST is wired, use
+`python3 upload.py --under-reset`. The script also accepts `--programmer PATH`,
+`--firmware PATH`, and `--silent`. It does not erase the entire chip before
+programming.
 
-1. The user interface will be launched automatically upon power-up or reset.
-2. During startup, the system initializes peripherals, RTOS tasks, and the TouchGFX framework.
-3. Once initialization is complete, the default dashboard screen is displayed.
+## Where code lives
 
-### Main UI
+| Location | Responsibility |
+| --- | --- |
+| `App/Inc/pinmap.h` | Named board button and touch GPIO mappings, following Rivanna3S's pinmap/pindef convention. |
+| `App/Src/board_buttons.c` | Active-low GPIO reads. No FreeRTOS or LVGL dependency. |
+| `App/Src/rtos_tasks.c` | 10 ms heartbeat, dashboard command transmit, and CAN receive loops. |
+| `App/Src/telemetry_decode.c` | CAN frame unpacking into a persistent telemetry snapshot. |
+| `ThirdParty/CAN-messages/` | Pinned DBC definitions and the upstream `generate_all.py`. |
+| `scripts/generate_can.py`, `Generated/CAN/` | Isolated generation step and C snapshot used by both builds. |
+| `App/Src/app_state.c` | Thread-safe `set`/`get` functions backed by one-element FreeRTOS queues. |
+| `App/Src/dashboard_view.c` | Converts raw telemetry and buttons into display-ready values. |
+| `App/Src/board_touch.c` | Touch controller I²C read and LVGL pointer input. |
+| `App/Src/board_display.c` | LVGL/LTDC framebuffer registration. |
+| `LVGLPro/project.xml`, `globals.xml`, `screens/`, `components/` | LVGL Pro source for screens, shared widgets, styles, and bound telemetry subjects. |
+| `LVGLPro/*_gen.c` and generated files in its subfolders | C code exported by LVGL Pro and compiled into firmware. |
+| `App/Src/ui.c` | LVGL lifecycle and timed Startup transition. |
+| `App/Src/ui_bindings.c` | Copies `DashboardView` getter values to LVGL Pro subjects. |
+| `Core/Src/main.c` | MCU/peripheral initialization and FreeRTOS start. |
+| `Core/Src/app_freertos.c` | Task creation only. |
 
-There are 2 views, selected by navigating through on-screen controls:
+The LVGL Pro screens bind to subjects. `ui_bindings.c` reads `DashboardView`
+via `dashboard_view_get()` and updates those subjects every 100 ms. The screens
+do not call FreeRTOS, HAL GPIO, or CAN APIs. Producers call `app_state_set_buttons()` and
+`app_state_set_telemetry()`; consumers use the matching getters. The state
+queues are length one, so a read does not consume the latest snapshot.
 
-- **Driver Screen** - Shows the current state of key telemetry values such as speed, voltage, current, and system status.
-- **Data Screen** - Shows detailed telemetry data from subsystems such as the motor controller and battery management system.
+Physical buttons continue to send their *held* state in the CAN dashboard
+command every 10 ms. They do not navigate LVGL. Touching the screen buttons
+switches between Driver and Data. The display refreshes values every 100 ms.
 
-## Overview of the Backend (for New Developers)
+## Memory and hardware notes
 
-The backend uses a Producer-Consumer software pattern to receive telemetry data and update the user interface.
+The LTDC uses a single 800×480 RGB888 framebuffer at `0x20000000` (1,152,000
+bytes). LVGL's 128 KiB allocator starts at `0x20119400`. Both are reserved in
+`STM32CubeIDE/STM32U5A9NJHXQ_FLASH.ld`; keep `App/Inc/lv_conf.h` and the linker
+script in sync when changing them.
 
-The backend also uses custom data structures to streamline this process:
-
-- A custom telemetry message structure to represent parsed CAN and sensor data.
-- A centralized telemetry state accessed by the TouchGFX model and presenter layers.
-
-The backend flow of data is as follows:
-
-1. Telemetry data is received via CAN interrupts or generated by a mock data source.
-2. Producer tasks parse incoming telemetry data and push messages into a shared FreeRTOS queue.
-3. Consumer tasks pop messages from the queue and update centralized telemetry state.
-4. The TouchGFX model reads updated telemetry values and notifies the presenter.
-5. The presenter updates the view to reflect the new data.
+The project builds with the ARM toolchain, but hardware touch coordinates,
+color order, and scanout timing still need verification on the Riverdi board.
+Review generated changes after using CubeMX because the LVGL application lives
+in `App/` and is maintained outside CubeMX.
