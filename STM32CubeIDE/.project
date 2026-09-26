@@ -545,9 +545,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/ThirdParty/lvgl/src</locationURI>
 		</link>
 		<link>
-			<name>Application/GeneratedCAN</name>
+			<name>Application/User/Core/CAN</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Generated/CAN</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/CAN</locationURI>
 		</link>
 		<link>
 			<name>Application/User/Core/wheelboard_can.c</name>

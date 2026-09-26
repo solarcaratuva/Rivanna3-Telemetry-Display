@@ -28,7 +28,8 @@ wraps `make -f Makefile.lvgl` and works from any directory.
 
 The Makefile runs the submodule's `generate_all.py` through
 `scripts/generate_can.py` whenever a DBC or generator changes. It stages the
-inputs in `build/can` and updates `Generated/CAN` only if the output differs.
+inputs in `build/can` and updates `Core/Src/CAN` and `Core/Inc/CAN` only if
+the output differs.
 The STM32CubeIDE Debug and Release configurations run the same script before
 building. Generated CAN code is committed so CubeIDE can discover its source
 files before the first build; the submodule remains the DBC source of truth.
@@ -64,7 +65,7 @@ programming.
 | `App/Src/rtos_tasks.c` | 10 ms heartbeat, dashboard command transmit, and CAN receive loops. |
 | `App/Src/telemetry_decode.c` | CAN frame unpacking into a persistent telemetry snapshot. |
 | `ThirdParty/CAN-messages/` | Pinned DBC definitions and the upstream `generate_all.py`. |
-| `scripts/generate_can.py`, `Generated/CAN/` | Isolated generation step and C snapshot used by both builds. |
+| `scripts/generate_can.py`, `Core/Src/CAN/`, `Core/Inc/CAN/` | Isolated generation step and source/header snapshots used by both builds. |
 | `App/Src/app_state.c` | Thread-safe `set`/`get` functions backed by one-element FreeRTOS queues. |
 | `App/Src/dashboard_view.c` | Converts raw telemetry and buttons into display-ready values. |
 | `App/Src/board_touch.c` | Touch controller I²C read and LVGL pointer input. |

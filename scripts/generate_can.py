@@ -16,7 +16,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "ThirdParty" / "CAN-messages"
 OUTPUT = ROOT / "build" / "can"
-PUBLISHED = ROOT / "Generated" / "CAN"
+PUBLISHED = {
+    "c": ROOT / "Core" / "Src" / "CAN",
+    "h": ROOT / "Core" / "Inc" / "CAN",
+}
 GENERATORS = ("generate.py", "generate_all.py")
 DATABASES = ("BPS.dbc", "MotorController.dbc", "MPPT.dbc", "Rivanna3S.dbc")
 GENERATED = ("bps", "motor_controller", "mppt", "rivanna3_s")
@@ -42,7 +45,8 @@ def main() -> int:
         print(f"CAN generation incomplete: {', '.join(missing_output)}", file=sys.stderr)
         return 1
 
-    PUBLISHED.mkdir(parents=True, exist_ok=True)
+    for directory in PUBLISHED.values():
+        directory.mkdir(parents=True, exist_ok=True)
     for name in GENERATED:
         for extension in ("c", "h"):
             filename = f"{name}.{extension}"
@@ -53,7 +57,7 @@ def main() -> int:
                 generated,
                 count=1,
             )
-            published = PUBLISHED / filename
+            published = PUBLISHED[extension] / filename
             if not published.is_file() or published.read_text() != generated:
                 published.write_text(generated)
 

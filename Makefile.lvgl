@@ -6,16 +6,17 @@ OBJCOPY := $(TOOLCHAIN)objcopy
 SIZE := $(TOOLCHAIN)size
 BUILD := build/lvgl
 CAN_REPO := ThirdParty/CAN-messages
-CAN_BUILD := Generated/CAN
+CAN_SRC := Core/Src/CAN
+CAN_INC := Core/Inc/CAN
 CAN_STAGE := build/can
 CAN_NAMES := bps motor_controller mppt rivanna3_s
-CAN_SOURCES := $(addprefix $(CAN_BUILD)/,$(addsuffix .c,$(CAN_NAMES)))
+CAN_SOURCES := $(addprefix $(CAN_SRC)/,$(addsuffix .c,$(CAN_NAMES)))
 CAN_INPUTS := $(addprefix $(CAN_REPO)/,BPS.dbc MotorController.dbc MPPT.dbc Rivanna3S.dbc generate.py generate_all.py) scripts/generate_can.py
 
 FREERTOS := Middlewares/Third_Party/FreeRTOS/Source
 PORT := $(FREERTOS)/portable/GCC/ARM_CM33_NTZ/non_secure
 
-CORE_SOURCES := $(filter-out Core/Src/data_queues.c Core/Src/bps.c Core/Src/motor_controller.c Core/Src/mppt.c Core/Src/rivanna3_s.c,$(wildcard Core/Src/*.c))
+CORE_SOURCES := $(filter-out Core/Src/data_queues.c,$(wildcard Core/Src/*.c))
 APP_SOURCES := $(wildcard App/Src/*.c)
 PRO_SOURCES := $(shell find LVGLPro -name '*.c' -not -path '*/preview-build/*')
 HAL_SOURCES := $(wildcard Drivers/STM32U5xx_HAL_Driver/Src/*.c)
@@ -28,7 +29,7 @@ SOURCES := $(CORE_SOURCES) $(APP_SOURCES) $(PRO_SOURCES) $(CAN_SOURCES) $(HAL_SO
            gcc/startup_stm32u5a9njhxq.s
 OBJECTS := $(addprefix $(BUILD)/,$(addsuffix .o,$(SOURCES)))
 
-INCLUDES := $(CAN_BUILD) App/Inc Core/Inc Drivers/STM32U5xx_HAL_Driver/Inc \
+INCLUDES := $(CAN_INC) App/Inc Core/Inc Drivers/STM32U5xx_HAL_Driver/Inc \
             Drivers/STM32U5xx_HAL_Driver/Inc/Legacy \
             Drivers/CMSIS/Device/ST/STM32U5xx/Include Drivers/CMSIS/Include \
             Drivers/BSP/Components/mx25lm51245g \
