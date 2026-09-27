@@ -44,9 +44,10 @@
 									<listOptionValue builtIn="false" value="UI_SUBJECT_STRING_LENGTH=64"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths.249922274" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="../../Core/Inc/CAN"/>
+									<listOptionValue builtIn="false" value="../../Common/can_structs/Inc"/>
+									<listOptionValue builtIn="false" value="../../Common/Libs/Inc"/>
 									<listOptionValue builtIn="false" value="../../Core/Inc"/>
-									<listOptionValue builtIn="false" value="../../App/Inc"/>
+									<listOptionValue builtIn="false" value="../../DisplayBoard/Inc"/>
 									<listOptionValue builtIn="false" value="../../ThirdParty"/>
 									<listOptionValue builtIn="false" value="../../LVGLPro"/>
 									<listOptionValue builtIn="false" value="../../ThirdParty/lvgl"/>
@@ -74,9 +75,10 @@
 									<listOptionValue builtIn="false" value="UI_SUBJECT_STRING_LENGTH=64"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.includepaths.631465762" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="../../Core/Inc/CAN"/>
+									<listOptionValue builtIn="false" value="../../Common/can_structs/Inc"/>
+									<listOptionValue builtIn="false" value="../../Common/Libs/Inc"/>
 									<listOptionValue builtIn="false" value="../../Core/Inc"/>
-									<listOptionValue builtIn="false" value="../../App/Inc"/>
+									<listOptionValue builtIn="false" value="../../DisplayBoard/Inc"/>
 									<listOptionValue builtIn="false" value="../../ThirdParty"/>
 									<listOptionValue builtIn="false" value="../../LVGLPro"/>
 									<listOptionValue builtIn="false" value="../../ThirdParty/lvgl"/>
@@ -161,9 +163,10 @@
 									<listOptionValue builtIn="false" value="UI_SUBJECT_STRING_LENGTH=64"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths.1467807469" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="../../Core/Inc/CAN"/>
+									<listOptionValue builtIn="false" value="../../Common/can_structs/Inc"/>
+									<listOptionValue builtIn="false" value="../../Common/Libs/Inc"/>
 									<listOptionValue builtIn="false" value="../../Core/Inc"/>
-									<listOptionValue builtIn="false" value="../../App/Inc"/>
+									<listOptionValue builtIn="false" value="../../DisplayBoard/Inc"/>
 									<listOptionValue builtIn="false" value="../../ThirdParty"/>
 									<listOptionValue builtIn="false" value="../../LVGLPro"/>
 									<listOptionValue builtIn="false" value="../../ThirdParty/lvgl"/>
@@ -189,9 +192,10 @@
 									<listOptionValue builtIn="false" value="UI_SUBJECT_STRING_LENGTH=64"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.includepaths.1067748844" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="../../Core/Inc/CAN"/>
+									<listOptionValue builtIn="false" value="../../Common/can_structs/Inc"/>
+									<listOptionValue builtIn="false" value="../../Common/Libs/Inc"/>
 									<listOptionValue builtIn="false" value="../../Core/Inc"/>
-									<listOptionValue builtIn="false" value="../../App/Inc"/>
+									<listOptionValue builtIn="false" value="../../DisplayBoard/Inc"/>
 									<listOptionValue builtIn="false" value="../../ThirdParty"/>
 									<listOptionValue builtIn="false" value="../../LVGLPro"/>
 									<listOptionValue builtIn="false" value="../../ThirdParty/lvgl"/>

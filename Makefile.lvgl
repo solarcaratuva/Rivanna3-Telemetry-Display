@@ -6,8 +6,8 @@ OBJCOPY := $(TOOLCHAIN)objcopy
 SIZE := $(TOOLCHAIN)size
 BUILD := build/lvgl
 CAN_REPO := ThirdParty/CAN-messages
-CAN_SRC := Core/Src/CAN
-CAN_INC := Core/Inc/CAN
+CAN_SRC := Common/can_structs/Src
+CAN_INC := Common/can_structs/Inc
 CAN_STAGE := build/can
 CAN_NAMES := bps motor_controller mppt rivanna3_s
 CAN_SOURCES := $(addprefix $(CAN_SRC)/,$(addsuffix .c,$(CAN_NAMES)))
@@ -16,20 +16,21 @@ CAN_INPUTS := $(addprefix $(CAN_REPO)/,BPS.dbc MotorController.dbc MPPT.dbc Riva
 FREERTOS := Middlewares/Third_Party/FreeRTOS/Source
 PORT := $(FREERTOS)/portable/GCC/ARM_CM33_NTZ/non_secure
 
-CORE_SOURCES := $(filter-out Core/Src/data_queues.c,$(wildcard Core/Src/*.c))
-APP_SOURCES := $(wildcard App/Src/*.c)
+CORE_SOURCES := $(wildcard Core/Src/*.c)
+BOARD_SOURCES := $(wildcard DisplayBoard/Src/*.c)
+COMMON_SOURCES := $(wildcard Common/Libs/Src/*.c)
 PRO_SOURCES := $(shell find LVGLPro -name '*.c' -not -path '*/preview-build/*')
 HAL_SOURCES := $(wildcard Drivers/STM32U5xx_HAL_Driver/Src/*.c)
 LVGL_SOURCES := $(shell find ThirdParty/lvgl/src -name '*.c')
 RTOS_SOURCES := $(addprefix $(FREERTOS)/,croutine.c event_groups.c list.c queue.c stream_buffer.c tasks.c timers.c) \
                 $(FREERTOS)/CMSIS_RTOS_V2/cmsis_os2.c \
                 $(FREERTOS)/portable/MemMang/heap_4.c $(PORT)/port.c $(PORT)/portasm.c
-SOURCES := $(CORE_SOURCES) $(APP_SOURCES) $(PRO_SOURCES) $(CAN_SOURCES) $(HAL_SOURCES) $(LVGL_SOURCES) $(RTOS_SOURCES) \
+SOURCES := $(CORE_SOURCES) $(BOARD_SOURCES) $(COMMON_SOURCES) $(PRO_SOURCES) $(CAN_SOURCES) $(HAL_SOURCES) $(LVGL_SOURCES) $(RTOS_SOURCES) \
            Drivers/BSP/Components/mx25lm51245g/mx25lm51245g.c \
-           gcc/startup_stm32u5a9njhxq.s
+           STM32CubeIDE/Application/User/Startup/startup_stm32u5a9njhxq.s
 OBJECTS := $(addprefix $(BUILD)/,$(addsuffix .o,$(SOURCES)))
 
-INCLUDES := $(CAN_INC) App/Inc Core/Inc Drivers/STM32U5xx_HAL_Driver/Inc \
+INCLUDES := $(CAN_INC) Common/Libs/Inc DisplayBoard/Inc Core/Inc Drivers/STM32U5xx_HAL_Driver/Inc \
             Drivers/STM32U5xx_HAL_Driver/Inc/Legacy \
             Drivers/CMSIS/Device/ST/STM32U5xx/Include Drivers/CMSIS/Include \
             Drivers/BSP/Components/mx25lm51245g \

@@ -1,6 +1,6 @@
 #include "FreeRTOS.h"
 #include "fdcan.h"
-#include "wheelboard_can.h"
+#include "board_can.h"
 #include <stdint.h>
 #include <semphr.h>
 

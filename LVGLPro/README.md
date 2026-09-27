@@ -2,7 +2,7 @@
 
 In LVGL Pro, choose **Open UI Project** and select **this `LVGLPro` folder**
 (the folder containing `project.xml` and `globals.xml`). Select the
-`riverdi_800x480` target. Open `screens/driver.xml` to see the main dashboard,
+`riverdi_480x800_portrait` target. Open `screens/driver.xml` to see the main dashboard,
 `screens/telemetry_data.xml` for the detailed data page, or
 `screens/startup.xml` for the splash screen.
 
@@ -42,7 +42,7 @@ To put a UI edit on the board:
 
 The generated C files beside the XML are compiled by the firmware build.
 Do not edit `*_gen.c` or `*_gen.h` by hand: Pro overwrites them on export.
-`App/Src/ui_bindings.c` maps the FreeRTOS-backed dashboard getters to the
+`DisplayBoard/Src/ui_bindings.c` maps the FreeRTOS-backed dashboard getters to the
 subjects declared in `globals.xml`. When you add a live telemetry value in Pro,
 add its subject update there. Pro's desktop preview starts with `--` placeholder
 values because it does not run the board's CAN/FreeRTOS tasks.

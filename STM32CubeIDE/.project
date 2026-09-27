@@ -42,7 +42,7 @@
 		<link>
 			<name>MX25LM51245G_STM32U599J-DK.stldr</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/gcc/MX25LM51245G_STM32U599J-DK.stldr</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Drivers/BSP/ExternalLoader/MX25LM51245G_STM32U599J-DK.stldr</locationURI>
 		</link>
 		<link>
 			<name>Drivers/BSP</name>
@@ -510,9 +510,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c</locationURI>
 		</link>
 		<link>
-			<name>Application/LVGL</name>
+			<name>Application/DisplayBoard</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/App</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/DisplayBoard</locationURI>
 		</link>
 		<link>
 			<name>Application/LVGLPro/components</name>
@@ -550,14 +550,14 @@
 			<locationURI>PARENT-1-PROJECT_LOC/ThirdParty/lvgl/src</locationURI>
 		</link>
 		<link>
-			<name>Application/User/Core/CAN</name>
+			<name>Application/Common/can_structs</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/CAN</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Common/can_structs</locationURI>
 		</link>
 		<link>
-			<name>Application/User/Core/wheelboard_can.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Core/Src/wheelboard_can.c</locationURI>
+			<name>Application/Common/Libs</name>
+			<type>2</type>
+			<locationURI>PARENT-1-PROJECT_LOC/Common/Libs</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

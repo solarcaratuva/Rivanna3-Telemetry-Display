@@ -1,7 +1,7 @@
 <project name="rivanna_ui" lvgl_version="9.5.0">
     <targets>
-        <target name="riverdi_800x480">
-            <display width="800" height="480" />
+        <target name="riverdi_480x800_portrait">
+            <display width="480" height="800" />
         </target>
     </targets>
 </project>

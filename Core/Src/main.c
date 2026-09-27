@@ -45,7 +45,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "wheelboard_can.h"
+#include "board_can.h"
 
 /* USER CODE END Includes */
 

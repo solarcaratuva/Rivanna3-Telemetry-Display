@@ -17,8 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "ThirdParty" / "CAN-messages"
 OUTPUT = ROOT / "build" / "can"
 PUBLISHED = {
-    "c": ROOT / "Core" / "Src" / "CAN",
-    "h": ROOT / "Core" / "Inc" / "CAN",
+    "c": ROOT / "Common" / "can_structs" / "Src",
+    "h": ROOT / "Common" / "can_structs" / "Inc",
 }
 GENERATORS = ("generate.py", "generate_all.py")
 DATABASES = ("BPS.dbc", "MotorController.dbc", "MPPT.dbc", "Rivanna3S.dbc")

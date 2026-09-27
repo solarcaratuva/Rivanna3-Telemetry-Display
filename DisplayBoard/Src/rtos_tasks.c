@@ -3,7 +3,7 @@
 #include "board_buttons.h"
 #include "telemetry_decode.h"
 #include "ui.h"
-#include "wheelboard_can.h"
+#include "board_can.h"
 #include "fdcan.h"
 #include "rivanna3_s.h"
 #include "FreeRTOS.h"

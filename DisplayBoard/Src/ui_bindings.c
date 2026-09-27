@@ -12,8 +12,8 @@
 /* Matches SIGNAL_FLASH_PERIOD on the distribution boards. */
 #define TURN_FLASH_MS 500
 /* Montserrat 16 upper-case averages ~11 px per character; the fault panel
- * leaves ~465 px per line. */
-#define FAULT_LINE_CHARS 42
+ * leaves ~404 px per line. */
+#define FAULT_LINE_CHARS 36
 
 static void set_tenths(lv_subject_t *subject, int tenths, const char *unit)
 {

@@ -2,14 +2,13 @@
     "files.associations": {
         "stdint.h": "c",
         "stm32u5xx_hal_fdcan.h": "c",
-        "wheelboard_can.h": "c",
+        "board_can.h": "c",
         "app_freertos.h": "c",
         "queue.h": "c",
         "freertos.h": "c",
         "fdcan.h": "c",
-        "main.h": "c",
-        "data_queues.h": "c"
+        "main.h": "c"
     },
     "ros.distro": "humble",
-    "cmake.sourceDirectory": "/Users/ethanmathias/Desktop/UVA/SolarCar/Rivanna3-Telemetry-Display/LVGLPro"
+    "cmake.sourceDirectory": "${workspaceFolder}/LVGLPro"
 }

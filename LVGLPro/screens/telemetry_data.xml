@@ -4,99 +4,99 @@
 
         <!-- ===== Header ===== -->
         <lv_label x="24" y="14" text="DIAGNOSTICS"><style name="value" /></lv_label>
-        <lv_label x="232" y="20" bind_text="dbg_status">
-            <style name="status_chip" />
-            <bind_style name="status_chip_bad" subject="telemetry_status" ref_value="0" />
-        </lv_label>
-        <lv_label x="-168" y="24" align="top_right" bind_text="dbg_uptime"><style name="dbg_caption" /></lv_label>
         <lv_button x="-24" y="12" align="top_right" width="128" height="40">
             <style name="nav_ghost" />
             <style name="nav_ghost_pressed" selector="pressed" />
             <lv_label align="center" text="‹  DRIVER" />
             <screen_load_event screen="driver" trigger="clicked" anim_type="move_right" duration="250" />
         </lv_button>
-        <lv_obj x="24" y="64" width="752" height="1" scrollable="false"><style name="hairline" /></lv_obj>
+        <lv_label x="24" y="60" bind_text="dbg_status">
+            <style name="status_chip" />
+            <bind_style name="status_chip_bad" subject="telemetry_status" ref_value="0" />
+        </lv_label>
+        <lv_label x="-24" y="64" align="top_right" bind_text="dbg_uptime"><style name="dbg_caption" /></lv_label>
+        <lv_obj x="24" y="98" width="432" height="1" scrollable="false"><style name="hairline" /></lv_obj>
 
-        <!-- ===== Column 1: motor controller ===== -->
-        <lv_label x="28" y="76" text="MOTOR CONTROLLER"><style name="caption" /></lv_label>
-        <dbg_row x="24" y="100" caption="RPM" subject="dbg_rpm" />
-        <dbg_row x="24" y="122" caption="Speed" subject="dbg_speed" />
-        <dbg_row x="24" y="144" caption="Bus voltage" subject="dbg_mc_voltage" />
-        <dbg_row x="24" y="166" caption="Bus current" subject="dbg_mc_current" />
-        <dbg_row x="24" y="188" caption="Current dir" subject="dbg_mc_direction" />
-        <dbg_row x="24" y="210" caption="Motor current" subject="dbg_motor_current" />
-        <dbg_row x="24" y="232" caption="FET temp" subject="dbg_fet_temp" />
-        <dbg_row x="24" y="254" caption="PWM duty" subject="dbg_pwm_duty" />
-        <dbg_row x="24" y="276" caption="Lead angle" subject="dbg_lead_angle" />
-        <dbg_row x="24" y="298" caption="Fault" subject="dbg_motor_error" alert_subject="motor_status" />
+        <!-- ===== Left column: motor controller ===== -->
+        <lv_label x="28" y="112" text="MOTOR CONTROLLER"><style name="caption" /></lv_label>
+        <dbg_row x="24" y="136" width="210" caption="RPM" subject="dbg_rpm" />
+        <dbg_row x="24" y="158" width="210" caption="Speed" subject="dbg_speed" />
+        <dbg_row x="24" y="180" width="210" caption="Bus voltage" subject="dbg_mc_voltage" />
+        <dbg_row x="24" y="202" width="210" caption="Bus current" subject="dbg_mc_current" />
+        <dbg_row x="24" y="224" width="210" caption="Current dir" subject="dbg_mc_direction" />
+        <dbg_row x="24" y="246" width="210" caption="Motor current" subject="dbg_motor_current" />
+        <dbg_row x="24" y="268" width="210" caption="FET temp" subject="dbg_fet_temp" />
+        <dbg_row x="24" y="290" width="210" caption="PWM duty" subject="dbg_pwm_duty" />
+        <dbg_row x="24" y="312" width="210" caption="Lead angle" subject="dbg_lead_angle" />
+        <dbg_row x="24" y="334" width="210" caption="Fault" subject="dbg_motor_error" alert_subject="motor_status" />
 
-        <!-- ===== Column 2: battery ===== -->
-        <lv_label x="287" y="76" text="BATTERY"><style name="caption" /></lv_label>
-        <dbg_row x="283" y="100" caption="Pack voltage" subject="dbg_pack_voltage" />
-        <dbg_row x="283" y="122" caption="Pack current" subject="dbg_pack_current" />
-        <dbg_row x="283" y="144" caption="State of charge" subject="dbg_soc" />
-        <dbg_row x="283" y="166" caption="Power" subject="dbg_power" />
-        <dbg_row x="283" y="188" caption="Discharge relay" subject="dbg_discharge_relay" />
-        <dbg_row x="283" y="210" caption="Charge relay" subject="dbg_charge_relay" />
-        <dbg_row x="283" y="232" caption="Charger safety" subject="dbg_charger_safety" />
-        <dbg_row x="283" y="254" caption="Charge signal" subject="dbg_charge_signal" />
-        <dbg_row x="283" y="276" caption="Balancing" subject="dbg_balancing" />
-        <dbg_row x="283" y="298" caption="Aux battery" subject="dbg_aux" />
-        <dbg_row x="283" y="320" caption="Fault" subject="dbg_bps_error" alert_subject="bps_status" />
+        <!-- ===== Right column: battery ===== -->
+        <lv_label x="250" y="112" text="BATTERY"><style name="caption" /></lv_label>
+        <dbg_row x="246" y="136" width="210" caption="Pack voltage" subject="dbg_pack_voltage" />
+        <dbg_row x="246" y="158" width="210" caption="Pack current" subject="dbg_pack_current" />
+        <dbg_row x="246" y="180" width="210" caption="State of charge" subject="dbg_soc" />
+        <dbg_row x="246" y="202" width="210" caption="Power" subject="dbg_power" />
+        <dbg_row x="246" y="224" width="210" caption="Discharge relay" subject="dbg_discharge_relay" />
+        <dbg_row x="246" y="246" width="210" caption="Charge relay" subject="dbg_charge_relay" />
+        <dbg_row x="246" y="268" width="210" caption="Charger safety" subject="dbg_charger_safety" />
+        <dbg_row x="246" y="290" width="210" caption="Charge signal" subject="dbg_charge_signal" />
+        <dbg_row x="246" y="312" width="210" caption="Balancing" subject="dbg_balancing" />
+        <dbg_row x="246" y="334" width="210" caption="Aux battery" subject="dbg_aux" />
+        <dbg_row x="246" y="356" width="210" caption="Fault" subject="dbg_bps_error" alert_subject="bps_status" />
 
-        <!-- ===== Column 3: driver input ===== -->
-        <lv_label x="546" y="76" text="DRIVER INPUT"><style name="caption" /></lv_label>
-        <dbg_row x="542" y="100" caption="Throttle pedal" subject="dbg_throttle_pedal" />
-        <dbg_row x="542" y="122" caption="Brake pedal" subject="dbg_brake_pedal" />
-        <dbg_row x="542" y="144" caption="Throttle cmd" subject="dbg_throttle" />
-        <dbg_row x="542" y="166" caption="Regen cmd" subject="dbg_regen_brake" />
-        <dbg_row x="542" y="188" caption="Cruise speed" subject="dbg_cruise_speed" />
-        <dbg_row x="542" y="210" caption="Drive mode" subject="dbg_drive_mode" />
+        <!-- ===== Left column: driver input ===== -->
+        <lv_label x="28" y="400" text="DRIVER INPUT"><style name="caption" /></lv_label>
+        <dbg_row x="24" y="424" width="210" caption="Throttle pedal" subject="dbg_throttle_pedal" />
+        <dbg_row x="24" y="446" width="210" caption="Brake pedal" subject="dbg_brake_pedal" />
+        <dbg_row x="24" y="468" width="210" caption="Throttle cmd" subject="dbg_throttle" />
+        <dbg_row x="24" y="490" width="210" caption="Regen cmd" subject="dbg_regen_brake" />
+        <dbg_row x="24" y="512" width="210" caption="Cruise speed" subject="dbg_cruise_speed" />
+        <dbg_row x="24" y="534" width="210" caption="Drive mode" subject="dbg_drive_mode" />
 
-        <!-- ===== Column 3: steering wheel switches ===== -->
-        <lv_label x="546" y="248" text="SWITCHES"><style name="caption" /></lv_label>
-        <lv_label x="542" y="272" width="113" height="40" text="LEFT">
+        <!-- ===== Right column: steering wheel switches ===== -->
+        <lv_label x="250" y="400" text="SWITCHES"><style name="caption" /></lv_label>
+        <lv_label x="246" y="424" width="99" height="40" text="LEFT">
             <style name="chip" /><bind_style name="chip_on" subject="left_status" ref_value="1" />
         </lv_label>
-        <lv_label x="663" y="272" width="113" height="40" text="RIGHT">
+        <lv_label x="357" y="424" width="99" height="40" text="RIGHT">
             <style name="chip" /><bind_style name="chip_on" subject="right_status" ref_value="1" />
         </lv_label>
-        <lv_label x="542" y="322" width="113" height="40" text="HAZARD">
+        <lv_label x="246" y="472" width="99" height="40" text="HAZARD">
             <style name="chip" /><bind_style name="chip_on" subject="hazards_status" ref_value="1" />
         </lv_label>
-        <lv_label x="663" y="322" width="113" height="40" text="LOW PWR">
+        <lv_label x="357" y="472" width="99" height="40" text="LOW PWR">
             <style name="chip" /><bind_style name="chip_on" subject="low_power_status" ref_value="1" />
         </lv_label>
-        <lv_label x="542" y="372" width="113" height="40" text="CRUISE">
+        <lv_label x="246" y="520" width="99" height="40" text="CRUISE">
             <style name="chip" /><bind_style name="chip_on" subject="cruise_status" ref_value="1" />
         </lv_label>
-        <lv_label x="663" y="372" width="113" height="40" text="REGEN">
+        <lv_label x="357" y="520" width="99" height="40" text="REGEN">
             <style name="chip" /><bind_style name="chip_on" subject="regen_status" ref_value="1" />
         </lv_label>
-        <lv_label x="542" y="422" width="113" height="40" text="CRUISE +">
+        <lv_label x="246" y="568" width="99" height="40" text="CRUISE +">
             <style name="chip" /><bind_style name="chip_on" subject="cruise_up_status" ref_value="1" />
         </lv_label>
-        <lv_label x="663" y="422" width="113" height="40" text="CRUISE -">
+        <lv_label x="357" y="568" width="99" height="40" text="CRUISE -">
             <style name="chip" /><bind_style name="chip_on" subject="cruise_down_status" ref_value="1" />
         </lv_label>
 
         <!-- ===== Fault log ===== -->
-        <lv_obj x="24" y="360" width="493" height="102" scrollable="false">
+        <lv_obj x="24" y="640" width="432" height="136" scrollable="false">
             <style name="panel" />
-            <lv_label x="14" y="12" text="ACTIVE FAULTS"><style name="caption" /></lv_label>
-            <lv_label x="200" y="9" bind_text="dbg_fault_count">
+            <lv_label x="14" y="14" text="ACTIVE FAULTS"><style name="caption" /></lv_label>
+            <lv_label x="200" y="11" bind_text="dbg_fault_count">
                 <style name="badge" />
                 <bind_style name="badge_fault" subject="fault_active" ref_value="1" />
             </lv_label>
-            <lv_label x="14" y="38" width="465" long_mode="clip" bind_text="dbg_fault_1">
+            <lv_label x="14" y="48" width="404" long_mode="clip" bind_text="dbg_fault_1">
                 <style name="dbg_caption" />
                 <bind_style name="dbg_value_alert" subject="fault_active" ref_value="1" />
             </lv_label>
-            <lv_label x="14" y="58" width="465" long_mode="clip" bind_text="dbg_fault_2">
+            <lv_label x="14" y="74" width="404" long_mode="clip" bind_text="dbg_fault_2">
                 <style name="dbg_caption" />
                 <bind_style name="dbg_value_alert" subject="fault_active" ref_value="1" />
             </lv_label>
-            <lv_label x="14" y="78" width="465" long_mode="clip" bind_text="dbg_fault_3">
+            <lv_label x="14" y="100" width="404" long_mode="clip" bind_text="dbg_fault_3">
                 <style name="dbg_caption" />
                 <bind_style name="dbg_value_alert" subject="fault_active" ref_value="1" />
             </lv_label>

@@ -3,16 +3,16 @@
         <style name="dashboard_screen" />
 
         <!-- ===== Top: turn signals + telltales ===== -->
-        <lv_label x="32" y="8" text="◀">
+        <lv_label x="24" y="12" text="◀">
             <style name="arrow" />
             <bind_style name="arrow_lit" subject="left_lit" ref_value="1" />
         </lv_label>
-        <lv_label x="-32" y="8" align="top_right" text="▶">
+        <lv_label x="-24" y="12" align="top_right" text="▶">
             <style name="arrow" />
             <bind_style name="arrow_lit" subject="right_lit" ref_value="1" />
         </lv_label>
 
-        <lv_obj y="26" align="top_mid" width="content" height="content" flex_flow="row" scrollable="false">
+        <lv_obj y="20" align="top_mid" width="content" height="content" flex_flow="row" scrollable="false">
             <style name="telltale_row" />
             <lv_label text="HAZARD">
                 <style name="telltale" />
@@ -26,6 +26,9 @@
                 <style name="telltale" />
                 <bind_style name="telltale_blue" subject="regen_status" ref_value="1" />
             </lv_label>
+        </lv_obj>
+        <lv_obj y="54" align="top_mid" width="content" height="content" flex_flow="row" scrollable="false">
+            <style name="telltale_row" />
             <lv_label text="LOW PWR">
                 <style name="telltale" />
                 <bind_style name="telltale_amber" subject="low_power_status" ref_value="1" />
@@ -42,64 +45,68 @@
             </lv_label>
         </lv_obj>
 
-        <!-- ===== Left edge: throttle (up) / regen (down) ===== -->
-        <lv_bar x="32" y="96" width="10" height="140" orientation="vertical"
+        <!-- ===== Speed ===== -->
+        <lv_label y="100" align="top_mid" bind_text="drv_speed"><style name="speed_text" /></lv_label>
+        <lv_label y="262" align="top_mid" text="MPH"><style name="caption" /></lv_label>
+
+        <!-- ===== Pedals: throttle / regen / brake ===== -->
+        <lv_obj x="24" y="304" width="432" height="1" scrollable="false"><style name="hairline" /></lv_obj>
+
+        <lv_label x="24" y="326" text="THROTTLE"><style name="caption" /></lv_label>
+        <lv_label x="-24" y="316" align="top_right" bind_text="drv_accel_text"><style name="value" /></lv_label>
+        <lv_bar x="24" y="358" width="432" height="10" orientation="horizontal"
                 min_value="0" max_value="100" bind_value="drv_accel">
             <style name="bar_track" />
             <style name="bar_fill" selector="indicator" />
             <style name="bar_accel" selector="indicator" />
         </lv_bar>
-        <lv_bar x="32" y="244" width="10" height="140" orientation="vertical"
-                min_value="100" max_value="0" bind_value="drv_regen">
+
+        <lv_label x="24" y="398" text="REGEN"><style name="caption" /></lv_label>
+        <lv_label x="-24" y="388" align="top_right" bind_text="drv_regen_text"><style name="value" /></lv_label>
+        <lv_bar x="24" y="430" width="432" height="10" orientation="horizontal"
+                min_value="0" max_value="100" bind_value="drv_regen">
             <style name="bar_track" />
             <style name="bar_fill" selector="indicator" />
             <style name="bar_regen" selector="indicator" />
         </lv_bar>
-        <lv_label x="58" y="94" text="THROTTLE"><style name="caption" /></lv_label>
-        <lv_label x="58" y="116" bind_text="drv_accel_text"><style name="value" /></lv_label>
-        <lv_label x="58" y="328" text="REGEN"><style name="caption" /></lv_label>
-        <lv_label x="58" y="350" bind_text="drv_regen_text"><style name="value" /></lv_label>
 
-        <!-- ===== Right edge: brake ===== -->
-        <lv_bar x="-32" y="96" align="top_right" width="10" height="288" orientation="vertical"
+        <lv_label x="24" y="470" text="BRAKE"><style name="caption" /></lv_label>
+        <lv_label x="-24" y="460" align="top_right" bind_text="drv_brake_text"><style name="value" /></lv_label>
+        <lv_bar x="24" y="502" width="432" height="10" orientation="horizontal"
                 min_value="0" max_value="100" bind_value="drv_brake">
             <style name="bar_track" />
             <style name="bar_fill" selector="indicator" />
             <style name="bar_brake" selector="indicator" />
         </lv_bar>
-        <lv_label x="-58" y="94" align="top_right" text="BRAKE"><style name="caption" /></lv_label>
-        <lv_label x="-58" y="116" align="top_right" bind_text="drv_brake_text"><style name="value" /></lv_label>
 
-        <!-- ===== Center: speed ===== -->
-        <lv_label y="72" align="top_mid" bind_text="drv_speed"><style name="speed_text" /></lv_label>
-        <lv_label y="232" align="top_mid" text="MPH"><style name="caption" /></lv_label>
+        <!-- ===== Power readouts ===== -->
+        <lv_obj x="24" y="536" width="432" height="1" scrollable="false"><style name="hairline" /></lv_obj>
+        <lv_label x="24" y="556" width="144" text="POWER"><style name="caption" /><style name="center_text" /></lv_label>
+        <lv_label x="24" y="580" width="144" bind_text="drv_power"><style name="value" /><style name="center_text" /></lv_label>
+        <lv_obj x="168" y="558" width="1" height="54" scrollable="false"><style name="hairline" /></lv_obj>
+        <lv_label x="168" y="556" width="144" text="PACK"><style name="caption" /><style name="center_text" /></lv_label>
+        <lv_label x="168" y="580" width="144" bind_text="drv_pack_voltage"><style name="value" /><style name="center_text" /></lv_label>
+        <lv_obj x="312" y="558" width="1" height="54" scrollable="false"><style name="hairline" /></lv_obj>
+        <lv_label x="312" y="556" width="144" text="CURRENT"><style name="caption" /><style name="center_text" /></lv_label>
+        <lv_label x="312" y="580" width="144" bind_text="drv_pack_current"><style name="value" /><style name="center_text" /></lv_label>
 
-        <!-- ===== Center: power readouts ===== -->
-        <lv_label x="176" y="282" width="148" text="POWER"><style name="caption" /><style name="center_text" /></lv_label>
-        <lv_label x="176" y="306" width="148" bind_text="drv_power"><style name="value" /><style name="center_text" /></lv_label>
-        <lv_obj x="325" y="284" width="1" height="54" scrollable="false"><style name="hairline" /></lv_obj>
-        <lv_label x="326" y="282" width="148" text="PACK"><style name="caption" /><style name="center_text" /></lv_label>
-        <lv_label x="326" y="306" width="148" bind_text="drv_pack_voltage"><style name="value" /><style name="center_text" /></lv_label>
-        <lv_obj x="475" y="284" width="1" height="54" scrollable="false"><style name="hairline" /></lv_obj>
-        <lv_label x="476" y="282" width="148" text="CURRENT"><style name="caption" /><style name="center_text" /></lv_label>
-        <lv_label x="476" y="306" width="148" bind_text="drv_pack_current"><style name="value" /><style name="center_text" /></lv_label>
-
-        <!-- ===== Bottom: battery + nav ===== -->
-        <lv_obj x="32" y="400" width="736" height="1" scrollable="false"><style name="hairline" /></lv_obj>
-        <lv_label x="32" y="424" text="BATTERY"><style name="caption" /></lv_label>
-        <lv_bar x="136" y="428" width="384" height="10" orientation="horizontal"
+        <!-- ===== Battery ===== -->
+        <lv_obj x="24" y="634" width="432" height="1" scrollable="false"><style name="hairline" /></lv_obj>
+        <lv_label x="24" y="656" text="BATTERY"><style name="caption" /></lv_label>
+        <lv_label x="-24" y="646" align="top_right" bind_text="drv_soc_text">
+            <style name="value" />
+            <bind_style name="warn_text" subject="drv_soc_low" ref_value="1" />
+        </lv_label>
+        <lv_bar x="24" y="688" width="432" height="10" orientation="horizontal"
                 min_value="0" max_value="100" bind_value="drv_soc">
             <style name="bar_track" />
             <style name="bar_fill" selector="indicator" />
             <style name="bar_soc" selector="indicator" />
             <bind_style name="bar_soc_low" selector="indicator" subject="drv_soc_low" ref_value="1" />
         </lv_bar>
-        <lv_label x="536" y="414" bind_text="drv_soc_text">
-            <style name="value" />
-            <bind_style name="warn_text" subject="drv_soc_low" ref_value="1" />
-        </lv_label>
 
-        <lv_button x="-32" y="412" align="top_right" width="120" height="44">
+        <!-- ===== Nav ===== -->
+        <lv_button y="-24" align="bottom_mid" width="200" height="44">
             <style name="nav_ghost" />
             <style name="nav_ghost_pressed" selector="pressed" />
             <lv_label align="center" text="DATA  ›" />

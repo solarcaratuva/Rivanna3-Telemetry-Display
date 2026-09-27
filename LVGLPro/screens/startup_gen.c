@@ -50,11 +50,14 @@ lv_obj_t * startup_create(void)
     lv_obj_t * lv_image_0 = lv_image_create(lv_obj_0);
     lv_image_set_src(lv_image_0, team_logo);
     lv_obj_set_align(lv_image_0, LV_ALIGN_CENTER);
-    lv_obj_set_y(lv_image_0, -60);
+    lv_obj_set_y(lv_image_0, -80);
+    lv_obj_set_width(lv_image_0, 432);
+    lv_obj_set_height(lv_image_0, 124);
+    lv_image_set_inner_align(lv_image_0, LV_IMAGE_ALIGN_CONTAIN);
 
     lv_obj_t * lv_spinner_0 = lv_spinner_create(lv_obj_0);
     lv_obj_set_align(lv_spinner_0, LV_ALIGN_CENTER);
-    lv_obj_set_y(lv_spinner_0, 120);
+    lv_obj_set_y(lv_spinner_0, 100);
     lv_obj_set_width(lv_spinner_0, 56);
     lv_obj_set_height(lv_spinner_0, 56);
     lv_spinner_set_anim_duration(lv_spinner_0, 1000);

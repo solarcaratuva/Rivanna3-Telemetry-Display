@@ -1,8 +1,8 @@
 <screen>
     <view extends="lv_obj" scrollable="false">
         <style name="splash_screen" />
-        <lv_image src="team_logo" align="center" y="-60" />
-        <lv_spinner align="center" y="120" width="56" height="56" anim_duration="1000" arc_sweep="90">
+        <lv_image src="team_logo" align="center" y="-80" width="432" height="124" inner_align="contain" />
+        <lv_spinner align="center" y="100" width="56" height="56" anim_duration="1000" arc_sweep="90">
             <style name="splash_arc_track" />
             <style name="splash_arc_ind" selector="indicator" />
         </lv_spinner>
