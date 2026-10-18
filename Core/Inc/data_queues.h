@@ -22,6 +22,7 @@ typedef struct {
       * Definition found in rivanna3_s.h
       */
      struct rivanna3_s_motor_commands_t motor_commands;
+     struct rivanna3_s_odometry_data_t odometry_data;
 
      /**
       * Definition found in bps.h

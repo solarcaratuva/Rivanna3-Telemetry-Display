@@ -4,7 +4,7 @@
 
 FONT_TABLE_LOCATION_FLASH_PRAGMA
 KEEP extern const touchgfx::GlyphNode glyphs_leelauib_30_4bpp[] FONT_TABLE_LOCATION_FLASH_ATTRIBUTE = {
-    {     0, 0x002E,   6,   5,   5,   1,   8,   0,   2, 0x00 },
+    {     0, 0x002E,   6,   5,   5,   1,   8,   0,   3, 0x00 },
     {    15, 0x0031,  10,  21,  21,   3,  17,   0,   0, 0x00 },
     {   120, 0x0032,  15,  21,  21,   1,  17,   0,   0, 0x00 },
     {   288, 0x0033,  15,  21,  21,   1,  17,   0,   0, 0x00 },
@@ -14,15 +14,17 @@ KEEP extern const touchgfx::GlyphNode glyphs_leelauib_30_4bpp[] FONT_TABLE_LOCAT
     {   960, 0x0037,  15,  21,  21,   1,  17,   0,   0, 0x00 },
     {  1128, 0x0038,  16,  21,  21,   1,  17,   0,   0, 0x00 },
     {  1296, 0x0039,  15,  21,  21,   1,  17,   0,   0, 0x00 },
-    {  1464, 0x003F,  13,  21,  21,   0,  13,   2,   1, 0x00 },
+    {  1464, 0x003F,  13,  21,  21,   0,  13,   3,   1, 0x00 },
     {  1611, 0x0045,  13,  21,  21,   2,  16,   0,   0, 0x00 },
-    {  1758, 0x004E,  20,  21,  21,   2,  24,   0,   0, 0x00 },
-    {  1968, 0x004F,  21,  21,  21,   1,  23,   0,   0, 0x00 },
-    {  2199, 0x0052,  18,  21,  21,   2,  20,   0,   0, 0x00 },
-    {  2388, 0x0065,  15,  15,  15,   1,  16,   3,   1, 0x00 },
-    {  2508, 0x0066,  12,  22,  22,   0,  12,   0,   0, 0x00 },
-    {  2640, 0x006E,  16,  15,  15,   1,  18,   0,   0, 0x00 },
-    {  2760, 0x006F,  17,  15,  15,   1,  18,   4,   1, 0x00 }
+    {  1758, 0x004B,  18,  21,  21,   2,  19,   0,   0, 0x00 },
+    {  1947, 0x004E,  20,  21,  21,   2,  24,   0,   0, 0x00 },
+    {  2157, 0x004F,  21,  21,  21,   1,  23,   4,   1, 0x00 },
+    {  2388, 0x0052,  18,  21,  21,   2,  20,   0,   0, 0x00 },
+    {  2577, 0x0065,  15,  15,  15,   1,  16,   5,   1, 0x00 },
+    {  2697, 0x0066,  12,  22,  22,   0,  12,   0,   0, 0x00 },
+    {  2829, 0x006B,  16,  22,  22,   1,  17,   0,   0, 0x00 },
+    {  3005, 0x006E,  16,  15,  15,   1,  18,   0,   0, 0x00 },
+    {  3125, 0x006F,  17,  15,  15,   1,  18,   6,   1, 0x00 }
 };
 
 // leelauib_30_4bpp
@@ -40,6 +42,6 @@ touchgfx::GeneratedFont& getFont_leelauib_30_4bpp();
 
 touchgfx::GeneratedFont& getFont_leelauib_30_4bpp()
 {
-    static touchgfx::GeneratedFont leelauib_30_4bpp(glyphs_leelauib_30_4bpp, 19, 30, 30, 0, 0, 4, 1, 0, 0, unicodes_leelauib_30_4bpp, kerning_leelauib_30_4bpp, 63, 0, 0, 0);
+    static touchgfx::GeneratedFont leelauib_30_4bpp(glyphs_leelauib_30_4bpp, 21, 30, 30, 0, 0, 4, 1, 0, 1, unicodes_leelauib_30_4bpp, kerning_leelauib_30_4bpp, 63, 0, 0, 0);
     return leelauib_30_4bpp;
 }

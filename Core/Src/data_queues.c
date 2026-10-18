@@ -30,6 +30,9 @@ void updateReceivedCanData(ReceivedCanData_t *oldData, uint32_t Identifier, uint
     case MOTOR_CONTROLLER_MOTOR_CONTROLLER_ERROR_FRAME_ID:
       motor_controller_motor_controller_error_unpack(&oldData->motor_controller_error, RxData, RxDataSize);
       break;
+    case RIVANNA3_S_ODOMETRY_DATA_FRAME_ID:
+      rivanna3_s_odometry_data_unpack(&oldData->odometry_data, RxData, RxDataSize);
+      break;
     default:
       break;
   }

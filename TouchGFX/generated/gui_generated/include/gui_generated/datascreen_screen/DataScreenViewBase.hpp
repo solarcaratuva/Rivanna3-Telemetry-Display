@@ -42,6 +42,7 @@ protected:
     touchgfx::Box bps_background;
     touchgfx::Box dash_cmds_background;
     touchgfx::Box error_background;
+    touchgfx::Box error_background_1;
     touchgfx::TextArea mtr_cmds_title;
     touchgfx::TextArea bps_title;
     touchgfx::TextArea rpm_text;
@@ -59,6 +60,9 @@ protected:
     touchgfx::TextAreaWithOneWildcard cruise_value;
     touchgfx::TextAreaWithOneWildcard mtr_controller_error_value;
     touchgfx::TextAreaWithOneWildcard bps_error_value;
+    touchgfx::TextAreaWithOneWildcard error_list_1;
+    touchgfx::TextAreaWithOneWildcard error_list_2;
+    touchgfx::TextAreaWithOneWildcard error_list_3;
     touchgfx::TextAreaWithOneWildcard man_drive_value;
     touchgfx::TextAreaWithOneWildcard braking_value;
     touchgfx::TextAreaWithOneWildcard rpm_value;
@@ -90,6 +94,7 @@ protected:
     touchgfx::TextArea left_turn_text;
     touchgfx::TextArea right_turn_text;
     touchgfx::TextArea error_title;
+    touchgfx::TextArea errors_title;
     touchgfx::TextArea mtr_controller_err_text;
     touchgfx::TextArea bps_err_text;
     touchgfx::TextArea hazards_text;
@@ -132,6 +137,12 @@ protected:
     touchgfx::Unicode::UnicodeChar mtr_controller_error_valueBuffer[MTR_CONTROLLER_ERROR_VALUE_SIZE];
     static const uint16_t BPS_ERROR_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar bps_error_valueBuffer[BPS_ERROR_VALUE_SIZE];
+    static const uint16_t ERROR_LIST_1_SIZE = 35;
+    touchgfx::Unicode::UnicodeChar error_list_1Buffer[ERROR_LIST_1_SIZE];
+    static const uint16_t ERROR_LIST_2_SIZE = 35;
+    touchgfx::Unicode::UnicodeChar error_list_2Buffer[ERROR_LIST_2_SIZE];
+    static const uint16_t ERROR_LIST_3_SIZE = 35;
+    touchgfx::Unicode::UnicodeChar error_list_3Buffer[ERROR_LIST_3_SIZE];
     static const uint16_t MAN_DRIVE_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar man_drive_valueBuffer[MAN_DRIVE_VALUE_SIZE];
     static const uint16_t BRAKING_VALUE_SIZE = 10;

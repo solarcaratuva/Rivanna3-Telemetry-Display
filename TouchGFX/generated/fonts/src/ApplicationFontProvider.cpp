@@ -57,6 +57,9 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
     case Typography::V3_TITLE:
         // leelauib_30_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[14]);
+    case Typography::LAPS:
+        // verdanab_35_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[11]);
     default:
         return 0;
     }

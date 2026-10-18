@@ -15,6 +15,7 @@
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 #include <touchgfx/widgets/Button.hpp>
+#include <touchgfx/containers/buttons/Buttons.hpp>
 
 class DriverScreenViewBase : public touchgfx::View<DriverScreenPresenter>
 {
@@ -28,6 +29,14 @@ public:
      * Virtual Action Handlers
      */
     virtual void main()
+    {
+        // Override and implement this function in DriverScreen
+    }
+    virtual void lapIncrease()
+    {
+        // Override and implement this function in DriverScreen
+    }
+    virtual void lapDecrease()
     {
         // Override and implement this function in DriverScreen
     }
@@ -45,6 +54,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard speed;
     touchgfx::Line line1;
     touchgfx::PainterRGB888 line1Painter;
+    touchgfx::TextAreaWithOneWildcard lap_value;
     touchgfx::Shape<3> shape1_2_1;
     touchgfx::PainterRGB888 shape1_2_1Painter;
     touchgfx::Shape<3> shape1_2;
@@ -54,10 +64,23 @@ protected:
     touchgfx::TextAreaWithOneWildcard blank;
     touchgfx::TextAreaWithOneWildcard mtr_controller_error_value;
     touchgfx::TextAreaWithOneWildcard bps_error_value;
+    touchgfx::TextAreaWithOneWildcard bottom_heart;
+    touchgfx::TextAreaWithOneWildcard relay_heart;
+    touchgfx::TextAreaWithOneWildcard motor_heart;
+    touchgfx::TextAreaWithOneWildcard wheel_heart;
+    touchgfx::TextAreaWithOneWildcard telem_heart;
+    touchgfx::TextAreaWithOneWildcard top_heart;
     touchgfx::TextArea mtr_controller_err_text;
     touchgfx::TextArea mtr_controller_err_text_1;
     touchgfx::TextArea bps_err_text;
+    touchgfx::TextArea Bottom_Dist_Text;
+    touchgfx::TextArea Top_Dist_Text;
+    touchgfx::TextArea Relay_Text;
+    touchgfx::TextArea Motor_Text;
+    touchgfx::TextArea Wheel_text;
+    touchgfx::TextArea Telemetry_Text;
     touchgfx::TextArea error_title;
+    touchgfx::TextArea Heartbeat_title;
     touchgfx::TextArea power_title;
     touchgfx::Line border1;
     touchgfx::PainterRGB888 border1Painter;
@@ -67,6 +90,7 @@ protected:
     touchgfx::PainterRGB888 border1_1_1Painter;
     touchgfx::TextAreaWithOneWildcard watts;
     touchgfx::TextAreaWithOneWildcard soc;
+    touchgfx::TextAreaWithOneWildcard odometryText;
     touchgfx::TextAreaWithOneWildcard bpsv;
     touchgfx::TextAreaWithOneWildcard bpsc;
     touchgfx::TextArea textArea1;
@@ -75,22 +99,43 @@ protected:
     touchgfx::BoxProgress boxProgress1;
     touchgfx::Button button1;
     touchgfx::TextArea textArea1_1;
+    touchgfx::TextArea Laps_Label;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  lap_increase;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger >  lap_decrease;
+    touchgfx::TextArea lap_increase_label;
+    touchgfx::TextArea lap_decrease_label;
 
     /*
      * Wildcard Buffers
      */
     static const uint16_t SPEED_SIZE = 10;
     touchgfx::Unicode::UnicodeChar speedBuffer[SPEED_SIZE];
+    static const uint16_t LAP_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar lap_valueBuffer[LAP_VALUE_SIZE];
     static const uint16_t BLANK_SIZE = 10;
     touchgfx::Unicode::UnicodeChar blankBuffer[BLANK_SIZE];
     static const uint16_t MTR_CONTROLLER_ERROR_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar mtr_controller_error_valueBuffer[MTR_CONTROLLER_ERROR_VALUE_SIZE];
     static const uint16_t BPS_ERROR_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar bps_error_valueBuffer[BPS_ERROR_VALUE_SIZE];
+    static const uint16_t BOTTOM_HEART_SIZE = 20;
+    touchgfx::Unicode::UnicodeChar bottom_heartBuffer[BOTTOM_HEART_SIZE];
+    static const uint16_t RELAY_HEART_SIZE = 20;
+    touchgfx::Unicode::UnicodeChar relay_heartBuffer[RELAY_HEART_SIZE];
+    static const uint16_t MOTOR_HEART_SIZE = 20;
+    touchgfx::Unicode::UnicodeChar motor_heartBuffer[MOTOR_HEART_SIZE];
+    static const uint16_t WHEEL_HEART_SIZE = 20;
+    touchgfx::Unicode::UnicodeChar wheel_heartBuffer[WHEEL_HEART_SIZE];
+    static const uint16_t TELEM_HEART_SIZE = 20;
+    touchgfx::Unicode::UnicodeChar telem_heartBuffer[TELEM_HEART_SIZE];
+    static const uint16_t TOP_HEART_SIZE = 20;
+    touchgfx::Unicode::UnicodeChar top_heartBuffer[TOP_HEART_SIZE];
     static const uint16_t WATTS_SIZE = 10;
     touchgfx::Unicode::UnicodeChar wattsBuffer[WATTS_SIZE];
     static const uint16_t SOC_SIZE = 10;
     touchgfx::Unicode::UnicodeChar socBuffer[SOC_SIZE];
+    static const uint16_t ODOMETRYTEXT_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar odometryTextBuffer[ODOMETRYTEXT_SIZE];
     static const uint16_t BPSV_SIZE = 10;
     touchgfx::Unicode::UnicodeChar bpsvBuffer[BPSV_SIZE];
     static const uint16_t BPSC_SIZE = 10;
@@ -114,11 +159,13 @@ private:
      * Callback Declarations
      */
     touchgfx::Callback<DriverScreenViewBase, const touchgfx::AbstractButton&> buttonCallback;
+    touchgfx::Callback<DriverScreenViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
 
     /*
      * Callback Handler Declarations
      */
     void buttonCallbackHandler(const touchgfx::AbstractButton& src);
+    void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
 
 };
 

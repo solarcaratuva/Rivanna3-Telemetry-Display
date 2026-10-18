@@ -13,6 +13,14 @@ public:
     virtual void tearDownScreen();
     virtual void main() override;
     virtual void handleKeyEvent(uint8_t key);
+
+    void lapIncrease();
+    void lapDecrease();
+
+private:
+    static int lapValue;
+    static const uint16_t LAP_VALUE_SIZE = 10;
+    Unicode::UnicodeChar lapValueBuffer[LAP_VALUE_SIZE];
 protected:
 };
 

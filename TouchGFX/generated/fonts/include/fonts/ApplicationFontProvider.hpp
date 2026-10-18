@@ -29,6 +29,7 @@ struct Typography
     static const touchgfx::FontId ERROR_FONT = 13;
     static const touchgfx::FontId ERROR_TITLE_V2 = 14;
     static const touchgfx::FontId V3_TITLE = 15;
+    static const touchgfx::FontId LAPS = 16;
 };
 
 struct TypographyFontIndex
@@ -49,6 +50,7 @@ struct TypographyFontIndex
     static const touchgfx::FontId ERROR_FONT = 12;      // verdanab_25_4bpp
     static const touchgfx::FontId ERROR_TITLE_V2 = 13;  // verdana_30_4bpp
     static const touchgfx::FontId V3_TITLE = 14;        // leelauib_30_4bpp
+    static const touchgfx::FontId LAPS = 11;            // verdanab_35_4bpp
     static const uint16_t NUMBER_OF_FONTS = 15;
 };
 

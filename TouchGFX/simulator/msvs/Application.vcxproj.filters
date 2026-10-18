@@ -142,17 +142,11 @@
     <Filter Include="Source Files\gui\model">
       <UniqueIdentifier>14A8FB1D-F738-6410-3FF3-3959187B5940</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gui\screen1_screen">
-      <UniqueIdentifier>65B3011E-C1A1-6868-68AA-0EFBFE79B6F0</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\generated\gui_generated">
       <UniqueIdentifier>CF7BAE50-1BB0-E901-7E9D-6CCBF46239ED</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\gui\common">
       <UniqueIdentifier>D5D601AC-0B55-B787-24F0-2FE019D368B0</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\gui\screen1_screen">
-      <UniqueIdentifier>AE0B87D8-E24E-FEB0-BCDE-B3294A7D7D41</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\generated\gui_generated">
       <UniqueIdentifier>C8D909C7-BE33-62BF-744A-3B3658346978</UniqueIdentifier>
@@ -178,12 +172,6 @@
     <Filter Include="Header Files\generated\simulator\include\simulator\video">
       <UniqueIdentifier>BFAD6AC6-B906-73C7-A2B2-99F8D21599DA</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\generated\gui_generated\screen1_screen">
-      <UniqueIdentifier>3D3FF55D-B9A5-195E-F024-A36D0F396DDC</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\generated\gui_generated\screen1_screen">
-      <UniqueIdentifier>653520B2-4189-054B-8586-2739A49860C1</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\gui\startupscreen_screen">
       <UniqueIdentifier>7040686A-7726-87C2-B181-F68D0311F895</UniqueIdentifier>
     </Filter>
@@ -195,12 +183,6 @@
     </Filter>
     <Filter Include="Header Files\generated\gui_generated\startupscreen_screen">
       <UniqueIdentifier>C31976BF-013A-5A85-3139-24EC67D345DC</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\gui\screen2_screen">
-      <UniqueIdentifier>793516F1-2A0D-1C48-1D2D-664CED062FFE</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\gui\screen2_screen">
-      <UniqueIdentifier>E12BDCDE-CE37-74FE-4E44-0F292CEAD475</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\gui\datascreen_screen">
       <UniqueIdentifier>C58A16E7-FC4F-EDCE-2EEC-53AE965CE242</UniqueIdentifier>
@@ -237,12 +219,6 @@
     </Filter>
     <Filter Include="Header Files\generated\gui_generated\startupscreen2_screen">
       <UniqueIdentifier>5291E68D-8E72-1AC3-B81D-5DC797FDCCF8</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\generated\gui_generated\screen2_screen">
-      <UniqueIdentifier>31E5D8F4-737A-9656-96CA-23E9266E6CD8</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\generated\gui_generated\screen2_screen">
-      <UniqueIdentifier>80572A5A-47FD-20FE-DCAF-80D60A1C1986</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\gui\driverscreen_screen">
       <UniqueIdentifier>47FD9019-9356-9F47-DF86-A7990FB33D6B</UniqueIdentifier>
@@ -285,17 +261,8 @@
     <ClCompile Include="..\..\gui\src\model\Model.cpp">
       <Filter>Source Files\gui\model</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\gui\src\screen1_screen\Screen1Presenter.cpp">
-      <Filter>Source Files\gui\screen1_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\gui\src\screen1_screen\Screen1View.cpp">
-      <Filter>Source Files\gui\screen1_screen</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\generated\simulator\src\video\SoftwareMJPEGDecoder.cpp">
       <Filter>Source Files\generated\simulator\video</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\generated\gui_generated\src\screen1_screen\Screen1ViewBase.cpp">
-      <Filter>Source Files\generated\gui_generated\screen1_screen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\gui\src\startupscreen_screen\StartupScreenPresenter.cpp">
       <Filter>Source Files\gui\startupscreen_screen</Filter>
@@ -305,12 +272,6 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\startupscreen_screen\StartupScreenViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\startupscreen_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\gui\src\screen2_screen\Screen2Presenter.cpp">
-      <Filter>Source Files\gui\screen2_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\gui\src\screen2_screen\Screen2View.cpp">
-      <Filter>Source Files\gui\screen2_screen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\gui\src\datascreen_screen\DataScreenPresenter.cpp">
       <Filter>Source Files\gui\datascreen_screen</Filter>
@@ -338,9 +299,6 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\startupscreen2_screen\StartupScreen2ViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\startupscreen2_screen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\generated\gui_generated\src\screen2_screen\Screen2ViewBase.cpp">
-      <Filter>Source Files\generated\gui_generated\screen2_screen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\gui\src\driverscreen_screen\DriverScreenPresenter.cpp">
       <Filter>Source Files\gui\driverscreen_screen</Filter>
@@ -787,20 +745,11 @@
     <ClInclude Include="..\..\gui\include\gui\model\ModelListener.hpp">
       <Filter>Header Files\gui\model</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\screen1_screen\Screen1Presenter.hpp">
-      <Filter>Header Files\gui\screen1_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\screen1_screen\Screen1View.hpp">
-      <Filter>Header Files\gui\screen1_screen</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\SimConstants.hpp">
       <Filter>Header Files\generated\gui_generated\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\generated\simulator\include\simulator\video\SoftwareMJPEGDecoder.hpp">
       <Filter>Header Files\generated\simulator\include\simulator\video</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen1_screen\Screen1ViewBase.hpp">
-      <Filter>Header Files\generated\gui_generated\screen1_screen</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gui\include\gui\startupscreen_screen\StartupScreenPresenter.hpp">
       <Filter>Header Files\gui\startupscreen_screen</Filter>
@@ -810,12 +759,6 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\startupscreen_screen\StartupScreenViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\startupscreen_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\screen2_screen\Screen2Presenter.hpp">
-      <Filter>Header Files\gui\screen2_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\screen2_screen\Screen2View.hpp">
-      <Filter>Header Files\gui\screen2_screen</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gui\include\gui\datascreen_screen\DataScreenPresenter.hpp">
       <Filter>Header Files\gui\datascreen_screen</Filter>
@@ -843,9 +786,6 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\startupscreen2_screen\StartupScreen2ViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\startupscreen2_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\screen2_screen\Screen2ViewBase.hpp">
-      <Filter>Header Files\generated\gui_generated\screen2_screen</Filter>
     </ClInclude>
     <ClInclude Include="..\..\gui\include\gui\driverscreen_screen\DriverScreenPresenter.hpp">
       <Filter>Header Files\gui\driverscreen_screen</Filter>

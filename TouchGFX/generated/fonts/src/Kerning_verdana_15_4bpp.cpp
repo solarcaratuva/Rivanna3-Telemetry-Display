@@ -5,6 +5,7 @@ KEEP extern const touchgfx::KerningNode kerning_verdana_15_4bpp[] FONT_KERNING_L
     { 0x0050, -1 },  // (First char = [0x0050, P], Second char = [0x002E, .], Kerning dist = -1)
     { 0x0054, -1 },  // (First char = [0x0054, T], Second char = [0x002E, .], Kerning dist = -1)
     { 0x0056, -1 },  // (First char = [0x0056, V], Second char = [0x002E, .], Kerning dist = -1)
+    { 0x0057, -1 },  // (First char = [0x0057, W], Second char = [0x002E, .], Kerning dist = -1)
     { 0x0066, -1 },  // (First char = [0x0066, f], Second char = [0x002E, .], Kerning dist = -1)
     { 0x0072, -1 },  // (First char = [0x0072, r], Second char = [0x002E, .], Kerning dist = -1)
     { 0x0076, -1 },  // (First char = [0x0076, v], Second char = [0x002E, .], Kerning dist = -1)

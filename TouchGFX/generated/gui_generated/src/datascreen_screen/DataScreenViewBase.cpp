@@ -34,6 +34,10 @@ DataScreenViewBase::DataScreenViewBase() :
     error_background.setColor(touchgfx::Color::getColorFromRGB(30, 33, 41));
     add(error_background);
 
+    error_background_1.setPosition(27, 641, 426, 80);
+    error_background_1.setColor(touchgfx::Color::getColorFromRGB(30, 33, 41));
+    add(error_background_1);
+
     mtr_cmds_title.setXY(37, 30);
     mtr_cmds_title.setColor(touchgfx::Color::getColorFromRGB(173, 173, 173));
     mtr_cmds_title.setLinespacing(0);
@@ -163,6 +167,30 @@ DataScreenViewBase::DataScreenViewBase() :
     bps_error_value.setWildcard(bps_error_valueBuffer);
     bps_error_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_50VA));
     add(bps_error_value);
+
+    error_list_1.setPosition(108, 647, 352, 24);
+    error_list_1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    error_list_1.setLinespacing(0);
+    Unicode::snprintf(error_list_1Buffer, ERROR_LIST_1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_ZEL2).getText());
+    error_list_1.setWildcard(error_list_1Buffer);
+    error_list_1.setTypedText(touchgfx::TypedText(T___SINGLEUSE_NPZ6));
+    add(error_list_1);
+
+    error_list_2.setPosition(108, 671, 352, 25);
+    error_list_2.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    error_list_2.setLinespacing(0);
+    Unicode::snprintf(error_list_2Buffer, ERROR_LIST_2_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_H11C).getText());
+    error_list_2.setWildcard(error_list_2Buffer);
+    error_list_2.setTypedText(touchgfx::TypedText(T___SINGLEUSE_APP8));
+    add(error_list_2);
+
+    error_list_3.setPosition(108, 696, 352, 25);
+    error_list_3.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    error_list_3.setLinespacing(0);
+    Unicode::snprintf(error_list_3Buffer, ERROR_LIST_3_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_5N6T).getText());
+    error_list_3.setWildcard(error_list_3Buffer);
+    error_list_3.setTypedText(touchgfx::TypedText(T___SINGLEUSE_QOXL));
+    add(error_list_3);
 
     man_drive_value.setPosition(196, 132, 37, 25);
     man_drive_value.setColor(touchgfx::Color::getColorFromRGB(94, 255, 135));
@@ -373,6 +401,12 @@ DataScreenViewBase::DataScreenViewBase() :
     error_title.setLinespacing(0);
     error_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BJIO));
     add(error_title);
+
+    errors_title.setXY(35, 647);
+    errors_title.setColor(touchgfx::Color::getColorFromRGB(173, 173, 173));
+    errors_title.setLinespacing(0);
+    errors_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_FGUJ));
+    add(errors_title);
 
     mtr_controller_err_text.setPosition(37, 604, 158, 25);
     mtr_controller_err_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));

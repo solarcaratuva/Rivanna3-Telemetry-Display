@@ -11,12 +11,8 @@
 #ifdef SIMULATOR
 #include <platform/driver/lcd/LCD24bpp.hpp>
 #endif
-#include <gui/screen1_screen/Screen1View.hpp>
-#include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <gui/startupscreen_screen/StartupScreenView.hpp>
 #include <gui/startupscreen_screen/StartupScreenPresenter.hpp>
-#include <gui/screen2_screen/Screen2View.hpp>
-#include <gui/screen2_screen/Screen2Presenter.hpp>
 #include <gui/driverscreen_screen/DriverScreenView.hpp>
 #include <gui/driverscreen_screen/DriverScreenPresenter.hpp>
 #include <gui/datascreen_screen/DataScreenView.hpp>

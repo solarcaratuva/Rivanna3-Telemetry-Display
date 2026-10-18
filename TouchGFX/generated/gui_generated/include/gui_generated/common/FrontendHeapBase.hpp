@@ -15,12 +15,8 @@
 #include <gui/common/FrontendApplication.hpp>
 #include <gui/model/Model.hpp>
 
-#include <gui/screen1_screen/Screen1View.hpp>
-#include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <gui/startupscreen_screen/StartupScreenView.hpp>
 #include <gui/startupscreen_screen/StartupScreenPresenter.hpp>
-#include <gui/screen2_screen/Screen2View.hpp>
-#include <gui/screen2_screen/Screen2Presenter.hpp>
 #include <gui/driverscreen_screen/DriverScreenView.hpp>
 #include <gui/driverscreen_screen/DriverScreenPresenter.hpp>
 #include <gui/datascreen_screen/DataScreenView.hpp>
@@ -51,14 +47,12 @@ public:
      * A list of all view types. Must end with meta::Nil.
      * @note All view types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< Screen1View,
-            touchgfx::meta::TypeList< StartupScreenView,
-            touchgfx::meta::TypeList< Screen2View,
+    typedef touchgfx::meta::TypeList< StartupScreenView,
             touchgfx::meta::TypeList< DriverScreenView,
             touchgfx::meta::TypeList< DataScreenView,
             touchgfx::meta::TypeList< SettingsScreenView,
             touchgfx::meta::TypeList< StartupScreen2View,
-            touchgfx::meta::Nil > > > > > >
+            touchgfx::meta::Nil > > > >
             > GeneratedViewTypes;
 
     /**
@@ -70,14 +64,12 @@ public:
      * A list of all presenter types. Must end with meta::Nil.
      * @note All presenter types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< Screen1Presenter,
-            touchgfx::meta::TypeList< StartupScreenPresenter,
-            touchgfx::meta::TypeList< Screen2Presenter,
+    typedef touchgfx::meta::TypeList< StartupScreenPresenter,
             touchgfx::meta::TypeList< DriverScreenPresenter,
             touchgfx::meta::TypeList< DataScreenPresenter,
             touchgfx::meta::TypeList< SettingsScreenPresenter,
             touchgfx::meta::TypeList< StartupScreen2Presenter,
-            touchgfx::meta::Nil > > > > > >
+            touchgfx::meta::Nil > > > >
             > GeneratedPresenterTypes;
 
     /**
