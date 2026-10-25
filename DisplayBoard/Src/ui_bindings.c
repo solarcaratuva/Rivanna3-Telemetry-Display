@@ -126,7 +126,7 @@ static void refresh_debug(const DashboardView *view)
     lv_subject_set_string(&dbg_charger_safety, yes_no(view->charger_safety));
     lv_subject_set_string(&dbg_charge_signal, yes_no(view->charge_power_signal));
     lv_subject_set_string(&dbg_balancing, yes_no(view->balancing));
-    lv_subject_snprintf(&dbg_aux, "%d.%02d V  0x%02X", view->aux_millivolts / 1000,
+    lv_subject_snprintf(&dbg_aux, "%d.%02d V", view->aux_millivolts / 1000,
                         (view->aux_millivolts % 1000) / 10);
     lv_subject_set_string(&dbg_bps_error, view->bps_error ? "ERROR" : "OK");
 
