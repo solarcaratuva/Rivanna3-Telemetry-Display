@@ -182,6 +182,8 @@ struct bps_bps_error_t {
     uint8_t internal_cell_communication_fault;
 
     /**
+     * fault
+     *
      * Range: 0..1 (0..1 -)
      * Scale: 1
      * Offset: 0
@@ -198,6 +200,8 @@ struct bps_bps_error_t {
     uint8_t low_cell_voltage_fault;
 
     /**
+     * fault
+     *
      * Range: 0..1 (0..1 -)
      * Scale: 1
      * Offset: 0
@@ -241,6 +245,8 @@ struct bps_bps_error_t {
     uint8_t can_communication_fault;
 
     /**
+     * fault
+     *
      * Range: 0..1 (0..1 -)
      * Scale: 1
      * Offset: 0
@@ -311,8 +317,6 @@ struct bps_bps_error_t {
     uint8_t internal_logic_fault;
 
     /**
-     * fault
-     *
      * Range: -
      * Scale: 1
      * Offset: 0
@@ -320,8 +324,6 @@ struct bps_bps_error_t {
     uint8_t reduced_low_soc;
 
     /**
-     * fault
-     *
      * Range: -
      * Scale: 1
      * Offset: 0
@@ -329,8 +331,6 @@ struct bps_bps_error_t {
     uint8_t reduced_high_cell_resistance;
 
     /**
-     * fault
-     *
      * Range: -
      * Scale: 1
      * Offset: 0
@@ -338,8 +338,6 @@ struct bps_bps_error_t {
     uint8_t reduced_high_temp;
 
     /**
-     * fault
-     *
      * Range: -
      * Scale: 1
      * Offset: 0
@@ -347,8 +345,6 @@ struct bps_bps_error_t {
     uint8_t reduced_low_cell_voltage;
 
     /**
-     * faults
-     *
      * Range: -
      * Scale: 1
      * Offset: 0
@@ -356,8 +352,6 @@ struct bps_bps_error_t {
     uint8_t reduced_low_pack_voltage;
 
     /**
-     * fault
-     *
      * Range: -
      * Scale: 1
      * Offset: 0
@@ -365,8 +359,6 @@ struct bps_bps_error_t {
     uint8_t reduced_voltage_failsafe;
 
     /**
-     * fault
-     *
      * Range: -
      * Scale: 1
      * Offset: 0

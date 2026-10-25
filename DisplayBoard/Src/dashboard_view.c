@@ -1,8 +1,19 @@
 #include "dashboard_view.h"
 #include "app_state.h"
 #include "telemetry_values.h"
-#include <stdint.h>
 #include <string.h>
+
+/* Rounds a decoded physical value to a whole unit, away from zero. */
+static int to_int(double value)
+{
+    return (int)(value < 0.0 ? value - 0.5 : value + 0.5);
+}
+
+/* Rounds a decoded physical value to tenths of its unit. */
+static int to_tenths(double value)
+{
+    return to_int(value * 10.0);
+}
 
 static void add_fault(DashboardView *view, bool raised, const char *name)
 {
@@ -68,41 +79,57 @@ void dashboard_view_get(DashboardView *view)
     view->telemetry_valid = app_state_get_telemetry(&t);
     if (!view->telemetry_valid) return;
 
-    view->rpm = t.motor_controller_power_status.motor_rpm;
+    /* All scale/offset conversion goes through the cantools-generated decoders,
+     * so a DBC scale change propagates here without editing this file. */
+    const struct motor_controller_motor_controller_power_status_t *mc = &t.motor_controller_power_status;
+    const struct bps_bps_status_t *bps = &t.bps_pack_information;
+    const struct rivanna3_s_motor_commands_t *cmd = &t.motor_commands;
+    const struct rivanna3_s_pedal_status_t *pedal = &t.pedal_status;
+    const struct rivanna3_s_aux_battery_status_t *aux = &t.aux_battery_status;
+
+    double pack_volts = bps_bps_status_pack_voltage_decode(bps->pack_voltage);
+    double pack_amps = bps_bps_status_pack_current_decode(bps->pack_current);
+
+    view->rpm = to_int(motor_controller_motor_controller_power_status_motor_rpm_decode(mc->motor_rpm));
     view->speed_mph = (int)(telemetry_speed_mph(view->rpm) + 0.5f);
-    view->soc_percent = t.bps_pack_information.pack_soc / 2;
-    view->pack_voltage_tenths = t.bps_pack_information.pack_voltage;
-    view->pack_current_tenths = t.bps_pack_information.pack_current;
-    view->power_watts = (int)((int64_t)view->pack_voltage_tenths * view->pack_current_tenths / 100);
-    view->throttle = t.motor_commands.throttle;
-    view->brake_pedal = t.pedal_status.brake_pedal;
-    view->cruise_speed = t.motor_commands.cruise_speed;
-    view->regen_braking = t.motor_commands.regen_braking;
+    view->soc_percent = to_int(bps_bps_status_pack_soc_decode(bps->pack_soc));
+    view->pack_voltage_tenths = to_tenths(pack_volts);
+    view->pack_current_tenths = to_tenths(pack_amps);
+    view->power_watts = to_int(pack_volts * pack_amps);
+    view->throttle = to_int(rivanna3_s_motor_commands_throttle_decode(cmd->throttle));
+    view->brake_pedal = to_int(rivanna3_s_pedal_status_brake_pedal_decode(pedal->brake_pedal));
+    view->cruise_speed = to_int(rivanna3_s_motor_commands_cruise_speed_decode(cmd->cruise_speed));
+    view->regen_braking = to_int(rivanna3_s_motor_commands_regen_braking_decode(cmd->regen_braking));
     view->motor_error = telemetry_motor_error(&t);
     view->bps_error = telemetry_bps_error(&t);
 
-    const struct motor_controller_motor_controller_power_status_t *mc = &t.motor_controller_power_status;
-    view->mc_voltage_tenths = mc->battery_voltage * 5;   /* 0.5 V/bit */
-    view->mc_current_amps = mc->battery_current;
-    view->mc_current_direction = mc->battery_current_direction;
-    view->motor_current_amps = mc->motor_current;
-    view->fet_temp_c = mc->fet_temp * 5;                 /* 5 C/bit */
-    view->pwm_duty_tenths = mc->pwm_duty * 5;            /* 0.5 %/bit */
-    view->lead_angle_tenths = mc->lead_angle * 5;        /* 0.5 deg/bit */
+    view->mc_voltage_tenths =
+        to_tenths(motor_controller_motor_controller_power_status_battery_voltage_decode(mc->battery_voltage));
+    view->mc_current_amps =
+        to_int(motor_controller_motor_controller_power_status_battery_current_decode(mc->battery_current));
+    view->mc_current_direction =
+        to_int(motor_controller_motor_controller_power_status_battery_current_direction_decode(
+            mc->battery_current_direction));
+    view->motor_current_amps =
+        to_int(motor_controller_motor_controller_power_status_motor_current_decode(mc->motor_current));
+    view->fet_temp_c = to_int(motor_controller_motor_controller_power_status_fet_temp_decode(mc->fet_temp));
+    view->pwm_duty_tenths =
+        to_tenths(motor_controller_motor_controller_power_status_pwm_duty_decode(mc->pwm_duty));
+    view->lead_angle_tenths =
+        to_tenths(motor_controller_motor_controller_power_status_lead_angle_decode(mc->lead_angle));
 
-    const struct bps_bps_status_t *bps = &t.bps_pack_information;
     view->discharge_relay = bps->discharge_relay_status;
     view->charge_relay = bps->charge_relay_status;
     view->charger_safety = bps->charger_safety;
     view->charge_power_signal = bps->charge_power_signal;
     view->balancing = bps->balancing_active;
-    view->aux_millivolts = t.aux_battery_status.aux_voltage;
-    view->aux_percent_raw = t.aux_battery_status.percent_full;
+    view->aux_millivolts = to_int(rivanna3_s_aux_battery_status_aux_voltage_decode(aux->aux_voltage));
+    view->aux_percent_raw = to_int(rivanna3_s_aux_battery_status_percent_full_decode(aux->percent_full));
 
-    view->throttle_pedal = t.pedal_status.throttle_pedal;
-    view->manual_drive = t.motor_commands.manual_drive;
-    view->regen_drive = t.motor_commands.regen_drive;
-    view->cruise_drive = t.motor_commands.cruise_drive;
+    view->throttle_pedal = to_int(rivanna3_s_pedal_status_throttle_pedal_decode(pedal->throttle_pedal));
+    view->manual_drive = cmd->manual_drive;
+    view->regen_drive = cmd->regen_drive;
+    view->cruise_drive = cmd->cruise_drive;
 
     collect_faults(view, &t);
 }
