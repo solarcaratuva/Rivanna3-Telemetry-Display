@@ -46,6 +46,75 @@ static const char *closed_open(bool value)
     return value ? "CLOSED" : "OPEN";
 }
 
+static void refresh_precharge(const DashboardView *view)
+{
+    if (!view->precharge_valid) {
+
+        lv_subject_set_string(
+            &pre_status, "WAITING FOR PRECHARGE CAN");
+
+        lv_subject_set_string(&pre_frame_status, "NO FRAME");
+
+        lv_subject_set_string(&pre_motor_stage, "--");
+        lv_subject_set_string(&pre_mppt_stage, "--");
+
+        lv_subject_set_string(&pre_cont12_fault, "--");
+        lv_subject_set_string(&pre_other_fault, "--");
+
+        lv_subject_set_string(&pre_cont12, "--");
+        lv_subject_set_string(&pre_threshold, "--");
+
+        lv_subject_set_string(&pre_hall_motor, "--");
+        lv_subject_set_string(&pre_hall_mppt, "--");
+
+        lv_subject_set_int(&pre_cont12_fault_active, 0);
+        lv_subject_set_int(&pre_other_fault_active, 0);
+
+        return;
+    }
+
+    /* Overall status */
+    lv_subject_set_string(&pre_status, "PRECHARGE CAN LIVE");
+    lv_subject_set_string(&pre_frame_status, "CAN LIVE");
+
+    /* Precharge stages */
+    lv_subject_snprintf(
+        &pre_motor_stage, "%d", view->pre_motor_stage);
+
+    lv_subject_snprintf(
+        &pre_mppt_stage, "%d", view->pre_mppt_stage);
+
+    /* Fault indicators */
+    lv_subject_set_string(
+        &pre_cont12_fault,
+        view->pre_cont12_fault ? "FAULT" : "OK");
+
+    lv_subject_set_string(
+        &pre_other_fault,
+        view->pre_other_fault ? "FAULT" : "OK");
+
+    lv_subject_set_int(
+        &pre_cont12_fault_active,
+        view->pre_cont12_fault);
+
+    lv_subject_set_int(
+        &pre_other_fault_active,
+        view->pre_other_fault);
+
+    /* Raw CAN measurements */
+    lv_subject_snprintf(
+        &pre_cont12, "%d", view->pre_cont12);
+
+    lv_subject_snprintf(
+        &pre_threshold, "%d", view->pre_threshold);
+
+    lv_subject_snprintf(
+        &pre_hall_motor, "%d", view->pre_hall_motor);
+
+    lv_subject_snprintf(
+        &pre_hall_mppt, "%d", view->pre_hall_mppt);
+}
+
 /* Word-wraps the fault names across the three fault log lines. */
 static void refresh_fault_log(const DashboardView *view)
 {
@@ -161,6 +230,7 @@ void ui_bindings_refresh(void)
 {
     DashboardView view;
     dashboard_view_get(&view);
+    refresh_precharge(&view);
 
     uint32_t now = lv_tick_get();
     bool flash_on = (now / TURN_FLASH_MS) % 2 == 0;

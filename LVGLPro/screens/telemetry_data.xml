@@ -10,6 +10,26 @@
             <lv_label align="center" text="‹  DRIVER" />
             <screen_load_event screen="driver" trigger="clicked" anim_type="move_right" duration="250" />
         </lv_button>
+        <!-- Precharge navigation button -->
+        <lv_button x="-166" y="12"
+            align="top_right"
+            width="132"
+            height="40">
+
+            <style name="nav_ghost" />
+            <style name="nav_ghost_pressed"
+                selector="pressed" />
+
+            <lv_label align="center"
+                text="PRECHARGE  ›" />
+
+            <screen_load_event
+                screen="precharge"
+                trigger="clicked"
+                anim_type="move_left"
+                duration="250" />
+
+        </lv_button>
         <lv_label x="24" y="60" bind_text="dbg_status">
             <style name="status_chip" />
             <bind_style name="status_chip_bad" subject="telemetry_status" ref_value="0" />

@@ -24,6 +24,15 @@ void telemetry_decode_frame(ReceivedCanData_t *snapshot, uint32_t id, const uint
     case MOTOR_CONTROLLER_MOTOR_CONTROLLER_ERROR_FRAME_ID:
         motor_controller_motor_controller_error_unpack(&snapshot->motor_controller_error, data, 8);
         break;
+    case RIVANNA3_S_PRECHARGE_STATUS_FRAME_ID:
+        if (rivanna3_s_precharge_status_unpack(
+                &snapshot->precharge_status,
+                data,
+                RIVANNA3_S_PRECHARGE_STATUS_LENGTH) == 0) {
+
+            snapshot->precharge_status_valid = true;
+        }
+        break;
     default:
         break;
     }

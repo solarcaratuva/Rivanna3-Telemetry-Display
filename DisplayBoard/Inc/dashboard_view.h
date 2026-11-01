@@ -47,6 +47,21 @@ typedef struct {
     bool regen_drive;
     bool cruise_drive;
 
+    /* Precharge system */
+    bool precharge_valid;
+
+    int pre_motor_stage;
+    int pre_mppt_stage;
+
+    bool pre_cont12_fault;
+    bool pre_other_fault;
+
+    int pre_threshold;
+    int pre_cont12;
+
+    int pre_hall_motor;
+    int pre_hall_mppt;
+
     /* Every raised motor controller / BPS fault flag, as short names. */
     int fault_count;
     const char *faults[DASHBOARD_MAX_FAULTS];

@@ -178,5 +178,19 @@
         <string name="dbg_fault_1" value="Waiting for CAN data" />
         <string name="dbg_fault_2" value="" />
         <string name="dbg_fault_3" value="" />
+
+        <!-- Precharge screen (CAN PrechargeStatus, ID 0x258) -->
+        <string name="pre_status" value="WAITING FOR PRECHARGE CAN" />
+        <string name="pre_motor_stage" value="--" />
+        <string name="pre_mppt_stage" value="--" />
+        <string name="pre_cont12_fault" value="--" />
+        <string name="pre_other_fault" value="--" />
+        <string name="pre_cont12" value="--" />
+        <string name="pre_threshold" value="--" />
+        <string name="pre_hall_motor" value="--" />
+        <string name="pre_hall_mppt" value="--" />
+        <string name="pre_frame_status" value="NO FRAME" />
+        <int name="pre_cont12_fault_active" value="0" />
+        <int name="pre_other_fault_active" value="0" />
     </subjects>
 </globals>
