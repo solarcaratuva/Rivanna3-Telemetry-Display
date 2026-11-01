@@ -58,7 +58,7 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
     22,   // T___SINGLEUSE_VIXP: "<>"
     1017, // T___SINGLEUSE_QSZ8: "BPS"
     508,  // T___SINGLEUSE_I9HO: "Mtr. Controller"
-    878,  // T___SINGLEUSE_D6MH: "BPS SOC"
+    878,  // T___SINGLEUSE_D6MH: "BPS SoC"
     777,  // T___SINGLEUSE_DRUP: "<> W"
     781,  // T___SINGLEUSE_R0TU: "BPS Power"
     22,   // T___SINGLEUSE_50VA: "<>"
