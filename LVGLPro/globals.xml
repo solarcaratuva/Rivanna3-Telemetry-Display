@@ -192,5 +192,6 @@
         <string name="pre_frame_status" value="NO FRAME" />
         <int name="pre_cont12_fault_active" value="0" />
         <int name="pre_other_fault_active" value="0" />
+        <int name="precharge_panel_open" value="1" />
     </subjects>
 </globals>

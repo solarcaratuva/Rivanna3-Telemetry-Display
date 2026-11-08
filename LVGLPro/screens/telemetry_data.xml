@@ -10,31 +10,19 @@
             <lv_label align="center" text="‹  DRIVER" />
             <screen_load_event screen="driver" trigger="clicked" anim_type="move_right" duration="250" />
         </lv_button>
-        <!-- Precharge navigation button -->
-        <lv_button x="-166" y="12"
-            align="top_right"
-            width="132"
-            height="40">
 
-            <style name="nav_ghost" />
-            <style name="nav_ghost_pressed"
-                selector="pressed" />
+        
 
-            <lv_label align="center"
-                text="PRECHARGE  ›" />
-
-            <screen_load_event
-                screen="precharge"
-                trigger="clicked"
-                anim_type="move_left"
-                duration="250" />
-
-        </lv_button>
         <lv_label x="24" y="60" bind_text="dbg_status">
             <style name="status_chip" />
             <bind_style name="status_chip_bad" subject="telemetry_status" ref_value="0" />
         </lv_label>
-        <lv_label x="-24" y="64" align="top_right" bind_text="dbg_uptime"><style name="dbg_caption" /></lv_label>
+        <lv_label x="170" y="64"
+            width="480" height="30"
+            align="top_mid"
+            bind_text="dbg_uptime">
+        <style name="dbg_caption" />
+        </lv_label>
         <lv_obj x="24" y="98" width="432" height="1" scrollable="false"><style name="hairline" /></lv_obj>
 
         <!-- ===== Left column: motor controller ===== -->
@@ -121,5 +109,245 @@
                 <bind_style name="dbg_value_alert" subject="fault_active" ref_value="1" />
             </lv_label>
         </lv_obj>
+
+        <!-- ===== PRECHARGE DROPDOWN PANEL ===== -->
+        <lv_obj name="precharge_dropdown"
+            x="24" y="104"
+            width="432" height="660"
+            scrollable="false">
+
+            <style name="panel" />
+
+            <bind_flag_if_eq
+                subject="precharge_panel_open"
+                flag="hidden"
+                ref_value="0" />
+
+            <!-- Panel header -->
+            <lv_label x="16" y="12"
+                    text="PRECHARGE SYSTEM">
+                <style name="value" />
+            </lv_label>
+
+            <!-- Close button -->
+            <lv_button x="-14" y="8"
+                    align="top_right"
+                    width="64" height="36">
+
+                <style name="nav_ghost" />
+                <style name="nav_ghost_pressed" selector="pressed" />
+
+                <lv_label align="center" text="X" />
+
+                <subject_set_int_event
+                    trigger="clicked"
+                    subject="precharge_panel_open"
+                    value="0" />
+            </lv_button>
+
+            <!-- Overall status -->
+            <lv_label x="16" y="54"
+                    width="390" height="30"
+                    bind_text="pre_status">
+                <style name="status_chip" />
+            </lv_label>
+
+            <lv_obj x="16" y="92"
+                    width="400" height="1"
+                    scrollable="false">
+                <style name="hairline" />
+            </lv_obj>
+
+            <!-- PRECHARGE STAGES -->
+            <lv_label x="16" y="106"
+                    text="PRECHARGE STAGES">
+                <style name="caption" />
+            </lv_label>
+
+            <!-- Motor stage -->
+            <lv_obj x="16" y="132"
+                    width="192" height="100"
+                    scrollable="false">
+                <style name="panel" />
+                <lv_label x="12" y="10" text="MOTOR">
+                    <style name="caption" />
+                </lv_label>
+                <lv_label x="12" y="38"
+                        width="168" height="48"
+                        bind_text="pre_motor_stage">
+                    <style name="label_28" />
+                </lv_label>
+            </lv_obj>
+
+            <!-- MPPT stage -->
+            <lv_obj x="224" y="132"
+                    width="192" height="100"
+                    scrollable="false">
+                <style name="panel" />
+                <lv_label x="12" y="10" text="MPPT">
+                    <style name="caption" />
+                </lv_label>
+                <lv_label x="12" y="38"
+                        width="168" height="48"
+                        bind_text="pre_mppt_stage">
+                    <style name="label_28" />
+                </lv_label>
+            </lv_obj>
+
+            <!-- FAULT / CONTACTOR STATUS -->
+            <lv_label x="16" y="246"
+                    text="FAULT / CONTACTOR STATUS">
+                <style name="caption" />
+            </lv_label>
+
+            <lv_obj x="16" y="274"
+                    width="400" height="142"
+                    scrollable="false">
+                <style name="panel" />
+
+                <lv_label x="12" y="10"
+                        text="CONTACTOR 12 FAULT">
+                    <style name="dbg_caption" />
+                </lv_label>
+                <lv_label x="240" y="10"
+                        width="148" height="28"
+                        bind_text="pre_cont12_fault">
+                    <style name="dbg_value" />
+                    <bind_style name="dbg_value_alert"
+                                subject="pre_cont12_fault_active"
+                                ref_value="1" />
+                </lv_label>
+
+                <lv_obj x="12" y="42"
+                        width="376" height="1"
+                        scrollable="false">
+                    <style name="hairline" />
+                </lv_obj>
+
+                <lv_label x="12" y="50"
+                        text="OTHER FAULT">
+                    <style name="dbg_caption" />
+                </lv_label>
+                <lv_label x="240" y="50"
+                        width="148" height="28"
+                        bind_text="pre_other_fault">
+                    <style name="dbg_value" />
+                    <bind_style name="dbg_value_alert"
+                                subject="pre_other_fault_active"
+                                ref_value="1" />
+                </lv_label>
+
+                <lv_obj x="12" y="82"
+                        width="376" height="1"
+                        scrollable="false">
+                    <style name="hairline" />
+                </lv_obj>
+
+                <lv_label x="12" y="90"
+                        text="CONTACTOR 12">
+                    <style name="dbg_caption" />
+                </lv_label>
+                <lv_label x="240" y="90"
+                        width="148" height="28"
+                        bind_text="pre_cont12">
+                    <style name="dbg_value" />
+                </lv_label>
+            </lv_obj>
+
+            <!-- PRECHARGE MEASUREMENTS -->
+            <lv_label x="16" y="430"
+                    text="PRECHARGE MEASUREMENTS">
+                <style name="caption" />
+            </lv_label>
+
+            <lv_obj x="16" y="458"
+                    width="400" height="174"
+                    scrollable="false">
+                <style name="panel" />
+
+                <lv_label x="12" y="10"
+                        text="THRESHOLD">
+                    <style name="dbg_caption" />
+                </lv_label>
+                <lv_label x="220" y="10"
+                        width="168" height="28"
+                        bind_text="pre_threshold">
+                    <style name="dbg_value" />
+                </lv_label>
+
+                <lv_obj x="12" y="42"
+                        width="376" height="1"
+                        scrollable="false">
+                    <style name="hairline" />
+                </lv_obj>
+
+                <lv_label x="12" y="50"
+                        text="MOTOR HALL EFFECT">
+                    <style name="dbg_caption" />
+                </lv_label>
+                <lv_label x="220" y="50"
+                        width="168" height="28"
+                        bind_text="pre_hall_motor">
+                    <style name="dbg_value" />
+                </lv_label>
+
+                <lv_obj x="12" y="82"
+                        width="376" height="1"
+                        scrollable="false">
+                    <style name="hairline" />
+                </lv_obj>
+
+                <lv_label x="12" y="90"
+                        text="MPPT HALL EFFECT">
+                    <style name="dbg_caption" />
+                </lv_label>
+                <lv_label x="220" y="90"
+                        width="168" height="28"
+                        bind_text="pre_hall_mppt">
+                    <style name="dbg_value" />
+                </lv_label>
+
+                <lv_obj x="12" y="122"
+                        width="376" height="1"
+                        scrollable="false">
+                    <style name="hairline" />
+                </lv_obj>
+
+                <lv_label x="12" y="130"
+                        text="CAN ID 0x258">
+                    <style name="caption" />
+                </lv_label>
+                <lv_label x="220" y="130"
+                        width="168" height="28"
+                        bind_text="pre_frame_status">
+                    <style name="dbg_value" />
+                </lv_label>
+            </lv_obj>
+
+        </lv_obj>
+        <!-- ===== END PRECHARGE DROPDOWN ===== -->
+
+        <!-- Reopen precharge panel button -->
+        <lv_button x="-24" y="56"
+                align="top_right"
+                width="140" height="30">
+
+            <style name="nav_ghost" />
+            <style name="nav_ghost_pressed" selector="pressed" />
+
+            <lv_label align="center" text="PRECHARGE">
+                <style name="dbg_caption" />
+            </lv_label>
+
+            <subject_set_int_event
+                trigger="clicked"
+                subject="precharge_panel_open"
+                value="1" />
+
+            <bind_flag_if_eq
+                subject="precharge_panel_open"
+                flag="hidden"
+                ref_value="1" />
+        </lv_button>
     </view>
 </screen>
