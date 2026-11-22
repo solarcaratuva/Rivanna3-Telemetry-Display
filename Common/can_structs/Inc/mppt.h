@@ -215,7 +215,7 @@ struct mppt_mg0_pcbmosfet_temperature_t {
     /**
      * Temperature of MG 0's PCB
      *
-     * Range: -4000..8000 (-40..80 째C)
+     * Range: -4000..8000 (-40..80 캜)
      * Scale: 0.01
      * Offset: 0
      */
@@ -224,7 +224,7 @@ struct mppt_mg0_pcbmosfet_temperature_t {
     /**
      * Temperature of MG 0's power MOSFETs
      *
-     * Range: -4000..8000 (-40..80 째C)
+     * Range: -4000..8000 (-40..80 캜)
      * Scale: 0.01
      * Offset: 0
      */
@@ -242,7 +242,7 @@ struct mppt_mg1_pcbmosfet_temperature_t {
     /**
      * Temperature of MG 1's PCB
      *
-     * Range: -4000..8000 (-40..80 째C)
+     * Range: -4000..8000 (-40..80 캜)
      * Scale: 0.01
      * Offset: 0
      */
@@ -251,7 +251,7 @@ struct mppt_mg1_pcbmosfet_temperature_t {
     /**
      * Temperature of MG 1's power MOSFETs
      *
-     * Range: -4000..8000 (-40..80 째C)
+     * Range: -4000..8000 (-40..80 캜)
      * Scale: 0.01
      * Offset: 0
      */

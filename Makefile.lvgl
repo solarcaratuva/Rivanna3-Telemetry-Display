@@ -19,9 +19,9 @@ PORT := $(FREERTOS)/portable/GCC/ARM_CM33_NTZ/non_secure
 CORE_SOURCES := $(wildcard Core/Src/*.c)
 BOARD_SOURCES := $(wildcard DisplayBoard/Src/*.c)
 COMMON_SOURCES := $(wildcard Common/Libs/Src/*.c)
-PRO_SOURCES := $(shell find LVGLPro -name '*.c' -not -path '*/preview-build/*')
+PRO_SOURCES := $(shell python3 -c "from pathlib import Path; print(' '.join(str(p).replace(chr(92), '/') for p in Path('LVGLPro').rglob('*.c') if 'preview-build' not in p.parts))")
 HAL_SOURCES := $(wildcard Drivers/STM32U5xx_HAL_Driver/Src/*.c)
-LVGL_SOURCES := $(shell find ThirdParty/lvgl/src -name '*.c')
+LVGL_SOURCES := $(shell python3 -c "from pathlib import Path; print(' '.join(str(p).replace(chr(92), '/') for p in Path('ThirdParty/lvgl/src').rglob('*.c')))")
 RTOS_SOURCES := $(addprefix $(FREERTOS)/,croutine.c event_groups.c list.c queue.c stream_buffer.c tasks.c timers.c) \
                 $(FREERTOS)/CMSIS_RTOS_V2/cmsis_os2.c \
                 $(FREERTOS)/portable/MemMang/heap_4.c $(PORT)/port.c $(PORT)/portasm.c
@@ -56,8 +56,11 @@ $(CAN_SOURCES): $(CAN_STAGE)/.generated
 
 $(OBJECTS): | $(CAN_STAGE)/.generated
 
-$(BUILD)/rivanna-lvgl.elf: $(OBJECTS)
-	$(CC) $(OBJECTS) $(LDFLAGS) -Wl,--start-group -lc -lm -Wl,--end-group -o $@
+$(BUILD)/objects.rsp: $(OBJECTS)
+	$(file >$@,$(OBJECTS))@echo Created $@
+
+$(BUILD)/rivanna-lvgl.elf: $(BUILD)/objects.rsp
+	$(CC) @$< $(LDFLAGS) -Wl,--start-group -lc -lm -Wl,--end-group -o $@
 	$(SIZE) $@
 
 $(BUILD)/rivanna-lvgl.hex: $(BUILD)/rivanna-lvgl.elf
